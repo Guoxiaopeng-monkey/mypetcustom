@@ -909,6 +909,55 @@
         "padding-block-end": 48
       }
     },
+    "mk_media_grid_DHjihQ": {
+      "type": "mk-media-grid",
+      "blocks": {
+        "image_text_Udbi7A": {
+          "type": "imageText",
+          "settings": {
+            "image_pc": "shopify://shop_images/1024-768-A3.jpg",
+            "handle": "",
+            "content": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 12,
+            "vertical_grid_mb": 1
+          }
+        },
+        "image_text_VpimNq": {
+          "type": "imageText",
+          "settings": {
+            "image_pc": "shopify://shop_images/1024-768-B3.jpg",
+            "handle": "",
+            "content": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 12,
+            "vertical_grid_mb": 1
+          }
+        }
+      },
+      "block_order": [
+        "image_text_Udbi7A",
+        "image_text_VpimNq"
+      ],
+      "name": "SPX Image Grid 1",
+      "settings": {
+        "title": "",
+        "layout": "title-left",
+        "title_color": "#f47c20",
+        "block_back": "#dddddd",
+        "text_position": "overlay",
+        "block_rounded": 20,
+        "gap_distance": 20,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -1107,6 +1156,7 @@
   "order": [
     "hero_jVaWmY",
     "section_Mn43yY",
+    "mk_media_grid_DHjihQ",
     "product_list_fa6P9H"
   ]
 }

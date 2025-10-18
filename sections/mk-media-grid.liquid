@@ -1,0 +1,394 @@
+<style>
+  #shopify-section-{{ section.id }}.spx-section {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }}.spx-section .grid-layout-title {
+    color: {{ section.settings.title_color }};
+  }
+  #shopify-section-{{section.id}} .grid-layout-content {
+    gap: {{ section.settings.gap_distance }}px
+  }
+  #shopify-section-{{section.id}} .grid-block {
+    border-radius: {{ section.settings.block_rounded }}px;
+    overflow: hidden;
+  }
+  {% if section.settings.text_position == "overlay" %}
+    #shopify-section-{{section.id}} .grid-block{
+      position: relative;
+    }
+    #shopify-section-{{section.id}} .grid-block .grid-block-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  {% endif %}
+  #shopify-section-{{section.id}} .grid-block {
+    background-color: {{ section.settings.block_back  }};
+  }
+  .grid-block-default{
+    background-color: {{ section.settings.block_back | color_modify: "alpha", 0.5  }};
+    aspect-ratio: 16 / 6;
+    padding:20px
+  }
+  .spx-section .spx-container {
+    margin: 0 auto;
+  }
+  .grid-layout-title{
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  .grid-layout-title.title-left {
+      text-align: left;
+  }
+  .grid-layout-title.title-center {
+      text-align: center;
+  }
+  .grid-layout .grid-layout-content {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .grid-block{
+    display:flex;
+    flex-direction: column;
+  }
+  .grid-block .grid-block-content{
+    width:100%;
+    padding:32px
+  }
+  .grid-block:hover  picture{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  .grid-block .grid-block-content .title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .grid-block  picture {
+    width: 100%;
+    height: 100%;
+  }
+  .grid-block  picture img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<style>
+  @media screen and (max-width: 767.98px) {
+    #shopify-section-{{ section.id }}.spx-section {
+      padding-top: {{ section.settings.padding_top | divided_by:2 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | divided_by:2 }}px;
+    }
+    #shopify-section-{{section.id}} .grid-block {
+      border-radius: {{ section.settings.block_rounded | divided_by:2 }}px;
+      overflow: hidden;
+    }
+    .placeholder_img{
+      aspect-ratio: 1 / 1;
+    }
+    .grid-layout.page-width{
+      padding:0 var(--pageWidthPadding);
+    }
+
+    #shopify-section-{{section.id}} .grid-layout-content {
+      gap: {{ section.settings.gap_distance  | divided_by:2 | plus:2 }}px
+    }
+
+    #shopify-section-{{section.id}} .grid-block {
+      background-color: {{ section.settings.block_back  }};
+    }
+
+
+    .grid-layout-title{
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+
+    .grid-block{
+      display:flex;
+      flex-direction: column;
+    }
+    .grid-block .grid-block-content{
+      width:100%;
+      padding:16px;
+      font-size: 12px;
+    }
+    .grid-block .grid-block-content .title {
+      font-size: 14px;
+    }
+
+  }
+</style>
+
+<div class="grid-layout spx-container grid-layout-{{ section.id }} section">
+  {% if section.settings.title != blank %}
+    <h2 class="grid-layout-title {{ section.settings.layout }}">{{ section.settings.title }}</h2>
+  {% endif %}
+  <div class="grid-layout-content page-width">
+    {% for block in section.blocks %}
+      {%- render 'spx-media-grid-block', block: block -%}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SPX Image Grid 1",
+  "class": "spx-section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "header",
+      "content": "内容"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout PC",
+      "default": "title-left",
+      "options": [
+        {
+          "value": "title-left",
+          "label": "Title Left"
+        },
+        {
+          "value": "title-center",
+          "label": "Title Center"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#F47C20"
+    },
+    {
+      "type": "color",
+      "id": "block_back",
+      "label": "Block Background",
+      "default": "#dddddd"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Content Position",
+      "options": [
+        {
+          "value": "overlay",
+          "label": "Text Overlay"
+        },
+        {
+          "value": "underline",
+          "label": "Text Underline"
+        }
+      ],
+      "default": "overlay"
+    },
+    {
+      "type": "range",
+      "id": "block_rounded",
+      "label": "Block Rounded",
+      "unit": "px",
+      "step": 2,
+      "default": 20,
+      "min": 0,
+      "max": 60
+    },
+    {
+      "type": "range",
+      "id": "gap_distance",
+      "label": "Gap Distance",
+      "step": 2,
+      "unit": "px",
+      "default": 20,
+      "min": 0,
+      "max": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 60,
+      "min": 0,
+      "max": 120,
+      "step": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 60,
+      "min": 0,
+      "max": 120,
+      "step": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "imageText",
+      "name": "Image Text Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "图片文字"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_pc",
+          "label": "Image PC"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image Mobile"
+        },
+        {
+          "type": "text",
+          "id": "handle",
+          "label": "Handle",
+          "default": "SPX Image Grid"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Text",
+          "default": "This is the sample text content."
+        },
+        {
+          "type": "header",
+          "content": "Style"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text  Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "horizontal_grid",
+          "label": "横向占比",
+          "default": 4,
+          "step": 1,
+          "min": 2,
+          "max": 12
+        },
+        {
+          "type": "range",
+          "id": "vertical_grid",
+          "label": "纵向占比",
+          "default": 1,
+          "step": 1,
+          "min": 1,
+          "max": 12
+        },
+        {
+          "type": "range",
+          "id": "horizontal_grid_mb",
+          "label": "移动端横向占比",
+          "default": 6,
+          "step": 1,
+          "min": 2,
+          "max": 12
+        },
+        {
+          "type": "range",
+          "id": "vertical_grid_mb",
+          "label": "移动端纵向占比",
+          "default": 1,
+          "step": 1,
+          "min": 1,
+          "max": 12
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SPX Image Grid 1",
+      "settings": {
+        "text_position": "overlay"
+      },
+      "blocks": [
+        {
+          "type": "imageText",
+          "settings": {
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 6,
+            "vertical_grid_mb": 1
+          }
+        },
+        {
+          "type": "imageText",
+          "settings": {
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 6,
+            "vertical_grid_mb": 1
+          }
+        },
+        {
+          "type": "imageText",
+          "settings": {
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 7,
+            "vertical_grid_mb": 3
+          }
+        },
+        {
+          "type": "imageText",
+          "settings": {
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 5,
+            "vertical_grid_mb": 1
+          }
+        },
+        {
+          "type": "imageText",
+          "settings": {
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 5,
+            "vertical_grid_mb": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

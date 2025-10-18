@@ -1,0 +1,60 @@
+{% comment %}
+    Renders a image with text block
+
+  Usage:
+  {% render 'grid-layout-block',block:block %}
+{% endcomment %}
+
+{% assign settings = block.settings %}
+
+<style>
+  .grid-block-{{ block.id }} {
+      grid-column: span {{ settings.horizontal_grid }} / span {{ settings.horizontal_grid }};
+      grid-row: span {{ settings.vertical_grid }} / span {{ settings.vertical_grid }};
+      display:flex;
+      height:100%;
+      color:{{ settings.color }};
+      text-align:{{ settings.text_alignment }};
+
+  }
+
+  @media(max-width:768px){
+    .grid-block-{{ block.id }}{
+      grid-column: span {{ settings.horizontal_grid_mb }} / span {{ settings.horizontal_grid_mb }};
+      grid-row: span {{ settings.vertical_grid_mb }} / span {{ settings.vertical_grid_mb }};
+      display:flex;
+      height:100%;
+    }
+  }
+</style>
+
+<div class="grid-block grid-block-{{ block.id }}">
+  {%- if block.settings.image_pc != blank -%}
+    <picture>
+      {%- if block.settings.image_mobile != blank -%}
+        <source
+          media="(max-width: 699px)"
+          srcset="{{ block.settings.image_mobile | image_url: width: '400x' }} 400w, {{ block.settings.image_mobile | image_url: width: '600x' }} 600w, {{ block.settings.image_mobile | image_url: width: '800x' }} 800w, {{ block.settings.image_mobile | image_url: width: '1000x' }} 1000w, {{ block.settings.image_mobile | image_url: width: '1200x' }} 1200w"
+          width="{{ block.settings.image_mobile.width }}"
+          height="{{ block.settings.image_mobile.height }}"
+        >
+      {%- endif -%}
+      <img
+        src="{{ block.settings.image_pc | image_url }}"
+        alt="{{block.settings.title | default: 'oneisall'}}"
+        width="100%"
+        height="auto"
+        loading="lazy"
+      >
+    </picture>
+  {%- else -%}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'grid-block-default' }}
+  {%- endif -%}
+
+  {% if settings.handle != blank or settings.content != blank %}
+    <div class="grid-block-content">
+      <div class="title">{{ settings.handle }}</div>
+      <div>{{ settings.content }}</div>
+    </div>
+  {% endif %}
+</div>
