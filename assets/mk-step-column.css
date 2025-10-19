@@ -1,0 +1,427 @@
+/* MK Step Column Styles */
+.mk-step-column {
+    padding: 60px 0;
+}
+
+.mk-step-column-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.mk-step-column-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.mk-step-column-content {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mk-step-column-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 280px;
+    min-height: 200px;
+}
+
+.mk-step-column-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mk-step-column-item-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mk-step-column-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mk-step-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.mk-step-column-item-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.mk-step-column-item-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 横向箭头连接符 - 默认隐藏 */
+.mk-step-column-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -15px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #42a5f5;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: none;
+    filter: drop-shadow(0 2px 4px rgba(66, 165, 245, 0.4));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+/* 纵向箭头连接符 - 默认隐藏 */
+.mk-step-column-item::before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #42a5f5;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: none;
+    filter: drop-shadow(0 2px 4px rgba(66, 165, 245, 0.4));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+/* 4列布局 - 纵向箭头位置调整（指向第二行第一个元素的中间） */
+.mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(4)::before {
+    left: 12.5%;
+    /* 指向第二行第一个元素的中间位置（第二行第一个元素在视觉上是最右边的） */
+}
+
+/* 3列布局 - 纵向箭头位置调整（指向第二行第一个元素的中间） */
+.mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(3)::before {
+    left: 16.67%;
+    /* 指向第二行第一个元素的中间位置（第二行第一个元素在视觉上是最右边的） */
+}
+
+/* 5列布局 - 纵向箭头位置调整（指向第二行第一个元素的中间） */
+.mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(5)::before {
+    left: 10%;
+    /* 指向第二行第一个元素的中间位置（第二行第一个元素在视觉上是最右边的） */
+}
+
+/* 桌面端显示连接符 */
+@media (min-width: 768px) {
+
+    /* 4列布局 - 显示横向箭头 */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:not(:nth-child(4n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 3列布局 - 显示横向箭头 */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:not(:nth-child(3n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 5列布局 - 显示横向箭头 */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:not(:nth-child(5n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 4列布局 - 显示纵向箭头（第一行最后一个元素，指向第二行第一个） */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(4)::before {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 3列布局 - 显示纵向箭头（第一行最后一个元素，指向第二行第一个） */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(3)::before {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 5列布局 - 显示纵向箭头（第一行最后一个元素，指向第二行第一个） */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(5)::before {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+}
+
+/* 连接符动画 */
+@keyframes fadeInConnector {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scaleX(0);
+        filter: blur(2px);
+    }
+
+    30% {
+        opacity: 0.3;
+        transform: translateY(-50%) scaleX(0.3);
+        filter: blur(1px);
+    }
+
+    70% {
+        opacity: 0.8;
+        transform: translateY(-50%) scaleX(0.8);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scaleX(1);
+        filter: blur(0px);
+    }
+}
+
+/* 连接符脉冲动画 */
+@keyframes pulseConnector {
+
+    0%,
+    100% {
+        box-shadow: 0 2px 8px rgba(66, 165, 245, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 4px 16px rgba(66, 165, 245, 0.6);
+    }
+}
+
+/* 悬停时横向箭头效果 */
+.mk-step-column-item:hover::after {
+    border-left-color: #ce93d8;
+    filter: drop-shadow(0 4px 8px rgba(206, 147, 216, 0.6));
+    transform: translateY(-50%) scale(1.1);
+    animation: pulseConnector 2s ease-in-out infinite;
+}
+
+/* 悬停时纵向箭头效果 - 只针对第一行最后一个元素 */
+.mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(4):hover::before,
+.mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(3):hover::before,
+.mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(5):hover::before {
+    border-top-color: #ce93d8;
+    filter: drop-shadow(0 4px 8px rgba(206, 147, 216, 0.6));
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* 第二行横向箭头悬停效果 */
+.mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(n+5):hover::after,
+.mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(n+4):hover::after,
+.mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(n+6):hover::after {
+    border-right-color: #ce93d8;
+    filter: drop-shadow(0 4px 8px rgba(206, 147, 216, 0.6));
+    transform: translateY(-50%) scale(1.1);
+    animation: pulseConnector 2s ease-in-out infinite;
+}
+
+/* 第二行从右到左的布局 */
+@media (min-width: 768px) {
+    .mk-step-column-content {
+        flex-direction: row;
+    }
+
+    /* 4列布局的第二行从右到左 */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(n+5) {
+        order: -1;
+    }
+
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(5) {
+        order: 4;
+    }
+
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(6) {
+        order: 3;
+    }
+
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(7) {
+        order: 2;
+    }
+
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(8) {
+        order: 1;
+    }
+
+    /* 3列布局的第二行从右到左 */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(n+4) {
+        order: -1;
+    }
+
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(4) {
+        order: 3;
+    }
+
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(5) {
+        order: 2;
+    }
+
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(6) {
+        order: 1;
+    }
+
+    /* 5列布局的第二行从右到左 */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(n+6) {
+        order: -1;
+    }
+
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(6) {
+        order: 5;
+    }
+
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(7) {
+        order: 4;
+    }
+
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(8) {
+        order: 3;
+    }
+
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(9) {
+        order: 2;
+    }
+
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(10) {
+        order: 1;
+    }
+
+    /* 第二行的横向箭头方向调整 - 4列 */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(n+5)::after {
+        right: auto;
+        left: -15px;
+        border-left: none;
+        border-right: 8px solid #42a5f5;
+    }
+
+    /* 第二行的横向箭头方向调整 - 3列 */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(n+4)::after {
+        right: auto;
+        left: -15px;
+        border-left: none;
+        border-right: 8px solid #42a5f5;
+    }
+
+    /* 第二行的横向箭头方向调整 - 5列 */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(n+6)::after {
+        right: auto;
+        left: -15px;
+        border-left: none;
+        border-right: 8px solid #42a5f5;
+    }
+
+    /* 第二行横向箭头显示逻辑 - 4列 */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item:nth-child(n+5):not(:nth-child(8n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 第二行横向箭头显示逻辑 - 3列 */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item:nth-child(n+4):not(:nth-child(6n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+
+    /* 第二行横向箭头显示逻辑 - 5列 */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item:nth-child(n+6):not(:nth-child(10n)):not(:last-child)::after {
+        display: block;
+        opacity: 1;
+        animation: fadeInConnector 0.6s ease forwards;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 767px) {
+    .mk-step-column {
+        padding: 40px 0;
+    }
+
+    .mk-step-column-title h2 {
+        font-size: 2rem;
+    }
+
+    .mk-step-column-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .mk-step-column-item {
+        max-width: 100%;
+        min-width: auto;
+    }
+
+    .mk-step-column-item::after,
+    .mk-step-column-item::before {
+        display: none;
+    }
+
+    .mk-step-column-item:nth-child(n+5) {
+        order: 0;
+    }
+}
+
+/* 列布局设置 */
+@media (min-width: 768px) {
+
+    /* 4列布局 */
+    .mk-step-column-content[data-columns="4"] .mk-step-column-item {
+        flex: 0 0 calc(25% - 30px);
+        max-width: calc(25% - 30px);
+    }
+
+    /* 3列布局 */
+    .mk-step-column-content[data-columns="3"] .mk-step-column-item {
+        flex: 0 0 calc(33.333% - 27px);
+        max-width: calc(33.333% - 27px);
+    }
+
+    /* 5列布局 */
+    .mk-step-column-content[data-columns="5"] .mk-step-column-item {
+        flex: 0 0 calc(20% - 32px);
+        max-width: calc(20% - 32px);
+    }
+}

@@ -9,6 +9,41 @@
  */
 {
   "sections": {
+    "mk_image_banner_DLwfQM": {
+      "type": "mk-image-banner",
+      "blocks": {
+        "cus_heading_3GUk8j": {
+          "type": "cus_heading",
+          "settings": {
+            "heading": "<h1>My Pet Felt Custom</h1>"
+          }
+        },
+        "cus_description_JGWpdT": {
+          "type": "cus_description",
+          "settings": {
+            "description": "<p>Remember me before the memory of loves disappears</p>"
+          }
+        },
+        "cus_button_CkH4qY": {
+          "type": "cus_button",
+          "settings": {
+            "button": "Make It Personal",
+            "url": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend"
+          }
+        }
+      },
+      "block_order": [
+        "cus_heading_3GUk8j",
+        "cus_description_JGWpdT",
+        "cus_button_CkH4qY"
+      ],
+      "name": "MK Image Banner",
+      "settings": {
+        "image": "shopify://shop_images/1.jpg",
+        "image_mobile": "shopify://shop_images/1450-2566-blank_e13540d6-f913-4f7c-82d2-da827caf7b47.jpg",
+        "color_scheme": "scheme-6408dc93-c539-488d-bc2d-2d5a9e9ee025"
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -918,6 +953,7 @@
             "image_pc": "shopify://shop_images/1024-768-A3.jpg",
             "handle": "Dog",
             "content": "",
+            "link": "",
             "color": "#000000",
             "text_alignment": "left",
             "horizontal_grid": 6,
@@ -932,6 +968,7 @@
             "image_pc": "shopify://shop_images/1024-768-B3.jpg",
             "handle": "Cat",
             "content": "",
+            "link": "",
             "color": "#000000",
             "text_alignment": "left",
             "horizontal_grid": 6,
@@ -953,6 +990,7 @@
         "block_back": "#dddddd",
         "text_position": "overlay",
         "block_rounded": 20,
+        "show_icon": true,
         "gap_distance": 20,
         "padding_top": 60,
         "padding_bottom": 60
@@ -960,6 +998,7 @@
     }
   },
   "order": [
+    "mk_image_banner_DLwfQM",
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ"

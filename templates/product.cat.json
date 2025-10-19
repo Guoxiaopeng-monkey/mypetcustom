@@ -798,6 +798,67 @@
         "padding-block-end": 40
       }
     },
+    "mk_step_column_g9LVTC": {
+      "type": "mk-step-column",
+      "blocks": {
+        "step_column_HV3JBU": {
+          "type": "step_column",
+          "settings": {
+            "title": "1.  Place Your Order",
+            "description": ""
+          }
+        },
+        "step_column_9BHFfh": {
+          "type": "step_column",
+          "settings": {
+            "title": "2. Receive Confirmation Email",
+            "description": ""
+          }
+        },
+        "step_column_HEfUdf": {
+          "type": "step_column",
+          "settings": {
+            "title": "3. Reply with Pet Photo & Card Message",
+            "description": ""
+          }
+        },
+        "step_column_F64ejp": {
+          "type": "step_column",
+          "settings": {
+            "title": "4. Handcrafted with Care by Our Artisans",
+            "description": ""
+          }
+        },
+        "step_column_fd7EYe": {
+          "type": "step_column",
+          "settings": {
+            "title": "5.  Preview Finished Piece with 2 Free Revisions",
+            "description": ""
+          }
+        },
+        "step_column_PKgBLp": {
+          "type": "step_column",
+          "settings": {
+            "title": "6. Securely Packaged & Delivered to Your Door",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_column_HV3JBU",
+        "step_column_9BHFfh",
+        "step_column_HEfUdf",
+        "step_column_F64ejp",
+        "step_column_fd7EYe",
+        "step_column_PKgBLp"
+      ],
+      "name": "MK Step Column",
+      "settings": {
+        "title": "",
+        "step_column_gap": 20,
+        "step_columns": 3
+      }
+    },
     "section_xikd3w": {
       "type": "section",
       "blocks": {
@@ -1270,6 +1331,7 @@
         "text_7XqzUa",
         "accordion_ewMCyF"
       ],
+      "disabled": true,
       "name": "t:names.faq_section",
       "settings": {
         "content_direction": "column",
@@ -1548,6 +1610,7 @@
     "section_kEjVpi",
     "section_UkWK9x",
     "section_XiJ7Gq",
+    "mk_step_column_g9LVTC",
     "section_xikd3w",
     "mk_faq_WnzDRA",
     "product_recommendations_qggXJq"
