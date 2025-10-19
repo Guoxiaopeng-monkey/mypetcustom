@@ -55,6 +55,11 @@
     <div class="grid-block-content">
       <div class="title">{{ settings.handle }}</div>
       <div>{{ settings.content }}</div>
+      {% if settings.link != blank %}
+        <a class="grid-block-content-icon" href="{{ settings.link }}">
+          {{ 'icon-arrow-right.svg' | inline_asset_content }}
+        </a>
+      {% endif %}
     </div>
   {% endif %}
 </div>

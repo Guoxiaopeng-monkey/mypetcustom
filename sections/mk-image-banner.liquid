@@ -1,0 +1,160 @@
+<style>
+  .mk-image-banner {
+    width: 100vw;
+    height: 100vh;
+  }
+  .mk-image-banner-image img {
+    min-height: 600px;
+    height: 100vh;
+    min-width: 100%;
+    object-fit: cover;
+  }
+  .mk-image-banner-content {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    padding: 140px 0 60px 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mk-image-banner-heading {
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .mk-image-banner-button {
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .mk-image-banner-button:hover {
+    border: 1px solid;
+  }
+
+  @media (max-width: 768px) {
+    .mk-image-banner-content {
+      padding: 120px 0 40px 0;
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+<div class="mk-image-banner color-{{ section.settings.color_scheme }}">
+  {% if section.settings.image != blank %}
+    <picture class="mk-image-banner-image">
+      {% if section.settings.image_mobile != blank %}
+        <source
+          srcset="{{ section.settings.image_mobile | image_url: width: '400x' }} 400w, {{ section.settings.image_mobile | image_url: width: '600x' }} 600w, {{ section.settings.image_mobile | image_url: width: '800x' }} 800w, {{ section.settings.image_mobile | image_url: width: '1000x' }} 1000w, {{ section.settings.image_mobile | image_url: width: '1200x' }} 1200w"
+          media="(max-width: 699px)"
+        >
+      {% endif %}
+      <img
+        src="{{ section.settings.image | image_url }}"
+        alt="{{ section.settings.image.alt }}"
+        width="auto"
+        height="100%"
+      >
+    </picture>
+  {% else %}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'mk-image-banner-default' }}
+  {% endif %}
+
+  <div class="mk-image-banner-content mk-container">
+    <div class="mk-image-banner-content-inner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'cus_heading' %}
+            <div class="mk-image-banner-heading color-{{ block.settings.color_scheme }}">
+              {{ block.settings.heading }}
+            </div>
+          {% when 'cus_description' %}
+            <div class="mk-image-banner-description">{{ block.settings.description }}</div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'cus_button' %}
+          {% if block.settings.url != blank %}
+            <a
+              class="mk-image-banner-button button button-{{ section.settings.color_scheme }}"
+              href="{{ block.settings.url }}"
+            >
+              {{- block.settings.button -}}
+            </a>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Image Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image Mobile"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cus_heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "cus_description",
+      "name": "description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "cus_button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Image Banner"
+    }
+  ]
+}
+{% endschema %}
