@@ -496,9 +496,9 @@
           "settings": {
             "image": "shopify://shop_images/2.png",
             "link": "",
-            "image_ratio": "square",
+            "image_ratio": "adapt",
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 40,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -618,8 +618,8 @@
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "flex-start",
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
@@ -656,7 +656,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
+            "gap": 40,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -691,9 +691,9 @@
               "settings": {
                 "text": "<h3>Fur Texture Customization: Developed with Intangible Cultural Heritage Felt Artisans</h3>",
                 "width": "100%",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -715,8 +715,8 @@
               "type": "text",
               "settings": {
                 "text": "<p>We’ve co-created the \"Gradient Felt Craft\" with artisans specializing in intangible cultural heritage felt-making. Selecting 3+ types of wool with varying thicknesses, we layer and hand-felt them to recreate the natural sheen and dimensionality of your pet’s fur. From the fluffy curves of a long-haired dog to even the subtle gradient color areas on your pet’s coat—every detail is rendered with exquisite precision.</p>",
-                "width": "fit-content",
-                "max_width": "narrow",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
@@ -747,7 +747,7 @@
           "settings": {
             "image": "shopify://shop_images/WPS_20251018202521.png",
             "link": "",
-            "image_ratio": "square",
+            "image_ratio": "adapt",
             "width": "custom",
             "custom_width": 40,
             "width_mobile": "fill",
@@ -794,8 +794,8 @@
         "overlay_color": "#968164",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     },
     "section_xikd3w": {
@@ -1281,7 +1281,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "medium",
+        "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
         "background_media": "none",
@@ -1297,6 +1297,107 @@
         "gradient_direction": "to top",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "mk_faq_WnzDRA": {
+      "type": "mk-faq",
+      "blocks": {
+        "mk_faq_APGErD": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "1. What information do I need to provide for customization?",
+            "answer": "<p>After placing your order, we'll send a <em>confirmation email</em> to your order email address. Please reply to that email with a few clear photos of your pet (front, side, and any special features) and include your pet's name and unique markings (such as patterns, tongue, scars, etc.). Our artisans will use these details to recreate your pet with lifelike precision.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_XH7nPb": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "2. Are all pieces handmade?",
+            "answer": "<p>Yes! Every felted pet is 100% handcrafted by our experienced artisans. From shaping and filling to detailed finishing, the entire process is done by hand—making each piece one-of-a-kind.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_X9GpTE": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "3. How long does the production take?",
+            "answer": "<p>The average production time is <strong>3–4 weeks</strong>, depending on order volume and complexity. You'll receive progress updates via email or on your order page. During special events or expedited periods, some orders may be completed even faster.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_DdWRnA": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "4. Can I see a preview during the process?",
+            "answer": "<p>Absolutely! We'll send you a preview photo before the final completion. You can request <strong>up to two rounds of revisions</strong> to ensure the artwork perfectly captures your pet's look and personality.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_B9Hizp": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "5.  What if the artwork doesn't look like my pet?",
+            "answer": "<p>Don't worry — your satisfaction means everything to us. Our quality control team will prioritize your case and work closely with the artisan, making multiple adjustments until the piece truly reflects your pet's likeness. Once revised, we'll send you the updated preview for confirmation. If you still have concerns, please reach out to our customer support team, and we'll take care of it promptly.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_BrmC78": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "6. Can I customize other animals?",
+            "answer": "<p>Of course! In addition to cats and dogs, we can also create felted replicas of rabbits, birds, hamsters, and more. Since the complexity varies by animal, please contact our support team for a custom quote.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_care": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "7. How should I care for my felted artwork?",
+            "answer": "<p>Keep your felted pet in a dry, shaded place away from moisture and direct sunlight. To remove dust, gently clean it with a soft brush. Please avoid washing or pressing the artwork to maintain its original shape.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_refund": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "8. Can I cancel or get a refund?",
+            "answer": "<p>Since each item is entirely handcrafted and made to order, cancellations or refunds are not available once production has begun. If you need to change any order details, please contact us within <strong>24 hours</strong> of purchase, and we'll do our best to assist.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_packaging": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "9. What does the packaging look like?",
+            "answer": "<p>Each piece comes in a beautifully designed gift box, ready to be gifted directly. We also offer an optional <em>custom message card service</em> to make your present even more heartfelt.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_shipping": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "10. How will I know when my order has shipped?",
+            "answer": "<p>Once your order is shipped, you'll receive a tracking number via email. Standard delivery usually takes <strong>5–10 days</strong>. If you'd like to upgrade to express shipping, please contact our team after placing your order (additional fees may apply).</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_faq_APGErD",
+        "mk_faq_XH7nPb",
+        "mk_faq_X9GpTE",
+        "mk_faq_DdWRnA",
+        "mk_faq_B9Hizp",
+        "mk_faq_BrmC78",
+        "mk_faq_care",
+        "mk_faq_refund",
+        "mk_faq_packaging",
+        "mk_faq_shipping"
+      ],
+      "name": "mk FAQ Section",
+      "settings": {
+        "title": "Frequently Asked Questions"
       }
     },
     "product_recommendations_qggXJq": {
@@ -1448,6 +1549,7 @@
     "section_UkWK9x",
     "section_XiJ7Gq",
     "section_xikd3w",
+    "mk_faq_WnzDRA",
     "product_recommendations_qggXJq"
   ]
 }

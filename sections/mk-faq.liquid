@@ -1,0 +1,204 @@
+<style>
+  .mk-faq-section {
+    padding: 94px 0;
+  }
+  .mk-faq-section__title {
+    color: #000;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 110%; /* 44px */
+    letter-spacing: -0.4px;
+    margin-bottom: 40px;
+  }
+
+  .mk-faq-section__content {
+    position: relative;
+  }
+
+  .mk-faq-item-hidden {
+    display: none;
+  }
+
+  .mk-faq-view-more {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .mk-faq-view-more-btn {
+    background: transparent;
+    border: 1px solid #000;
+    color: #000;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+  }
+
+  .mk-faq-view-more-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .mk-faq-view-more-btn.hidden {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .mk-faq-section {
+      padding: 48px 20px;
+      margin: 0 !important; /*TODO: mk-container 样式错误*/
+    }
+    .mk-faq-section__title {
+      font-size: 26px;
+      text-align: left;
+      letter-spacing: -0.26px;
+      margin-bottom: 20px;
+    }
+
+    .mk-faq-view-more {
+      margin-top: 24px;
+    }
+
+    .mk-faq-view-more-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="mk-faq-section mk-container section section--page-width">
+  <div class="mk-faq-section__title">
+    {{ section.settings.title }}
+  </div>
+  <div class="mk-faq-section__content">
+    {% content_for 'blocks' %}
+  </div>
+  {% if section.blocks.size > 3 %}
+    <div class="mk-faq-view-more">
+      <button class="mk-faq-view-more-btn" onclick="toggleFAQViewMore()">
+        <span class="view-more-text">View More</span>
+        <span class="view-less-text" style="display: none;">View Less</span>
+      </button>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 初始化FAQ显示逻辑
+    initFAQViewMore();
+  });
+
+  function initFAQViewMore() {
+    const faqItems = document.querySelectorAll('.mk-faq-answer-container');
+    const viewMoreBtn = document.querySelector('.mk-faq-view-more-btn');
+
+    if (faqItems.length > 3 && viewMoreBtn) {
+      // 隐藏超过3项的FAQ
+      for (let i = 3; i < faqItems.length; i++) {
+        faqItems[i].classList.add('mk-faq-item-hidden');
+      }
+    } else if (viewMoreBtn) {
+      // 如果FAQ项少于等于3项，隐藏按钮
+      viewMoreBtn.classList.add('hidden');
+    }
+  }
+
+  function toggleFAQViewMore() {
+    const hiddenItems = document.querySelectorAll('.mk-faq-item-hidden');
+    const viewMoreText = document.querySelector('.view-more-text');
+    const viewLessText = document.querySelector('.view-less-text');
+
+    if (hiddenItems.length > 0) {
+      // 展开所有隐藏的FAQ项
+      hiddenItems.forEach((item) => {
+        item.classList.remove('mk-faq-item-hidden');
+      });
+
+      // 切换按钮文本
+      if (viewMoreText) viewMoreText.style.display = 'none';
+      if (viewLessText) viewLessText.style.display = 'inline';
+    } else {
+      // 收起超过3项的FAQ
+      const faqItems = document.querySelectorAll('.mk-faq-answer-container');
+      for (let i = 3; i < faqItems.length; i++) {
+        faqItems[i].classList.add('mk-faq-item-hidden');
+      }
+
+      // 切换按钮文本
+      if (viewMoreText) viewMoreText.style.display = 'inline';
+      if (viewLessText) viewLessText.style.display = 'none';
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "mk FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_mk-faq"
+    }
+  ],
+  "presets": [
+    {
+      "name": "mk FAQ Section",
+      "blocks": [
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "What is the mkREEN Affiliate Program?",
+            "answer": "<p>The mkREEN Affiliate Program invites review sites, online communities, bloggers, and other content creators to promote products and services and earn commissions on the sales they refer to mkreen.com.</p>"
+          }
+        },
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "How much commission will l earn?",
+            "answer": "<p>Answer</p>"
+          }
+        },
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "What is the cookie duration for tracking sales?",
+            "answer": "<p>Answer</p>"
+          }
+        },
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "How can l start earning commission?",
+            "answer": "<p>Answer</p>"
+          }
+        },
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "What types of promotions are not permitted?",
+            "answer": "<p>Answer</p>"
+          }
+        },
+        {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "Why was my commission withdrawn after the order was completed?",
+            "answer": "<p>Answer</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
