@@ -16,15 +16,15 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
-            "slideshow_controls_style": "counter",
+            "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
-            "thumbnail_width": 44,
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 72,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
@@ -246,6 +246,149 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "accordion_XUQbcN": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h6",
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_gnkM68": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "100% Handcrafted with Needle Felting",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_nE8AKt": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our goal is for every customer to be totally satisfied with their purchase. If this isn't the case, let us know and we'll do our best to work with you to make it right.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_nE8AKt"
+                  ]
+                },
+                "accordion_row_8BMmeN": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Shipping",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_RdPBnc": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_RdPBnc"
+                  ]
+                },
+                "accordion_row_Ltw8pp": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Manufacturing",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_Nzdrbt": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_Nzdrbt"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_gnkM68",
+                "accordion_row_8BMmeN",
+                "accordion_row_Ltw8pp"
+              ]
             }
           },
           "block_order": [
@@ -253,14 +396,15 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "accordion_XUQbcN"
           ]
         }
       },
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
-        "equal_columns": false,
+        "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
         "color_scheme": "",
@@ -282,24 +426,86 @@
         "padding-block-end": 40
       }
     },
+    "section_kEjVpi": {
+      "type": "section",
+      "blocks": {
+        "text_wY4imk": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>New arrivals</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "4.5rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_wY4imk"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 60,
+        "padding-block-end": 20
+      }
+    },
     "section_UkWK9x": {
       "type": "section",
       "blocks": {
         "image_LgQgn6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WPS_20251018202521.png",
+            "image": "shopify://shop_images/2.png",
             "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 40,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 16,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -317,14 +523,14 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
+            "gap": 40,
+            "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
             "custom_height": 100,
-            "inherit_color_scheme": false,
+            "inherit_color_scheme": true,
             "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
             "background_media": "none",
             "video_position": "cover",
@@ -351,10 +557,10 @@
               "name": "t:names.heading",
               "settings": {
                 "text": "<h3>Shape Restoration: Capture Every Unique Detail Precisely</h3>",
-                "width": "fit-content",
+                "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -376,12 +582,12 @@
               "type": "text",
               "settings": {
                 "text": "<p>From the overall body shape to local features, every element is based on high-resolution photos. Whether it’s the shiny, lifelike nose, the slightly curled tongue, or your pet’s unique \"habitual poses\" (such as tucked paws or a tilted head), each detail is recreated one by one through hand-sculpting</p>",
-                "width": "fit-content",
-                "max_width": "narrow",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1.25rem",
+                "font_size": "1.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -412,7 +618,7 @@
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "center",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
@@ -433,8 +639,8 @@
         "overlay_color": "#e6e6e6",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "section_XiJ7Gq": {
@@ -450,8 +656,8 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
+            "gap": 40,
+            "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
@@ -485,9 +691,9 @@
               "settings": {
                 "text": "<h3>Fur Texture Customization: Developed with Intangible Cultural Heritage Felt Artisans</h3>",
                 "width": "100%",
-                "max_width": "narrow",
+                "max_width": "none",
                 "alignment": "left",
-                "type_preset": "h3",
+                "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -509,8 +715,8 @@
               "type": "text",
               "settings": {
                 "text": "<p>We’ve co-created the \"Gradient Felt Craft\" with artisans specializing in intangible cultural heritage felt-making. Selecting 3+ types of wool with varying thicknesses, we layer and hand-felt them to recreate the natural sheen and dimensionality of your pet’s fur. From the fluffy curves of a long-haired dog to even the subtle gradient color areas on your pet’s coat—every detail is rendered with exquisite precision.</p>",
-                "width": "fit-content",
-                "max_width": "narrow",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
@@ -541,9 +747,9 @@
           "settings": {
             "image": "shopify://shop_images/WPS_20251018202521.png",
             "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 40,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -590,6 +796,67 @@
         "gradient_direction": "to top",
         "padding-block-start": 40,
         "padding-block-end": 40
+      }
+    },
+    "mk_step_column_g9LVTC": {
+      "type": "mk-step-column",
+      "blocks": {
+        "step_column_HV3JBU": {
+          "type": "step_column",
+          "settings": {
+            "title": "1.  Place Your Order",
+            "description": ""
+          }
+        },
+        "step_column_9BHFfh": {
+          "type": "step_column",
+          "settings": {
+            "title": "2. Receive Confirmation Email",
+            "description": ""
+          }
+        },
+        "step_column_HEfUdf": {
+          "type": "step_column",
+          "settings": {
+            "title": "3. Reply with Pet Photo & Card Message",
+            "description": ""
+          }
+        },
+        "step_column_F64ejp": {
+          "type": "step_column",
+          "settings": {
+            "title": "4. Handcrafted with Care by Our Artisans",
+            "description": ""
+          }
+        },
+        "step_column_fd7EYe": {
+          "type": "step_column",
+          "settings": {
+            "title": "5.  Preview Finished Piece with 2 Free Revisions",
+            "description": ""
+          }
+        },
+        "step_column_PKgBLp": {
+          "type": "step_column",
+          "settings": {
+            "title": "6. Securely Packaged & Delivered to Your Door",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_column_HV3JBU",
+        "step_column_9BHFfh",
+        "step_column_HEfUdf",
+        "step_column_F64ejp",
+        "step_column_fd7EYe",
+        "step_column_PKgBLp"
+      ],
+      "name": "MK Step Column",
+      "settings": {
+        "title": "",
+        "step_column_gap": 20,
+        "step_columns": 3
       }
     },
     "section_xikd3w": {
@@ -1064,6 +1331,7 @@
         "text_7XqzUa",
         "accordion_ewMCyF"
       ],
+      "disabled": true,
       "name": "t:names.faq_section",
       "settings": {
         "content_direction": "column",
@@ -1075,7 +1343,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "medium",
+        "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "",
         "background_media": "none",
@@ -1091,6 +1359,107 @@
         "gradient_direction": "to top",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "mk_faq_WnzDRA": {
+      "type": "mk-faq",
+      "blocks": {
+        "mk_faq_APGErD": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "1. What information do I need to provide for customization?",
+            "answer": "<p>After placing your order, we'll send a <em>confirmation email</em> to your order email address. Please reply to that email with a few clear photos of your pet (front, side, and any special features) and include your pet's name and unique markings (such as patterns, tongue, scars, etc.). Our artisans will use these details to recreate your pet with lifelike precision.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_XH7nPb": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "2. Are all pieces handmade?",
+            "answer": "<p>Yes! Every felted pet is 100% handcrafted by our experienced artisans. From shaping and filling to detailed finishing, the entire process is done by hand—making each piece one-of-a-kind.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_X9GpTE": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "3. How long does the production take?",
+            "answer": "<p>The average production time is <strong>3–4 weeks</strong>, depending on order volume and complexity. You'll receive progress updates via email or on your order page. During special events or expedited periods, some orders may be completed even faster.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_DdWRnA": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "4. Can I see a preview during the process?",
+            "answer": "<p>Absolutely! We'll send you a preview photo before the final completion. You can request <strong>up to two rounds of revisions</strong> to ensure the artwork perfectly captures your pet's look and personality.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_B9Hizp": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "5.  What if the artwork doesn't look like my pet?",
+            "answer": "<p>Don't worry — your satisfaction means everything to us. Our quality control team will prioritize your case and work closely with the artisan, making multiple adjustments until the piece truly reflects your pet's likeness. Once revised, we'll send you the updated preview for confirmation. If you still have concerns, please reach out to our customer support team, and we'll take care of it promptly.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_BrmC78": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "6. Can I customize other animals?",
+            "answer": "<p>Of course! In addition to cats and dogs, we can also create felted replicas of rabbits, birds, hamsters, and more. Since the complexity varies by animal, please contact our support team for a custom quote.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_care": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "7. How should I care for my felted artwork?",
+            "answer": "<p>Keep your felted pet in a dry, shaded place away from moisture and direct sunlight. To remove dust, gently clean it with a soft brush. Please avoid washing or pressing the artwork to maintain its original shape.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_refund": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "8. Can I cancel or get a refund?",
+            "answer": "<p>Since each item is entirely handcrafted and made to order, cancellations or refunds are not available once production has begun. If you need to change any order details, please contact us within <strong>24 hours</strong> of purchase, and we'll do our best to assist.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_packaging": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "9. What does the packaging look like?",
+            "answer": "<p>Each piece comes in a beautifully designed gift box, ready to be gifted directly. We also offer an optional <em>custom message card service</em> to make your present even more heartfelt.</p>"
+          },
+          "blocks": {}
+        },
+        "mk_faq_shipping": {
+          "type": "_mk-faq",
+          "settings": {
+            "question": "10. How will I know when my order has shipped?",
+            "answer": "<p>Once your order is shipped, you'll receive a tracking number via email. Standard delivery usually takes <strong>5–10 days</strong>. If you'd like to upgrade to express shipping, please contact our team after placing your order (additional fees may apply).</p>"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_faq_APGErD",
+        "mk_faq_XH7nPb",
+        "mk_faq_X9GpTE",
+        "mk_faq_DdWRnA",
+        "mk_faq_B9Hizp",
+        "mk_faq_BrmC78",
+        "mk_faq_care",
+        "mk_faq_refund",
+        "mk_faq_packaging",
+        "mk_faq_shipping"
+      ],
+      "name": "mk FAQ Section",
+      "settings": {
+        "title": "Frequently Asked Questions"
       }
     },
     "product_recommendations_qggXJq": {
@@ -1238,9 +1607,12 @@
   "order": [
     "main",
     "divider_aPhdja",
+    "section_kEjVpi",
     "section_UkWK9x",
     "section_XiJ7Gq",
+    "mk_step_column_g9LVTC",
     "section_xikd3w",
+    "mk_faq_WnzDRA",
     "product_recommendations_qggXJq"
   ]
 }
