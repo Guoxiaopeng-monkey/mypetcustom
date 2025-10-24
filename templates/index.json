@@ -120,6 +120,7 @@
         "text_YD3wJ7",
         "button_H9gpTf"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -395,11 +396,11 @@
                 "text_6zUKj7": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Premium Merion Wool</h2>",
+                    "text": "<h2><strong>Premium Merion Wool</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
+                    "type_preset": "h6",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -424,9 +425,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "0.625rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -456,6 +457,7 @@
         },
         "group_MLW9B7": {
           "type": "group",
+          "disabled": true,
           "settings": {
             "content_direction": "row",
             "vertical_on_mobile": false,
@@ -495,6 +497,7 @@
           "blocks": {
             "icon_x9dTjT": {
               "type": "icon",
+              "disabled": true,
               "settings": {
                 "icon": "eye",
                 "image_upload": "shopify://shop_images/icon-3.png",
@@ -506,6 +509,7 @@
             },
             "group_r9CAcb": {
               "type": "group",
+              "disabled": true,
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
@@ -697,11 +701,11 @@
                 "text_zcWmwX": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Payment</h2>",
+                    "text": "<h2><strong>Payment</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
+                    "type_preset": "h6",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -726,9 +730,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "0.625rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -848,11 +852,11 @@
                 "text_LQ7YJr": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>Exquisite Gift Packaging</h2>",
+                    "text": "<h2><strong>Exquisite Gift Packaging</strong></h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
+                    "type_preset": "h6",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -877,9 +881,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "0.625rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -940,8 +944,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 20,
+        "padding-block-end": 20
       }
     },
     "mk_media_grid_DHjihQ": {
