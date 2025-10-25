@@ -426,6 +426,102 @@
         "padding-block-end": 40
       }
     },
+    "mk_media_grid_UjDd9N": {
+      "type": "mk-media-grid",
+      "blocks": {
+        "image_text_kPCdmC": {
+          "type": "imageText",
+          "settings": {
+            "handle": "Photo Analysis",
+            "content": "We thoroughly study your high-resolution cat photos (front, side, 45° angle, and close-up shots required), marking key features with precision—never missing details like the edges of gradient fur color zones or the subtle proportions of facial features.",
+            "link": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 6,
+            "vertical_grid_mb": 1
+          }
+        },
+        "image_text_TjrdrX": {
+          "type": "imageText",
+          "settings": {
+            "handle": "Wool Selection",
+            "content": "Based on your cat’s real fur color and texture thickness, we handpick matching materials from over 20 types of imported wool. This guarantees the felt’s tactile feel and visual appearance closely mirror your cat’s actual coat.",
+            "link": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 6,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 6,
+            "vertical_grid_mb": 1
+          }
+        },
+        "image_text_nUdpR3": {
+          "type": "imageText",
+          "settings": {
+            "handle": "Base Shaping",
+            "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
+            "link": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 7,
+            "vertical_grid_mb": 3
+          }
+        },
+        "image_text_ywjk6X": {
+          "type": "imageText",
+          "settings": {
+            "handle": "Detail Needling",
+            "content": "Facial features and fur textures are hand-needled with a 0.5mm fine needle. Just the eye details alone take 2–3 hours to craft—all to recreate your cat’s bright, expressive eyes. We also strive to replicate realistic patterns, delicate fur texture, and distinct whiskers, capturing your cat’s lively essence.",
+            "link": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 5,
+            "vertical_grid_mb": 1
+          }
+        },
+        "image_text_ArtJXc": {
+          "type": "imageText",
+          "settings": {
+            "image_pc": "shopify://shop_images/bbef8cd39540c089602ff04bd5fd5ea6.jpg",
+            "handle": "Texture Refinement",
+            "content": "A specialized wool brush is used to groom the fur in its natural direction, restoring the fluffy feel of real cat fur. Finally, we apply anti-static care spray to keep the felt soft, shapely, and long-lasting.",
+            "link": "",
+            "color": "#000000",
+            "text_alignment": "left",
+            "horizontal_grid": 4,
+            "vertical_grid": 1,
+            "horizontal_grid_mb": 5,
+            "vertical_grid_mb": 1
+          }
+        }
+      },
+      "block_order": [
+        "image_text_kPCdmC",
+        "image_text_TjrdrX",
+        "image_text_nUdpR3",
+        "image_text_ywjk6X",
+        "image_text_ArtJXc"
+      ],
+      "name": "SPX Image Grid 1",
+      "settings": {
+        "title": "10+ Artisanal Steps: Defining Premium Handcrafted Standards",
+        "layout": "title-center",
+        "title_color": "#000000",
+        "block_back": "#968164",
+        "text_position": "underline",
+        "block_rounded": 20,
+        "show_icon": true,
+        "gap_distance": 20,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "section_kEjVpi": {
       "type": "section",
       "blocks": {
@@ -1764,6 +1860,7 @@
   "order": [
     "main",
     "divider_aPhdja",
+    "mk_media_grid_UjDd9N",
     "section_kEjVpi",
     "section_UkWK9x",
     "section_XiJ7Gq",
