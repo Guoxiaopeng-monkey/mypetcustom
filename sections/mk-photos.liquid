@@ -1,0 +1,305 @@
+{{ 'swiper@12.min.css' | asset_url | stylesheet_tag }}
+<script
+  src="{{ 'swiper@12.min.js' | asset_url }}"
+  defer="defer"
+></script>
+
+<div class="mk-photos mk-container">
+  <div class="mk-photos-header">
+    {% if section.settings.title != blank %}
+      <h2 class="mk-photos-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="mk-photos-description">{{ section.settings.description }}</div>
+    {% endif %}
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_url }}" class="mk-photos-button  mk-button-primary">
+        {{- section.settings.button_text -}}
+      </a>
+    {% endif %}
+  </div>
+  <div class="mk-photos-content">
+    <div class="mk-photos-content-inner">
+      <div class="swiper mk-photos-swiper">
+        <div class="swiper-wrapper">
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% if block.type == 'mk-photo-item' and block.settings.image != blank %}
+                <div class="swiper-slide mk-photo-slide" {{ block.shopify_attributes }}>
+                  <div class="mk-photo-item">
+                    <img
+                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      alt="{{ block.settings.alt_text | default: block.settings.image.alt }}"
+                      width="800"
+                      height="600"
+                      loading="lazy"
+                      class="mk-photo-image"
+                    >
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% for i in (1..5) %}
+              <div class="swiper-slide mk-photo-slide">
+                <div class="mk-photo-item">
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'mk-photo-image' }}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Photos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mk-photo-item",
+      "name": "MK Photo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "info": "SEO"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Photos",
+      "settings": {
+        "title": "Photos",
+        "description": "<p>Photos</p>",
+        "button_text": "View All",
+        "button_url": "/collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .mk-photos {
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mk-photos-header {
+    text-align: center;
+    margin-bottom: 40px;
+    flex-basis: 40%;
+    text-align: left;
+  }
+
+  .mk-photos-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .mk-photos-description {
+    margin-bottom: 20px;
+    color: #666;
+  }
+
+  .mk-photos-button {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .mk-photos-content {
+    flex-basis: 60%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .mk-photos-swiper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .mk-photos-swiper .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Cards效果样式 */
+  .mk-photos-swiper .swiper-slide {
+    width: 80%;
+    height: auto;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .mk-photo-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .mk-photo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgb(82, 82, 82);
+  }
+
+  /* Cards效果会自动处理堆叠和动画 */
+
+  /* 导航按钮已移除 */
+
+  /* 分页器样式 */
+  .mk-photos-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .mk-photos-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  .mk-photos-pagination .swiper-pagination-bullet-active {
+    background-color: white;
+    transform: scale(1.2);
+  }
+
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .mk-photos {
+      flex-direction: column;
+    }
+    .mk-photos-header {
+      text-align: center;
+      margin-bottom: 40px;
+      flex-basis: 100%;
+    }
+    .mk-photos-title {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .mk-photos-content {
+      flex-basis: 100%;
+    }
+  }
+</style>
+
+<script>
+  // 等待Swiper加载的函数
+  function waitForSwiper() {
+    if (typeof Swiper !== 'undefined') {
+      initMkPhotosSwiper();
+    } else {
+      setTimeout(waitForSwiper, 100);
+    }
+  }
+
+  function initMkPhotosSwiper() {
+    const mkPhotosSwiper = new Swiper('.mk-photos-swiper', {
+      // 使用cards效果
+      effect: 'cards',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      loop: true,
+      loopAdditionalSlides: 1,
+      initialSlide: 0, // 明确设置初始幻灯片为第一张
+
+      // Cards效果配置
+      cardsEffect: {
+        rotate: true,
+        perSlideOffset: 12,
+        perSlideRotate: 2, // 非激活卡片带一点角度
+        slideShadows: true,
+      },
+
+      // 分页器
+      pagination: {
+        el: '.mk-photos-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+
+      // 事件回调
+      on: {
+        init: function () {
+          console.log('MK Photos Swiper initialized');
+          console.log('Initial slide:', this.activeIndex);
+          // 确保从第一张开始
+          this.slideTo(0, 0);
+        },
+        slideChange: function () {
+          console.log('Slide changed to:', this.activeIndex);
+        },
+        loopFix: function () {
+          console.log('Loop fix applied, current index:', this.activeIndex);
+        },
+      },
+    });
+
+    // Cards效果会自动处理堆叠
+  }
+
+  // 页面加载完成后初始化
+  document.addEventListener('DOMContentLoaded', function () {
+    // 延迟一点时间确保DOM完全渲染
+    setTimeout(() => {
+      waitForSwiper();
+    }, 100);
+  });
+</script>

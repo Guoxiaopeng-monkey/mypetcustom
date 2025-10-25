@@ -4278,6 +4278,21 @@ text-component {
   padding: 0 40px;
 }
 
+.mk-button-primary {
+  background-color: #968164;
+}
+
+.mk-button-primary:hover {
+  background-color: #7f6f56;
+}
+
+@media(max-width: 768px) {
+  .mk-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
 .price {
   font-size: 40px;
   font-weight: 600;
