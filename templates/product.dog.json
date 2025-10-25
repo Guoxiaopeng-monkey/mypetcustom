@@ -139,7 +139,7 @@
                     "show_sale_price_first": true,
                     "show_installments": false,
                     "show_tax_info": false,
-                    "type_preset": "paragraph",
+                    "type_preset": "h2",
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-body--family)",
@@ -148,7 +148,7 @@
                     "letter_spacing": "normal",
                     "case": "none",
                     "color": "var(--color-foreground)",
-                    "padding-block-start": 4,
+                    "padding-block-start": 10,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
@@ -433,13 +433,13 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>New arrivals</h2>",
+            "text": "<p>3 Dimensions to Recreate Your Pet’s True Essence<br/><br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
-            "font_size": "4.5rem",
+            "font_size": "3rem",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -556,13 +556,13 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h3>Shape Restoration: Capture Every Unique Detail Precisely</h3>",
+                "text": "<h3><strong>Shape Restoration: Capture Every Unique Detail Precisely</strong></h3>",
                 "width": "100%",
                 "max_width": "narrow",
                 "alignment": "left",
-                "type_preset": "h2",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "2.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -689,13 +689,13 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h3>Fur Texture Customization: Developed with Intangible Cultural Heritage Felt Artisans</h3>",
+                "text": "<h3><strong>Fur Texture Customization: Developed with Intangible Cultural Heritage Felt Artisans</strong></h3>",
                 "width": "100%",
                 "max_width": "none",
                 "alignment": "left",
-                "type_preset": "h2",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "2.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -720,7 +720,7 @@
                 "alignment": "left",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1.25rem",
+                "font_size": "1.5rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -798,6 +798,161 @@
         "padding-block-end": 40
       }
     },
+    "section_hh6QyU": {
+      "type": "section",
+      "blocks": {
+        "image_tQcbUA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2.png",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 40,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_EiM76A": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 40,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 16,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 32,
+            "padding-inline-end": 32
+          },
+          "blocks": {
+            "text_98EFye": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h3><strong>Emotional Impressions: Integrate Exclusive Memory Symbols</strong></h3>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "2.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_xzYAHi": {
+              "type": "text",
+              "settings": {
+                "text": "<p>We support adding your pet’s \"signature elements\" — such as the small scarf your pet often wears, the custom tag on its collar, or even little items that mark your interactions (like the yarn ball your cat loves, or the special toy bone for your dog). This way, the piece is more than just a pet portrait; it also holds the unique story that belongs only to you and your pet.<br/><br/></p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_98EFye",
+            "text_xzYAHi"
+          ]
+        }
+      },
+      "block_order": [
+        "image_tQcbUA",
+        "group_EiM76A"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 2.5,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": true,
+        "overlay_color": "#e6e6e6",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "mk_step_column_g9LVTC": {
       "type": "mk-step-column",
       "blocks": {
@@ -852,9 +1007,10 @@
         "step_column_fd7EYe",
         "step_column_PKgBLp"
       ],
+      "custom_css": [],
       "name": "MK Step Column",
       "settings": {
-        "title": "",
+        "title": "Your Order Journey",
         "step_column_gap": 20,
         "step_columns": 3
       }
@@ -1457,6 +1613,7 @@
         "mk_faq_packaging",
         "mk_faq_shipping"
       ],
+      "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
         "title": "Frequently Asked Questions"
@@ -1610,6 +1767,7 @@
     "section_kEjVpi",
     "section_UkWK9x",
     "section_XiJ7Gq",
+    "section_hh6QyU",
     "mk_step_column_g9LVTC",
     "section_xikd3w",
     "mk_faq_WnzDRA",
