@@ -426,6 +426,95 @@
         "padding-block-end": 40
       }
     },
+    "section_YrNdcE": {
+      "type": "section",
+      "blocks": {
+        "text_EcCw8X": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>10+ Artisanal Steps: Defining Premium Handcrafted Standards</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_UEtX4m": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Every cat felt figurine we create goes through <strong>10+ pure handmade processes</strong>. From material selection to the final product, the entire journey is crafted independently by artisans with over 5 years of expertise—all to ensure the felt captures the unique charm and spirit that makes your cat one of a kind.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_EcCw8X",
+        "text_UEtX4m"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 25,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "mk_media_grid_UjDd9N": {
       "type": "mk-media-grid",
       "blocks": {
@@ -559,6 +648,7 @@
       "block_order": [
         "text_wY4imk"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -714,6 +804,7 @@
         "image_LgQgn6",
         "group_h7ACjF"
       ],
+      "disabled": true,
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -869,6 +960,7 @@
         "group_Ctez9R",
         "image_ynfRPN"
       ],
+      "disabled": true,
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1024,6 +1116,7 @@
         "image_tQcbUA",
         "group_EiM76A"
       ],
+      "disabled": true,
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1864,6 +1957,7 @@
   "order": [
     "main",
     "divider_aPhdja",
+    "section_YrNdcE",
     "mk_media_grid_UjDd9N",
     "section_kEjVpi",
     "section_UkWK9x",
