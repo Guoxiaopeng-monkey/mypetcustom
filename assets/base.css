@@ -4277,3 +4277,45 @@ text-component {
   margin: 0 auto;
   padding: 0 40px;
 }
+
+.price {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.compare-at-price {
+  font-size: 28px
+}
+
+.discount-percentage {
+  font-size: 16px;
+  background: rgb(255, 34, 34);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-left: 8px
+}
+
+product-price>div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 749px) {
+  .price {
+    font-size: 32px;
+  }
+
+  .compare-at-price {
+    font-size: 18px;
+  }
+
+  .discount-percentage {
+    font-size: 12px;
+  }
+
+  product-price>div {
+    flex-wrap: wrap;
+  }
+}

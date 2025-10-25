@@ -13,7 +13,7 @@
   assign selected_variant = product_resource.selected_or_first_available_variant
   assign price = selected_variant.price
   assign compare_at_price = selected_variant.compare_at_price
-
+  assign discount_percentage = compare_at_price | minus: price | round: 0
   assign show_compare_price = false
   if compare_at_price > price
     assign show_compare_price = true
@@ -28,16 +28,17 @@
   if product.handle == closest.product.handle and settings.currency_code_enabled_product_pages
     assign price = price | money_with_currency
     assign compare_at_price = compare_at_price | money_with_currency
-
+    assign discount_percentage = discount_percentage | money_with_currency
     # Checks if product handle does not match the closest product's handle (i.e. product card)
     # and if the currency code is enabled for product cards
   elsif product.handle != closest.product.handle and settings.currency_code_enabled_product_cards
     assign price = price | money_with_currency
     assign compare_at_price = compare_at_price | money_with_currency
-
+    assign discount_percentage = discount_percentage | money_with_currency
   else
     assign price = price | money
     assign compare_at_price = compare_at_price | money
+    assign discount_percentage = discount_percentage | money
   endif
 -%}
 
@@ -63,6 +64,10 @@
       <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
       <span class="compare-at-price">{{- compare_at_price -}}</span>
     </span>
+  {% endif %}
+
+  {% if show_compare_price %}
+    <span class="discount-percentage"> {{ '-' | append: discount_percentage }} </span>
   {% endif %}
   {%- if selected_variant.unit_price and show_unit_price %}
     {%- liquid
