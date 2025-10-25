@@ -432,6 +432,7 @@
         "image_text_kPCdmC": {
           "type": "imageText",
           "settings": {
+            "image_pc": "shopify://shop_images/WPS_20251018210832.png",
             "handle": "Photo Analysis",
             "content": "We thoroughly study your high-resolution cat photos (front, side, 45° angle, and close-up shots required), marking key features with precision—never missing details like the edges of gradient fur color zones or the subtle proportions of facial features.",
             "link": "",
@@ -446,6 +447,7 @@
         "image_text_TjrdrX": {
           "type": "imageText",
           "settings": {
+            "image_pc": "shopify://shop_images/WPS_20251018210842.png",
             "handle": "Wool Selection",
             "content": "Based on your cat’s real fur color and texture thickness, we handpick matching materials from over 20 types of imported wool. This guarantees the felt’s tactile feel and visual appearance closely mirror your cat’s actual coat.",
             "link": "",
@@ -460,6 +462,7 @@
         "image_text_nUdpR3": {
           "type": "imageText",
           "settings": {
+            "image_pc": "shopify://shop_images/WPS_20251018210851.png",
             "handle": "Base Shaping",
             "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
             "link": "",
@@ -474,6 +477,7 @@
         "image_text_ywjk6X": {
           "type": "imageText",
           "settings": {
+            "image_pc": "shopify://shop_images/1018.png",
             "handle": "Detail Needling",
             "content": "Facial features and fur textures are hand-needled with a 0.5mm fine needle. Just the eye details alone take 2–3 hours to craft—all to recreate your cat’s bright, expressive eyes. We also strive to replicate realistic patterns, delicate fur texture, and distinct whiskers, capturing your cat’s lively essence.",
             "link": "",
