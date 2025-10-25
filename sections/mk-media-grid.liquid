@@ -58,7 +58,7 @@
     padding:32px
   }
   .grid-block:hover  picture{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.3s ease;
   }
   .grid-block .grid-block-content .title {
@@ -91,6 +91,11 @@
   .grid-block-content-icon svg{
     width:100%;
     height:100%;
+  }
+  .grid-block-image{
+    width:100%;
+    overflow: hidden;
+    aspect-ratio: var(--aspect-ratio);
   }
 </style>
 <style>
@@ -138,6 +143,7 @@
     .grid-block .grid-block-content .title {
       font-size: 14px;
     }
+
 
   }
 </style>
@@ -275,6 +281,30 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Image Mobile"
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Image Ratio",
+          "options": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "4/3",
+              "label": "4:3"
+            },
+            {
+              "value": "16/9",
+              "label": "16:9"
+            },
+            {
+              "value": "1/1",
+              "label": "1:1"
+            }
+          ],
+          "default": "auto"
         },
         {
           "type": "text",

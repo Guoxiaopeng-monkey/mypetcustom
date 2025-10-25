@@ -30,23 +30,25 @@
 
 <div class="grid-block grid-block-{{ block.id }}">
   {%- if block.settings.image_pc != blank -%}
-    <picture>
-      {%- if block.settings.image_mobile != blank -%}
-        <source
-          media="(max-width: 699px)"
-          srcset="{{ block.settings.image_mobile | image_url: width: '400x' }} 400w, {{ block.settings.image_mobile | image_url: width: '600x' }} 600w, {{ block.settings.image_mobile | image_url: width: '800x' }} 800w, {{ block.settings.image_mobile | image_url: width: '1000x' }} 1000w, {{ block.settings.image_mobile | image_url: width: '1200x' }} 1200w"
-          width="{{ block.settings.image_mobile.width }}"
-          height="{{ block.settings.image_mobile.height }}"
+    <div class="grid-block-image" style="--aspect-ratio: {{ block.settings.image_ratio }};">
+      <picture>
+        {%- if block.settings.image_mobile != blank -%}
+          <source
+            media="(max-width: 699px)"
+            srcset="{{ block.settings.image_mobile | image_url: width: '400x' }} 400w, {{ block.settings.image_mobile | image_url: width: '600x' }} 600w, {{ block.settings.image_mobile | image_url: width: '800x' }} 800w, {{ block.settings.image_mobile | image_url: width: '1000x' }} 1000w, {{ block.settings.image_mobile | image_url: width: '1200x' }} 1200w"
+            width="{{ block.settings.image_mobile.width }}"
+            height="{{ block.settings.image_mobile.height }}"
+          >
+        {%- endif -%}
+        <img
+          src="{{ block.settings.image_pc | image_url }}"
+          alt="{{block.settings.title | default: 'oneisall'}}"
+          width="100%"
+          height="auto"
+          loading="lazy"
         >
-      {%- endif -%}
-      <img
-        src="{{ block.settings.image_pc | image_url }}"
-        alt="{{block.settings.title | default: 'oneisall'}}"
-        width="100%"
-        height="auto"
-        loading="lazy"
-      >
-    </picture>
+      </picture>
+    </div>
   {%- else -%}
     {{ 'lifestyle-1' | placeholder_svg_tag: 'grid-block-default' }}
   {%- endif -%}
