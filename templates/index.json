@@ -999,12 +999,51 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "mk_photos_pPFcTr": {
+      "type": "mk-photos",
+      "blocks": {
+        "mk_photo_item_pUFfgn": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/bg-banner.jpg",
+            "alt_text": ""
+          }
+        },
+        "mk_photo_item_6pHCkb": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/WPS_20251018193741.png",
+            "alt_text": ""
+          }
+        },
+        "mk_photo_item_9fBW9k": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/1024-768-A3.jpg",
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "mk_photo_item_pUFfgn",
+        "mk_photo_item_6pHCkb",
+        "mk_photo_item_9fBW9k"
+      ],
+      "name": "MK Photos",
+      "settings": {
+        "title": "About Our  customsize",
+        "description": "",
+        "button_text": "Learn More",
+        "button_url": "/collections/all"
+      }
     }
   },
   "order": [
     "mk_image_banner_DLwfQM",
     "hero_jVaWmY",
     "section_Mn43yY",
-    "mk_media_grid_DHjihQ"
+    "mk_media_grid_DHjihQ",
+    "mk_photos_pPFcTr"
   ]
 }
