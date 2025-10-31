@@ -1,0 +1,114 @@
+<!-- sections/steps-section.liquid -->
+{{ 'steps-section.css' | asset_url | stylesheet_tag }}
+
+<div class="steps-section mk-container" id="section-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.title != blank -%}
+      <h2 class="steps-section__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+
+    <div class="steps-container">
+      {%- for block in section.blocks -%}
+        {%- render 'mk-step-item',
+          block: block,
+          index: forloop.index,
+          total_blocks: section.blocks.size,
+          is_last: forloop.last
+        -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Step Section",
+  "class": "shopify-section--bulk-order-process",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "How It Works"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "图标背景色",
+      "default": "#e8f5e9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "文字颜色",
+      "default": "#000000"
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "step",
+      "name": "步骤",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "步骤图标"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "步骤标题",
+          "default": "步骤标题"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "步骤描述",
+          "default": "步骤的详细描述文字"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "MK Step Section",
+      "category": "Custom Sections",
+      "settings": {
+        "title": "How It Works"
+      },
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Submit Form",
+            "description": "Complete the application form with your SKUs so we can understand your needs."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Review & Confirm",
+            "description": "Our team verifies stock availability and estimated delivery times for your order."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Receive Quotation",
+            "description": "Get a personalized quote based on your selected products and quantities."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Place Order & Shipment",
+            "description": "Confirm your order and we'll handle shipping, ensuring your products reach you efficiently."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

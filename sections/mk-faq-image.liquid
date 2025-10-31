@@ -1,0 +1,177 @@
+{{ 'mk-faq.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .section{
+    background-color: {{ section.settings.background_color }};
+  }
+  @media (max-width: 768px) {
+      #shopify-section-{{ section.id }} {
+          padding-top: {{ section.settings.padding_top | times: 0.5 }}px;
+          padding-bottom: {{ section.settings.padding_bottom | times: 0.5 }}px;
+      }
+  }
+</style>
+
+<div class="mk-faq section">
+  <div class="mk-faq-header">
+    {% if section.settings.title != blank %}
+      <h2 class="mk-faq-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="mk-faq-description">{{ section.settings.description }}</div>
+    {% endif %}
+  </div>
+  <div class="mk-faq-container">
+    <div class="mk-faq-image rounded">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 1000 }}"
+          alt="{{ section.settings.image.alt }}"
+          width="100%"
+          height="auto"
+          loading="lazy"
+        >
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'mk-faq-image-placeholder' }}
+      {% endif %}
+    </div>
+    <div class="mk-faq-content">
+      {% for block in section.blocks %}
+        <div class="mk-faq-item">
+          <input
+            type="checkbox"
+            name="mk-faq-{{ section.id }}"
+            id="mk-faq-{{ section.id }}-{{ forloop.index }}"
+            class="mk-faq-item-input"
+            {% if forloop.first %}
+              checked
+            {% endif %}
+          >
+          <label for="mk-faq-{{ section.id }}-{{ forloop.index }}" class="mk-faq-item-label">
+            <span class="mk-faq-item-label-text">{{ block.settings.question }}</span>
+            <div class="mk-faq-item-label-icon">
+              {{ 'icon-expand.svg' | inline_asset_content }}
+            </div>
+          </label>
+
+          <div class="mk-faq-item-answer">{{ block.settings.answer }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "mk FAQ With Image",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Faq"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is the best way to learn about the stock market?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "mk FAQ With Image",
+      "category": "mk Sections",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
