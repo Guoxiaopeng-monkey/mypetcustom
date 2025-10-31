@@ -955,6 +955,7 @@
           "type": "imageText",
           "settings": {
             "image_pc": "shopify://shop_images/1024-768-A3.jpg",
+            "image_ratio": "auto",
             "handle": "Dog",
             "content": "",
             "link": "",
@@ -970,6 +971,7 @@
           "type": "imageText",
           "settings": {
             "image_pc": "shopify://shop_images/1024-768-B3.jpg",
+            "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
             "link": "",
@@ -1037,6 +1039,166 @@
         "button_text": "Learn More",
         "button_url": "/collections/all"
       }
+    },
+    "mk_faq_image_6EwdjG": {
+      "type": "mk-faq-image",
+      "blocks": {
+        "faq_EtBqzd": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        "faq_nccdcy": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        "faq_RB9QUG": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        "faq_mQtzzx": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        "faq_eMKDy3": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        },
+        "faq_mztgyj": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best way to learn about the stock market?",
+            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_EtBqzd",
+        "faq_nccdcy",
+        "faq_RB9QUG",
+        "faq_mQtzzx",
+        "faq_eMKDy3",
+        "faq_mztgyj"
+      ],
+      "name": "mk FAQ With Image",
+      "settings": {
+        "title": "Faq",
+        "description": "Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et",
+        "background_color": "#ffffff",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "mk_why_section_atYRGD": {
+      "type": "mk-why-section",
+      "blocks": {
+        "advantage_CV9HbF": {
+          "type": "advantage",
+          "settings": {
+            "title": "Wholesale Pricing",
+            "description": "Enjoy one of the most competitive commission rates in the industry, rewarding you with up to 15% on every successful referral."
+          }
+        },
+        "advantage_TzfCQb": {
+          "type": "advantage",
+          "settings": {
+            "title": "Authentic Product Guarantee",
+            "description": "All our products are 100% authentic with manufacturer warranties included."
+          }
+        },
+        "advantage_rtctKq": {
+          "type": "advantage",
+          "settings": {
+            "title": "Monthly Updates & Insights",
+            "description": "Stay informed with regular market insights and product updates to maximize your business potential."
+          }
+        },
+        "advantage_9bXY9i": {
+          "type": "advantage",
+          "settings": {
+            "title": "Dedicated Customer Support",
+            "description": "Our expert support team is available to assist you with any questions or concerns."
+          }
+        },
+        "advantage_A3qU7F": {
+          "type": "advantage",
+          "settings": {
+            "title": "Reliable Supply Chain",
+            "description": "Count on our robust supply chain to ensure timely delivery and consistent product availability."
+          }
+        }
+      },
+      "block_order": [
+        "advantage_CV9HbF",
+        "advantage_TzfCQb",
+        "advantage_rtctKq",
+        "advantage_9bXY9i",
+        "advantage_A3qU7F"
+      ],
+      "name": "MK Why Choose Us",
+      "settings": {
+        "title": "Why Buy Bulk From Us?",
+        "background_color": "#f9f9f9"
+      }
+    },
+    "mk_step_section_LVamDJ": {
+      "type": "mk-step-section",
+      "blocks": {
+        "step_rxXTCG": {
+          "type": "step",
+          "settings": {
+            "title": "Submit Form",
+            "description": "Complete the application form with your SKUs so we can understand your needs."
+          }
+        },
+        "step_hak8zk": {
+          "type": "step",
+          "settings": {
+            "title": "Review & Confirm",
+            "description": "Our team verifies stock availability and estimated delivery times for your order."
+          }
+        },
+        "step_fcqaYA": {
+          "type": "step",
+          "settings": {
+            "title": "Receive Quotation",
+            "description": "Get a personalized quote based on your selected products and quantities."
+          }
+        },
+        "step_mtgYgy": {
+          "type": "step",
+          "settings": {
+            "title": "Place Order & Shipment",
+            "description": "Confirm your order and we'll handle shipping, ensuring your products reach you efficiently."
+          }
+        }
+      },
+      "block_order": [
+        "step_rxXTCG",
+        "step_hak8zk",
+        "step_fcqaYA",
+        "step_mtgYgy"
+      ],
+      "name": "MK Step Section",
+      "settings": {
+        "title": "How It Works",
+        "icon_bg_color": "#e8f5e9",
+        "text_color": "#000000"
+      }
     }
   },
   "order": [
@@ -1044,6 +1206,9 @@
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ",
-    "mk_photos_pPFcTr"
+    "mk_photos_pPFcTr",
+    "mk_faq_image_6EwdjG",
+    "mk_why_section_atYRGD",
+    "mk_step_section_LVamDJ"
   ]
 }
