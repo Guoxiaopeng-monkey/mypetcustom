@@ -1155,43 +1155,59 @@
         "background_color": "#f9f9f9"
       }
     },
-    "mk_step_section_LVamDJ": {
+    "mk_step_section_dJPPJD": {
       "type": "mk-step-section",
       "blocks": {
-        "step_rxXTCG": {
+        "step_CRFpDW": {
           "type": "step",
           "settings": {
-            "title": "Submit Form",
-            "description": "Complete the application form with your SKUs so we can understand your needs."
+            "title": "1.  Place Your Order",
+            "description": ""
           }
         },
-        "step_hak8zk": {
+        "step_zY6Bza": {
           "type": "step",
           "settings": {
-            "title": "Review & Confirm",
-            "description": "Our team verifies stock availability and estimated delivery times for your order."
+            "title": "2. Receive Confirmation Email",
+            "description": ""
           }
         },
-        "step_fcqaYA": {
+        "step_HMydMC": {
           "type": "step",
           "settings": {
-            "title": "Receive Quotation",
-            "description": "Get a personalized quote based on your selected products and quantities."
+            "title": "3. Reply with Pet Photo & Card Message",
+            "description": ""
           }
         },
-        "step_mtgYgy": {
+        "step_fnqNKQ": {
           "type": "step",
           "settings": {
-            "title": "Place Order & Shipment",
-            "description": "Confirm your order and we'll handle shipping, ensuring your products reach you efficiently."
+            "title": "4. Handcrafted with Care by Our Artisans",
+            "description": ""
+          }
+        },
+        "step_cb9yxA": {
+          "type": "step",
+          "settings": {
+            "title": "5.  Preview Finished Piece with 2 Free Revisions",
+            "description": ""
+          }
+        },
+        "step_VmTTAj": {
+          "type": "step",
+          "settings": {
+            "title": "6. Securely Packaged & Delivered to Your Door",
+            "description": ""
           }
         }
       },
       "block_order": [
-        "step_rxXTCG",
-        "step_hak8zk",
-        "step_fcqaYA",
-        "step_mtgYgy"
+        "step_CRFpDW",
+        "step_zY6Bza",
+        "step_HMydMC",
+        "step_fnqNKQ",
+        "step_cb9yxA",
+        "step_VmTTAj"
       ],
       "name": "MK Step Section",
       "settings": {
@@ -1199,7 +1215,7 @@
         "icon_bg_color": "#e8f5e9",
         "text_color": "#000000"
       }
-    }
+    },
   },
   "order": [
     "mk_image_banner_DLwfQM",
@@ -1209,6 +1225,6 @@
     "mk_photos_pPFcTr",
     "mk_faq_image_6EwdjG",
     "mk_why_section_atYRGD",
-    "mk_step_section_LVamDJ"
+    "mk_step_section_dJPPJD"
   ]
 }
