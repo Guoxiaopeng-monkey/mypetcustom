@@ -1153,6 +1153,7 @@
     },
     "mk_step_column_g9LVTC": {
       "type": "mk-step-column",
+      "disabled": true,
       "blocks": {
         "step_column_HV3JBU": {
           "type": "step_column",
@@ -1211,6 +1212,67 @@
         "title": "Your Order Journey",
         "step_column_gap": 20,
         "step_columns": 3
+      }
+    },
+    "mk_step_section_dJPPJD": {
+      "type": "mk-step-section",
+      "blocks": {
+        "step_CRFpDW": {
+          "type": "step",
+          "settings": {
+            "title": "1.  Place Your Order",
+            "description": ""
+          }
+        },
+        "step_zY6Bza": {
+          "type": "step",
+          "settings": {
+            "title": "2. Receive Confirmation Email",
+            "description": ""
+          }
+        },
+        "step_HMydMC": {
+          "type": "step",
+          "settings": {
+            "title": "3. Reply with Pet Photo & Card Message",
+            "description": ""
+          }
+        },
+        "step_fnqNKQ": {
+          "type": "step",
+          "settings": {
+            "title": "4. Handcrafted with Care by Our Artisans",
+            "description": ""
+          }
+        },
+        "step_cb9yxA": {
+          "type": "step",
+          "settings": {
+            "title": "5.  Preview Finished Piece with 2 Free Revisions",
+            "description": ""
+          }
+        },
+        "step_VmTTAj": {
+          "type": "step",
+          "settings": {
+            "title": "6. Securely Packaged & Delivered to Your Door",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_CRFpDW",
+        "step_zY6Bza",
+        "step_HMydMC",
+        "step_fnqNKQ",
+        "step_cb9yxA",
+        "step_VmTTAj"
+      ],
+      "name": "MK Step Section",
+      "settings": {
+        "title": "How It Works",
+        "icon_bg_color": "#e8f5e9",
+        "text_color": "#000000"
       }
     },
     "section_xikd3w": {
@@ -1969,6 +2031,7 @@
     "section_XiJ7Gq",
     "section_hh6QyU",
     "mk_step_column_g9LVTC",
+    "mk_step_section_dJPPJD",
     "section_xikd3w",
     "mk_faq_WnzDRA",
     "product_recommendations_qggXJq"
