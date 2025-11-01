@@ -1,0 +1,96 @@
+<div class="why-item" {{ block.shopify_attributes }}>
+  <div class="why-item-icon  ">
+    {%- if block.settings.icon != blank -%}
+      {{
+        block.settings.icon
+        | image_url: width: 240
+        | image_tag: loading: 'lazy', class: 'why-icon', alt: block.settings.title
+      }}
+    {%- else -%}
+      <div class="placeholder-icon">
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    {%- endif -%}
+  </div>
+  <div class="why-item-content">
+    <h3 class="why-item-title">{{ block.settings.title }}</h3>
+    <p class="why-item-description">
+      {{ block.settings.description }}
+    </p>
+  </div>
+</div>
+
+<style>
+  .why-item {
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .why-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 40px;
+    padding-top: 0;
+    flex-grow: 1;
+  }
+
+  .why-item-icon {
+    max-width: 240px;
+    padding: 48px 0 45px 0;
+    margin: 0 auto;
+  }
+  .why-item-icon .why-icon {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .placeholder-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .why-item-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .why-item-description {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    .why-item {
+      gap: 8px;
+    }
+    .why-item-content {
+      padding: 0px 28px 40px 28px;
+      gap: 8px;
+    }
+    .why-item-title {
+      font-size: 22px;
+    }
+    .why-item-description {
+      font-size: 14px;
+    }
+    .why-item-icon {
+      width: 200px;
+    }
+  }
+</style>

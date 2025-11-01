@@ -1,0 +1,156 @@
+/* assets/steps-section.css */
+.steps-section {
+    margin: 120px auto;
+    background-color: #fff;
+}
+
+.steps-section__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 80px;
+    color: #000;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.step-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.step-item__icon-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-item__content {
+    max-width: 245px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.step-item__icon {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    background-color: var(--icon-bg-color, #fff);
+}
+
+.step-item__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.step-item__icon--fallback {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.step-item__connector {
+    position: absolute;
+    top: 64px;
+    left: calc(50% + 40px);
+    width: calc(100% - 40px);
+    height: 1px;
+    background: repeating-linear-gradient(to right,
+            #bdc3c7,
+            #bdc3c7 6px,
+            transparent 6px,
+            transparent 10px);
+    z-index: 1;
+}
+
+.step-item__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-color, #000);
+}
+
+.step-item__description {
+    color: var(--text-color, #000);
+    margin: 0;
+    opacity: 0.8;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .steps-section {
+        margin: 48px 0;
+        padding: 0 20px;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        gap: 32px;
+        font-size: 14px;
+    }
+
+    .steps-section__title {
+        font-size: 26px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .step-item {
+        width: 100%;
+        padding: 0;
+        gap: 20px;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .step-item__icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .step-item__content {
+        align-items: flex-start;
+        text-align: left;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .step-item__title {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .step-item__connector {
+        left: 29px;
+        width: 1px;
+        height: 100%;
+        background: repeating-linear-gradient(to bottom,
+                #bdc3c7,
+                #bdc3c7 6px,
+                transparent 6px,
+                transparent 10px);
+    }
+}

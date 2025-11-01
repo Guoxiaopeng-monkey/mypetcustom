@@ -1,0 +1,31 @@
+<!-- snippets/step-item.liquid -->
+<div class="step-item" {{ block.shopify_attributes }}>
+  <div class="step-item__icon-wrapper">
+    {%- if block.settings.icon != blank -%}
+      <div class="step-item__icon" style="--icon-bg-color:{{ section.settings.icon_bg_color }}">
+        <img
+          src="{{ block.settings.icon | image_url: width: 48 }}"
+          alt="{{ block.settings.title | escape }}"
+          loading="lazy"
+          width="100%"
+          height="100%"
+        >
+      </div>
+    {%- else -%}
+      <div
+        class="step-item__icon step-item__icon--fallback"
+        style="--icon-bg-color:{{ section.settings.icon_bg_color }}"
+      >
+        {{ block.settings.title | slice: 0 }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="step-item__content">
+    <h3 class="step-item__title">{{ block.settings.title }}</h3>
+    <p class="step-item__description">{{ block.settings.description }}</p>
+  </div>
+  {%- unless is_last -%}
+    <div class="step-item__connector"></div>
+  {%- endunless -%}
+</div>

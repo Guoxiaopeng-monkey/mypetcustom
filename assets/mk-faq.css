@@ -1,0 +1,137 @@
+.mk-faq-header {
+    text-align: center;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mk-faq-title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mk-faq-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mk-faq-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+.mk-faq-image {
+    flex-basis: 50%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.mk-faq-image .mk-faq-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    background: #f0f0f0;
+}
+
+.mk-faq-content {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mk-faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+
+}
+
+.mk-faq-item-input {
+    display: none;
+}
+
+.mk-faq-item-answer {
+    display: none;
+    padding-top: 12px;
+    font-size: 14px;
+}
+
+.mk-faq-item-label {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.mk-faq-item-label-text {
+    font-size: 20px;
+}
+
+.mk-faq-item-label .mk-faq-item-label-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+    border-radius: 50%;
+}
+
+.mk-faq-item-input:checked~.mk-faq-item-label svg {
+    transform: rotate(180deg);
+}
+
+.mk-faq-item-input:checked~.mk-faq-item-answer {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .mk-faq-header {
+        gap: 8px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .mk-faq-title {
+        font-size: 24px;
+    }
+
+    .mk-faq-description {
+        font-size: 14px;
+    }
+
+    .mk-faq-container {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .mk-faq-image {
+        flex-basis: 100%;
+    }
+
+    .mk-faq-content {
+        flex-basis: 100%;
+    }
+
+    .mk-faq-item-label-icon {
+        display: none;
+    }
+
+    .mk-faq-item-label-text {
+        font-size: 16px;
+    }
+}
