@@ -414,6 +414,7 @@
     },
     "divider_aPhdja": {
       "type": "divider",
+      "disabled": true,
       "name": "t:names.divider_section",
       "settings": {
         "color_scheme": "",
@@ -424,6 +425,44 @@
         "alignment_horizontal": "center",
         "padding-block-start": 40,
         "padding-block-end": 40
+      }
+    },
+    "mk_mav_iAzTzt": {
+      "type": "mk-mav",
+      "blocks": {
+        "item_WdgTyQ": {
+          "type": "item",
+          "settings": {
+            "title": "Faq",
+            "link": ""
+          }
+        },
+        "item_REWY4X": {
+          "type": "item",
+          "settings": {
+            "title": "Features",
+            "link": ""
+          }
+        },
+        "item_33h4qi": {
+          "type": "item",
+          "settings": {
+            "title": "Reviews",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_WdgTyQ",
+        "item_REWY4X",
+        "item_33h4qi"
+      ],
+      "name": "SPX Nav Bar",
+      "settings": {
+        "bg": "#6a6a6a",
+        "background_gradient": "linear-gradient(54deg, rgba(124, 159, 187, 1) 14%, rgba(87, 97, 115, 1) 85%)",
+        "text-color": "#fff",
+        "use_text_button": true
       }
     },
     "section_kEjVpi": {
@@ -1287,7 +1326,6 @@
     },
     "mk_step_column_g9LVTC": {
       "type": "mk-step-column",
-      "disabled": true,
       "blocks": {
         "step_column_HV3JBU": {
           "type": "step_column",
@@ -1340,6 +1378,7 @@
         "step_column_fd7EYe",
         "step_column_PKgBLp"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "MK Step Column",
       "settings": {
@@ -2158,6 +2197,7 @@
   "order": [
     "main",
     "divider_aPhdja",
+    "mk_mav_iAzTzt",
     "section_kEjVpi",
     "section_PTdzmA",
     "section_UkWK9x",
