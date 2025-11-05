@@ -38,7 +38,7 @@
         "cus_button_CkH4qY"
       ],
       "custom_css": [
-        "@media (max-width: 768px) {.mk-image-banner {height: 450px; max-height: 100vh; }}"
+        "@media (max-width: 768px) {{max-height: 450px; }}"
       ],
       "name": "MK Image Banner",
       "settings": {
@@ -996,9 +996,9 @@
       ],
       "name": "SPX Image Grid 1",
       "settings": {
-        "title": "",
-        "layout": "title-left",
-        "title_color": "#f47c20",
+        "title": "Custom Felt Creations by Pet Type",
+        "layout": "title-center",
+        "title_color": "#000000",
         "block_back": "#dddddd",
         "text_position": "overlay",
         "block_rounded": 20,
