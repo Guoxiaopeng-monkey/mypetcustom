@@ -460,7 +460,7 @@
       "name": "SPX Nav Bar",
       "settings": {
         "bg": "#6a6a6a",
-        "background_gradient": "linear-gradient(54deg, rgba(124, 159, 187, 1) 14%, rgba(87, 97, 115, 1) 85%)",
+        "background_gradient": "linear-gradient(101deg, rgba(124, 159, 187, 1) 14%, rgba(87, 97, 115, 1) 85%)",
         "text-color": "#fff",
         "use_text_button": true
       }
