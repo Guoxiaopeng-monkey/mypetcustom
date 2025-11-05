@@ -474,8 +474,8 @@
       "settings": {
         "bg": "#ffffff",
         "background_gradient": "",
-        "text-color": "#ffffff",
-        "use_text_button": false
+        "text-color": "#000000",
+        "use_text_button": true
       }
     },
     "section_kEjVpi": {

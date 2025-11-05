@@ -919,6 +919,9 @@
         "group_GtLN7H",
         "group_Ef8UWY"
       ],
+      "custom_css": [
+        "@media(max-width:768px){{display:none}}"
+      ],
       "name": "t:names.icons_with_text",
       "settings": {
         "content_direction": "row",
@@ -1016,7 +1019,7 @@
         "background_color_secondary": "#ffffff",
         "title_color": "#1a1a1a",
         "description_color": "#666666",
-        "accent_color": "#7C9FBB",
+        "accent_color": "#7c9fbb",
         "accent_color_hover": "#576173"
       }
     },
