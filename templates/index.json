@@ -37,6 +37,9 @@
         "cus_description_JGWpdT",
         "cus_button_CkH4qY"
       ],
+      "custom_css": [
+        "@media(max-width:768px){{max-height: 450px }}"
+      ],
       "name": "MK Image Banner",
       "settings": {
         "image": "shopify://shop_images/1.jpg",
@@ -920,7 +923,7 @@
         "group_Ef8UWY"
       ],
       "custom_css": [
-        "@media(max-width:768px){{display:none}}"
+        "@media (max-width: 768px) {{display: none; }}"
       ],
       "name": "t:names.icons_with_text",
       "settings": {
