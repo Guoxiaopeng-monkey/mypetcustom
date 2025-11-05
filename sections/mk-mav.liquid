@@ -1,0 +1,684 @@
+<style>
+  :root {
+    --nav-bg: {{section.settings.bg}};
+    --nav-text-color: {{section.settings.text-color}};
+    --nav-gap: 80px;
+    --nav-padding: 14px 24px;
+    --nav-font-size: 16px;
+    --nav-border-width: 3px;
+    --outline-nav-gap: 100px;
+    --outline-nav-padding: 12px 24px;
+  }
+
+  #shopify-section-{{ section.id }}.sticky {
+    position: sticky;
+    top: var(--header-height,0);
+    z-index: 5;
+    will-change: transform;
+  }
+
+  #shopify-section-{{ section.id }} .nav_bar-wrapper {
+    background-color: var(--nav-bg);
+    background: {{section.settings.background_gradient }};
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  #shopify-section-{{ section.id }} .page-width {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--nav-padding);
+  }
+
+  #shopify-section-{{ section.id }} .nav_bar-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: var(--nav-gap);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding: 0;
+    /* 隐藏滚动条但保持滚动功能 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* 隐藏 Webkit 浏览器的滚动条 */
+  #shopify-section-{{ section.id }} .nav_bar-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .nav_bar-inner.left-aligned {
+    justify-content: flex-start;
+  }
+
+  #shopify-section-{{ section.id }} .nav_bar-inner.center-aligned {
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} a {
+    opacity: 0.8;
+    text-align: center;
+    font-size: var(--nav-font-size);
+    font-weight: 400;
+    line-height: 1.6;
+    transition: opacity 0.3s ease, font-weight 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} a.active {
+    font-weight: 600;
+    opacity: 1;
+  }
+
+  /* Outline Nav Styles */
+  #shopify-section-{{ section.id }}.sticky {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .outline_nav.nav_bar-inner {
+    gap: var(--outline-nav-gap);
+  }
+
+  #shopify-section-{{ section.id }} .outline_nav a {
+    color: var(--nav-text-color);
+    background: {{section.settings.text-color | color_modify: 'alpha', 0.1}};
+    padding: 8px 20px;
+    border-radius: 999px;
+    opacity: 1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .outline_nav a.active {
+    color: #ffffff;
+    background: {{section.settings.text-color}};
+  }
+
+  /* Text Button Styles */
+  #shopify-section-{{ section.id }} .text_button.nav_bar-inner {
+    gap: var(--nav-gap);
+  }
+
+  #shopify-section-{{ section.id }} .text_button a {
+    color: var(--nav-text-color);
+    background: transparent;
+    padding: 8px 0;
+    border-radius: 0;
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  #shopify-section-{{ section.id }} .text_button a.active {
+    color: var(--nav-text-color);
+    background: transparent;
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid var(--nav-text-color);
+  }
+
+  .nav_bar-wrapper .page-width {
+    padding: var(--outline-nav-padding);
+  }
+
+  @media screen and (max-width: 992.98px) {
+    :root {
+      --nav-gap: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .nav_bar-inner {
+      justify-content: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} a {
+      padding: 2px 1rem;
+    }
+
+    #shopify-section-{{ section.id }} .text_button a {
+      padding: 8px 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .text_button a.active {
+      color: var(--nav-text-color);
+      background: transparent;
+      opacity: 1;
+      font-weight: 600;
+      border-bottom: 2px solid var(--nav-text-color);
+    }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    :root {
+      --nav-gap: 12px;
+      --nav-padding: 13px 16px;
+      --nav-font-size: 14px;
+
+      --outline-nav-gap: 24px;
+      --outline-nav-padding: 10px 16px 9px 16px;
+    }
+
+    #shopify-section-{{ section.id }} .section-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.65 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.65 | round: 0 }}px;
+    }
+
+    #shopify-section-{{ section.id }} .page-width {
+      margin: 0;
+      padding: var(--nav-padding);
+    }
+
+    #shopify-section-{{ section.id }} .nav_bar-inner,
+    #shopify-section-{{ section.id }} .outline_nav.nav_bar-inner,
+    #shopify-section-{{ section.id }} .text_button.nav_bar-inner {
+      padding: 0;
+      justify-content: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} a {
+      padding: 2px 0.5rem;
+    }
+
+    #shopify-section-{{ section.id }} .text_button a {
+      padding: 8px 0;
+      margin-right: 10px;
+      border-radius: 0;
+      background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .text_button a.active {
+      color: var(--nav-text-color);
+      background: transparent;
+      opacity: 1;
+      font-weight: 600;
+
+      border-bottom: 2px solid var(--nav-text-color);
+    }
+  }
+</style>
+
+<div class="nav_bar-container">
+  <div class="nav_bar-wrapper">
+    <div class="page-width">
+      <div class="nav_bar-inner {% if section.settings.use_text_button %}text_button{% else %}outline_nav{% endif %}">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.link | prepend:'#' }}" class="{% if forloop.first %}active{% endif %}">
+            {{- block.settings.title -}}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 防抖函数
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    // 更新header高度
+    function updateHeaderHeight() {
+      const mainHeader = document.querySelector('#HeaderWrapper').offsetHeight;
+      document.documentElement.style.setProperty('--header-height', mainHeader + 'px');
+      return mainHeader;
+    }
+
+    // 初始化header高度
+    let header_lastHeight = updateHeaderHeight();
+
+    // 监听header高度变化
+    const observerHeaderHeight = new ResizeObserver(
+      debounce(() => {
+        const currentHeight = updateHeaderHeight();
+        if (currentHeight !== header_lastHeight) {
+          header_lastHeight = currentHeight;
+        }
+      }, 100)
+    );
+
+    observerHeaderHeight.observe(document.querySelector('#HeaderWrapper'));
+
+    // 导航相关元素
+    const nav = document.querySelector('.nav_bar-container');
+    const navItems = document.querySelectorAll('.nav_bar-inner > a');
+    const mainContent = document.querySelectorAll('#MainContent [id]');
+
+    // 设置导航高度
+    document.documentElement.style.setProperty('--nav_header-height', nav.offsetHeight + 'px');
+
+    // 平滑滚动函数
+    function smoothScrollTo(element, duration = 800) {
+      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // 使用更平滑的缓动函数
+        const ease = (t) => {
+          const c1 = 1.70158;
+          const c2 = c1 * 1.525;
+          return t < 0.5
+            ? (Math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2
+            : (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2;
+        };
+
+        window.scrollTo(0, startPosition + distance * ease(progress));
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // 平滑滚动导航栏
+    function smoothScrollNav(element, duration = 400) {
+      const container = document.querySelector('.nav_bar-inner');
+      const containerWidth = container.offsetWidth;
+      const itemLeft = element.offsetLeft;
+      const itemWidth = element.offsetWidth;
+
+      // 检查是否需要滚动（容器宽度小于内容宽度）
+      if (container.scrollWidth <= containerWidth) {
+        return; // 不需要滚动，直接返回
+      }
+
+      // 根据屏幕尺寸决定滚动策略
+      const isMobile = window.innerWidth <= 767.98;
+
+      let scrollPosition;
+      if (isMobile) {
+        // 移动端：让激活项在容器左端但留一些边距
+        scrollPosition = itemLeft - 20;
+      } else {
+        // PC端：让激活项在容器中居中
+        scrollPosition = itemLeft - containerWidth / 2 + itemWidth / 2;
+      }
+
+      // 确保不会出现负值滚动
+      scrollPosition = Math.max(0, scrollPosition);
+
+      // 确保不会滚动超过最大范围
+      const maxScroll = container.scrollWidth - containerWidth;
+      scrollPosition = Math.min(scrollPosition, maxScroll);
+
+      let startTime = null;
+      const startPosition = container.scrollLeft;
+      const distance = scrollPosition - startPosition;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // 使用更平滑的缓动函数
+        const ease = (t) => {
+          // 使用更平滑的缓动函数
+          const c1 = 1.70158;
+          const c2 = c1 * 1.525;
+
+          return t < 0.5
+            ? (Math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2
+            : (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2;
+        };
+
+        container.scrollLeft = startPosition + distance * ease(progress);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // 激活导航项
+    function activateNavItem(index) {
+      navItems.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('active');
+          // 只在需要滚动时才执行导航栏滚动
+          const container = document.querySelector('.nav_bar-inner');
+          if (container.scrollWidth > container.offsetWidth) {
+            smoothScrollNav(item, 300);
+          }
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // 默认激活第一项
+    activateNavItem(0);
+
+    // 滚动处理
+    const handleScroll = debounce(function () {
+      const scrollTop = window.pageYOffset;
+      const headerHeight = document.querySelector('#HeaderWrapper').offsetHeight;
+      const navHeight = nav.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // 检查是否滚动到底部
+      if (scrollTop + windowHeight >= documentHeight - 50) {
+        // 激活最后一项
+        activateNavItem(navItems.length - 1);
+        return;
+      }
+
+      // 获取所有section的位置信息
+      const sections = Array.from(mainContent).map((section) => {
+        const rect = section.getBoundingClientRect();
+        return {
+          element: section,
+          top: rect.top + window.pageYOffset - headerHeight - navHeight,
+          bottom: rect.bottom + window.pageYOffset - headerHeight - navHeight,
+          height: rect.height,
+        };
+      });
+
+      // 使用更精确的检测方法
+      let activeSection = null;
+      const scrollThreshold = 100; // 滚动阈值
+
+      // 检查当前滚动位置是否在某个section范围内
+      sections.forEach((section) => {
+        const sectionTop = section.top - scrollThreshold;
+        const sectionBottom = section.bottom + scrollThreshold;
+
+        if (scrollTop >= sectionTop && scrollTop <= sectionBottom) {
+          activeSection = section;
+        }
+      });
+
+      // 如果没有找到精确匹配的section，使用距离检测
+      if (!activeSection) {
+        let closestSection = null;
+        let minDistance = Infinity;
+
+        sections.forEach((section) => {
+          const sectionCenter = section.top + section.height / 2;
+          const distance = Math.abs(scrollTop + windowHeight / 2 - sectionCenter);
+
+          if (distance < minDistance && distance < windowHeight * 0.8) {
+            minDistance = distance;
+            closestSection = section;
+          }
+        });
+
+        activeSection = closestSection;
+      }
+
+      // 如果找到最接近的section，激活对应的导航项
+      if (activeSection) {
+        const sectionId = '#' + activeSection.element.id;
+        navItems.forEach((item, index) => {
+          if (item.getAttribute('href') === sectionId) {
+            // 避免重复激活
+            if (!item.classList.contains('active')) {
+              activateNavItem(index);
+            }
+          }
+        });
+      } else {
+        // 如果没找到，检查是否在第一个section之前
+        if (sections.length > 0 && scrollTop < sections[0].top) {
+          activateNavItem(0);
+        }
+      }
+    }, 25); // 进一步减少防抖时间，提高响应速度
+
+    // 绑定滚动事件
+    window.addEventListener('scroll', handleScroll, { passive: true }); // 添加 passive 标志提高性能
+
+    // 初始化时触发一次滚动处理
+    handleScroll();
+
+    // 添加调试信息（可选）
+    if (window.location.search.includes('debug=nav')) {
+      console.log('Navigation debug mode enabled');
+      const originalHandleScroll = handleScroll;
+      window.handleScroll = function () {
+        console.log('Scroll detected, sections found:', mainContent.length);
+        originalHandleScroll();
+      };
+    }
+
+    // 点击处理
+    navItems.forEach((item) => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        const id = this.getAttribute('href');
+        const targetSection = document.querySelector(id);
+
+        // 添加调试检查
+        if (!targetSection) {
+          console.error('Target section not found:', id);
+          return;
+        }
+
+        const headerHeight = document.querySelector('#HeaderWrapper')?.offsetHeight || 0;
+        const navHeight = nav.offsetHeight;
+        const navOffset = 20; // 添加额外的偏移量
+
+        // 计算目标位置
+        const targetPosition =
+          targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - navHeight - navOffset;
+
+        // 移除所有active类
+        navItems.forEach((navItem) => navItem.classList.remove('active'));
+        // 添加active类到当前点击项
+        this.classList.add('active');
+
+        // 使用原生平滑滚动
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+
+        // 延迟执行导航栏滚动，等待页面滚动完成
+        setTimeout(() => {
+          const container = document.querySelector('.nav_bar-inner');
+          if (container.scrollWidth > container.offsetWidth) {
+            smoothScrollNav(this, 400);
+          }
+        }, 100);
+      });
+    });
+
+    // 添加触摸滑动支持
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const navInner = document.querySelector('.nav_bar-inner');
+
+    navInner.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    navInner.addEventListener(
+      'touchend',
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      },
+      { passive: true }
+    );
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const swipeDistance = touchEndX - touchStartX;
+
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        const container = navInner;
+        const currentScroll = container.scrollLeft;
+        const containerWidth = container.offsetWidth;
+        const scrollAmount = containerWidth * 0.8; // 滑动距离为容器宽度的80%
+
+        let targetScroll;
+        if (swipeDistance > 0) {
+          // 向右滑动
+          targetScroll = Math.max(0, currentScroll - scrollAmount);
+        } else {
+          // 向左滑动
+          targetScroll = Math.min(container.scrollWidth - containerWidth, currentScroll + scrollAmount);
+        }
+
+        // 使用平滑滚动
+        smoothScrollToPosition(container, targetScroll, 400);
+      }
+    }
+
+    // 平滑滚动到指定位置
+    function smoothScrollToPosition(element, targetPosition, duration = 400) {
+      const startPosition = element.scrollLeft;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
+
+      function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        // 使用更平滑的缓动函数
+        const ease = (t) => {
+          const c1 = 1.70158;
+          const c2 = c1 * 1.525;
+
+          return t < 0.5
+            ? (Math.pow(2 * t, 2) * ((c2 + 1) * 2 * t - c2)) / 2
+            : (Math.pow(2 * t - 2, 2) * ((c2 + 1) * (t * 2 - 2) + c2) + 2) / 2;
+        };
+
+        element.scrollLeft = startPosition + distance * ease(progress);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // 检查导航项总宽度并设置对齐方式
+    function checkNavAlignment() {
+      const navInner = document.querySelector('.nav_bar-inner');
+      const navItems = navInner.querySelectorAll('a');
+      const containerWidth = navInner.offsetWidth;
+
+      // 计算所有导航项的总宽度
+      let totalWidth = 0;
+      navItems.forEach((item) => {
+        totalWidth += item.offsetWidth;
+      });
+
+      // 添加间距
+      totalWidth += (navItems.length - 1) * parseInt(getComputedStyle(navInner).gap);
+
+      // 根据总宽度决定对齐方式
+      if (totalWidth > containerWidth) {
+        navInner.classList.remove('center-aligned');
+        navInner.classList.add('left-aligned');
+      } else {
+        navInner.classList.remove('left-aligned');
+        navInner.classList.add('center-aligned');
+      }
+
+      // 重新调整当前激活项的滚动位置
+      const activeItem = navInner.querySelector('a.active');
+      if (activeItem && navInner.scrollWidth > navInner.offsetWidth) {
+        smoothScrollNav(activeItem, 300);
+      }
+    }
+
+    // 初始化时检查一次
+    checkNavAlignment();
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', debounce(checkNavAlignment, 100));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "SPX Nav Bar",
+  "class": "sticky",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "default": "#fff",
+      "label": "Text color"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_text_button",
+      "label": "使用文字按钮样式",
+      "default": false,
+      "info": "启用后，导航项将显示为文字按钮样式，激活项会有下划线"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "ID"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SPX Nav Bar"
+    }
+  ]
+}
+{% endschema %}
