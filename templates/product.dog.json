@@ -161,6 +161,18 @@
                 "price_tVjtKg"
               ]
             },
+            "review_3QtfXi": {
+              "type": "review",
+              "name": "t:names.product_review_stars",
+              "settings": {
+                "stars_style": "shaded",
+                "show_number": true,
+                "rating_color": "primary",
+                "type_preset": "paragraph",
+                "alignment": "left"
+              },
+              "blocks": {}
+            },
             "divider_VJhene": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -393,6 +405,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "review_3QtfXi",
             "divider_VJhene",
             "text_aEtTtq",
             "variant_picker_R3rGDr",
