@@ -998,6 +998,9 @@
         "image_LgQgn6",
         "group_h7ACjF"
       ],
+      "custom_css": [
+        ".custom-section-content {background: #e6e6e6;}"
+      ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1019,7 +1022,7 @@
         "border_width": 2.5,
         "border_opacity": 100,
         "border_radius": 0,
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#e6e6e6",
         "overlay_style": "solid",
         "gradient_direction": "to top",
@@ -1153,6 +1156,9 @@
         "group_Ctez9R",
         "image_ynfRPN"
       ],
+      "custom_css": [
+        ".custom-section-content {background: #968164;}"
+      ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1174,7 +1180,7 @@
         "border_width": 2.5,
         "border_opacity": 100,
         "border_radius": 0,
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#968164",
         "overlay_style": "solid",
         "gradient_direction": "to top",
@@ -1308,6 +1314,9 @@
         "image_tQcbUA",
         "group_EiM76A"
       ],
+      "custom_css": [
+        ".custom-section-content {background: #e6e6e6;}"
+      ],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1329,7 +1338,7 @@
         "border_width": 2.5,
         "border_opacity": 100,
         "border_radius": 0,
-        "toggle_overlay": true,
+        "toggle_overlay": false,
         "overlay_color": "#e6e6e6",
         "overlay_style": "solid",
         "gradient_direction": "to top",
