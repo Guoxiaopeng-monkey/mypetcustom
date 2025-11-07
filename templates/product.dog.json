@@ -189,7 +189,7 @@
               "type": "text",
               "name": "Product description",
               "settings": {
-                "text": "{{ closest.product.description }}",
+                "text": "<p>{{ closest.product.description }}</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -262,6 +262,7 @@
             "accordion_XUQbcN": {
               "type": "accordion",
               "name": "t:names.accordion",
+              "disabled": true,
               "settings": {
                 "icon": "caret",
                 "dividers": true,
