@@ -471,6 +471,7 @@
         "item_REWY4X",
         "item_33h4qi"
       ],
+      "disabled": true,
       "name": "SPX Nav Bar",
       "settings": {
         "bg": "#ffffff",
