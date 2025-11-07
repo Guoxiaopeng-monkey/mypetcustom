@@ -1003,7 +1003,7 @@
         "text_position": "overlay",
         "block_rounded": 20,
         "show_icon": true,
-        "gap_distance": 20,
+        "gap_distance": 28,
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -1077,7 +1077,7 @@
       "settings": {
         "title": "About Our  customsize",
         "description": "",
-        "button_text": "Learn More",
+        "button_text": "",
         "button_url": "/collections/all"
       }
     },
