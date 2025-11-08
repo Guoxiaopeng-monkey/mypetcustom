@@ -2,7 +2,9 @@
   <div class="mk-newsletter__wrapper mk-container">
     <div class="mk-newsletter__content">
       {% if section.settings.title != blank %}
-        <h2 class="mk-newsletter__title">{{ section.settings.title }}</h2>
+        <h2 class="mk-newsletter__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+          {{ section.settings.title }}
+        </h2>
       {% endif %}
       {% if section.settings.description != blank %}
         <div class="mk-newsletter__description">{{ section.settings.description }}</div>
@@ -77,7 +79,6 @@
   }
 
   .mk-newsletter__title {
-    font-size: 42px;
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 16px 0;
@@ -231,9 +232,6 @@
       border-radius: 16px;
     }
 
-    .mk-newsletter__title {
-      font-size: 28px;
-    }
 
     .mk-newsletter__description {
       font-size: 15px;
@@ -263,6 +261,74 @@
       "id": "title",
       "label": "标题",
       "default": "Join our email list"
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
     },
     {
       "type": "richtext",

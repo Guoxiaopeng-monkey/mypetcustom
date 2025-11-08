@@ -35,7 +35,6 @@
     margin: 0 auto;
   }
   .grid-layout-title{
-    font-size: 36px;
     font-weight: 700;
     margin-bottom: 40px;
   }
@@ -125,7 +124,6 @@
 
 
     .grid-layout-title{
-      font-size: 14px;
       font-weight: 700;
       margin-bottom: 20px;
     }
@@ -150,7 +148,9 @@
 
 <div class="grid-layout spx-container grid-layout-{{ section.id }} section">
   {% if section.settings.title != blank %}
-    <h2 class="grid-layout-title {{ section.settings.layout }}">{{ section.settings.title }}</h2>
+    <h2 class="grid-layout-title {{ section.settings.layout }} text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+      {{ section.settings.title }}
+    </h2>
   {% endif %}
   <div class="grid-layout-content page-width">
     {% for block in section.blocks %}
@@ -173,6 +173,74 @@
       "type": "text",
       "id": "title",
       "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
     },
     {
       "type": "select",

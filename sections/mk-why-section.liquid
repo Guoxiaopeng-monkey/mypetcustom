@@ -1,6 +1,8 @@
 <section class="mk-why-section" data-section-id="{{ section.id }}">
   <div class="mk-container">
-    <h2 class="mk-why-section__title">{{ section.settings.title | default: 'Why Buy Bulk From Us?' }}</h2>
+    <h2 class="mk-why-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+      {{ section.settings.title | default: 'Why Buy Bulk From Us?' }}
+    </h2>
 
     <div class="mk-why-grid">
       {% for block in section.blocks %}
@@ -18,7 +20,6 @@
     padding:120px 0;
   }
   .mk-why-section__title{
-    font-size: 40px;
     font-weight: 600;
     line-height: 110%;
     letter-spacing: -0.4px;
@@ -48,7 +49,6 @@
       margin:0;
     }
     .mk-why-section__title{
-      font-size: 26px;
       max-width:calc(100% - 40px);
       margin:0 auto;
     }
@@ -78,6 +78,66 @@
       "id": "background_color",
       "label": "Background Color",
       "default": "#f9f9f9"
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        }
+      ],
+      "default": "32"
     }
   ],
   "blocks": [
