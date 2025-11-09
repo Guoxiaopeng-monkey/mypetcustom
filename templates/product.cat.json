@@ -588,7 +588,7 @@
           "type": "imageText",
           "settings": {
             "image_pc": "shopify://shop_images/20251107093201_3707_5.jpg",
-            "image_ratio": "1/1",
+            "image_ratio": "auto",
             "handle": "Base Shaping",
             "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
             "link": "",
@@ -596,7 +596,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 7,
+            "horizontal_grid_mb": 12,
             "vertical_grid_mb": 3
           }
         },
@@ -612,7 +612,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 5,
+            "horizontal_grid_mb": 6,
             "vertical_grid_mb": 1
           }
         },
@@ -628,7 +628,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 5,
+            "horizontal_grid_mb": 6,
             "vertical_grid_mb": 1
           }
         }
