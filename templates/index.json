@@ -15,7 +15,9 @@
         "cus_heading_3GUk8j": {
           "type": "cus_heading",
           "settings": {
-            "heading": "<h1>My Pet Felt Custom</h1>"
+            "heading": "<h1>My Pet Felt Custom</h1>",
+            "title_size_pc": "48",
+            "title_size_mb": "36"
           }
         },
         "cus_description_JGWpdT": {
@@ -37,6 +39,7 @@
         "cus_description_JGWpdT",
         "cus_button_CkH4qY"
       ],
+      "custom_css": [],
       "name": "MK Image Banner",
       "settings": {
         "image": "shopify://shop_images/1.jpg",
@@ -55,6 +58,9 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
@@ -81,6 +87,9 @@
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
             "type_preset": "h5",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
@@ -249,7 +258,10 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h6",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -274,9 +286,12 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "0.625rem",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -400,7 +415,10 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h6",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -425,9 +443,12 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "0.625rem",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -554,6 +575,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "h5",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -579,6 +603,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -705,7 +732,10 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h6",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -730,9 +760,12 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "0.625rem",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -856,7 +889,10 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h6",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -877,13 +913,16 @@
                 "text_qex6NB": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Handwritten card & 100% Secure</p>",
+                    "text": "<p>Handwritten card</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "0.625rem",
+                    "font_size": "0.875rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -918,6 +957,9 @@
         "group_MLW9B7",
         "group_GtLN7H",
         "group_Ef8UWY"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {{display: none; }}"
       ],
       "name": "t:names.icons_with_text",
       "settings": {
@@ -974,7 +1016,7 @@
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
-            "link": "",
+            "link": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend",
             "color": "#000000",
             "text_alignment": "left",
             "horizontal_grid": 6,
@@ -990,53 +1032,95 @@
       ],
       "name": "SPX Image Grid 1",
       "settings": {
-        "title": "",
-        "layout": "title-left",
-        "title_color": "#f47c20",
+        "title": "Custom Felt Creations by Pet Type",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "layout": "title-center",
+        "title_color": "#000000",
         "block_back": "#dddddd",
         "text_position": "overlay",
         "block_rounded": 20,
         "show_icon": true,
-        "gap_distance": 20,
+        "gap_distance": 28,
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "mk_newsletter_KGPkYg": {
+      "type": "mk-newsletter",
+      "name": "MK Newsletter",
+      "settings": {
+        "title": "Join our email list",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": "<p>Get exclusive deals and early access to new products.</p>",
+        "email_placeholder": "Enter your email",
+        "button_text": "Subscribe",
+        "show_guide": true,
+        "guide_text": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>",
+        "success_message": "Thank you for subscribing!",
+        "image": "shopify://shop_images/Frame_1000008821.png",
+        "background_color": "#f8f9fa",
+        "background_color_secondary": "#ffffff",
+        "title_color": "#1a1a1a",
+        "description_color": "#666666",
+        "accent_color": "#7c9fbb",
+        "accent_color_hover": "#576173",
+        "image_opacity": 100
       }
     },
     "mk_photos_pPFcTr": {
       "type": "mk-photos",
       "blocks": {
-        "mk_photo_item_pUFfgn": {
+        "mk_photo_item_TkMH3w": {
           "type": "mk-photo-item",
           "settings": {
-            "image": "shopify://shop_images/bg-banner.jpg",
-            "alt_text": ""
-          }
-        },
-        "mk_photo_item_6pHCkb": {
-          "type": "mk-photo-item",
-          "settings": {
-            "image": "shopify://shop_images/WPS_20251018193741.png",
+            "image": "shopify://shop_images/20251105204951_388_22.jpg",
             "alt_text": ""
           }
         },
         "mk_photo_item_9fBW9k": {
           "type": "mk-photo-item",
           "settings": {
-            "image": "shopify://shop_images/1024-768-A3.jpg",
+            "image": "shopify://shop_images/20251105205230_389_22.jpg",
+            "alt_text": ""
+          }
+        },
+        "mk_photo_item_pUFfgn": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/20251105204949_386_22.jpg",
+            "alt_text": ""
+          }
+        },
+        "mk_photo_item_6pHCkb": {
+          "type": "mk-photo-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/20251105204948_385_22.jpg",
+            "alt_text": ""
+          }
+        },
+        "mk_photo_item_LGEN6c": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/20251105204950_387_22.jpg",
             "alt_text": ""
           }
         }
       },
       "block_order": [
+        "mk_photo_item_TkMH3w",
+        "mk_photo_item_9fBW9k",
         "mk_photo_item_pUFfgn",
         "mk_photo_item_6pHCkb",
-        "mk_photo_item_9fBW9k"
+        "mk_photo_item_LGEN6c"
       ],
       "name": "MK Photos",
       "settings": {
         "title": "About Our  customsize",
         "description": "",
-        "button_text": "Learn More",
+        "button_text": "",
         "button_url": "/collections/all"
       }
     },
@@ -1097,6 +1181,8 @@
       "name": "mk FAQ With Image",
       "settings": {
         "title": "Faq",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
         "description": "Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et",
         "background_color": "#ffffff",
         "padding_top": 60,
@@ -1152,7 +1238,9 @@
       "name": "MK Why Choose Us",
       "settings": {
         "title": "Why Buy Bulk From Us?",
-        "background_color": "#f9f9f9"
+        "background_color": "#f9f9f9",
+        "title_size_pc": "48",
+        "title_size_mb": "32"
       }
     },
     "mk_step_section_dJPPJD": {
@@ -1212,16 +1300,20 @@
       "name": "MK Step Section",
       "settings": {
         "title": "How It Works",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
         "icon_bg_color": "#e8f5e9",
-        "text_color": "#000000"
+        "text_color": "#000000",
+        "display_index": true
       }
-    },
+    }
   },
   "order": [
     "mk_image_banner_DLwfQM",
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ",
+    "mk_newsletter_KGPkYg",
     "mk_photos_pPFcTr",
     "mk_faq_image_6EwdjG",
     "mk_why_section_atYRGD",

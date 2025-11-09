@@ -38,6 +38,16 @@
       padding: 120px 0 40px 0;
       justify-content: flex-start;
     }
+    .mk-image-banner {
+      width: 100vw;
+      max-height: 550px;
+    }
+    .mk-image-banner-image img {
+      min-height: 0;
+      max-height: 550px;
+      min-width: 100%;
+      object-fit: cover;
+    }
   }
 </style>
 
@@ -66,7 +76,7 @@
       {% for block in section.blocks %}
         {% case block.type %}
           {% when 'cus_heading' %}
-            <div class="mk-image-banner-heading color-{{ block.settings.color_scheme }}">
+            <div class="mk-image-banner-heading color-{{ block.settings.color_scheme }} text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mb }}">
               {{ block.settings.heading }}
             </div>
           {% when 'cus_description' %}
@@ -120,9 +130,70 @@
           "type": "richtext",
           "id": "heading",
           "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "title_size_pc",
+          "label": "Title Size PC",
+          "options": [
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "32",
+              "label": "32"
+            },
+            {
+              "value": "36",
+              "label": "36"
+            },
+            {
+              "value": "40",
+              "label": "40"
+            },
+            {
+              "value": "48",
+              "label": "48"
+            }
+          ],
+          "default": "48"
+        },
+        {
+          "type": "select",
+          "id": "title_size_mb",
+          "label": "Title Size Mobile",
+          "options": [
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "32",
+              "label": "32"
+            },
+            {
+              "value": "36",
+              "label": "36"
+            },
+            {
+              "value": "40",
+              "label": "40"
+            }
+          ],
+          "default": "32"
         }
       ]
     },
+
     {
       "type": "cus_description",
       "name": "description",

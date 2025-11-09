@@ -9,8 +9,11 @@
     margin: 0 auto;
 }
 
+.mk-faq-header h2 {
+    width: 100%;
+}
+
 .mk-faq-title {
-    font-size: 36px;
     font-weight: 600;
     line-height: normal;
 }
@@ -102,11 +105,6 @@
         gap: 8px;
         justify-content: flex-start;
         align-items: flex-start;
-        text-align: left;
-    }
-
-    .mk-faq-title {
-        font-size: 24px;
     }
 
     .mk-faq-description {

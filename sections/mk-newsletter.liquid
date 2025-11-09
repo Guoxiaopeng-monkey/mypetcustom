@@ -1,0 +1,511 @@
+<section class="mk-newsletter" data-section-id="{{ section.id }}">
+  <div class="mk-newsletter__wrapper mk-container">
+    <div class="mk-newsletter__info">
+      {% if section.settings.title != blank %}
+        <h2 class="mk-newsletter__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <div class="mk-newsletter__description">{{ section.settings.description }}</div>
+      {% endif %}
+    </div>
+    <div class="mk-newsletter__content">
+      <div class="mk-newsletter__form">
+        {% form 'customer', class: 'mk-newsletter-form' %}
+          <div class="mk-newsletter-form__group">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="{{ section.settings.email_placeholder | default: 'Enter your email' }}"
+              class="mk-newsletter-form__input"
+              required
+              aria-label="Email address"
+            >
+            <button type="submit" class="mk-newsletter-form__button">
+              {{ section.settings.button_text | default: 'Subscribe' }}
+            </button>
+          </div>
+          {% if form.posted_successfully? %}
+            <div class="mk-newsletter-form__success">
+              {{ section.settings.success_message | default: 'Thank you for subscribing!' }}
+            </div>
+          {% endif %}
+          {% if section.settings.show_guide %}
+            <label class="mk-newsletter-form__guide">
+              <input
+                type="checkbox"
+                name="newsletter_guide_consent"
+                class="mk-newsletter-form__guide-checkbox"
+                required
+              >
+              <div class="mk-newsletter-form__guide-text">
+                {{ section.settings.guide_text }}
+              </div>
+            </label>
+          {% endif %}
+          {% if form.errors %}
+            <div class="mk-newsletter-form__error">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+        {% endform %}
+      </div>
+    </div>
+
+    {% if section.settings.image != blank %}
+      <div class="mk-newsletter__image">
+        <picture>
+          <source
+            srcset="{{ section.settings.image_mobile | default: section.settings.image | image_url: width: 1000 }}"
+            media="(max-width: 768px)"
+          >
+          <img
+            src="{{ section.settings.image | image_url: width: 1000 }}"
+            alt="{{ section.settings.image.alt | escape }}"
+            width="1000"
+            height="1000"
+            loading="lazy"
+            class="mk-newsletter__image-img"
+          >
+        </picture>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .mk-newsletter {
+    margin:60px 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, {{ section.settings.background_color | default: '#f8f9fa' }} 0%, {{ section.settings.background_color_secondary | default: '#ffffff' }} 100%);
+  }
+
+  .mk-newsletter__wrapper {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .mk-newsletter__info {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+  }
+
+  .mk-newsletter__content {
+    padding: 40px ;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mk-newsletter__title {
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    color: {{ section.settings.title_color | default: '#1a1a1a' }};
+    letter-spacing: -0.5px;
+  }
+
+  .mk-newsletter__description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: {{ section.settings.description_color | default: '#666666' }};
+    margin-bottom: 32px;
+  }
+
+  .mk-newsletter__description p {
+    margin: 0;
+  }
+
+  .mk-newsletter-form__group {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  .mk-newsletter-form__input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 2px solid #e0e0e0;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #1a1a1a;
+  }
+
+  .mk-newsletter-form__input:focus {
+    border-color: {{ section.settings.accent_color | default: '#4a90e2' }};
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+  }
+
+  .mk-newsletter-form__input::placeholder {
+    color: #999999;
+  }
+
+  .mk-newsletter-form__button {
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: {{ section.settings.accent_color | default: '#4a90e2' }};
+    border: none;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mk-newsletter-form__guide {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 16px;
+    cursor: pointer;
+    color: #1a1a1a;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .mk-newsletter-form__guide-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    accent-color: {{ section.settings.accent_color | default: '#4a90e2' }};
+  }
+
+  .mk-newsletter-form__guide-text {
+    flex: 1;
+  }
+
+  .mk-newsletter-form__guide-text p {
+    margin: 0;
+  }
+
+  .mk-newsletter-form__button:hover {
+    background: {{ section.settings.accent_color_hover | default: '#357abd' }};
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+  }
+
+  .mk-newsletter-form__button:active {
+    transform: translateY(0);
+  }
+
+  .mk-newsletter-form__success {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid #c3e6cb;
+  }
+
+  .mk-newsletter-form__error {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 1px solid #f5c6cb;
+  }
+
+  .mk-newsletter__image {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .mk-newsletter__image picture{
+    width: 100%;
+    height: 100%;
+  }
+
+  .mk-newsletter__image-img {
+    width: 100%;
+    height: 100%;
+    padding: 0 40px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    opacity: {{ section.settings.image_opacity | default: 100 | times: 0.01 }};
+    transition: opacity 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .mk-newsletter{
+      margin:40px 0;
+    }
+    .mk-newsletter__wrapper {
+      grid-template-columns: 1fr;
+      gap: 0px;
+    }
+
+    .mk-newsletter__content {
+      padding: 32px 24px;
+      border-radius: 20px;
+    }
+
+    .mk-newsletter__title {
+      font-size: 32px;
+    }
+
+    .mk-newsletter__description {
+      font-size: 16px;
+    }
+
+    .mk-newsletter-form__group {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mk-newsletter-form__input {
+      min-width: 100%;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+    }
+
+    .mk-newsletter-form__button {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .mk-newsletter-form__guide {
+      font-size: 13px;
+    }
+
+    .mk-newsletter__image-img{
+      padding: 0 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .mk-newsletter__wrapper {
+      padding: 40px 16px;
+    }
+
+    .mk-newsletter__content {
+      padding: 24px 20px;
+      border-radius: 16px;
+    }
+
+
+    .mk-newsletter__description {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .mk-newsletter-form__input {
+      padding: 14px 16px;
+      font-size: 15px;
+      border-radius: 10px;
+    }
+
+    .mk-newsletter-form__button {
+      padding: 14px 24px;
+      font-size: 15px;
+      border-radius: 10px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "MK Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "Join our email list"
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "描述",
+      "default": "<p>Get exclusive deals and early access to new products.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "邮箱输入框占位符",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "按钮文字",
+      "default": "Subscribe"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guide",
+      "label": "显示订阅文案",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "guide_text",
+      "label": "订阅提示文案",
+      "visible_if": "{{ section.settings.show_guide }}",
+      "default": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "成功提示信息",
+      "default": "Thank you for subscribing!"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "图片（移动端）"
+    },
+    {
+      "type": "header",
+      "content": "颜色设置"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "背景颜色（主）",
+      "default": "#f8f9fa"
+    },
+    {
+      "type": "color",
+      "id": "background_color_secondary",
+      "label": "背景颜色（次）",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "标题颜色",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "描述颜色",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "强调色（按钮）",
+      "default": "#7C9FBB"
+    },
+    {
+      "type": "color",
+      "id": "accent_color_hover",
+      "label": "强调色（悬停）",
+      "default": "#576173"
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "label": "图片不透明度",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Newsletter"
+    }
+  ]
+}
+{% endschema %}

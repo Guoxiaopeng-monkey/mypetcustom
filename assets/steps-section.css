@@ -1,12 +1,11 @@
 /* assets/steps-section.css */
 .steps-section {
-    margin: 120px auto;
+    margin: 60px auto;
     background-color: #fff;
 }
 
 .steps-section__title {
     text-align: center;
-    font-size: 40px;
     font-weight: 600;
     margin-bottom: 80px;
     color: #000;
@@ -60,6 +59,8 @@
 .step-item__icon img {
     width: 100%;
     height: 100%;
+    max-width: 72px;
+    max-height: 72px;
     object-fit: contain;
 }
 
@@ -98,10 +99,37 @@
     font-size: 16px;
 }
 
+.mk-step-section-index .step-item__icon {
+    background-color: var(--icon-bg-color, #fff);
+    border: 1px solid #000;
+}
+
+
+
+.step-item__index {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 600;
+    color: #000;
+    position: absolute;
+    padding: 4px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: var(--icon-bg-color, #fff);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .steps-section {
-        margin: 48px 0;
+        margin: 40px 0;
         padding: 0 20px;
     }
 
@@ -112,7 +140,6 @@
     }
 
     .steps-section__title {
-        font-size: 26px;
         margin-bottom: 20px;
         text-align: left;
     }
@@ -129,6 +156,11 @@
     .step-item__icon {
         width: 60px;
         height: 60px;
+    }
+
+    .step-item__icon img {
+        max-width: 36px;
+        max-height: 36px;
     }
 
     .step-item__content {
@@ -152,5 +184,13 @@
                 #bdc3c7 6px,
                 transparent 6px,
                 transparent 10px);
+    }
+
+    .step-item__index {
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
     }
 }

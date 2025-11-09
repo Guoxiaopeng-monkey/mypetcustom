@@ -1,10 +1,15 @@
 <!-- sections/steps-section.liquid -->
 {{ 'steps-section.css' | asset_url | stylesheet_tag }}
 
-<div class="steps-section mk-container" id="section-{{ section.id }}">
+<div
+  class="steps-section mk-container {% if section.settings.display_index %}mk-step-section-index{% endif %}"
+  id="section-{{ section.id }}"
+>
   <div class="page-width">
     {%- if section.settings.title != blank -%}
-      <h2 class="steps-section__title">{{ section.settings.title }}</h2>
+      <h2 class="steps-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+        {{ section.settings.title }}
+      </h2>
     {%- endif -%}
 
     <div class="steps-container">
@@ -32,6 +37,74 @@
       "default": "How It Works"
     },
     {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
+    },
+    {
       "type": "color",
       "id": "icon_bg_color",
       "label": "图标背景色",
@@ -42,6 +115,12 @@
       "id": "text_color",
       "label": "文字颜色",
       "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_index",
+      "label": "Display Index",
+      "default": false
     }
   ],
   "max_blocks": 6,

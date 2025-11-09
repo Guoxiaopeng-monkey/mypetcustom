@@ -1,12 +1,15 @@
-
-
 {%- doc -%}
   Renders a heading block.
 
   @param {string} text
 {%- enddoc -%}
 
-{% render 'text', width: '100%', block: block, fallback_text: text %}
+{% render 'text',
+  width: '100%',
+  block: block,
+  fallback_text: text,
+  class: 'text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mb }}'
+%}
 
 {% # theme-check-disable %}
 {% schema %}
@@ -14,6 +17,82 @@
   "name": "t:names.heading",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_default_setting",
+      "label": "Is Default Setting",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "visible_if": "{{ block.settings.is_default_setting == false }}",
+      "options": [
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "visible_if": "{{ block.settings.is_default_setting == false }}",
+      "options": [
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
+    },
     {
       "type": "select",
       "id": "type_preset",
@@ -57,7 +136,8 @@
         }
       ],
       "default": "rte",
-      "info": "t:info.edit_presets_in_theme_settings"
+      "info": "t:info.edit_presets_in_theme_settings",
+      "visible_if": "{{ block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",

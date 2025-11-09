@@ -1518,6 +1518,57 @@ details[open]>summary .icon-plus .vertical,
   opacity: 0;
 }
 
+.product-description-block {
+  display: block;
+  position: relative;
+}
+
+.product-description-block__content {
+  position: relative;
+  overflow: hidden;
+  transition: max-height var(--animation-speed, 300ms) var(--animation-easing, ease-in-out);
+}
+
+.product-description-block__content::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: 4rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--color-background));
+  opacity: 0;
+  transition: opacity var(--animation-speed, 300ms) var(--animation-easing, ease-in-out);
+}
+
+.product-description-block[data-expanded='false'][data-has-overflow='true'] .product-description-block__content::after {
+  opacity: 1;
+}
+
+.product-description-block__toggle {
+  margin-block-start: var(--gap-xs);
+}
+
+.product-description-block__label--less {
+  display: none;
+}
+
+.product-description-block[data-expanded='true'] .product-description-block__label--less {
+  display: inline;
+}
+
+.product-description-block[data-expanded='true'] .product-description-block__label--more {
+  display: none;
+}
+
+.product-description-block__icon svg {
+  transition: transform var(--animation-speed, 300ms) var(--animation-easing, ease-in-out);
+}
+
+.product-description-block[data-expanded='true'] .product-description-block__icon svg {
+  transform: rotate(180deg);
+}
+
 /* Product Media */
 media-gallery {
   display: block;
@@ -4332,5 +4383,143 @@ product-price>div {
 
   product-price>div {
     flex-wrap: wrap;
+  }
+}
+
+/* 字体大小 */
+.text-20 {
+  font-size: 20px;
+}
+
+.text-24,
+.text-24 h1,
+.text-24 h2,
+.text-24 h3,
+.text-24 h4,
+.text-24 h5,
+.text-24 h6 {
+  font-size: 24px;
+}
+
+.text-28,
+.text-28 h1,
+.text-28 h2,
+.text-28 h3,
+.text-28 h4,
+.text-28 h5,
+.text-28 h6 {
+  font-size: 28px;
+}
+
+.text-32,
+.text-32 h1,
+.text-32 h2,
+.text-32 h3,
+.text-32 h4,
+.text-32 h5,
+.text-32 h6 {
+  font-size: 32px;
+}
+
+.text-36,
+.text-36 h1,
+.text-36 h2,
+.text-36 h3,
+.text-36 h4,
+.text-36 h5,
+.text-36 h6 {
+  font-size: 36px;
+}
+
+.text-40,
+.text-40 h1,
+.text-40 h2,
+.text-40 h3,
+.text-40 h4,
+.text-40 h5,
+.text-40 h6 {
+  font-size: 40px;
+}
+
+.text-48,
+.text-48 h1,
+.text-48 h2,
+.text-48 h3,
+.text-48 h4,
+.text-48 h5,
+.text-48 h6 {
+  font-size: 48px;
+}
+
+@media screen and (max-width: 749px) {
+
+  .md\:text-20,
+  .md\:text-20 h1,
+  .md\:text-20 h2,
+  .md\:text-20 h3,
+  .md\:text-20 h4,
+  .md\:text-20 h5,
+  .md\:text-20 h6 {
+    font-size: 20px;
+  }
+
+  .md\:text-24,
+  .md\:text-24 h1,
+  .md\:text-24 h2,
+  .md\:text-24 h3,
+  .md\:text-24 h4,
+  .md\:text-24 h5,
+  .md\:text-24 h6 {
+    font-size: 24px;
+  }
+
+  .md\:text-28,
+  .md\:text-28 h1,
+  .md\:text-28 h2,
+  .md\:text-28 h3,
+  .md\:text-28 h4,
+  .md\:text-28 h5,
+  .md\:text-28 h6 {
+    font-size: 28px;
+  }
+
+  .md\:text-32,
+  .md\:text-32 h1,
+  .md\:text-32 h2,
+  .md\:text-32 h3,
+  .md\:text-32 h4,
+  .md\:text-32 h5,
+  .md\:text-32 h6 {
+    font-size: 32px;
+  }
+
+  .md\:text-36,
+  .md\:text-36 h1,
+  .md\:text-36 h2,
+  .md\:text-36 h3,
+  .md\:text-36 h4,
+  .md\:text-36 h5,
+  .md\:text-36 h6 {
+    font-size: 36px;
+  }
+
+  .md\:text-40,
+  .md\:text-40 h1,
+  .md\:text-40 h2,
+  .md\:text-40 h3,
+  .md\:text-40 h4,
+  .md\:text-40 h5,
+  .md\:text-40 h6 {
+    font-size: 40px;
+  }
+
+  .md\:text-48,
+  .md\:text-48 h1,
+  .md\:text-48 h2,
+  .md\:text-48 h3,
+  .md\:text-48 h4,
+  .md\:text-48 h5,
+  .md\:text-48 h6 {
+    font-size: 48px;
   }
 }

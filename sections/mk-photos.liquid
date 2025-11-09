@@ -4,7 +4,7 @@
   defer="defer"
 ></script>
 
-<div class="mk-photos mk-container shopify-section">
+<div class="mk-photos mk-container ">
   <div class="mk-photos-header">
     {% if section.settings.title != blank %}
       <h2 class="mk-photos-title">{{ section.settings.title }}</h2>
@@ -114,10 +114,11 @@
 
 <style>
   .mk-photos {
-    padding: 80px 40px;
     display: flex;
     align-items: center;
     gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .mk-photos-header {
@@ -197,28 +198,6 @@
 
   /* 导航按钮已移除 */
 
-  /* 分页器样式 */
-  .mk-photos-pagination {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  .mk-photos-pagination .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
-    opacity: 1;
-    transition: all 0.3s ease;
-  }
-
-  .mk-photos-pagination .swiper-pagination-bullet-active {
-    background-color: white;
-    transform: scale(1.2);
-  }
-
   /* 响应式设计 */
   @media (max-width: 768px) {
     .mk-photos {
@@ -226,80 +205,79 @@
     }
     .mk-photos-header {
       text-align: center;
-      margin-bottom: 40px;
       flex-basis: 100%;
+      margin-bottom: 0;
     }
     .mk-photos-title {
       font-size: 32px;
       margin-bottom: 10px;
     }
     .mk-photos-content {
-      flex-basis: 100%;
+      position: relative;
+      width: calc(100% + 20px);
+    }
+    .mk-photos-swiper .swiper-slide {
+      width: auto;
+      aspect-ratio: 4 / 3;
+    }
+    .mk-photo-item {
+      box-shadow: none;
+    }
+    .mk-photo-image {
+      border-radius: 16px;
     }
   }
 </style>
 
 <script>
-  // 等待Swiper加载的函数
-  function waitForSwiper() {
-    if (typeof Swiper !== 'undefined') {
-      initMkPhotosSwiper();
-    } else {
-      setTimeout(waitForSwiper, 100);
-    }
-  }
+  (function () {
+    let mkPhotosSwiperInstance = null;
+    const breakpoint = window.matchMedia('(max-width: 768px)');
 
-  function initMkPhotosSwiper() {
-    const mkPhotosSwiper = new Swiper('.mk-photos-swiper', {
-      // 使用cards效果
+    const desktopConfig = {
       effect: 'cards',
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: 'auto',
       loop: true,
       loopAdditionalSlides: 1,
-      initialSlide: 0, // 明确设置初始幻灯片为第一张
-
-      // Cards效果配置
+      initialSlide: 0,
       cardsEffect: {
         rotate: true,
         perSlideOffset: 12,
-        perSlideRotate: 2, // 非激活卡片带一点角度
+        perSlideRotate: 2,
         slideShadows: true,
       },
+    };
 
-      // 分页器
-      pagination: {
-        el: '.mk-photos-pagination',
-        clickable: true,
-        dynamicBullets: true,
-      },
+    const mobileConfig = {
+      effect: 'slide',
+      grabCursor: true,
+      centeredSlides: false,
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+      loop: true,
+      loopAdditionalSlides: 0,
+      initialSlide: 0,
+    };
 
-      // 事件回调
-      on: {
-        init: function () {
-          console.log('MK Photos Swiper initialized');
-          console.log('Initial slide:', this.activeIndex);
-          // 确保从第一张开始
-          this.slideTo(0, 0);
-        },
-        slideChange: function () {
-          console.log('Slide changed to:', this.activeIndex);
-        },
-        loopFix: function () {
-          console.log('Loop fix applied, current index:', this.activeIndex);
-        },
-      },
+    function initMkPhotosSwiper() {
+      if (typeof Swiper === 'undefined') {
+        setTimeout(initMkPhotosSwiper, 100);
+        return;
+      }
+
+      if (mkPhotosSwiperInstance) {
+        mkPhotosSwiperInstance.destroy(true, true);
+      }
+
+      const config = breakpoint.matches ? mobileConfig : desktopConfig;
+      mkPhotosSwiperInstance = new Swiper('.mk-photos-swiper', config);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initMkPhotosSwiper();
+      breakpoint.addEventListener('change', initMkPhotosSwiper);
     });
-
-    // Cards效果会自动处理堆叠
-  }
-
-  // 页面加载完成后初始化
-  document.addEventListener('DOMContentLoaded', function () {
-    // 延迟一点时间确保DOM完全渲染
-    setTimeout(() => {
-      waitForSwiper();
-    }, 100);
-  });
+  })();
 </script>
