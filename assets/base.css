@@ -4387,9 +4387,47 @@ product-price>div {
 }
 
 /* 字体大小 */
-.text-20 {
+.text-16,
+.text-16 h1,
+.text-16 h2,
+.text-16 h3,
+.text-16 h4,
+.text-16 h5,
+.text-16 h6 {
+  font-size: 16px;
+}
+
+.text-18,
+.text-18 h1,
+.text-18 h2,
+.text-18 h3,
+.text-18 h4,
+.text-18 h5,
+.text-18 h6 {
+  font-size: 18px;
+}
+
+.text-20,
+.text-20 h1,
+.text-20 h2,
+.text-20 h3,
+.text-20 h4,
+.text-20 h5,
+.text-20 h6 {
   font-size: 20px;
 }
+
+.text-22,
+.text-22 h1,
+.text-22 h2,
+.text-22 h3,
+.text-22 h4,
+.text-22 h5,
+.text-22 h6 {
+  font-size: 22px;
+}
+
+
 
 .text-24,
 .text-24 h1,
@@ -4452,6 +4490,46 @@ product-price>div {
 }
 
 @media screen and (max-width: 749px) {
+
+  .md\:text-14,
+  .md\:text-14 h1,
+  .md\:text-14 h2,
+  .md\:text-14 h3,
+  .md\:text-14 h4,
+  .md\:text-14 h5,
+  .md\:text-14 h6 {
+    font-size: 14px;
+  }
+
+  .md\:text-16,
+  .md\:text-16 h1,
+  .md\:text-16 h2,
+  .md\:text-16 h3,
+  .md\:text-16 h4,
+  .md\:text-16 h5,
+  .md\:text-16 h6 {
+    font-size: 16px;
+  }
+
+  .md\:text-18,
+  .md\:text-18 h1,
+  .md\:text-18 h2,
+  .md\:text-18 h3,
+  .md\:text-18 h4,
+  .md\:text-18 h5,
+  .md\:text-18 h6 {
+    font-size: 18px;
+  }
+
+  .md\:text-22,
+  .md\:text-22 h1,
+  .md\:text-22 h2,
+  .md\:text-22 h3,
+  .md\:text-22 h4,
+  .md\:text-22 h5,
+  .md\:text-22 h6 {
+    font-size: 22px;
+  }
 
   .md\:text-20,
   .md\:text-20 h1,
