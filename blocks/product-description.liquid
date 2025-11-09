@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign product = block.settings.product
   if request.visual_preview_mode and product == blank
@@ -7,8 +5,33 @@
     assign text = product.description
   endif
 %}
-
-{% render 'text', fallback_text: text, block: block %}
+<product-description-block
+  class="product-description-block"
+  data-line-clamp="5"
+>
+  <div
+    class="product-description-block__content"
+    id="ProductDescriptionContent-{{ block.id }}"
+    ref="content"
+  >
+    {% render 'text', fallback_text: text, block: block %}
+  </div>
+  <button
+    class="product-description-block__toggle button-unstyled button-unstyled--with-icon"
+    type="button"
+    ref="toggle"
+    aria-expanded="false"
+    aria-controls="ProductDescriptionContent-{{ block.id }}"
+    hidden
+    on:click="/toggleDescription"
+  >
+    <span class="product-description-block__label product-description-block__label--more">View More</span>
+    <span class="product-description-block__label product-description-block__label--less">View Less</span>
+    <span class="product-description-block__icon" aria-hidden="true">
+      {{ 'icon-expand.svg' | inline_asset_content }}
+    </span>
+  </button>
+</product-description-block>
 
 {% schema %}
 {
