@@ -1318,6 +1318,9 @@
         "step_cb9yxA",
         "step_VmTTAj"
       ],
+      "custom_css": [
+        "@media(max-width:768px){{display: none !important; }}"
+      ],
       "name": "MK Step Section",
       "settings": {
         "title": "How It Works",
