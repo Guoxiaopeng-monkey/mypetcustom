@@ -19,6 +19,9 @@
         {{ block.settings.title | slice: 0 }}
       </div>
     {%- endif -%}
+    {% if section.settings.display_index %}
+      <div class="step-item__index">{{ index }}</div>
+    {% endif %}
   </div>
 
   <div class="step-item__content">

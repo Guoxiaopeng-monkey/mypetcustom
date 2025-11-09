@@ -97,6 +97,33 @@
     font-size: 16px;
 }
 
+.mk-step-section-index .step-item__icon {
+    background-color: var(--icon-bg-color, #fff);
+    border: 1px solid #000;
+}
+
+
+
+.step-item__index {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 600;
+    color: #000;
+    position: absolute;
+    padding: 4px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: var(--icon-bg-color, #fff);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .steps-section {
