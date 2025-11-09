@@ -441,8 +441,8 @@
         "padding-block-end": 40
       }
     },
-    "mk_mav_iAzTzt": {
-      "type": "mk-mav",
+    "mk_nav_iAzTzt": {
+      "type": "mk-nav",
       "blocks": {
         "item_WdgTyQ": {
           "type": "item",
@@ -2221,7 +2221,7 @@
   "order": [
     "main",
     "divider_aPhdja",
-    "mk_mav_iAzTzt",
+    "mk_nav_iAzTzt",
     "section_kEjVpi",
     "section_PTdzmA",
     "section_UkWK9x",
