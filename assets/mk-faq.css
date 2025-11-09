@@ -65,7 +65,6 @@
 .mk-faq-item-answer {
     display: none;
     padding-top: 12px;
-    font-size: 14px;
 }
 
 .mk-faq-item-label {
@@ -130,6 +129,6 @@
     }
 
     .mk-faq-item-label-text {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
