@@ -420,7 +420,7 @@
                     "title_size_mb": "32",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "font_size": "1.125rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -1182,7 +1182,7 @@
         "title": "Frequently Asked Questions",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "description": "Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et",
+        "description": "",
         "background_color": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
