@@ -37,9 +37,7 @@
         "cus_description_JGWpdT",
         "cus_button_CkH4qY"
       ],
-      "custom_css": [
-        "@media (max-width: 768px) {{max-height: 450px; }}"
-      ],
+      "custom_css": [],
       "name": "MK Image Banner",
       "settings": {
         "image": "shopify://shop_images/1.jpg",
