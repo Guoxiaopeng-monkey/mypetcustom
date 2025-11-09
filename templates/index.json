@@ -1319,7 +1319,7 @@
         "step_VmTTAj"
       ],
       "custom_css": [
-        "@media(max-width:768px){{display: none !important; }}"
+        "@media(max-width:768px){.steps-section {display: none !important; }}"
       ],
       "name": "MK Step Section",
       "settings": {
