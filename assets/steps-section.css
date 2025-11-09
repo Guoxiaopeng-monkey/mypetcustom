@@ -158,6 +158,11 @@
         height: 60px;
     }
 
+    .step-item__icon img {
+        max-width: 36px;
+        max-height: 36px;
+    }
+
     .step-item__content {
         align-items: flex-start;
         text-align: left;
