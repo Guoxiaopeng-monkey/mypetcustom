@@ -1,7 +1,10 @@
 <!-- sections/steps-section.liquid -->
 {{ 'steps-section.css' | asset_url | stylesheet_tag }}
 
-<div class="steps-section mk-container" id="section-{{ section.id }}">
+<div
+  class="steps-section mk-container {% if section.settings.display_index %}mk-step-section-index{% endif %}"
+  id="section-{{ section.id }}"
+>
   <div class="page-width">
     {%- if section.settings.title != blank -%}
       <h2 class="steps-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
