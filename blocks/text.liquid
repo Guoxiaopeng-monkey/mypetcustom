@@ -238,7 +238,7 @@
         }
       ],
       "default": "var(--font-body--family)",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -315,7 +315,7 @@
         }
       ],
       "default": "1rem",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -336,7 +336,7 @@
         }
       ],
       "default": "normal",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -357,7 +357,7 @@
         }
       ],
       "default": "normal",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -374,7 +374,7 @@
         }
       ],
       "default": "none",
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -394,7 +394,7 @@
           "label": "t:options.none"
         }
       ],
-      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+      "visible_if": "{{ block.settings.type_preset == 'custom' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "select",
@@ -415,7 +415,7 @@
         }
       ],
       "default": "var(--color-foreground)",
-      "visible_if": "{{ block.settings.type_preset != 'rte' }}"
+      "visible_if": "{{ block.settings.type_preset != 'rte' and block.settings.is_default_setting == true }}"
     },
     {
       "type": "header",

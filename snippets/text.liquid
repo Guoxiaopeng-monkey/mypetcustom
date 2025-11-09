@@ -49,8 +49,8 @@
 %}
 
 {% capture attributes %}
-  class=" spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}  {{ class }} {%if block.settings.is_default_setting == false %}text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mb }}{% endif %}
-    {{ text_block_classes }}
+  class=" spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}  {{ class }} {%if block.settings.is_default_setting == false %}text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mb }} {% else %}  {{ text_block_classes }}{% endif %}
+   
   "
 
   style="
