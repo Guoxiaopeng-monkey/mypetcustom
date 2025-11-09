@@ -242,10 +242,10 @@
               "settings": {
                 "text": "{{ closest.product.description }}",
                 "width": "100%",
-                "max_width": "normal",
+                "max_width": "none",
                 "alignment": "left",
                 "is_default_setting": true,
-                "title_size_pc": "48",
+                "title_size_pc": "24",
                 "title_size_mb": "32",
                 "type_preset": "rte",
                 "font": "var(--font-primary--family)",
