@@ -59,6 +59,8 @@
 .step-item__icon img {
     width: 100%;
     height: 100%;
+    max-width: 72px;
+    max-height: 72px;
     object-fit: contain;
 }
 
