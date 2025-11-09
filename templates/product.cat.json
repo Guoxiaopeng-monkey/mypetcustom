@@ -204,6 +204,7 @@
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
+                "inline_buttons": true,
                 "stacking": true,
                 "show_pickup_availability": false,
                 "gift_card_form": true,
@@ -236,25 +237,22 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
+            "product_description_3wGyDj": {
+              "type": "product-description",
+              "name": "t:names.product_description",
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "none",
+                "text": "<p>{{ closest.product.description }}</p>",
+                "width": "fit-content",
+                "max_width": "normal",
                 "alignment": "left",
-                "is_default_setting": true,
-                "title_size_pc": "24",
-                "title_size_mb": "32",
                 "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "",
+                "color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -425,7 +423,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq",
+            "product_description_3wGyDj",
             "accordion_XUQbcN"
           ]
         }
