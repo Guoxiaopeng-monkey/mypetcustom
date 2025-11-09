@@ -44,8 +44,8 @@
           "type": "_product-details",
           "static": true,
           "settings": {
-            "width": "fill",
-            "custom_width": 100,
+            "width": "custom",
+            "custom_width": 70,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -240,7 +240,7 @@
               "type": "text",
               "name": "Product description",
               "settings": {
-                "text": "<p>{{ closest.product.description }}</p>",
+                "text": "{{ closest.product.description }}",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
