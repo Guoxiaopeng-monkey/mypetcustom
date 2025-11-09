@@ -1,6 +1,6 @@
 /* assets/steps-section.css */
 .steps-section {
-    margin: 120px auto;
+    margin: 60px auto;
     background-color: #fff;
 }
 
@@ -127,7 +127,7 @@
 /* 响应式设计 */
 @media (max-width: 768px) {
     .steps-section {
-        margin: 48px 0;
+        margin: 40px 0;
         padding: 0 20px;
     }
 
