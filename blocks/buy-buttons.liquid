@@ -68,6 +68,7 @@
         {%- endif -%}
         <div
           class="product-form-buttons spacing-style{% if block_settings.stacking %} product-form-buttons--stacked{% endif %} {% if block_settings.inline_buttons %} product-form-buttons--inline{% endif %}"
+          data-sticky-atc-anchor
           style="{% render 'spacing-style', settings: block_settings %}"
         >
           {% content_for 'block', type: 'quantity', id: 'quantity' %}
