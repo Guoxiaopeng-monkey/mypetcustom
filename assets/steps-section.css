@@ -178,4 +178,12 @@
                 transparent 6px,
                 transparent 10px);
     }
+
+    .step-item__index {
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+    }
 }
