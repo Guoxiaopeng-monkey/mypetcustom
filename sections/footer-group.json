@@ -95,6 +95,9 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
+                "is_default_setting": true,
+                "title_size_pc": "48",
+                "title_size_mb": "32",
                 "type_preset": "h4",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
@@ -120,6 +123,9 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
+                "is_default_setting": true,
+                "title_size_pc": "48",
+                "title_size_mb": "32",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
@@ -206,6 +212,7 @@
         },
         "social_links_Ew63Kq": {
           "type": "social-links",
+          "disabled": true,
           "settings": {
             "facebook_url": "https://www.facebook.com/",
             "instagram_url": "https://www.instagram.com/",
