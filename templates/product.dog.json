@@ -1500,6 +1500,7 @@
         "step_CRFpDW": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/MaterialSymbolsOrderApproveRounded.svg",
             "title": "1.  Place Your Order",
             "description": ""
           }
@@ -1507,6 +1508,7 @@
         "step_zY6Bza": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/MdiEmailCheck.svg",
             "title": "2. Receive Confirmation Email",
             "description": ""
           }
@@ -1514,6 +1516,7 @@
         "step_HMydMC": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/HugeiconsMessageEdit01.svg",
             "title": "3. Reply with Pet Photo & Card Message",
             "description": ""
           }
@@ -1521,6 +1524,7 @@
         "step_fnqNKQ": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/contract.svg",
             "title": "4. Handcrafted with Care by Our Artisans",
             "description": ""
           }
@@ -1528,6 +1532,7 @@
         "step_cb9yxA": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/CarbonThumbnailPreview.svg",
             "title": "5.  Preview Finished Piece with 2 Free Revisions",
             "description": ""
           }
@@ -1535,6 +1540,7 @@
         "step_VmTTAj": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/Fa7SolidShippingFast_15ba6123-4272-4745-84ec-731c89aa6f3b.svg",
             "title": "6. Securely Packaged & Delivered to Your Door",
             "description": ""
           }
@@ -1553,9 +1559,9 @@
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "icon_bg_color": "#e8f5e9",
+        "icon_bg_color": "#ffffff",
         "text_color": "#000000",
-        "display_index": false
+        "display_index": true
       }
     },
     "section_xikd3w": {
