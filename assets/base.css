@@ -4386,6 +4386,10 @@ product-price>div {
   }
 }
 
+.text-bold {
+  font-weight: 700;
+}
+
 /* 字体大小 */
 .text-16,
 .text-16 h1,

@@ -1,71 +1,83 @@
-
-
 {% liquid
   assign block_settings = block.settings
-  assign menu = block_settings.menu
-  assign heading = block_settings.heading
+  assign menu = block_settings.menu.links
   assign color_scheme = block_settings.color_scheme
-  assign show_as_accordion = block_settings.show_as_accordion
-  if show_as_accordion == true and block_settings.accordion_dividers == true
-    assign dividers_enabled = true
-  endif
+  assign accordion_icon = block_settings.accordion_icon | default: 'caret'
 %}
 
-{% if menu != blank or heading != blank %}
-  <accordion-custom
+{% if menu != blank %}
+  <div
     class="
       menu
-      {% if show_as_accordion == true %} menu--accordion menu--{{ block_settings.accordion_icon }}{% endif %}
-      {% if dividers_enabled == true %} menu--dividers{% endif %}
+      spacing-style
+      {% if block_settings.inherit_color_scheme == false %} color-{{ color_scheme }}{% endif %}
     "
-    data-disable-on-desktop="true"
-    open-by-default-on-desktop
-    {% if show_as_accordion == false %}
-      data-disable-on-mobile="true"
-      open-by-default-on-mobile
-    {% endif %}
+    style="
+      --spacing--size: {{ block_settings.menu_spacing }}px;
+      {% render 'spacing-style', settings: block_settings %}
+    "
+    {{ block.shopify_attributes }}
   >
-    <details
-      class="
-        menu__details
-        spacing-style
-        {% if block_settings.inherit_color_scheme == false %} color-{{ color_scheme }}{% endif %}
-      "
-      data-testid="menu-details"
-      style="
-        --spacing--size: {{ block_settings.menu_spacing }}px;
-        {% render 'spacing-style', settings: block_settings %}
-      "
-      {{ block.shopify_attributes }}
-    >
-      <summary class="menu__heading{% if heading == blank %} menu__heading--empty{% endif %} {{ block_settings.heading_preset }}">
-        <span class="menu__heading__default">{{ heading }}</span>
-        <span class="menu__heading__accordion">
-          {{ heading | default: menu.title }}
-          <span class="menu__heading__toggle svg-wrapper icon-caret icon-animated">
-            {{- 'icon-caret.svg' | inline_asset_content -}}
-          </span>
-          <span class="menu__heading__toggle svg-wrapper icon-plus">
-            {{- 'icon-plus.svg' | inline_asset_content -}}
-          </span>
-        </span>
-      </summary>
+    {% if menu %}
+      <ul class="list-unstyled menu__level-1">
+        {% for link in menu %}
+          <li class="menu__item">
+            {% if link.links.size > 0 %}
+              <accordion-custom
+                class="menu__item__accordion menu--{{ accordion_icon }}"
+                data-disable-on-desktop="true"
+                open-by-default-on-desktop
+              >
+                <details class="menu__item__details">
+                  <summary class="menu__item__summary">
+                    <a
+                      href="{{ link.url }}"
+                      class="menu__item__link menu__item__link--parent text-bold text-20"
+                    >
+                      {{ link.title }}
+                    </a>
+                    <span class="menu__item__toggle svg-wrapper icon-caret icon-animated">
+                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="menu__item__toggle svg-wrapper icon-plus">
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </span>
+                  </summary>
+                  <div class="menu__item__content">
+                    <ul class="menu__level-2 sub-menu">
+                      {% for child_link in link.links %}
+                        <li class="menu__item menu__item--level-2">
+                          <a href="{{ child_link.url }}" class="menu__item__link  text-18">
+                            {{- child_link.title -}}
+                          </a>
 
-      <div class="details-content">
-        {% if menu %}
-          <ul class="list-unstyled">
-            {% for link in menu.links %}
-              <li class="menu__item {{ block_settings.link_preset }}">
-                <a href="{{ link.url }}">
-                  {{ link.title }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
-    </details>
-  </accordion-custom>
+                          {% if child_link.links.size > 0 %}
+                            <ul class="menu__level-3">
+                              {% for grandchild_link in child_link.links %}
+                                <li class="menu__item menu__item--level-3">
+                                  <a href="{{ grandchild_link.url }}" class="menu__item__link text-16">
+                                    {{- grandchild_link.title -}}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </details>
+              </accordion-custom>
+            {% else %}
+              <a href="{{ link.url }}" class="menu__item__link text-bold text-20">
+                {{ link.title }}
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
 {% endif %}
 
 {% stylesheet %}
@@ -73,60 +85,181 @@
     width: 100%;
   }
 
-  .menu:not(:has(.menu__heading--empty)) .details-content {
-    margin-block-start: var(--spacing--size);
+  /* 一级菜单横向排列 - Grid 布局，一行三项 */
+  .menu__level-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing--size);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: start;
   }
 
-  .menu__item + .menu__item {
-    margin-block-start: var(--spacing--size);
+  .menu__item {
+    position: relative;
   }
 
-  .menu .menu__heading--empty {
+  /* 一级菜单项样式 */
+  .menu__level-1 > .menu__item {
+    width: 100%;
+  }
+
+  .menu__item__link {
+    display: block;
+    text-decoration: none;
+  }
+
+  /* 统一一级菜单项的padding和margin */
+  .menu__level-1 > .menu__item > .menu__item__link {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .menu__level-1 > .menu__item > .menu__item__accordion > .menu__item__details > .menu__item__summary {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .menu__level-1
+    > .menu__item
+    > .menu__item__accordion
+    > .menu__item__details
+    > .menu__item__summary
+    > .menu__item__link--parent {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  /* 一级菜单项手风琴样式 */
+  .menu__item__accordion {
+    width: 100%;
+  }
+
+  .menu__item__details {
+    width: 100%;
+  }
+
+  .menu__item__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .menu__item__summary::-webkit-details-marker {
     display: none;
   }
 
-  .menu__heading__default {
-    display: contents;
+  .menu__item__summary::marker {
+    display: none;
   }
 
-  .menu__heading__accordion {
+  .menu__item__link--parent {
+    flex: 1;
+  }
+
+  .menu__item__toggle {
     display: none;
+    margin-left: 0.5em;
+    flex-shrink: 0;
+  }
+
+  .menu__item__content {
+    margin-top: calc(var(--spacing--size) / 2);
+  }
+
+  /* 二级菜单纵向排列 */
+  .menu__level-2 {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: calc(var(--spacing--size) / 2);
+    gap: calc(var(--spacing--size) / 2);
+  }
+
+  .menu__item--level-2 {
+    margin: 0;
+  }
+
+  /* 三级菜单 */
+  .menu__level-3 {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: calc(var(--spacing--size) / 2);
+    padding-left: 1em;
+    gap: calc(var(--spacing--size) / 2);
+  }
+
+  .menu__item--level-3 {
+    margin: 0;
   }
 
   @media screen and (max-width: 749px) {
-    /* Always show the fallback heading on mobile when accordion is enabled */
-    .menu--accordion .menu__heading--empty {
-      display: flex;
+    /* 移动端：一级菜单改为单列 */
+    .menu__level-1 {
+      grid-template-columns: 1fr;
     }
 
-    .menu--accordion .menu__heading__accordion {
-      display: contents;
+    /* 移动端：显示手风琴图标 */
+    .menu__item__toggle {
+      display: block;
     }
 
-    .menu--accordion .menu__heading__default {
+    /* 移动端：手风琴关闭时隐藏二级菜单 */
+    .menu__item__details:not([open]) .menu__item__content {
       display: none;
     }
 
-    .menu--accordion .details-content {
-      margin-block-start: var(--spacing--size);
+    /* 移动端：手风琴打开时显示二级菜单 */
+    .menu__item__details[open] .menu__item__content {
+      display: block;
     }
 
-    .menu--accordion .menu__details {
-      padding-inline: 0;
+    /* 移动端：点击链接时阻止跳转，展开/折叠菜单 */
+    .menu__item__summary .menu__item__link--parent {
+      pointer-events: none;
     }
 
-    .menu--dividers .menu__details {
-      border-block-end: var(--style-border-width) solid var(--color-border);
-    }
-
-    .menu--dividers .details-content {
-      padding-block-end: var(--padding-sm);
+    /* 移动端：根据图标类型显示/隐藏 */
+    .menu--caret .menu__item__toggle.icon-plus,
+    .menu--plus .menu__item__toggle.icon-caret {
+      display: none;
     }
   }
 
-  .menu--caret .icon-plus,
-  .menu--plus .icon-caret {
+  /* 根据图标类型显示/隐藏 */
+  .menu--caret .menu__item__toggle.icon-plus,
+  .menu--plus .menu__item__toggle.icon-caret {
     display: none;
+  }
+
+  /* 桌面端：手风琴始终展开，不显示图标 */
+  @media screen and (min-width: 750px) {
+    .menu__item__toggle {
+      display: none;
+    }
+
+    .menu__item__details {
+      display: block;
+    }
+
+    .menu__item__summary {
+      cursor: default;
+    }
+
+    .menu__item__content {
+      display: block !important;
+    }
   }
 {% endstylesheet %}
 
