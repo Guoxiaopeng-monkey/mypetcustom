@@ -16,6 +16,7 @@
 .mk-faq-title {
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 0;
 }
 
 .mk-faq-description {
