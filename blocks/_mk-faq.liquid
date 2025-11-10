@@ -1,7 +1,7 @@
 <div class="mk-faq-answer-container">
   <input type="checkbox" id="mk-faq-{{ block.id }}" class="mk-faq-answer-input">
   <label for="mk-faq-{{ block.id }}" class="mk-faq-answer-label">
-    <span class="mk-faq-answer-question">{{ block.settings.question }}</span>
+    <span class="mk-faq-answer-question text-20 md:text-18 ">{{ block.settings.question }}</span>
     <span class="mk-faq-answer-icon">
       {{ 'icon-plus.svg' | inline_asset_content }}
     </span>
@@ -9,7 +9,7 @@
       {{ 'icon-minus.svg' | inline_asset_content }}
     </span>
   </label>
-  <div class="mk-faq-answer">
+  <div class="mk-faq-answer text-18 md:text-16 ">
     {{ block.settings.answer }}
   </div>
 </div>
@@ -17,7 +17,6 @@
   .mk-faq-answer-container {
     padding: 24px 0;
     color: #404040;
-    font-size: 16px;
     line-height: 150%; /* 24px */
     letter-spacing: -0.16px;
     border-top: 1px solid #dadada;
@@ -47,7 +46,7 @@
     gap: 20px;
   }
   .mk-faq-answer {
-    margin-top: 12px;
+    margin-top: 18px;
     padding-right: 44px;
   }
   .mk-faq-answer-icon,
@@ -65,7 +64,6 @@
   @media (max-width: 768px) {
     .mk-faq-answer-container {
       padding: 16px 0;
-      font-size: 14px;
     }
 
     .mk-faq-answer-icon,

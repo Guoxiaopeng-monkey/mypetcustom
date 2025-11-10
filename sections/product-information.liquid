@@ -83,10 +83,10 @@
       {% endif %}
     {% endfor %}
   </div>
+  {% content_for 'blocks' %}
   {% if section.settings.sticky_atc %}
     {% render 'sticky-atc' %}
   {% endif %}
-  {% content_for 'blocks' %}
 </div>
 
 {% stylesheet %}

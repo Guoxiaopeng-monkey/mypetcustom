@@ -240,8 +240,12 @@
     rel="modulepreload"
     href="{{ 'sticky-atc.js' | asset_url }}"
     fetchpriority="low"
-
-  >、
+  >
+  <script
+    src="{{ 'sticky-atc.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
 {% endif %}
 
 {% if settings.transition_to_main_product %}

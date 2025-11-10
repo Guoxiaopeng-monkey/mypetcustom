@@ -1,290 +1,30 @@
-{%- liquid
-  assign sticky_product = closest.product
-  if sticky_product == blank
-    assign sticky_product = product
-  endif
-
-  if request.visual_preview_mode and sticky_product == blank
-    assign sticky_product = collections.all.products.first
-  endif
-
-  assign can_add_to_cart = false
-  assign add_to_cart_text = ''
-
-  if sticky_product != blank
-    assign selected_variant = sticky_product.selected_or_first_available_variant
-    assign inventory_managed = false
-    assign inventory_quantity = selected_variant.inventory_quantity
-    assign inventory_policy = selected_variant.inventory_policy
-
-    if selected_variant.inventory_management == 'shopify'
-      assign inventory_managed = true
-    endif
-
-    if inventory_managed
-      if inventory_quantity <= 0 and inventory_policy == 'deny'
-        assign can_add_to_cart = false
-        assign add_to_cart_text = 'products.product.sold_out' | t
-      else
-        assign can_add_to_cart = true
-        assign add_to_cart_text = 'products.product.add_to_cart' | t
-      endif
-    else
-      if selected_variant != null
-        assign can_add_to_cart = true
-        assign add_to_cart_text = 'products.product.add_to_cart' | t
-      else
-        assign can_add_to_cart = false
-        assign add_to_cart_text = 'products.product.unavailable' | t
-      endif
-    endif
-
-    assign product_form_id = 'StickyAtcProductForm-' | append: section.id
-    assign quantity_default = selected_variant.quantity_rule.min | default: 1
-    assign sticky_variant_title = selected_variant.title
-    if sticky_variant_title == 'Default Title'
-      assign sticky_variant_title = ''
-    endif
-
-    assign sticky_media = selected_variant.featured_media
-    if sticky_media == blank
-      assign sticky_media = sticky_product.featured_media
-    endif
-
-    if sticky_media != blank
-      assign sticky_media_image = sticky_media.preview_image
-      assign sticky_media_alt = sticky_media_image.alt | default: sticky_product.title
-    endif
-  endif
--%}
-
-{% if sticky_product != blank %}
-  <sticky-atc
-    class="sticky-atc"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ sticky_product.id }}"
-    data-product-title="{{ sticky_product.title | escape }}"
-    data-product-url="{{ sticky_product.url }}"
-    data-initial-variant-title="{{ sticky_variant_title | escape }}"
-    data-can-add-to-cart="{{ can_add_to_cart }}"
-    data-add-to-cart-text="{{ add_to_cart_text | escape }}"
-    aria-hidden="true"
-  >
-    <div class="sticky-atc__inner">
-      <div class="sticky-atc__summary">
-        <a
-          class="sticky-atc__media"
-          href="{{ sticky_product.url }}"
-          data-sticky-atc-media
-          {% if sticky_media_image == blank %}
-            hidden
-          {% endif %}
-        >
-          {% if sticky_media_image != blank %}
-            {{
-              sticky_media_image
-              | image_url: width: 160
-              | image_tag:
-                loading: 'lazy',
-                widths: '80, 120, 160',
-                sizes: '(max-width: 480px) 80px, 120px',
-                alt: sticky_media_alt
-            }}
-          {% endif %}
-        </a>
-        <div class="sticky-atc__details">
-          <a
-            class="sticky-atc__title"
-            href="{{ sticky_product.url }}"
-          >
-            {{ sticky_product.title }}
-          </a>
-          <p
-            class="sticky-atc__variant"
-            data-sticky-atc-variant
-            {% if sticky_variant_title == blank %}
-              hidden
-            {% endif %}
-          >
-            {{ sticky_variant_title }}
-          </p>
-          <product-price
-            class="sticky-atc__price"
-            data-product-id="{{ sticky_product.id }}"
-          >
-            {% render 'price', product_resource: sticky_product, show_unit_price: false, show_sale_price_first: true %}
-          </product-price>
-        </div>
-      </div>
-      <div class="sticky-atc__actions">
-        <product-form-component
-          class="sticky-atc__form"
-          data-section-id="{{ section.id }}"
-          data-product-id="{{ sticky_product.id }}"
-          data-product-url="{{ sticky_product.url }}"
-          data-quantity-default="{{ quantity_default }}"
-          on:submit="/handleSubmit"
-        >
-          <div
-            class="visually-hidden"
-            aria-live="assertive"
-            role="status"
-            aria-atomic="true"
-            ref="liveRegion"
-          ></div>
-          {%- form 'product',
-            sticky_product,
-            id: product_form_id,
-            class: 'sticky-atc__shopify-form',
-            data-type: 'add-to-cart-form'
-          -%}
-            <input
-              type="hidden"
-              name="id"
-              ref="variantId"
-              value="{{ selected_variant.id }}"
-            >
-            <input
-              type="hidden"
-              name="quantity"
-              value="{{ quantity_default }}"
-            >
-            {%
-              render 'add-to-cart-button',
-              id: product_form_id | append: '-Button',
-              class: 'sticky-atc__submit',
-              can_add_to_cart: can_add_to_cart,
-              add_to_cart_text: add_to_cart_text,
-              product: sticky_product,
-              icon_only_on_mobile: true
-            %}
-          {%- endform -%}
-        </product-form-component>
-      </div>
-    </div>
-  </sticky-atc>
-{% endif %}
+<sticky-atc
+  class="sticky-atc"
+  data-target-selector="[data-sticky-atc-anchor]"
+>
+  <div class="mk-container">test content</div>
+</sticky-atc>
 
 {% stylesheet %}
   sticky-atc {
     position: fixed;
-    inset: auto 0 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 20;
-    pointer-events: none;
-    display: block;
-  }
-
-  sticky-atc[aria-hidden='false'] {
-    pointer-events: auto;
-  }
-
-  .sticky-atc__inner {
-    position: relative;
-    margin: 0 auto;
-    max-width: min(var(--page-width, 1100px), 100%);
-    background: var(--color-background, #fff);
-    color: var(--color-heading, currentColor);
-    padding: var(--padding-sm) var(--padding-md);
-    display: grid;
-    gap: var(--gap-sm);
-    grid-template-columns: 1fr;
-    align-items: center;
-    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
-    border-radius: var(--radius-lg, 12px) 12px 0 0;
+    background: #fff;
     transform: translateY(100%);
-    transition: transform var(--animation-speed) var(--animation-easing);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 200ms ease, transform 200ms ease;
   }
 
-  sticky-atc[aria-hidden='false'] .sticky-atc__inner {
+  sticky-atc.is-visible {
+    visibility: visible;
+    opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
-  }
-
-  .sticky-atc__summary {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--gap-sm);
-    align-items: center;
-  }
-
-  .sticky-atc__media {
-    display: block;
-    width: 64px;
-    height: 64px;
-    border-radius: var(--radius-sm, 8px);
-    overflow: hidden;
-    background: var(--color-surface, #f3f3f3);
-  }
-
-  .sticky-atc__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .sticky-atc__details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .sticky-atc__title {
-    font-size: var(--font-size--sm, 1rem);
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .sticky-atc__title:hover {
-    text-decoration: underline;
-  }
-
-  .sticky-atc__variant {
-    font-size: var(--font-size--xs, 0.875rem);
-    color: var(--color-subheading, currentColor);
-    margin: 0;
-  }
-
-  .sticky-atc__price {
-    font-size: var(--font-size--sm, 1rem);
-    font-weight: 600;
-  }
-
-  .sticky-atc__actions {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-  }
-
-  .sticky-atc__form {
-    width: 100%;
-  }
-
-  .sticky-atc__submit {
-    min-height: var(--minimum-touch-target, 48px);
-    width: 100%;
-  }
-
-  @media screen and (min-width: 750px) {
-    .sticky-atc__inner {
-      grid-template-columns: minmax(0, 1fr) auto;
-      padding: var(--padding-sm) var(--padding-lg);
-      border-radius: var(--radius-lg, 16px) 16px 0 0;
-    }
-
-    .sticky-atc__summary {
-      grid-template-columns: auto 1fr;
-    }
-
-    .sticky-atc__actions {
-      max-width: 320px;
-    }
-  }
-
-  @media screen and (max-width: 499px) {
-    .sticky-atc__inner {
-      border-radius: 20px 20px 0 0;
-    }
   }
 {% endstylesheet %}
