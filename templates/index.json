@@ -1050,10 +1050,10 @@
       "type": "mk-newsletter",
       "name": "MK Newsletter",
       "settings": {
-        "title": "Join our email list",
-        "title_size_pc": "48",
+        "title": "Get 5% Off Your First Order!",
+        "title_size_pc": "40",
         "title_size_mb": "32",
-        "description": "<p>Get exclusive deals and early access to new products.</p>",
+        "description": "<h4>Join our email list to receive your 5% welcome coupon and get the latest news on upcoming deals and exclusive offers</h4>",
         "email_placeholder": "Enter your email",
         "button_text": "Subscribe",
         "show_guide": true,
