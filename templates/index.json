@@ -41,7 +41,7 @@
       ],
       "custom_css": [
         ".mk-image-banner-content {padding: 200px 0 60px 0;}",
-        "@media(max-width:768px){.mk-image-banner-content {padding: 120px 0 60px 0;}}"
+        "@media (max-width: 768px) {.mk-image-banner-content {padding: 120px 20px 60px 20px; }}"
       ],
       "name": "MK Image Banner",
       "settings": {
