@@ -39,7 +39,9 @@
         "cus_description_JGWpdT",
         "cus_button_CkH4qY"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".mk-image-banner-content{padding:200px 0 60px 0}"
+      ],
       "name": "MK Image Banner",
       "settings": {
         "image": "shopify://shop_images/1.jpg",
@@ -1118,6 +1120,8 @@
       "name": "MK Photos",
       "settings": {
         "title": "About Our  customsize",
+        "title_size_pc": "48",
+        "title_size_mb": "40",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
