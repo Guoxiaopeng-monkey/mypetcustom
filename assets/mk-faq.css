@@ -117,6 +117,7 @@
     }
 
     .mk-faq-image {
+        display: none;
         flex-basis: 100%;
     }
 
