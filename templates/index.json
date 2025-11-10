@@ -1053,7 +1053,7 @@
         "title": "Get 5% Off Your First Order!",
         "title_size_pc": "40",
         "title_size_mb": "32",
-        "description": "<h4>Join our email list to receive your 5% welcome coupon and get the latest news on upcoming deals and exclusive offers</h4>",
+        "description": "<p>Join our email list to receive your 5% welcome coupon and get the latest news on upcoming deals and exclusive offers</p>",
         "email_placeholder": "Enter your email",
         "button_text": "Subscribe",
         "show_guide": true,
