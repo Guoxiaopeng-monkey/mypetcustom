@@ -1271,6 +1271,7 @@
     },
     "mk_step_section_dJPPJD": {
       "type": "mk-step-section",
+      "disabled": true,
       "blocks": {
         "step_CRFpDW": {
           "type": "step",
