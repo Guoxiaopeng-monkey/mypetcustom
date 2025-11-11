@@ -35,7 +35,7 @@
             "menu": "footer",
             "heading": "",
             "menu_spacing": 12,
-            "show_as_accordion": false,
+            "show_as_accordion": true,
             "accordion_icon": "caret",
             "accordion_dividers": false,
             "inherit_color_scheme": true,
