@@ -1099,6 +1099,8 @@
       "name": "MK Photos",
       "settings": {
         "title": "About Our  customsize",
+        "title_size_pc": "48",
+        "title_size_mb": "40",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
@@ -1199,6 +1201,7 @@
         "advantage_CV9HbF": {
           "type": "advantage",
           "settings": {
+            "icon": "shopify://shop_images/1018_db32a87b-30e4-4892-aa62-d056d0b784dd.png",
             "title": "Artisan Craft",
             "description": "Handcrafted by skilled artisans with 5+ years of experience for flawless precision."
           }
