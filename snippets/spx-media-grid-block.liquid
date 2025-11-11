@@ -55,8 +55,8 @@
 
   {% if settings.handle != blank or settings.content != blank %}
     <div class="grid-block-content">
-      <div class="title">{{ settings.handle }}</div>
-      <div>{{ settings.content }}</div>
+      <h4 class="title text-36 md:text-24 ">{{ settings.handle }}</h4>
+      <div class="text-18 md:text-16 ">{{ settings.content }}</div>
       {% if settings.link != blank %}
         <a class="grid-block-content-icon" href="{{ settings.link }}">
           {{ 'icon-arrow-right.svg' | inline_asset_content }}

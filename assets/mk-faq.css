@@ -16,6 +16,7 @@
 .mk-faq-title {
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 0;
 }
 
 .mk-faq-description {
@@ -65,7 +66,6 @@
 .mk-faq-item-answer {
     display: none;
     padding-top: 12px;
-    font-size: 14px;
 }
 
 .mk-faq-item-label {
@@ -118,6 +118,7 @@
     }
 
     .mk-faq-image {
+        display: none;
         flex-basis: 100%;
     }
 
@@ -130,6 +131,6 @@
     }
 
     .mk-faq-item-label-text {
-        font-size: 16px;
+        font-size: 18px;
     }
 }

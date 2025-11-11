@@ -39,7 +39,10 @@
         "cus_description_JGWpdT",
         "cus_button_CkH4qY"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".mk-image-banner-content {padding: 200px 0 60px 0;}",
+        "@media (max-width: 768px) {.mk-image-banner-content {padding: 120px 20px 60px 20px; }}"
+      ],
       "name": "MK Image Banner",
       "settings": {
         "image": "shopify://shop_images/1.jpg",
@@ -258,9 +261,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "20",
+                    "title_size_mb": "18",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -286,9 +289,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "18",
+                    "title_size_mb": "16",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
@@ -415,9 +418,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "20",
+                    "title_size_mb": "18",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1.125rem",
@@ -443,9 +446,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "18",
+                    "title_size_mb": "16",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
@@ -732,9 +735,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "20",
+                    "title_size_mb": "18",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -760,9 +763,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "18",
+                    "title_size_mb": "16",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
@@ -889,9 +892,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "20",
+                    "title_size_mb": "18",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -917,9 +920,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "is_default_setting": true,
-                    "title_size_pc": "48",
-                    "title_size_mb": "32",
+                    "is_default_setting": false,
+                    "title_size_pc": "18",
+                    "title_size_mb": "16",
                     "type_preset": "custom",
                     "font": "var(--font-body--family)",
                     "font_size": "0.875rem",
@@ -1034,7 +1037,7 @@
       "settings": {
         "title": "Custom Felt Creations by Pet Type",
         "title_size_pc": "48",
-        "title_size_mb": "32",
+        "title_size_mb": "36",
         "layout": "title-center",
         "title_color": "#000000",
         "block_back": "#dddddd",
@@ -1044,6 +1047,28 @@
         "gap_distance": 28,
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "mk_newsletter_KGPkYg": {
+      "type": "mk-newsletter",
+      "name": "MK Newsletter",
+      "settings": {
+        "title": "Get 5% Off Your First Order!",
+        "title_size_pc": "40",
+        "title_size_mb": "32",
+        "description": "<p>Join our email list to receive your 5% welcome coupon and get the latest news on upcoming deals and exclusive offers</p>",
+        "email_placeholder": "Enter your email",
+        "button_text": "Subscribe",
+        "show_guide": true,
+        "guide_text": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>",
+        "success_message": "Thank you for subscribing!",
+        "background_color": "#0000000f",
+        "background_color_secondary": "#ffffff",
+        "title_color": "#1a1a1a",
+        "description_color": "#666666",
+        "accent_color": "#7c9fbb",
+        "accent_color_hover": "#576173",
+        "image_opacity": 100
       }
     },
     "mk_photos_pPFcTr": {
@@ -1096,31 +1121,11 @@
       "name": "MK Photos",
       "settings": {
         "title": "About Our  customsize",
+        "title_size_pc": "48",
+        "title_size_mb": "40",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
-      }
-    },
-    "mk_newsletter_KGPkYg": {
-      "type": "mk-newsletter",
-      "name": "MK Newsletter",
-      "settings": {
-        "title": "Join our email list",
-        "title_size_pc": "48",
-        "title_size_mb": "32",
-        "description": "<p>Get exclusive deals and early access to new products.</p>",
-        "email_placeholder": "Enter your email",
-        "button_text": "Subscribe",
-        "show_guide": true,
-        "guide_text": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>",
-        "success_message": "Thank you for subscribing!",
-        "background_color": "#00000021",
-        "background_color_secondary": "#ffffff",
-        "title_color": "#1a1a1a",
-        "description_color": "#666666",
-        "accent_color": "#7c9fbb",
-        "accent_color_hover": "#576173",
-        "image_opacity": 100
       }
     },
     "mk_faq_image_6EwdjG": {
@@ -1244,6 +1249,7 @@
     },
     "mk_step_section_dJPPJD": {
       "type": "mk-step-section",
+      "disabled": true,
       "blocks": {
         "step_CRFpDW": {
           "type": "step",
@@ -1295,6 +1301,9 @@
         "step_fnqNKQ",
         "step_cb9yxA",
         "step_VmTTAj"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.steps-section {display: none !important; }}"
       ],
       "name": "MK Step Section",
       "settings": {

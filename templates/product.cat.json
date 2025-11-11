@@ -429,6 +429,7 @@
         }
       },
       "settings": {
+        "sticky_atc": false,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": true,
@@ -464,9 +465,9 @@
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
-            "is_default_setting": true,
+            "is_default_setting": false,
             "title_size_pc": "48",
-            "title_size_mb": "32",
+            "title_size_mb": "36",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "3rem",
@@ -493,9 +494,9 @@
             "width": "fit-content",
             "max_width": "none",
             "alignment": "center",
-            "is_default_setting": true,
-            "title_size_pc": "48",
-            "title_size_mb": "32",
+            "is_default_setting": false,
+            "title_size_pc": "18",
+            "title_size_mb": "16",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "1.25rem",
@@ -587,7 +588,7 @@
           "type": "imageText",
           "settings": {
             "image_pc": "shopify://shop_images/20251107093201_3707_5.jpg",
-            "image_ratio": "1/1",
+            "image_ratio": "auto",
             "handle": "Base Shaping",
             "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
             "link": "",
@@ -595,7 +596,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 7,
+            "horizontal_grid_mb": 12,
             "vertical_grid_mb": 3
           }
         },
@@ -611,7 +612,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 5,
+            "horizontal_grid_mb": 6,
             "vertical_grid_mb": 1
           }
         },
@@ -627,7 +628,7 @@
             "text_alignment": "left",
             "horizontal_grid": 4,
             "vertical_grid": 1,
-            "horizontal_grid_mb": 5,
+            "horizontal_grid_mb": 6,
             "vertical_grid_mb": 1
           }
         }
@@ -1276,6 +1277,7 @@
         "step_CRFpDW": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/MaterialSymbolsOrderApproveRounded.svg",
             "title": "1.  Place Your Order",
             "description": ""
           }
@@ -1283,6 +1285,7 @@
         "step_zY6Bza": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/MdiEmailCheck.svg",
             "title": "2. Receive Confirmation Email",
             "description": ""
           }
@@ -1290,6 +1293,7 @@
         "step_HMydMC": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/HugeiconsMessageEdit01.svg",
             "title": "3. Reply with Pet Photo & Card Message",
             "description": ""
           }
@@ -1297,6 +1301,7 @@
         "step_fnqNKQ": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/contract.svg",
             "title": "4. Handcrafted with Care by Our Artisans",
             "description": ""
           }
@@ -1304,6 +1309,7 @@
         "step_cb9yxA": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/CarbonThumbnailPreview.svg",
             "title": "5.  Preview Finished Piece with 2 Free Revisions",
             "description": ""
           }
@@ -1311,6 +1317,7 @@
         "step_VmTTAj": {
           "type": "step",
           "settings": {
+            "icon": "shopify://shop_images/Fa7SolidShippingFast_15ba6123-4272-4745-84ec-731c89aa6f3b.svg",
             "title": "6. Securely Packaged & Delivered to Your Door",
             "description": ""
           }
@@ -1329,9 +1336,9 @@
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "icon_bg_color": "#e8f5e9",
+        "icon_bg_color": "#ffffff",
         "text_color": "#000000",
-        "display_index": false
+        "display_index": true
       }
     },
     "section_xikd3w": {
