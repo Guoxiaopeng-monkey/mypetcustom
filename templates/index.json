@@ -1190,6 +1190,7 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": "",
+        "image": "shopify://shop_images/4-3.jpg",
         "background_color": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60
