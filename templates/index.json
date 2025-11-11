@@ -1299,6 +1299,7 @@
         "step_cb9yxA",
         "step_VmTTAj"
       ],
+      "disabled": true,
       "custom_css": [
         "@media (max-width: 768px) {.steps-section {display: none !important; }}"
       ],
