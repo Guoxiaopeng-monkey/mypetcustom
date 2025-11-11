@@ -1139,26 +1139,27 @@
         "faq_nccdcy": {
           "type": "faq",
           "settings": {
-            "question": "What is the best way to learn about the stock market?",
-            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+            "question": "Can I customize other animals?",
+            "answer": "<p>Of course! In addition to cats and dogs, we can also create felted replicas of rabbits, birds, hamsters, and more. Since the complexity varies by animal, please contact our support team for a custom quote.</p>"
           }
         },
         "faq_RB9QUG": {
           "type": "faq",
           "settings": {
-            "question": "What is the best way to learn about the stock market?",
-            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+            "question": "What does the packaging look like?",
+            "answer": "<p>Each piece comes in an elegantly designed gift box, ready to be presented as a heartfelt gift. We also offer a photo postcard customization service to make your present even more personal and memorable.</p>"
           }
         },
         "faq_mQtzzx": {
           "type": "faq",
           "settings": {
-            "question": "What is the best way to learn about the stock market?",
-            "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
+            "question": "How long does the production take?",
+            "answer": "<p>The average production time is <strong>3–4 weeks</strong>, depending on order volume and complexity. You’ll receive progress updates via email or on your order page. During special events or expedited periods, some orders may be completed even faster.</p>"
           }
         },
         "faq_eMKDy3": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "question": "What is the best way to learn about the stock market?",
             "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
@@ -1166,6 +1167,7 @@
         },
         "faq_mztgyj": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "question": "What is the best way to learn about the stock market?",
             "answer": "<p>Lorem ipsum dolor sit amet consectetur. Blandit orci rhoncus arcu risus mi aenean suspendisse et</p>"
