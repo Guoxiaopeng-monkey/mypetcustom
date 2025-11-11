@@ -1109,8 +1109,8 @@
       "name": "MK Newsletter",
       "settings": {
         "title": "Join our email list",
-        "title_size_pc": "48",
-        "title_size_mb": "32",
+        "title_size_pc": "36",
+        "title_size_mb": "24",
         "description": "<p>Get exclusive deals and early access to new products.</p>",
         "email_placeholder": "Enter your email",
         "button_text": "Subscribe",
