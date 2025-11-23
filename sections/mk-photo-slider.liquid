@@ -6,7 +6,7 @@
 
 <div class="mk-photo-slider mk-container">
   <div class="mk-photo-slider-header">
-    <h2 class="text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mobile }}">{{ section.settings.title }}</h2>
+    <h2 class="text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">{{ section.settings.title }}</h2>
   </div>
   <div class="mk-photo-slider-content">
     <div class="mk-photo-slider-content-left">
@@ -16,7 +16,7 @@
             class="mk-photo-slider-content-item-content {% if forloop.first %}active{% endif %}"
             data-index="{{ forloop.index0 }}"
           >
-            <h3 class="text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mobile }}">{{ block.settings.title }}</h3>
+            <h3 class="text-{{ block.settings.title_size_pc }} md:text-{{ block.settings.title_size_mb }}">{{ block.settings.title }}</h3>
             <p class="text-16 md:text-14">{{ block.settings.description }}</p>
             {% if block.settings.button_text != blank %}
               <a
@@ -498,16 +498,23 @@
       gap: 20px;
     }
 
+    /* 移动端：图片在上，文字在下 */
     .mk-photo-slider-content-left {
       flex-basis: 100%;
       text-align: center;
+      order: 2;
     }
 
     .mk-photo-slider-content-right {
       flex-basis: 100%;
       width: 100%;
+      order: 1;
     }
-
+    .mk-photo-slider-swiper{
+      position: relative;
+      width:calc(100% + 20px);
+      margin-left: -20px;
+    }
     .mk-photo-slider-swiper .swiper-slide {
       width: auto;
       aspect-ratio: 4 / 3;
@@ -521,22 +528,9 @@
       border-radius: 16px;
     }
 
+    /* 移动端隐藏导航按钮 */
     .mk-photo-slider-navigation {
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .mk-photo-slider-navigation .mk-photo-slider-button-prev,
-    .mk-photo-slider-navigation .mk-photo-slider-button-next {
-      width: 48px;
-      height: 48px;
-    }
-
-    .mk-photo-slider-navigation .mk-photo-slider-button-prev svg,
-    .mk-photo-slider-navigation .mk-photo-slider-button-next svg {
-      width: 18px;
-      height: 18px;
+      display: none;
     }
   }
 </style>
@@ -589,8 +583,7 @@
       centeredSlides: false,
       slidesPerView: 1.1,
       spaceBetween: 16,
-      loop: true,
-      loopAdditionalSlides: 2,
+      loop: false,
       initialSlide: 0,
       watchSlidesProgress: true,
       navigation: {
@@ -600,7 +593,7 @@
       on: {
         init: function () {
           // 确保初始化时显示第一个内容
-          updateContent(this.realIndex);
+          updateContent(this.activeIndex);
           // 确保按钮状态正确
           const self = this;
           requestAnimationFrame(function() {
@@ -609,7 +602,7 @@
           });
         },
         slideChange: function () {
-          updateContent(this.realIndex);
+          updateContent(this.activeIndex);
         },
       },
     };
