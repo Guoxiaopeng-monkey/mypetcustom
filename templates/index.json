@@ -1318,6 +1318,46 @@
         "text_color": "#000000",
         "display_index": true
       }
+    },
+    "mk_photo_slider_Lj6epa": {
+      "type": "mk-photo-slider",
+      "blocks": {
+        "mk_photo_item_3LTf4C": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/20251013222734_320_22.png",
+            "alt_text": "",
+            "title": "",
+            "title_size_pc": "32",
+            "title_size_mb": "20",
+            "description": "",
+            "button_text": "",
+            "link": ""
+          }
+        },
+        "mk_photo_item_R4VdT8": {
+          "type": "mk-photo-item",
+          "settings": {
+            "alt_text": "威风威风俄文法文",
+            "title": "非常受到副食店",
+            "title_size_pc": "32",
+            "title_size_mb": "20",
+            "description": "大叔控解放和捷克首都和房价快速导航",
+            "button_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mk_photo_item_3LTf4C",
+        "mk_photo_item_R4VdT8"
+      ],
+      "name": "MK Photo Slider",
+      "settings": {
+        "title": "",
+        "title_size_pc": "48",
+        "title_size_mb": "32"
+      }
     }
   },
   "order": [
@@ -1329,6 +1369,7 @@
     "mk_faq_image_6EwdjG",
     "mk_photos_pPFcTr",
     "mk_why_section_atYRGD",
-    "mk_step_section_dJPPJD"
+    "mk_step_section_dJPPJD",
+    "mk_photo_slider_Lj6epa"
   ]
 }
