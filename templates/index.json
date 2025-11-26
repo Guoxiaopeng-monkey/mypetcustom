@@ -1186,6 +1186,7 @@
         "mk_photo_item_6pHCkb",
         "mk_photo_item_LGEN6c"
       ],
+      "disabled": true,
       "name": "MK Photos",
       "settings": {
         "title": "About Our  customsize",
@@ -1383,8 +1384,8 @@
     "mk_newsletter_KGPkYg",
     "mk_faq_image_6EwdjG",
     "mk_photos_pPFcTr",
+    "mk_photo_slider_Lj6epa",
     "mk_why_section_atYRGD",
-    "mk_step_section_dJPPJD",
-    "mk_photo_slider_Lj6epa"
+    "mk_step_section_dJPPJD"
   ]
 }
