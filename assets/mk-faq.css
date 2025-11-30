@@ -1,136 +1,136 @@
 .mk-faq-header {
-    text-align: center;
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
+  text-align: center;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .mk-faq-header h2 {
-    width: 100%;
+  width: 100%;
 }
 
 .mk-faq-title {
-    font-weight: 600;
-    line-height: normal;
-    margin-bottom: 0;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0;
 }
 
 .mk-faq-description {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .mk-faq-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 80px;
-    margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 40px;
 }
 
 .mk-faq-image {
-    flex-basis: 50%;
-    overflow: hidden;
-    height: 100%;
+  flex-basis: 50%;
+  overflow: hidden;
+  height: 100%;
 }
 
 .mk-faq-image .mk-faq-image-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    background: #f0f0f0;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #f0f0f0;
 }
 
 .mk-faq-content {
-    flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
 }
 
 .mk-faq-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px;
-
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
 }
 
 .mk-faq-item-input {
-    display: none;
+  display: none;
 }
 
 .mk-faq-item-answer {
-    display: none;
-    padding-top: 12px;
+  display: none;
+  padding-top: 12px;
 }
 
 .mk-faq-item-label {
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .mk-faq-item-label-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .mk-faq-item-label .mk-faq-item-label-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #000;
-    border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+  border-radius: 50%;
 }
 
-.mk-faq-item-input:checked~.mk-faq-item-label svg {
-    transform: rotate(180deg);
+.mk-faq-item-input:checked ~ .mk-faq-item-label svg {
+  transform: rotate(180deg);
 }
 
-.mk-faq-item-input:checked~.mk-faq-item-answer {
-    display: block;
+.mk-faq-item-input:checked ~ .mk-faq-item-answer {
+  display: block;
 }
 
 @media (max-width: 768px) {
-    .mk-faq-header {
-        gap: 8px;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+  .mk-faq-header {
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 
-    .mk-faq-description {
-        font-size: 14px;
-    }
+  .mk-faq-description {
+    font-size: 14px;
+  }
 
-    .mk-faq-container {
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 24px;
-    }
+  .mk-faq-container {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
 
-    .mk-faq-image {
-        display: none;
-        flex-basis: 100%;
-    }
+  .mk-faq-image {
+    display: none;
+    flex-basis: 100%;
+  }
 
-    .mk-faq-content {
-        flex-basis: 100%;
-    }
+  .mk-faq-content {
+    flex-basis: 100%;
+  }
 
-    .mk-faq-item-label-icon {
-        display: none;
-    }
+  .mk-faq-item-label-icon {
+    display: none;
+  }
 
-    .mk-faq-item-label-text {
-        font-size: 18px;
-    }
+  .mk-faq-item-label-text {
+    font-size: 18px;
+  }
 }

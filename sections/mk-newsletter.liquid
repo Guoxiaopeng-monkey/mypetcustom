@@ -1,9 +1,9 @@
-<section class="mk-newsletter" data-section-id="{{ section.id }}">
+<section class="mk-newsletter color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
   <div class="mk-newsletter__wrapper mk-container">
     <div class="mk-newsletter__info">
       {% if section.settings.title != blank %}
-        <h2 class="mk-newsletter__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
-          {{ section.settings.title }}
+        <h2 class="mk-newsletter__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}" style="--title-color: {{ section.settings.title_color }};">
+          {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
         </h2>
       {% endif %}
       {% if section.settings.description != blank %}
@@ -76,10 +76,8 @@
 
 <style>
   .mk-newsletter {
-    margin:60px 0;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, {{ section.settings.background_color | default: '#f8f9fa' }} 0%, {{ section.settings.background_color_secondary | default: '#ffffff' }} 100%);
   }
 
   .mk-newsletter__wrapper {
@@ -109,8 +107,10 @@
     font-weight: 700;
     line-height: 1.2;
     margin: 0 0 16px 0;
-    color: {{ section.settings.title_color | default: '#1a1a1a' }};
     letter-spacing: -0.5px;
+  }
+  .mk-newsletter__title strong{
+    color: var(--title-color);
   }
 
   .mk-newsletter__description {
@@ -305,10 +305,10 @@
   "name": "MK Newsletter",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "标题",
-      "default": "Join our email list"
+      "default": "<p>Join our email list</p>"
     },
     {
       "type": "select",
@@ -430,16 +430,10 @@
       "content": "颜色设置"
     },
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "背景颜色（主）",
-      "default": "#f8f9fa"
-    },
-    {
-      "type": "color",
-      "id": "background_color_secondary",
-      "label": "背景颜色（次）",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
     },
     {
       "type": "color",

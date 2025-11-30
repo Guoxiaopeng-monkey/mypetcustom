@@ -1,32 +1,36 @@
 {{ 'mk-faq.css' | asset_url | stylesheet_tag }}
 <style>
-  #shopify-section-{{ section.id }} {
+  .mk-faq {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  #shopify-section-{{ section.id }} .section{
-    background-color: {{ section.settings.background_color }};
+  .mk-faq-title strong{
+    color: var(--title-color);
   }
+  
   @media (max-width: 768px) {
-      #shopify-section-{{ section.id }} {
-          padding-top: {{ section.settings.padding_top | times: 0.5 }}px;
-          padding-bottom: {{ section.settings.padding_bottom | times: 0.5 }}px;
-      }
+    .mk-faq {
+        padding-top: {{ section.settings.padding_top | times: 0.5 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.5 }}px;
+    }
   }
 </style>
 
-<div class="mk-faq mk-container" id="faq">
-  <div class="mk-faq-header">
+<div class="mk-faq  color-{{ section.settings.color_scheme }}" id="faq">
+  <div class="mk-faq-header mk-container">
     {% if section.settings.title != blank %}
-      <h2 class="mk-faq-title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
-        {{ section.settings.title }}
+      <h2
+        class="mk-faq-title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}"
+        style="--title-color: {{ section.settings.title_color }};"
+      >
+        {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
       </h2>
     {% endif %}
     {% if section.settings.description != blank %}
       <div class="mk-faq-description">{{ section.settings.description }}</div>
     {% endif %}
   </div>
-  <div class="mk-faq-container">
+  <div class="mk-faq-container mk-container">
     <div class="mk-faq-image rounded">
       {% if section.settings.image != blank %}
         <img
@@ -71,10 +75,10 @@
   "name": "mk FAQ With Image",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Title",
-      "default": "Faq"
+      "default": "<p>Faq</p>"
     },
     {
       "type": "select",
@@ -156,10 +160,10 @@
       "label": "Image"
     },
     {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#ffffff"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-11"
     },
     {
       "type": "range",

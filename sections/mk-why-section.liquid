@@ -1,7 +1,7 @@
-<section class="mk-why-section" data-section-id="{{ section.id }}">
+<section class="mk-why-section color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
   <div class="mk-container">
-    <h2 class="mk-why-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
-      {{ section.settings.title | default: 'Why Buy Bulk From Us?' }}
+    <h2 class="mk-why-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}" style="--title-color: {{ section.settings.title_color }};">
+      {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
     </h2>
 
     <div class="mk-why-grid">
@@ -16,7 +16,6 @@
 
 <style>
   .mk-why-section {
-    background-color: {{ section.settings.background_color | default: '#f9f9f9' }};
     padding:60px 0;
   }
   .mk-why-section__title{
@@ -26,7 +25,9 @@
     margin-bottom: 20px;
     text-align: center;
   }
-
+  .mk-why-section__title strong{
+    color: var(--title-color);
+  }
   .mk-why-grid {
     display: flex;
     flex-wrap: wrap;
@@ -38,6 +39,7 @@
   .mk-why-grid > div{
     flex-basis: calc(calc(100% - 64px) / 3);
     min-width: 280px;
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
   }
 
   @media (max-width: 768px) {
@@ -67,16 +69,28 @@
   "name": "MK Why Choose Us",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Section Title",
-      "default": "Why Buy Bulk From Us?"
+      "default": "<p>Why Buy Bulk From Us?</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
     },
     {
       "type": "color",
       "id": "background_color",
       "label": "Background Color",
       "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#333333"
     },
     {
       "type": "select",

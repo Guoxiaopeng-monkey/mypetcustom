@@ -1035,7 +1035,7 @@
       ],
       "name": "SPX Image Grid 1",
       "settings": {
-        "title": "Custom Felt Creations by Pet Type",
+        "title": "<p>Custom Felt Creations by <strong>Pet Type</strong></p>",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "layout": "title-center",
@@ -1053,7 +1053,7 @@
       "type": "mk-newsletter",
       "name": "MK Newsletter",
       "settings": {
-        "title": "Join our email list",
+        "title": "<p>Join our <strong>email list</strong></p>",
         "title_size_pc": "36",
         "title_size_mb": "24",
         "description": "<p>Get exclusive deals and early access to new products.</p>",
@@ -1062,12 +1062,12 @@
         "show_guide": true,
         "guide_text": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>",
         "success_message": "Thank you for subscribing!",
-        "background_color": "#00000021",
+        "background_color": "#ffffff",
         "background_color_secondary": "#ffffff",
         "title_color": "#1a1a1a",
         "description_color": "#666666",
-        "accent_color": "#7c9fbb",
-        "accent_color_hover": "#576173",
+        "accent_color": "#da9279",
+        "accent_color_hover": "#c48873",
         "image_opacity": 100
       }
     },
@@ -1129,12 +1129,12 @@
       ],
       "name": "mk FAQ With Image",
       "settings": {
-        "title": "Frequently Asked Questions",
+        "title": "<p>Frequently Asked Questions</p>",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": "",
         "image": "shopify://shop_images/4-3.jpg",
-        "background_color": "#ffffff",
+        "background_color": "#f7ebdd",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -1189,9 +1189,10 @@
       "disabled": true,
       "name": "MK Photos",
       "settings": {
-        "title": "About Our  customsize",
+        "title": "<p>About Our <strong>Customsize</strong> Photos</p>",
         "title_size_pc": "48",
         "title_size_mb": "40",
+        "title_color": "#CC9866",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
@@ -1247,9 +1248,10 @@
       ],
       "name": "MK Photo Slider",
       "settings": {
-        "title": "About Our  customsize",
+        "title": "<p> About Our <strong>Customsize</strong></p>",
         "title_size_pc": "48",
-        "title_size_mb": "32"
+        "title_size_mb": "32",
+        "title_color": "#CC9866"
       }
     },
     "mk_why_section_atYRGD": {
@@ -1301,10 +1303,11 @@
       ],
       "name": "MK Why Choose Us",
       "settings": {
-        "title": "Why Choose Us",
-        "background_color": "#f9f9f9",
+        "title": "<p>Why Choose Us</p>",
+        "background_color": "#f7ebdd",
         "title_size_pc": "48",
-        "title_size_mb": "32"
+        "title_size_mb": "32",
+        "title_color": "#CC9866"
       }
     },
     "mk_step_section_dJPPJD": {
