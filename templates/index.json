@@ -1053,7 +1053,7 @@
       "type": "mk-newsletter",
       "name": "MK Newsletter",
       "settings": {
-        "title": "Join our email list",
+        "title": "<p>Join our <strong>email list</strong></p>",
         "title_size_pc": "36",
         "title_size_mb": "24",
         "description": "<p>Get exclusive deals and early access to new products.</p>",
@@ -1129,7 +1129,7 @@
       ],
       "name": "mk FAQ With Image",
       "settings": {
-        "title": "Frequently Asked Questions",
+        "title": "<p>Frequently Asked Questions</p>",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": "",
@@ -1189,9 +1189,10 @@
       "disabled": true,
       "name": "MK Photos",
       "settings": {
-        "title": "About Our  customsize",
+        "title": "<p>About Our <strong>Customsize</strong> Photos</p>",
         "title_size_pc": "48",
         "title_size_mb": "40",
+        "title_color": "#CC9866",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
@@ -1247,9 +1248,10 @@
       ],
       "name": "MK Photo Slider",
       "settings": {
-        "title": "About Our  customsize",
+        "title": "<p> About Our <strong>Customsize</strong></p>",
         "title_size_pc": "48",
-        "title_size_mb": "32"
+        "title_size_mb": "32",
+        "title_color": "#CC9866"
       }
     },
     "mk_why_section_atYRGD": {
@@ -1301,10 +1303,11 @@
       ],
       "name": "MK Why Choose Us",
       "settings": {
-        "title": "Why Choose Us",
+        "title": "<p>Why Choose Us</p>",
         "background_color": "#f7ebdd",
         "title_size_pc": "48",
-        "title_size_mb": "32"
+        "title_size_mb": "32",
+        "title_color": "#CC9866"
       }
     },
     "mk_step_section_dJPPJD": {

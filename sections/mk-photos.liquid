@@ -8,7 +8,7 @@
   <div class="mk-photos-header">
     {% if section.settings.title != blank %}
       <h2 class="mk-photos-title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
-        {{ section.settings.title }}
+        {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
       </h2>
     {% endif %}
     {% if section.settings.description != blank %}
@@ -61,9 +61,10 @@
   "name": "MK Photos",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
-      "label": "Title"
+      "label": "Title",
+      "default": "<p>About Our <strong>Customsize</strong></p>"
     },
     {
       "type": "select",
@@ -205,7 +206,7 @@
     {
       "name": "MK Photos",
       "settings": {
-        "title": "Photos",
+        "title": "<p>About Our <strong>Customsize</strong> Photos</p>",
         "description": "<p>Photos</p>",
         "button_text": "View All",
         "button_url": "/collections/all"

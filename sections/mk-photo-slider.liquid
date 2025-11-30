@@ -4,11 +4,11 @@
   defer="defer"
 ></script>
 
-<div class="mk-photo-slider mk-container">
-  <div class="mk-photo-slider-header">
-    <h2 class="text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">{{ section.settings.title }}</h2>
+<div class="mk-photo-slider color-{{ section.settings.color_scheme }}">
+  <div class="mk-photo-slider-header mk-container">
+    <h2 class="text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}" style="--title-color: {{ section.settings.title_color }};">{{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}</h2>
   </div>
-  <div class="mk-photo-slider-content">
+  <div class="mk-photo-slider-content mk-container">
     <div class="mk-photo-slider-content-left">
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
@@ -82,9 +82,16 @@
   "name": "MK Photo Slider",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
-      "label": "Title"
+      "label": "Title",
+      "default": "<p>Photo Slider</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
     },
     {
       "type": "select",
@@ -187,6 +194,12 @@
       ],
       "default": "32"
     },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#CC9866"
+    }
   ],
   "blocks": [
     {
@@ -349,10 +362,11 @@
   }
 
   .mk-photo-slider-header h2 {
-    color: #333;
     margin: 0;
   }
-
+  .mk-photo-slider-header h2 strong{
+    color: var(--title-color);
+  }
   .mk-photo-slider-content {
     display: flex;
     align-items: center;
