@@ -1210,6 +1210,7 @@
         "advantage_TzfCQb": {
           "type": "advantage",
           "settings": {
+            "icon": "shopify://shop_images/ico-02.png",
             "title": "Premium Wool",
             "description": "Carefully matched imported wool recreates your pet’s natural fur and texture."
           }
@@ -1217,6 +1218,7 @@
         "advantage_rtctKq": {
           "type": "advantage",
           "settings": {
+            "icon": "shopify://shop_images/ico-03.png",
             "title": "Personal Touch",
             "description": "Add your pet’s signature details for a one-of-a-kind keepsake."
           }
@@ -1224,6 +1226,7 @@
         "advantage_9bXY9i": {
           "type": "advantage",
           "settings": {
+            "icon": "shopify://shop_images/ico-04.png",
             "title": "Gift Ready",
             "description": "Arrives in an elegant gift box with a photo postcard, perfect for gifting."
           }
@@ -1231,6 +1234,7 @@
         "advantage_A3qU7F": {
           "type": "advantage",
           "settings": {
+            "icon": "shopify://shop_images/ico-05.png",
             "title": "Full Service",
             "description": "From photo guide to global delivery — quality ensured at every step."
           }
