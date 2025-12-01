@@ -1238,6 +1238,14 @@
             "title": "Full Service",
             "description": "From photo guide to global delivery — quality ensured at every step."
           }
+        },
+        "advantage_QmXwPw": {
+          "type": "advantage",
+          "settings": {
+            "icon": "shopify://shop_images/LOGO-tou.png",
+            "title": "Advantage",
+            "description": "Brief description of the advantage."
+          }
         }
       },
       "block_order": [
@@ -1245,13 +1253,14 @@
         "advantage_TzfCQb",
         "advantage_rtctKq",
         "advantage_9bXY9i",
-        "advantage_A3qU7F"
+        "advantage_A3qU7F",
+        "advantage_QmXwPw"
       ],
       "name": "MK Why Choose Us",
       "settings": {
         "title": "<p>Why Choose Us</p>",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "background_color": "#f7ebdd",
+        "background_color": "#ffffff",
         "title_color": "#cc9866",
         "title_size_pc": "48",
         "title_size_mb": "32"
