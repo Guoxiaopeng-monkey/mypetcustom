@@ -45,9 +45,9 @@
       ],
       "name": "MK Image Banner",
       "settings": {
-        "image": "shopify://shop_images/1.jpg",
+        "image": "shopify://shop_images/1920-850-Banner.png",
         "image_mobile": "shopify://shop_images/1450-2566-blank_e13540d6-f913-4f7c-82d2-da827caf7b47.jpg",
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4"
+        "color_scheme": "scheme-6408dc93-c539-488d-bc2d-2d5a9e9ee025"
       }
     },
     "hero_jVaWmY": {
@@ -999,7 +999,7 @@
         "image_text_Udbi7A": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/1024-768-A3.jpg",
+            "image_pc": "shopify://shop_images/dog-do.png",
             "image_ratio": "auto",
             "handle": "Dog",
             "content": "",
@@ -1015,7 +1015,7 @@
         "image_text_VpimNq": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/1024-768-B3.jpg",
+            "image_pc": "shopify://shop_images/cat-do.png",
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
@@ -1133,7 +1133,7 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": "",
-        "image": "shopify://shop_images/4-3.jpg",
+        "image": "shopify://shop_images/FAQ.png",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "padding_top": 60,
         "padding_bottom": 60
@@ -1202,7 +1202,7 @@
         "advantage_CV9HbF": {
           "type": "advantage",
           "settings": {
-            "icon": "shopify://shop_images/1018_db32a87b-30e4-4892-aa62-d056d0b784dd.png",
+            "icon": "shopify://shop_images/ico-01.png",
             "title": "Artisan Craft",
             "description": "Handcrafted by skilled artisans with 5+ years of experience for flawless precision."
           }
