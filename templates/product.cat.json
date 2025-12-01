@@ -648,7 +648,7 @@
         "layout": "title-center",
         "color_scheme": "",
         "title_color": "#000000",
-        "block_back": "#968164",
+        "block_back": "#f8f3ed",
         "text_position": "underline",
         "block_rounded": 20,
         "show_icon": true,
