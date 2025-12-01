@@ -460,6 +460,7 @@
         }
       },
       "settings": {
+        "sticky_atc": false,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": true,
@@ -945,7 +946,7 @@
         "image_LgQgn6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/2.png",
+            "image": "shopify://shop_images/dog-A.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
@@ -1087,7 +1088,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-6408dc93-c539-488d-bc2d-2d5a9e9ee025",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1211,7 +1212,7 @@
         "image_ynfRPN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/20251010232445_266_22.png",
+            "image": "shopify://shop_images/dog-B.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
@@ -1273,7 +1274,7 @@
         "image_tQcbUA": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1_76ddfdf4-3492-4731-a3b9-9f86de6ab57d.png",
+            "image": "shopify://shop_images/dog-C.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
@@ -2198,7 +2199,9 @@
       "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
-        "title": "Frequently Asked Questions"
+        "title": "Frequently Asked Questions",
+        "title_size_pc": "48",
+        "title_size_mb": "32"
       }
     },
     "product_recommendations_qggXJq": {
@@ -2325,6 +2328,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
