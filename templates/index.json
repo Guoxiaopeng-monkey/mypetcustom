@@ -1243,8 +1243,8 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/LOGO-tou.png",
-            "title": "Advantage",
-            "description": "Brief description of the advantage."
+            "title": "",
+            "description": ""
           }
         }
       },
