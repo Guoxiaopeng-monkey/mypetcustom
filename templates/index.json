@@ -1039,6 +1039,7 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "layout": "title-center",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title_color": "#000000",
         "block_back": "#dddddd",
         "text_position": "overlay",
@@ -1062,8 +1063,7 @@
         "show_guide": true,
         "guide_text": "<p>Subscribe to our newsletter to get exclusive deals and early access to new products.</p>",
         "success_message": "Thank you for subscribing!",
-        "background_color": "#ffffff",
-        "background_color_secondary": "#ffffff",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title_color": "#1a1a1a",
         "description_color": "#666666",
         "accent_color": "#da9279",
@@ -1134,7 +1134,7 @@
         "title_size_mb": "32",
         "description": "",
         "image": "shopify://shop_images/4-3.jpg",
-        "background_color": "#f7ebdd",
+        "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -1192,7 +1192,6 @@
         "title": "<p>About Our <strong>Customsize</strong> Photos</p>",
         "title_size_pc": "48",
         "title_size_mb": "40",
-        "title_color": "#CC9866",
         "description": "",
         "button_text": "",
         "button_url": "/collections/all"
@@ -1249,9 +1248,10 @@
       "name": "MK Photo Slider",
       "settings": {
         "title": "<p> About Our <strong>Customsize</strong></p>",
+        "color_scheme": "",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "title_color": "#CC9866"
+        "title_color": "#cc9866"
       }
     },
     "mk_why_section_atYRGD": {
@@ -1304,10 +1304,11 @@
       "name": "MK Why Choose Us",
       "settings": {
         "title": "<p>Why Choose Us</p>",
+        "color_scheme": "",
         "background_color": "#f7ebdd",
+        "title_color": "#cc9866",
         "title_size_pc": "48",
-        "title_size_mb": "32",
-        "title_color": "#CC9866"
+        "title_size_mb": "32"
       }
     },
     "mk_step_section_dJPPJD": {
