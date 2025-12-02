@@ -2,10 +2,10 @@
 {{ 'steps-section.css' | asset_url | stylesheet_tag }}
 
 <div
-  class="steps-section mk-container {% if section.settings.display_index %}mk-step-section-index{% endif %}"
+  class="steps-section  {% if section.settings.display_index %}mk-step-section-index{% endif %} color-{{ section.settings.color_scheme }}"
   id="section-{{ section.id }}"
 >
-  <div class="page-width">
+  <div class=" mk-container step-section-container" style="--bg-color: {{ section.settings.block_background_color }};">
     {%- if section.settings.title != blank -%}
       <h2 class="steps-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
         {{ section.settings.title }}
@@ -30,6 +30,12 @@
   "name": "MK Step Section",
   "class": "shopify-section--bulk-order-process",
   "settings": [
+    {
+      "type": "color_scheme", 
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
     {
       "type": "text",
       "id": "title",
@@ -106,9 +112,15 @@
     },
     {
       "type": "color",
+      "id": "block_background_color",
+      "label": "Block Background Color",
+      "default": "#F7EBDD"
+    },
+    {
+      "type": "color",
       "id": "icon_bg_color",
       "label": "图标背景色",
-      "default": "#e8f5e9"
+      "default": "#F7EBDD"
     },
     {
       "type": "color",

@@ -1,4 +1,4 @@
-<div class="why-item" {{ block.shopify_attributes }}>
+<div class="why-item" style="--bg-color: {{ block.settings.bg_color }};" {{ block.shopify_attributes }}>
   <div class="why-item-icon  ">
     {%- if block.settings.icon != blank -%}
       {{

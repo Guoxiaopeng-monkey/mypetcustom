@@ -9,24 +9,19 @@
  */
 {
   "sections": {
-    "mk_image_banner_DLwfQM": {
-      "type": "mk-image-banner",
+    "mk_media_banner_PK8bFQ": {
+      "type": "mk-media-banner",
       "blocks": {
-        "cus_heading_3GUk8j": {
+        "cus_heading_eznUbg": {
           "type": "cus_heading",
           "settings": {
-            "heading": "<h1>My Pet Felt Custom</h1>",
+            "heading": "<h1>REMBER ME</h1><h1>BEFORE THE MEMORY OF</h1><h1>LOVES DISAPPEARS</h1>",
+            "title_color": "#f8f3ed",
             "title_size_pc": "48",
-            "title_size_mb": "36"
+            "title_size_mb": "32"
           }
         },
-        "cus_description_JGWpdT": {
-          "type": "cus_description",
-          "settings": {
-            "description": "<p>Remember me before the memory of loves disappears</p>"
-          }
-        },
-        "cus_button_CkH4qY": {
+        "cus_button_WD6agh": {
           "type": "cus_button",
           "settings": {
             "button": "Make It Personal",
@@ -35,19 +30,19 @@
         }
       },
       "block_order": [
-        "cus_heading_3GUk8j",
-        "cus_description_JGWpdT",
-        "cus_button_CkH4qY"
+        "cus_heading_eznUbg",
+        "cus_button_WD6agh"
       ],
-      "custom_css": [
-        ".mk-image-banner-content {padding: 200px 0 60px 0;}",
-        "@media (max-width: 768px) {.mk-image-banner-content {padding: 120px 20px 60px 20px; }}"
-      ],
-      "name": "MK Image Banner",
+      "name": "MK Media Banner",
       "settings": {
         "image": "shopify://shop_images/1920-850-Banner.png",
-        "image_mobile": "shopify://shop_images/1450-2566-blank_e13540d6-f913-4f7c-82d2-da827caf7b47.jpg",
-        "color_scheme": "scheme-6408dc93-c539-488d-bc2d-2d5a9e9ee025"
+        "pc_height": 880,
+        "content_align": "align-left",
+        "position_pc": "middle-left",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "mobile_height": 400,
+        "content_align_mobile": "align-center",
+        "position_mobile": "middle"
       }
     },
     "hero_jVaWmY": {
@@ -1203,6 +1198,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-01.png",
+            "bg_color": "#ffffff",
             "title": "Artisan Craft",
             "description": "Handcrafted by skilled artisans with 5+ years of experience for flawless precision."
           }
@@ -1211,6 +1207,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-02.png",
+            "bg_color": "#ffffff",
             "title": "Premium Wool",
             "description": "Carefully matched imported wool recreates your pet’s natural fur and texture."
           }
@@ -1219,6 +1216,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-03.png",
+            "bg_color": "#ffffff",
             "title": "Personal Touch",
             "description": "Add your pet’s signature details for a one-of-a-kind keepsake."
           }
@@ -1227,6 +1225,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-04.png",
+            "bg_color": "#ffffff",
             "title": "Gift Ready",
             "description": "Arrives in an elegant gift box with a photo postcard, perfect for gifting."
           }
@@ -1235,6 +1234,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-05.png",
+            "bg_color": "#ffffff",
             "title": "Full Service",
             "description": "From photo guide to global delivery — quality ensured at every step."
           }
@@ -1243,6 +1243,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/LOGO-tou.png",
+            "bg_color": "#f7ebdd",
             "title": "",
             "description": ""
           }
@@ -1256,11 +1257,14 @@
         "advantage_A3qU7F",
         "advantage_QmXwPw"
       ],
+      "custom_css": [
+        ".mk-why-grid > div:last-child {background: #f7ebdd;}"
+      ],
       "name": "MK Why Choose Us",
       "settings": {
-        "title": "<p>Why Choose Us</p>",
+        "title": "<p><strong>Why</strong> Choose Us</p>",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "background_color": "#ffffff",
+        "background_color": "#f7ebdd",
         "title_color": "#cc9866",
         "title_size_pc": "48",
         "title_size_mb": "32"
@@ -1326,9 +1330,11 @@
       ],
       "name": "MK Step Section",
       "settings": {
+        "color_scheme": "",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
+        "block_background_color": "#f7ebdd",
         "icon_bg_color": "#e8f5e9",
         "text_color": "#000000",
         "display_index": true
@@ -1336,7 +1342,7 @@
     }
   },
   "order": [
-    "mk_image_banner_DLwfQM",
+    "mk_media_banner_PK8bFQ",
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ",

@@ -65,21 +65,23 @@
   }
 </style>
 
-<div class="mk-faq-section mk-container section section--page-width">
-  <h2 class="mk-faq-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
-    {{ section.settings.title }}
-  </h2>
-  <div class="mk-faq-section__content">
-    {% content_for 'blocks' %}
-  </div>
-  {% if section.blocks.size > 3 %}
-    <div class="mk-faq-view-more">
-      <button class="mk-faq-view-more-btn" onclick="toggleFAQViewMore()">
-        <span class="view-more-text text-18 md:text-16 ">View More</span>
-        <span class="view-less-text text-18 md:text-16 " style="display: none;">View Less</span>
-      </button>
+<div class="mk-faq-section  section--page-width color-{{ section.settings.color_scheme }}">
+  <div class="mk-container">
+    <h2 class="mk-faq-section__title  text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+      {{ section.settings.title }}
+    </h2>
+    <div class="mk-faq-section__content">
+      {% content_for 'blocks' %}
     </div>
-  {% endif %}
+    {% if section.blocks.size > 3 %}
+      <div class="mk-faq-view-more">
+        <button class="mk-faq-view-more-btn" onclick="toggleFAQViewMore()">
+          <span class="view-more-text text-18 md:text-16 ">View More</span>
+          <span class="view-less-text text-18 md:text-16 " style="display: none;">View Less</span>
+        </button>
+      </div>
+    {% endif %}
+  </div>
 </div>
 
 <script>
@@ -136,12 +138,17 @@
   "name": "mk FAQ Section",
   "settings": [
     {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Title",
       "default": "Frequently Asked Questions"
     },
-
     {
       "type": "select",
       "id": "title_size_pc",

@@ -1,0 +1,431 @@
+<style>
+
+  .top-left {
+    top: 0;
+    left: 0;
+  }
+  .top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .top-right {
+    top: 0;
+    right: 0;
+  }
+  .middle-left {
+    top: 50%;
+    left: 0;
+  }
+  .middle-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .middle-right {
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  .bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  .align-left {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .align-center {
+    text-align: center;
+    align-items: center;
+  }
+  .align-right {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 767px) {
+    .md\:align-left {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .md\:align-center {
+      text-align: center;
+      align-items: center;
+    }
+    .md\:align-right {
+      text-align: right;
+      align-items: flex-end;
+    }
+    .md\:top{
+      top: 0;
+    }
+    .md\:middle {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .md\:bottom {
+      bottom: 0;
+    }
+  }
+  .mk-media-banner {
+    width: 100vw;
+    position: relative;
+  }
+  .mk-media-banner-image {
+    height: var(--pc-height);
+  }
+  .mk-media-banner-image picture,
+  .mk-media-banner-image img {
+    object-fit: cover;
+    height: var(--pc-height);
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mk-media-banner-content {
+    position: absolute;
+    padding: 140px 40px 60px 40px;
+    top: 0;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mk-media-banner-content-inner {
+    width: fit-content;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+  }
+  .mk-media-banner-heading {
+    color: var(--title-color);
+    line-height: 120%;
+  }
+  .mk-media-banner-heading h1 {
+    line-height: 120%;
+    margin: 0;
+  }
+  .mk-media-banner-description {
+    color: var(--description-color);
+  }
+  @media (max-width: 767px) {
+    .mk-media-banner-image {
+      height: var(--mobile-height);
+    }
+    .mk-media-banner-image picture,
+    .mk-media-banner-image img {
+      height: var(--mobile-height);
+    }
+    .mk-media-banner-content {
+      padding: 120px 40px 40px 40px;
+    }
+    .mk-media-banner-content-inner{
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="mk-media-banner color-{{ section.settings.color_scheme }}">
+  <div
+    class="mk-media-banner-image"
+    style="--pc-height: {{ section.settings.pc_height }}px; --mobile-height: {{ section.settings.mobile_height }}px;"
+  >
+    <picture>
+      <source srcset="{{ section.settings.image_mobile | image_url: width: 400 }}" media="(max-width: 767px)">
+      <img
+        src="{{ section.settings.image | image_url: width: 1920 }}"
+        alt="{{ section.settings.image.alt }}"
+        width="100%"
+        height="100%"
+      >
+    </picture>
+  </div>
+  <div class="mk-media-banner-content mk-container ">
+    <div class="mk-media-banner-content-inner {{ section.settings.content_align }} md:{{ section.settings.content_align_mobile }} {{ section.settings.position_pc }} md:{{ section.settings.position_mobile }}">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'cus_heading' %}
+            <div
+              class="mk-media-banner-heading  text-{{ block.settings.title_size_pc }}  md:text-{{ block.settings.title_size_mb }}"
+              style="--title-color: {{ block.settings.title_color | default:"#000" }};"
+            >
+              {{ block.settings.heading }}
+            </div>
+          {% when 'cus_description' %}
+            <div class="mk-media-banner-description" style="--description-color: {{ block.settings.description_color | default:"#000" }};">{{ block.settings.description }}</div>
+          {% when 'cus_button' %}
+            <div class="mk-media-banner-button button button-{{ section.settings.color_scheme }}">{{ block.settings.button }}</div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Media Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "number",
+      "id": "pc_height",
+      "label": "PC Height",
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "content_align",
+      "label": "Content Align",
+      "options": [
+        {
+          "value": "align-left",
+          "label": "Left"
+        },
+        {
+          "value": "align-center",
+          "label": "Center"
+        },
+        {
+          "value": "align-right",
+          "label": "Right"
+        }
+      ],
+      "default": "align-center"
+    },
+    {
+      "type": "select",
+      "id": "position_pc",
+      "label": "Position PC",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "middle-left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image Mobile"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "number",
+      "id": "mobile_height",
+      "label": "Mobile Height",
+      "default": 400
+    },
+    {
+      "type": "select",
+      "id": "content_align_mobile",
+      "label": "Content Align Mobile",
+      "options": [
+        {
+          "value": "align-left",
+          "label": "Left"
+        },
+        {
+          "value": "align-center",
+          "label": "Center"
+        },
+        {
+          "value": "align-right",
+          "label": "Right"
+        }
+      ],
+      "default": "align-center"
+    },
+    {
+      "type": "select",
+      "id": "position_mobile",
+      "label": "Position Mobile",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cus_heading",
+      "name": "Heading",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#F8F3ED"
+        },
+        {
+          "type": "select",
+          "id": "title_size_pc",
+          "label": "Title Size PC",
+          "options": [
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "32",
+              "label": "32"
+            },
+            {
+              "value": "36",
+              "label": "36"
+            },
+            {
+              "value": "40",
+              "label": "40"
+            },
+            {
+              "value": "48",
+              "label": "48"
+            }
+          ],
+          "default": "48"
+        },
+        {
+          "type": "select",
+          "id": "title_size_mb",
+          "label": "Title Size Mobile",
+          "options": [
+            {
+              "value": "24",
+              "label": "24"
+            },
+            {
+              "value": "28",
+              "label": "28"
+            },
+            {
+              "value": "32",
+              "label": "32"
+            },
+            {
+              "value": "36",
+              "label": "36"
+            },
+            {
+              "value": "40",
+              "label": "40"
+            }
+          ],
+          "default": "32"
+        }
+      ]
+    },
+
+    {
+      "type": "cus_description",
+      "name": "description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "description_color",
+          "label": "Description Color",
+          "default": "#F8F3ED"
+        }
+      ]
+    },
+    {
+      "type": "cus_button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Media Banner"
+    }
+  ]
+}
+{% endschema %}

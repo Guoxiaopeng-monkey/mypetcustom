@@ -435,7 +435,7 @@
         "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -444,7 +444,7 @@
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "section_width": "full-width",
         "thickness": 0.5,
         "corner_radius": "square",
@@ -533,7 +533,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -587,7 +587,7 @@
         "image_text_nUdpR3": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/cat-C.png",
+            "image_pc": "shopify://shop_images/Frame_1000008835.png",
             "image_ratio": "auto",
             "handle": "Base Shaping",
             "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
@@ -646,9 +646,9 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "layout": "title-center",
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title_color": "#000000",
-        "block_back": "#f8f3ed",
+        "block_back": "#f7ebdd",
         "text_position": "underline",
         "block_rounded": 20,
         "show_icon": true,
@@ -1334,10 +1334,12 @@
       ],
       "name": "MK Step Section",
       "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "icon_bg_color": "#ffffff",
+        "block_background_color": "#f7ebdd",
+        "icon_bg_color": "#f7ebdd",
         "text_color": "#000000",
         "display_index": true
       }
@@ -1976,6 +1978,7 @@
       "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "Frequently Asked Questions",
         "title_size_pc": "48",
         "title_size_mb": "32"

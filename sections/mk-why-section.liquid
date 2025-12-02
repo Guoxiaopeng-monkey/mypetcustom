@@ -1,6 +1,9 @@
 <section class="mk-why-section color-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
-  <div class="mk-container">
-    <h2 class="mk-why-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}" style="--title-color: {{ section.settings.title_color }};">
+  <div class="mk-container mk-why-container " style="background: {{ section.settings.background_color }};">
+    <h2
+      class="mk-why-section__title text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}"
+      style="--title-color: {{ section.settings.title_color }};"
+    >
       {{ section.settings.title | replace: '<p>', '' | replace: '</p>', '' }}
     </h2>
 
@@ -17,6 +20,9 @@
 <style>
   .mk-why-section {
     padding:60px 0;
+  }
+  .mk-why-container{
+    padding-block:40px;
   }
   .mk-why-section__title{
     font-weight: 600;
@@ -39,7 +45,7 @@
   .mk-why-grid > div{
     flex-basis: calc(calc(100% - 64px) / 3);
     min-width: 280px;
-    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    background-color: var(--bg-color, #fff);
   }
 
   @media (max-width: 768px) {
@@ -72,7 +78,7 @@
       "type": "richtext",
       "id": "title",
       "label": "Section Title",
-      "default": "<p>Why Buy Bulk From Us?</p>"
+      "default": "<p><strong>Why</strong> Buy Bulk From Us?</p>"
     },
     {
       "type": "color_scheme",
@@ -162,6 +168,12 @@
           "type": "image_picker",
           "id": "icon",
           "label": "Advantage Icon"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": " Background Color",
+          "default": "#fff"
         },
         {
           "type": "text",

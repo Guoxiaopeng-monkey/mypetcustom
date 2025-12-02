@@ -1,9 +1,11 @@
 /* assets/steps-section.css */
 .steps-section {
-    margin: 60px auto;
-    background-color: #fff;
+    padding: 60px auto;
 }
-
+.step-section-container {
+    padding:40px 0;
+    background-color: var(--bg-color, #fff);
+}
 .steps-section__title {
     text-align: center;
     font-weight: 600;
