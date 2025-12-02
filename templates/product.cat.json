@@ -1334,12 +1334,12 @@
       ],
       "name": "MK Step Section",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "block_background_color": "#f7ebdd",
-        "icon_bg_color": "#ffffff",
+        "icon_bg_color": "#f7ebdd",
         "text_color": "#000000",
         "display_index": true
       }
@@ -1978,7 +1978,7 @@
       "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "Frequently Asked Questions",
         "title_size_pc": "48",
         "title_size_mb": "32"
