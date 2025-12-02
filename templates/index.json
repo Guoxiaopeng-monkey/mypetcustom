@@ -16,7 +16,7 @@
           "type": "cus_heading",
           "settings": {
             "heading": "<h1>REMBER ME</h1><h1>BEFORE THE MEMORY OF</h1><h1>LOVES DISAPPEARS</h1>",
-            "title_color": "#F8F3ED",
+            "title_color": "#f8f3ed",
             "title_size_pc": "48",
             "title_size_mb": "32"
           }
@@ -1251,6 +1251,9 @@
         "advantage_A3qU7F",
         "advantage_QmXwPw"
       ],
+      "custom_css": [
+        ".mk-why-grid > div:last-child {background: #f7ebdd;}"
+      ],
       "name": "MK Why Choose Us",
       "settings": {
         "title": "<p>Why Choose Us</p>",
@@ -1321,9 +1324,11 @@
       ],
       "name": "MK Step Section",
       "settings": {
+        "color_scheme": "",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
+        "block_background_color": "#f7ebdd",
         "icon_bg_color": "#e8f5e9",
         "text_color": "#000000",
         "display_index": true
