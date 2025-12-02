@@ -1256,7 +1256,7 @@
       ],
       "name": "MK Why Choose Us",
       "settings": {
-        "title": "<p>Why Choose Us</p>",
+        "title": "<p><strong>Why</strong> Choose Us</p>",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_color": "#ffffff",
         "title_color": "#cc9866",
