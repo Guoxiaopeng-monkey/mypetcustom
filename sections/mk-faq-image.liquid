@@ -30,7 +30,7 @@
       <div class="mk-faq-description">{{ section.settings.description }}</div>
     {% endif %}
   </div>
-  <div class="mk-faq-container mk-container">
+  <div class="mk-faq-container mk-container" style="background: {{ section.settings.background_color }};">
     <div class="mk-faq-image rounded">
       {% if section.settings.image != blank %}
         <img
@@ -164,6 +164,12 @@
       "id": "color_scheme",
       "label": "Color Scheme",
       "default": "scheme-11"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fff"
     },
     {
       "type": "range",
