@@ -530,7 +530,7 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 25,
-        "section_width": "full-width",
+        "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
@@ -587,7 +587,7 @@
         "image_text_nUdpR3": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/cat-C.png",
+            "image_pc": "shopify://shop_images/Frame_1000008835.png",
             "image_ratio": "auto",
             "handle": "Base Shaping",
             "content": "We build the basic outline using high-quality rigid wool, repeatedly adjusting body proportions and limb postures until the shape perfectly matches your cat’s unique physique.",
@@ -1334,9 +1334,11 @@
       ],
       "name": "MK Step Section",
       "settings": {
+        "color_scheme": "",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
+        "block_background_color": "#f7ebdd",
         "icon_bg_color": "#ffffff",
         "text_color": "#000000",
         "display_index": true
@@ -1976,6 +1978,7 @@
       "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
+        "color_scheme": "",
         "title": "Frequently Asked Questions",
         "title_size_pc": "48",
         "title_size_mb": "32"
