@@ -1234,9 +1234,7 @@
         "image_ynfRPN",
         "group_Ctez9R"
       ],
-      "custom_css": [
-        ".custom-section-content {background: #968164;}"
-      ],
+      "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1398,9 +1396,7 @@
         "image_tQcbUA",
         "group_EiM76A"
       ],
-      "custom_css": [
-        ".custom-section-content {background: #e6e6e6;}"
-      ],
+      "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
