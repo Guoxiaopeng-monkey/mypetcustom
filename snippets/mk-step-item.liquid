@@ -20,7 +20,7 @@
       </div>
     {%- endif -%}
     {% if section.settings.display_index %}
-      <div class="step-item__index">{{ index }}</div>
+      <div class="step-item__index" style="--icon-bg-color:{{ section.settings.icon_bg_color }}">{{ index }}</div>
     {% endif %}
   </div>
 

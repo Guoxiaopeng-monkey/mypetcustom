@@ -111,6 +111,11 @@
   }
   .mk-media-banner-heading {
     color: var(--title-color);
+    line-height: 120%;
+  }
+  .mk-media-banner-heading h1 {
+    line-height: 120%;
+    margin: 0;
   }
   .mk-media-banner-description {
     color: var(--description-color);
@@ -153,7 +158,7 @@
         {% case block.type %}
           {% when 'cus_heading' %}
             <div
-              class="mk-media-banner-heading  text-{{ block.settings.title_size_pc }} text-{{ block.settings.title_size_mb }}"
+              class="mk-media-banner-heading  text-{{ block.settings.title_size_pc }}  md:text-{{ block.settings.title_size_mb }}"
               style="--title-color: {{ block.settings.title_color | default:"#000" }};"
             >
               {{ block.settings.heading }}
