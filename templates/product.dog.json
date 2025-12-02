@@ -1556,7 +1556,7 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "block_background_color": "#f7ebdd",
-        "icon_bg_color": "#ffffff",
+        "icon_bg_color": "#f7ebdd",
         "text_color": "#000000",
         "display_index": true
       }
