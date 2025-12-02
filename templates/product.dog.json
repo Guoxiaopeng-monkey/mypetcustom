@@ -466,7 +466,7 @@
         "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -574,7 +574,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -924,7 +924,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1072,9 +1072,7 @@
         "image_LgQgn6",
         "group_h7ACjF"
       ],
-      "custom_css": [
-        ".custom-section-content {background: #e6e6e6;}"
-      ],
+      "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
@@ -1088,7 +1086,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1107,6 +1105,28 @@
     "section_XiJ7Gq": {
       "type": "section",
       "blocks": {
+        "image_ynfRPN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/dog-B.png",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 40,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 16,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_Ctez9R": {
           "type": "group",
           "settings": {
@@ -1208,33 +1228,11 @@
             "text_MBcKhP",
             "text_m9696G"
           ]
-        },
-        "image_ynfRPN": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/dog-B.png",
-            "link": "",
-            "image_ratio": "adapt",
-            "width": "custom",
-            "custom_width": 40,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 16,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "group_Ctez9R",
-        "image_ynfRPN"
+        "image_ynfRPN",
+        "group_Ctez9R"
       ],
       "custom_css": [
         ".custom-section-content {background: #968164;}"
@@ -1252,7 +1250,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1416,7 +1414,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1557,9 +1555,11 @@
       ],
       "name": "MK Step Section",
       "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
+        "block_background_color": "#f7ebdd",
         "icon_bg_color": "#ffffff",
         "text_color": "#000000",
         "display_index": true
@@ -2199,6 +2199,7 @@
       "custom_css": [],
       "name": "mk FAQ Section",
       "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "title": "Frequently Asked Questions",
         "title_size_pc": "48",
         "title_size_mb": "32"
