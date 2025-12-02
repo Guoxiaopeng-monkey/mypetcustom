@@ -444,7 +444,7 @@
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "section_width": "full-width",
         "thickness": 0.5,
         "corner_radius": "square",
@@ -533,7 +533,7 @@
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
