@@ -9,6 +9,42 @@
  */
 {
   "sections": {
+    "mk_media_banner_PK8bFQ": {
+      "type": "mk-media-banner",
+      "blocks": {
+        "cus_heading_eznUbg": {
+          "type": "cus_heading",
+          "settings": {
+            "heading": "<h1>REMBER ME</h1><h1>BEFORE THE MEMORY OF</h1><h1>LOVES DISAPPEARS</h1>",
+            "title_color": "#F8F3ED",
+            "title_size_pc": "48",
+            "title_size_mb": "32"
+          }
+        },
+        "cus_button_WD6agh": {
+          "type": "cus_button",
+          "settings": {
+            "button": "Make It Personal",
+            "url": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend"
+          }
+        }
+      },
+      "block_order": [
+        "cus_heading_eznUbg",
+        "cus_button_WD6agh"
+      ],
+      "name": "MK Media Banner",
+      "settings": {
+        "image": "shopify://shop_images/1920-850-Banner.png",
+        "pc_height": 880,
+        "content_align": "align-left",
+        "position_pc": "middle-left",
+        "color_scheme": "",
+        "mobile_height": 400,
+        "content_align_mobile": "align-center",
+        "position_mobile": "middle"
+      }
+    },
     "mk_image_banner_DLwfQM": {
       "type": "mk-image-banner",
       "blocks": {
@@ -1336,6 +1372,7 @@
     }
   },
   "order": [
+    "mk_media_banner_PK8bFQ",
     "mk_image_banner_DLwfQM",
     "hero_jVaWmY",
     "section_Mn43yY",
