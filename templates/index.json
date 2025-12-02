@@ -39,51 +39,10 @@
         "pc_height": 880,
         "content_align": "align-left",
         "position_pc": "middle-left",
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "mobile_height": 400,
         "content_align_mobile": "align-center",
         "position_mobile": "middle"
-      }
-    },
-    "mk_image_banner_DLwfQM": {
-      "type": "mk-image-banner",
-      "blocks": {
-        "cus_heading_3GUk8j": {
-          "type": "cus_heading",
-          "settings": {
-            "heading": "<h1>My Pet Felt Custom</h1>",
-            "title_size_pc": "48",
-            "title_size_mb": "36"
-          }
-        },
-        "cus_description_JGWpdT": {
-          "type": "cus_description",
-          "settings": {
-            "description": "<p>Remember me before the memory of loves disappears</p>"
-          }
-        },
-        "cus_button_CkH4qY": {
-          "type": "cus_button",
-          "settings": {
-            "button": "Make It Personal",
-            "url": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend"
-          }
-        }
-      },
-      "block_order": [
-        "cus_heading_3GUk8j",
-        "cus_description_JGWpdT",
-        "cus_button_CkH4qY"
-      ],
-      "custom_css": [
-        ".mk-image-banner-content {padding: 200px 0 60px 0;}",
-        "@media (max-width: 768px) {.mk-image-banner-content {padding: 120px 20px 60px 20px; }}"
-      ],
-      "name": "MK Image Banner",
-      "settings": {
-        "image": "shopify://shop_images/1920-850-Banner.png",
-        "image_mobile": "shopify://shop_images/1450-2566-blank_e13540d6-f913-4f7c-82d2-da827caf7b47.jpg",
-        "color_scheme": "scheme-6408dc93-c539-488d-bc2d-2d5a9e9ee025"
       }
     },
     "hero_jVaWmY": {
@@ -1373,7 +1332,6 @@
   },
   "order": [
     "mk_media_banner_PK8bFQ",
-    "mk_image_banner_DLwfQM",
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ",
