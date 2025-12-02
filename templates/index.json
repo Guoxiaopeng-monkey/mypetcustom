@@ -1130,6 +1130,7 @@
         "description": "",
         "image": "shopify://shop_images/FAQ.png",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "background_color": "#f7ebdd",
         "padding_top": 60,
         "padding_bottom": 60
       }
