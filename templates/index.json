@@ -1198,6 +1198,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-01.png",
+            "bg_color": "#ffffff",
             "title": "Artisan Craft",
             "description": "Handcrafted by skilled artisans with 5+ years of experience for flawless precision."
           }
@@ -1206,6 +1207,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-02.png",
+            "bg_color": "#ffffff",
             "title": "Premium Wool",
             "description": "Carefully matched imported wool recreates your pet’s natural fur and texture."
           }
@@ -1214,6 +1216,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-03.png",
+            "bg_color": "#ffffff",
             "title": "Personal Touch",
             "description": "Add your pet’s signature details for a one-of-a-kind keepsake."
           }
@@ -1222,6 +1225,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-04.png",
+            "bg_color": "#ffffff",
             "title": "Gift Ready",
             "description": "Arrives in an elegant gift box with a photo postcard, perfect for gifting."
           }
@@ -1230,6 +1234,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/ico-05.png",
+            "bg_color": "#ffffff",
             "title": "Full Service",
             "description": "From photo guide to global delivery — quality ensured at every step."
           }
@@ -1238,6 +1243,7 @@
           "type": "advantage",
           "settings": {
             "icon": "shopify://shop_images/LOGO-tou.png",
+            "bg_color": "#f7ebdd",
             "title": "",
             "description": ""
           }
@@ -1258,7 +1264,7 @@
       "settings": {
         "title": "<p><strong>Why</strong> Choose Us</p>",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "background_color": "#ffffff",
+        "background_color": "#f7ebdd",
         "title_color": "#cc9866",
         "title_size_pc": "48",
         "title_size_mb": "32"
