@@ -1,0 +1,88 @@
+
+<style>
+  .mk-cus-content {
+    padding-top: {{ section.settings.padding-block-start }}px;
+    padding-bottom: {{ section.settings.padding-block-end }}px;
+  }
+  .mk-cus-content__inner {
+    background-color: var(--bg-color);
+    padding-block: 40px;
+  }
+  @media (min-width: 768px) {
+    .mk-cus-content__inner {
+      padding-block: 30px;
+    }
+  }
+</style>
+
+<div class="mk-cus-content color-{{ section.settings.color_scheme }}">
+  <div class="mk-cus-content__inner mk-container" style="--bg-color: {{ section.settings.background_color }}; padding-top: {{ section.settings.padding-block-start }}px; padding-bottom: {{ section.settings.padding-block-end }}px;">
+    {%content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Custom Content",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_heading"
+    },
+    {
+      "type": "_content"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Custom Content",
+      "category": "MK Custom Content"
+    }
+  ]
+}
+{% endschema %}
