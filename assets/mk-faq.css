@@ -124,6 +124,7 @@
 
   .mk-faq-content {
     flex-basis: 100%;
+    padding: 20px 0;
   }
 
   .mk-faq-item-label-icon {
