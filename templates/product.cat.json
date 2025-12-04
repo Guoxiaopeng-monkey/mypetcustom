@@ -520,6 +520,7 @@
         "text_EcCw8X",
         "text_UEtX4m"
       ],
+      "disabled": true,
       "name": "t:names.rich_text_section",
       "settings": {
         "content_direction": "column",
@@ -547,6 +548,80 @@
         "gradient_direction": "to top",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "mk_cus_content_LWfzeG": {
+      "type": "mk-cus-content",
+      "blocks": {
+        "text_M9NQF4": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>10+ Artisanal Steps: Defining Premium Handcrafted Standards</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 20,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_CFYg7G": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Every cat felt figurine we create goes through <strong>10+ pure handmade processes</strong>. From material selection to the final product, the entire journey is crafted independently by artisans with over 5 years of expertise—all to ensure the felt captures the unique charm and spirit that makes your cat one of a kind.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_M9NQF4",
+        "text_CFYg7G"
+      ],
+      "name": "MK Custom Content",
+      "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "background_color": "#f7ebdd",
+        "padding-block-start": 60,
+        "padding-block-end": 20
       }
     },
     "mk_media_grid_UjDd9N": {
@@ -2137,6 +2212,7 @@
     "main",
     "divider_aPhdja",
     "section_YrNdcE",
+    "mk_cus_content_LWfzeG",
     "mk_media_grid_UjDd9N",
     "section_kEjVpi",
     "section_UkWK9x",
