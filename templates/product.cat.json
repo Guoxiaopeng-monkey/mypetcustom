@@ -640,6 +640,9 @@
         "image_text_ywjk6X",
         "image_text_ArtJXc"
       ],
+      "custom_css": [
+        ".spx-section {padding-block: 0 !important;}"
+      ],
       "name": "SPX Image Grid 1",
       "settings": {
         "title": "",
