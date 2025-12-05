@@ -1010,7 +1010,7 @@
         "image_text_VpimNq": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/cat-do.png",
+            "image_pc": "shopify://shop_images/cat-do_e3abac0c-d1d4-4951-9418-b59fbb9601d1.png",
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
@@ -1138,19 +1138,6 @@
     "mk_photo_slider_Lj6epa": {
       "type": "mk-photo-slider",
       "blocks": {
-        "mk_photo_item_3LTf4C": {
-          "type": "mk-photo-item",
-          "settings": {
-            "image": "shopify://shop_images/20251013222734_320_22.png",
-            "alt_text": "",
-            "title": "“The Most Heartfelt Way to Remember Him”",
-            "title_size_pc": "32",
-            "title_size_mb": "20",
-            "description": "My Dalmatian passed away not long ago, and I had been searching for a meaningful way to remember him. When I received this felt sculpture, I was truly moved — the gentle eyes, the little head tilt, even the placement of his spots looked just like him.Having this piece on my desk feels as if he’s back by my side again. It brings me comfort every single day. Thank you for turning my memory of him into something I can hold onto",
-            "button_text": "",
-            "link": ""
-          }
-        },
         "mk_photo_item_JHCGPK": {
           "type": "mk-photo-item",
           "settings": {
@@ -1160,6 +1147,19 @@
             "title_size_pc": "32",
             "title_size_mb": "20",
             "description": "The piece looks so much like our dog — the little tongue-out smile, the eyebrows, and even the tiny bell on his collar were done really well. Holding it next to the photo almost felt like seeing him again.Our dog passed away not long ago, so I had this made as a gift for my daughter. She recognized him right away, and you could tell she really loved it.",
+            "button_text": "",
+            "link": ""
+          }
+        },
+        "mk_photo_item_3LTf4C": {
+          "type": "mk-photo-item",
+          "settings": {
+            "image": "shopify://shop_images/20251013222734_320_22.png",
+            "alt_text": "",
+            "title": "“The Most Heartfelt Way to Remember Him”",
+            "title_size_pc": "32",
+            "title_size_mb": "20",
+            "description": "My Dalmatian passed away not long ago, and I had been searching for a meaningful way to remember him. When I received this felt sculpture, I was truly moved — the gentle eyes, the little head tilt, even the placement of his spots looked just like him.Having this piece on my desk feels as if he’s back by my side again. It brings me comfort every single day. Thank you for turning my memory of him into something I can hold onto",
             "button_text": "",
             "link": ""
           }
@@ -1179,8 +1179,8 @@
         }
       },
       "block_order": [
-        "mk_photo_item_3LTf4C",
         "mk_photo_item_JHCGPK",
+        "mk_photo_item_3LTf4C",
         "mk_photo_item_PLRfe8"
       ],
       "name": "MK Photo Slider",
