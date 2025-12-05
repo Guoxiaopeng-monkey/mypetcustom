@@ -957,12 +957,12 @@
         "group_4Kj9Je"
       ],
       "custom_css": [
-        ".mk-columns{padding-top: 0;}"
+        ".mk-columns {padding-top: 0;}"
       ],
       "name": "MK Columns",
       "settings": {
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "background_color": "#F7EBDD",
+        "background_color": "#f7ebdd",
         "title": "",
         "title_size_pc": "48",
         "title_size_mb": "32",
@@ -1329,7 +1329,7 @@
         "image_LgQgn6": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/dog-A.png",
+            "image": "shopify://shop_images/dog-A_8a736b59-f7ec-465d-a895-7e96384ddf9a.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
