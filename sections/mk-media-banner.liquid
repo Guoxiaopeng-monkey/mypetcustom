@@ -166,7 +166,7 @@
           {% when 'cus_description' %}
             <div class="mk-media-banner-description" style="--description-color: {{ block.settings.description_color | default:"#000" }};">{{ block.settings.description }}</div>
           {% when 'cus_button' %}
-            <div class="mk-media-banner-button button button-{{ section.settings.color_scheme }}">{{ block.settings.button }}</div>
+            <a href="{{ block.settings.url }}" class="mk-media-banner-button button button-{{ section.settings.color_scheme }}">{{ block.settings.button }}</a>
         {% endcase %}
       {% endfor %}
     </div>
