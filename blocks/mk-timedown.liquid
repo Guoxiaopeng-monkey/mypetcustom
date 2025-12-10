@@ -1,0 +1,273 @@
+{%- assign block_settings = block.settings -%}
+{%- assign block_index = section.blocks | find_index: 'id', block.id -%}
+<style>
+  .mk-timedown-slide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .mk-timedown-slide * {
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<slideshow-slide
+  ref="slides[]"
+  class="
+    mk-timedown-slide
+    announcement-bar__slide
+    text-block
+    text-block--{{ block.id }}
+    text-block--align-center
+    text-block--full-width
+    custom-typography
+    {% if block_settings.font_size != "" %}custom-font-size{% endif %}
+    {% if block_settings.weight != "" %}custom-font-weight{% endif %}
+  "
+  style="
+    {% render 'typography-style', settings: block_settings, preset: 'custom' %}
+    --width: 100%;
+    --text-align: center;
+    --line-height: 1;
+  "
+  {{ block.shopify_attributes }}
+  aria-hidden="{% if block_index == 0 %}false{% else %}true{% endif %}"
+>
+  {% if block.settings.title != blank %}
+    <span>{{ block.settings.title }}</span>
+  {% endif %}
+  {% if block.settings.time_end != blank %}
+    <span class="mk-timedown-time" data-end-time="{{ block.settings.time_end }}">
+      <span class="mk-timedown-days">00</span> <span class="mk-timedown-unit">D</span> <span class="mk-timedown-hours">00</span> <span class="mk-timedown-unit">H</span> <span class="mk-timedown-minutes">00</span> <span class="mk-timedown-unit">M</span> <span class="mk-timedown-seconds">00</span> <span class="mk-timedown-unit">S</span>
+    </span>
+  {% endif %}
+</slideshow-slide>
+
+<script>
+  (function () {
+    const timedownElement = document.querySelector('.mk-timedown-time');
+    if (!timedownElement) return;
+
+    const endTimeStr = timedownElement.getAttribute('data-end-time');
+    if (!endTimeStr) return;
+
+    // 解析时间格式 YYYY-MM-DD HH:MM:SS
+    const parseDateTime = function (dateTimeStr) {
+      const [datePart, timePart] = dateTimeStr.split(' ');
+      const [year, month, day] = datePart.split('-').map(Number);
+      const [hours, minutes, seconds] = timePart.split(':').map(Number);
+      return new Date(year, month - 1, day, hours, minutes, seconds);
+    };
+
+    const endTime = parseDateTime(endTimeStr);
+    const daysEl = timedownElement.querySelector('.mk-timedown-days');
+    const hoursEl = timedownElement.querySelector('.mk-timedown-hours');
+    const minutesEl = timedownElement.querySelector('.mk-timedown-minutes');
+    const secondsEl = timedownElement.querySelector('.mk-timedown-seconds');
+
+    const updateCountdown = function () {
+      const now = new Date();
+      const diff = endTime - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    };
+
+    // 立即更新一次
+    updateCountdown();
+
+    // 每秒更新一次
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MK Timedown",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Countdown to the end of the offer"
+    },
+    {
+      "type": "text",
+      "id": "time_end",
+      "label": "Time End",
+      "info": "Format: YYYY-MM-DD HH:MM:SS"
+    },
+
+    {
+      "type": "header",
+      "content": "t:content.typography"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "t:settings.font",
+      "options": [
+        {
+          "value": "var(--font-body--family)",
+          "label": "t:options.body"
+        },
+        {
+          "value": "var(--font-subheading--family)",
+          "label": "t:options.subheading"
+        },
+        {
+          "value": "var(--font-heading--family)",
+          "label": "t:options.heading"
+        },
+        {
+          "value": "var(--font-accent--family)",
+          "label": "t:options.accent"
+        }
+      ],
+      "default": "var(--font-body--family)"
+    },
+    {
+      "type": "select",
+      "id": "font_size",
+      "label": "t:settings.size",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.default"
+        },
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        },
+        {
+          "value": "1.25rem",
+          "label": "20px"
+        },
+        {
+          "value": "1.5rem",
+          "label": "24px"
+        },
+        {
+          "value": "2rem",
+          "label": "32px"
+        },
+        {
+          "value": "2.5rem",
+          "label": "40px"
+        },
+        {
+          "value": "3rem",
+          "label": "48px"
+        },
+        {
+          "value": "3.5rem",
+          "label": "56px"
+        },
+        {
+          "value": "4.5rem",
+          "label": "72px"
+        },
+        {
+          "value": "5.5rem",
+          "label": "88px"
+        },
+        {
+          "value": "7.5rem",
+          "label": "120px"
+        },
+        {
+          "value": "9.5rem",
+          "label": "152px"
+        },
+        {
+          "value": "11.5rem",
+          "label": "184px"
+        }
+      ],
+      "default": "1rem"
+    },
+    {
+      "type": "select",
+      "id": "weight",
+      "label": "t:settings.weight",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.default"
+        },
+        {
+          "value": "100",
+          "label": "t:options.thin"
+        },
+        {
+          "value": "300",
+          "label": "t:options.light"
+        },
+        {
+          "value": "400",
+          "label": "t:options.regular"
+        },
+        {
+          "value": "500",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "600",
+          "label": "t:options.semibold"
+        },
+        {
+          "value": "700",
+          "label": "t:options.bold"
+        },
+        {
+          "value": "900",
+          "label": "t:options.black"
+        }
+      ],
+      "default": ""
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Timedown",
+      "settings": {
+        "time_end": "2025-12-11 12:00:00"
+      }
+    }
+  ]
+}
+{% endschema %}

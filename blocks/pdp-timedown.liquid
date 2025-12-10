@@ -1,0 +1,141 @@
+<style>
+  .pdp-timedown {
+    position:relative;
+    overflow:hidden;
+    border-radius: 10px;
+  }
+  .pdp-timedown-image {
+
+  }
+  .pdp-timedown-image-placeholder {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 5 / 2;
+    background: #f0f0f0;
+  }
+  .pdp-timedown-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: {{ block.settings.background_color }};
+    padding:10px 20px;
+    font-size: 14px;
+  }
+  @media (max-width: 767px) {
+    .pdp-timedown-content {
+      font-size: 12px;
+    }
+  }
+</style>
+
+<div class="pdp-timedown">
+  <div class="pdp-timedown-image">
+    {% if block.settings.image != blank %}
+      {{ block.settings.image | image_url: width: 1000 | image_tag }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'pdp-timedown-image-placeholder' }}
+    {% endif %}
+  </div>
+  <div class="pdp-timedown-content">
+    <span>{{ block.settings.title }}</span>
+    <span class="pdp-timedown-time" data-end-time="{{ block.settings.time_end }}">
+      <span class="pdp-timedown-days">00</span> <span class="pdp-timedown-unit">D</span> <span class="pdp-timedown-hours">00</span> <span class="pdp-timedown-unit">H</span> <span class="pdp-timedown-minutes">00</span> <span class="pdp-timedown-unit">M</span> <span class="pdp-timedown-seconds">00</span> <span class="pdp-timedown-unit">S</span>
+    </span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const timedownElement = document.querySelector('.pdp-timedown-time');
+    if (!timedownElement) return;
+
+    const endTimeStr = timedownElement.getAttribute('data-end-time');
+    if (!endTimeStr) return;
+
+    // 解析时间格式 YYYY-MM-DD HH:MM:SS
+    const parseDateTime = function (dateTimeStr) {
+      const [datePart, timePart] = dateTimeStr.split(' ');
+      const [year, month, day] = datePart.split('-').map(Number);
+      const [hours, minutes, seconds] = timePart.split(':').map(Number);
+      return new Date(year, month - 1, day, hours, minutes, seconds);
+    };
+
+    const endTime = parseDateTime(endTimeStr);
+    const daysEl = timedownElement.querySelector('.pdp-timedown-days');
+    const hoursEl = timedownElement.querySelector('.pdp-timedown-hours');
+    const minutesEl = timedownElement.querySelector('.pdp-timedown-minutes');
+    const secondsEl = timedownElement.querySelector('.pdp-timedown-seconds');
+
+    const updateCountdown = function () {
+      const now = new Date();
+      const diff = endTime - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    };
+
+    // 立即更新一次
+    updateCountdown();
+
+    // 每秒更新一次
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "PDP Timedown",
+  "settings": [
+    {
+      "type": "header",
+      "content": "PDP Timedown"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Countdown to the end of the offer"
+    },
+    {
+      "type": "text",
+      "id": "time_end",
+      "label": "Time End",
+      "info": "Format: YYYY-MM-DD HH:MM:SS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Timedown",
+      "settings": {
+        "time_end": "2025-12-11 12:00:00"
+      }
+    }
+  ]
+}
+{% endschema %}
