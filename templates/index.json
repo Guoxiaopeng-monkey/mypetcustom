@@ -25,7 +25,7 @@
           "type": "cus_button",
           "settings": {
             "button": "Make It Personal",
-            "url": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend"
+            "url": "shopify://products/custom-cat-wool-figurine"
           }
         }
       },
@@ -1014,7 +1014,7 @@
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
-            "link": "shopify://products/custom-plush-portrait-cat-handmade-tribute-to-your-precious-feline-friend",
+            "link": "shopify://products/custom-cat-wool-figurine",
             "color": "#000000",
             "text_alignment": "left",
             "horizontal_grid": 6,
