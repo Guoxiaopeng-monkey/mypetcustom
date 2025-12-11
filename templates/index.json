@@ -9,6 +9,20 @@
  */
 {
   "sections": {
+    "custom_liquid_7bzgUU": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "{display: none;}"
+      ],
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<h1>Handmade Custom Pet Sculptures Crafted in Wool</h1>",
+        "color_scheme": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "mk_media_banner_PK8bFQ": {
       "type": "mk-media-banner",
       "blocks": {
@@ -1343,6 +1357,7 @@
     }
   },
   "order": [
+    "custom_liquid_7bzgUU",
     "mk_media_banner_PK8bFQ",
     "hero_jVaWmY",
     "section_Mn43yY",
