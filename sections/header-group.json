@@ -14,8 +14,21 @@
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
+        "mk_timedown_hkkKBj": {
+          "type": "mk-timedown",
+          "name": "MK Timedown",
+          "settings": {
+            "title": "Save off 30% end in:",
+            "time_end": "2026-01-11 12:00:00",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": ""
+          },
+          "blocks": {}
+        },
         "announcement_BxgCk9": {
           "type": "_announcement",
+          "disabled": true,
           "settings": {
             "text": "Welcome to our store",
             "link": "",
@@ -29,6 +42,7 @@
         }
       },
       "block_order": [
+        "mk_timedown_hkkKBj",
         "announcement_BxgCk9"
       ],
       "name": "t:names.announcement_bar",

@@ -188,6 +188,18 @@
               },
               "blocks": {}
             },
+            "pdp_timedown_AHUXfe": {
+              "type": "pdp-timedown",
+              "name": "PDP Timedown",
+              "disabled": true,
+              "settings": {
+                "image": "shopify://shop_images/Frame_1000008821.png",
+                "background_color": "linear-gradient(133deg, rgba(250, 220, 54, 1) 11%, rgba(254, 98, 146, 1) 49%, rgba(250, 220, 54, 1) 87%)",
+                "title": "Countdown to the end of the offer",
+                "time_end": "2025-12-11 12:00:00"
+              },
+              "blocks": {}
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -421,6 +433,7 @@
             "review_VWMkLA",
             "group_icgrde",
             "divider_VJhene",
+            "pdp_timedown_AHUXfe",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "product_description_3wGyDj",
