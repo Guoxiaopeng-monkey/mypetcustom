@@ -80,6 +80,13 @@
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
     "content_for_index": [],
+    "blocks": {
+      "0797971096313182186": {
+        "type": "shopify://apps/air-reviews-1/blocks/app-embed/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
