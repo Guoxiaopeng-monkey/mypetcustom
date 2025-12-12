@@ -19,12 +19,89 @@
     left: 0;
     width: 100%;
     background: {{ block.settings.background_color }};
-    padding:10px 20px;
+    padding: 10px 20px;
     font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .pdp-timedown-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .pdp-timedown-time {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    min-width: fit-content;
+  }
+  .pdp-timedown-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    padding: 4px 6px;
+    background-color: #da9279;
+    border-radius: 4px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  .pdp-timedown-days,
+  .pdp-timedown-hours,
+  .pdp-timedown-minutes,
+  .pdp-timedown-seconds {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 4px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+  .pdp-timedown-unit {
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .pdp-timedown-separator {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 2px;
   }
   @media (max-width: 767px) {
     .pdp-timedown-content {
       font-size: 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .pdp-timedown-title {
+      font-size: 16px;
+    }
+    .pdp-timedown-box {
+      min-width: 40px;
+      padding: 3px 4px;
+    }
+    .pdp-timedown-days,
+    .pdp-timedown-hours,
+    .pdp-timedown-minutes,
+    .pdp-timedown-seconds {
+      min-width: 22px;
+      height: 22px;
+      font-size: 14px;
+      padding: 0 3px;
+    }
+    .pdp-timedown-unit {
+      font-size: 8px;
+    }
+    .pdp-timedown-separator {
+      font-size: 14px;
     }
   }
 </style>
@@ -38,9 +115,23 @@
     {% endif %}
   </div>
   <div class="pdp-timedown-content">
-    <span>{{ block.settings.title }}</span>
+    <span class="pdp-timedown-title">{{ block.settings.title }}</span>
     <span class="pdp-timedown-time" data-end-time="{{ block.settings.time_end }}">
-      <span class="pdp-timedown-days">00</span> <span class="pdp-timedown-unit">D</span> <span class="pdp-timedown-hours">00</span> <span class="pdp-timedown-unit">H</span> <span class="pdp-timedown-minutes">00</span> <span class="pdp-timedown-unit">M</span> <span class="pdp-timedown-seconds">00</span> <span class="pdp-timedown-unit">S</span>
+      <span class="pdp-timedown-box">
+        <span class="pdp-timedown-days">00</span><span class="pdp-timedown-unit">Days</span>
+      </span>
+      <span class="pdp-timedown-separator">:</span>
+      <span class="pdp-timedown-box">
+        <span class="pdp-timedown-hours">00</span><span class="pdp-timedown-unit">Hours</span>
+      </span>
+      <span class="pdp-timedown-separator">:</span>
+      <span class="pdp-timedown-box">
+        <span class="pdp-timedown-minutes">00</span><span class="pdp-timedown-unit">Minutes</span>
+      </span>
+      <span class="pdp-timedown-separator">:</span>
+      <span class="pdp-timedown-box">
+        <span class="pdp-timedown-seconds">00</span><span class="pdp-timedown-unit">Seconds</span>
+      </span>
     </span>
   </div>
 </div>

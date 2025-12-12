@@ -13,6 +13,70 @@
     margin: 0;
     padding: 0;
   }
+  .mk-timedown-time {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    min-width:fit-content;
+  }
+  .mk-timedown-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    padding: 4px 6px;
+    background-color: #da9279;
+    border-radius: 4px;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  .mk-timedown-days,
+  .mk-timedown-hours,
+  .mk-timedown-minutes,
+  .mk-timedown-seconds {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 4px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+  .mk-timedown-unit {
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .mk-timedown-separator {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 2px;
+  }
+  @media (max-width: 767px) {
+    .mk-timedown-box {
+      min-width: 40px;
+      padding: 3px 4px;
+    }
+    .mk-timedown-days,
+    .mk-timedown-hours,
+    .mk-timedown-minutes,
+    .mk-timedown-seconds {
+      min-width: 22px;
+      height: 22px;
+      font-size: 14px;
+      padding: 0 3px;
+    }
+    .mk-timedown-unit {
+      font-size: 8px;
+    }
+    .mk-timedown-separator {
+      font-size: 14px;
+    }
+  }
 </style>
 <slideshow-slide
   ref="slides[]"
@@ -41,7 +105,21 @@
   {% endif %}
   {% if block.settings.time_end != blank %}
     <span class="mk-timedown-time" data-end-time="{{ block.settings.time_end }}">
-      <span class="mk-timedown-days">00</span> <span class="mk-timedown-unit">D</span> <span class="mk-timedown-hours">00</span> <span class="mk-timedown-unit">H</span> <span class="mk-timedown-minutes">00</span> <span class="mk-timedown-unit">M</span> <span class="mk-timedown-seconds">00</span> <span class="mk-timedown-unit">S</span>
+      <span class="mk-timedown-box">
+        <span class="mk-timedown-days">00</span><span class="mk-timedown-unit">Days</span>
+      </span>
+      <span class="mk-timedown-separator">:</span>
+      <span class="mk-timedown-box">
+        <span class="mk-timedown-hours">00</span><span class="mk-timedown-unit">Hours</span>
+      </span>
+      <span class="mk-timedown-separator">:</span>
+      <span class="mk-timedown-box">
+        <span class="mk-timedown-minutes">00</span><span class="mk-timedown-unit">Minutes</span>
+      </span>
+      <span class="mk-timedown-separator">:</span>
+      <span class="mk-timedown-box">
+        <span class="mk-timedown-seconds">00</span><span class="mk-timedown-unit">Seconds</span>
+      </span>
     </span>
   {% endif %}
 </slideshow-slide>
