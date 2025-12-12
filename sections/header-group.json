@@ -18,8 +18,8 @@
           "type": "mk-timedown",
           "name": "MK Timedown",
           "settings": {
-            "title": "Save off 30% end in:",
-            "time_end": "2026-01-11 12:00:00",
+            "title": "Christmas Special: 8-Inch Felt Pet — 30% OFF",
+            "time_end": "2025-12-31 12:00:00",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "weight": ""
