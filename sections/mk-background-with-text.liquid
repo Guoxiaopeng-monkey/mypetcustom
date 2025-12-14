@@ -1,0 +1,320 @@
+
+{% style %}
+
+  .mk-background-with-text {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - var(--header-height, 100px));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    {% if section.settings.background_type == 'color' %}
+      background-color: {{ section.settings.background_color | default: '#000000' }};
+    {% endif %}
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mk-background-with-text__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  /* mk-video 组件样式覆盖 */
+  .mk-background-with-text__video-container .mk-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mk-background-with-text__video-container .mk-video__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mk-background-with-text__video-container .mk-video__element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.3s ease;
+  }
+
+  /* 隐藏 mk-video 的播放按钮，因为这是背景视频 */
+  .mk-background-with-text__video-container .mk-video__play-button {
+    display: none;
+  }
+
+  /* 视频加载失败时的降级样式 */
+  .mk-background-with-text__video-container--error {
+    background-color: {{ section.settings.background_color | default: '#000000' }};
+  }
+
+  .mk-background-with-text__video-container--error::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ section.settings.background_color | default: '#000000' }};
+    z-index: 1;
+  }
+
+  .mk-background-with-text__content {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .mk-background-with-text__title {
+    font-size: 128px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .mk-background-with-text__description {
+    width: 100%;
+    max-width: 900px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: -0.18px;
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (max-width: 768px) {
+    .mk-background-with-text__content {
+      gap: 8px;
+    }
+
+    .mk-background-with-text__title {
+      font-size: 48px;
+    }
+
+    .mk-background-with-text__description {
+      font-size: 15px;
+    }
+  }
+{% endstyle %}
+
+<div class="mk-background-with-text">
+  {% if section.settings.background_type == 'video' and section.settings.background_video != blank %}
+    <div class="mk-background-with-text__video-container">
+      {% render 'mk-video',
+        video_desktop: section.settings.background_video,
+        video_mobile: section.settings.background_video_mobile,
+        poster_desktop: section.settings.background_poster_desktop,
+        poster_mobile: section.settings.background_poster_mobile,
+        autoplay: true,
+        loop: true,
+        muted: true,
+        controls: false,
+        not_lazy_load: true,
+        video_id: 'mk-background-video-' | append: section.id,
+        video_type: 'mp4',
+        hide_play_button: true
+      %}
+    </div>
+  {% endif %}
+  
+  <div class="mk-background-with-text__container mk-page-width">
+    <div class="mk-background-with-text__content">
+      {% if section.settings.title != blank %}
+        <h1 class="mk-background-with-text__title">{{ section.settings.title }}</h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="mk-background-with-text__description">{{ section.settings.description }}</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // 确保正确计算包含公告栏在内的header总高度
+  function updateMKBackgroundHeight() {
+    const headerGroup = document.querySelector('#header-group');
+    const mkBackground = document.querySelector('.mk-background-with-text');
+
+    if (headerGroup && mkBackground) {
+      let totalHeight = 0;
+      const children = headerGroup.children;
+
+      for (let i = 0; i < children.length; i++) {
+        const element = children[i];
+        if (element instanceof HTMLElement) {
+          totalHeight += element.offsetHeight;
+        }
+      }
+
+      // 设置CSS变量
+      document.documentElement.style.setProperty('--header-height', `${totalHeight}px`);
+
+      // 更新背景区域的最小高度
+      mkBackground.style.minHeight = `calc(100vh - ${totalHeight}px)`;
+    }
+  }
+
+  // 页面加载完成后执行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateMKBackgroundHeight);
+  } else {
+    updateMKBackgroundHeight();
+  }
+
+  // 监听窗口大小变化
+  window.addEventListener('resize', updateMKBackgroundHeight);
+
+  // 监听header-group的变化
+  const headerGroup = document.querySelector('#header-group');
+  if (headerGroup) {
+    const resizeObserver = new ResizeObserver(updateMKBackgroundHeight);
+    resizeObserver.observe(headerGroup);
+
+    // 观察子元素变化
+    const mutationObserver = new MutationObserver(updateMKBackgroundHeight);
+    mutationObserver.observe(headerGroup, { childList: true, subtree: true });
+  }
+
+  // mk-video 错误处理
+  const videoContainer = document.querySelector('.mk-background-with-text__video-container');
+  const mkVideoPlayer = document.querySelector('.mk-background-with-text__video-container mk-video-player');
+  
+  function handleVideoError() {
+    if (videoContainer) {
+      videoContainer.classList.add('mk-background-with-text__video-container--error');
+    }
+  }
+
+  function removeVideoError() {
+    if (videoContainer) {
+      videoContainer.classList.remove('mk-background-with-text__video-container--error');
+    }
+  }
+
+  // 监听 mk-video 组件的事件
+  if (mkVideoPlayer) {
+    // 监听视频加载错误
+    const videoElement = mkVideoPlayer.querySelector('.mk-video__element');
+    if (videoElement) {
+      videoElement.addEventListener('error', handleVideoError);
+      videoElement.addEventListener('loadstart', removeVideoError);
+    }
+
+    // 监听 mk-video 组件的自定义事件
+    mkVideoPlayer.addEventListener('video-error', handleVideoError);
+    mkVideoPlayer.addEventListener('video-loaded', removeVideoError);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "MK Background With Text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.background_type == 'color' }}"
+    },
+    {
+      "type": "video",
+      "id": "background_video",
+      "label": "Desktop Video",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "video",
+      "id": "background_video_mobile",
+      "label": "Mobile Video (Optional)",
+      "info": "If not provided, desktop video will be used on mobile",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_poster_desktop",
+      "label": "Desktop Poster Image",
+      "info": "Fallback image shown while video loads",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_poster_mobile",
+      "label": "Mobile Poster Image (Optional)",
+      "info": "If not provided, desktop poster will be used on mobile",
+      "visible_if": "{{ section.settings.background_type == 'video' }}"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "MORE FOR YOU"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Since 2012, MKREEN products have seamlessly integrated into millions of people's lives, supporting them at home, work, and on the road. From fast charging to smart storage, MKREEN continually provides reliability and performance you can depend on. With a user-focused approach at its core, the brand has earned the trust of over 200 million users worldwide."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Background With Text"
+    }
+  ]
+}
+{% endschema %}
