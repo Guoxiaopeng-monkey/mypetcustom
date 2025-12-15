@@ -1,0 +1,1084 @@
+{{ 'swiper@12.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper@12.min.js' | asset_url }}" defer></script>
+
+{% style %}
+  /* 版心 */
+  .mk-page-width {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding-inline: 0;
+  }
+
+  @media (max-width: 1423px) {
+    .mk-page-width {
+      padding-inline: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mk-page-width {
+      padding-inline: 20px;
+    }
+  }
+
+  /* 容器 */
+  .mk-about-achievements {
+    background-color: {{ section.settings.background_color | default: '#ffffff' }};
+    padding-top: {% if section.settings.enable_padding_top %}160px{% else %}0{% endif %};
+    padding-bottom: {% if section.settings.enable_padding_bottom %}160px{% else %}0{% endif %};
+  }
+
+  /* 标题区域 */
+  .mk-about-achievements__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  .mk-about-achievements__title {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+  }
+
+  .mk-about-achievements__navigation {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mk-about-achievements__nav-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: static;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mk-about-achievements__nav-btn:disabled {
+    opacity: 0.33;
+    cursor: not-allowed;
+  }
+
+  .mk-about-achievements__nav-btn svg {
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+  }
+
+  .mk-about-achievements__nav-btn svg path {
+    stroke: #000000;
+    transition: stroke 0.3s ease;
+  }
+
+  /* 左箭头 */
+  .mk-about-achievements__nav-btn--prev svg circle {
+    fill: #F8F8F8;
+    opacity: 0.33;
+    transition: all 0.3s ease;
+  }
+
+  .mk-about-achievements__nav-btn--prev:hover svg circle {
+    fill: #E9EAEB;
+    opacity: 0.33;
+  }
+
+  .mk-about-achievements__nav-btn--prev:disabled svg circle {
+    fill: #F8F8F8;
+    opacity: 0.33;
+  }
+
+  /* 右箭头 */
+  .mk-about-achievements__nav-btn--next svg circle {
+    fill: #F8F8F8;
+    transition: all 0.3s ease;
+  }
+
+  .mk-about-achievements__nav-btn--next:hover svg circle {
+    fill: #E9EAEB;
+  }
+
+  .mk-about-achievements__nav-btn--next:disabled svg circle {
+    fill: #F8F8F8;
+  }
+
+  /* PC端卡片 */
+  .mk-achievement-card {
+    height: 100%;
+    display: flex;
+  }
+
+  .mk-achievement-card__content {
+    background: {{ section.settings.card_background_color | default: '#F8F8F8' }};
+    padding: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                background-color 0.4s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    will-change: background-color, color, transform;
+  }
+
+  /* 悬停/选中状态 */
+  .mk-achievement-card__content:hover,
+  .mk-achievement-card__content.is-hovered,
+  .mk-achievement-card__content.mobile-selected {
+    background: {{ section.settings.card_hover_background_color | default: '#007934' }};
+    color: #fff;
+  }
+
+  .mk-achievement-card__content:hover .mk-achievement-card__number,
+  .mk-achievement-card__content:hover .mk-achievement-card__text,
+  .mk-achievement-card__content:hover .mk-achievement-card__description,
+  .mk-achievement-card__content.is-hovered .mk-achievement-card__number,
+  .mk-achievement-card__content.is-hovered .mk-achievement-card__text,
+  .mk-achievement-card__content.is-hovered .mk-achievement-card__description,
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__number,
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__text,
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__description {
+    color: #fff;
+  }
+
+  .mk-achievement-card__number {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: -0.4px;
+  }
+
+  .mk-achievement-card__text {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.16px;
+    margin: 0;
+  }
+
+  .mk-achievement-card__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .mk-achievement-card__description {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -0.16px;
+    max-height: none;
+    overflow: visible;
+    transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease,
+                transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    scrollbar-gutter: stable;
+    will-change: max-height, opacity, transform;
+  }
+
+  .mk-achievement-card__description p {
+    margin-right: 24px;
+  }
+
+  /* PC端hover */
+  @media (min-width: 769px) {
+    .mk-achievement-card__content:hover {
+      background: {{ section.settings.card_hover_background_color | default: '#007934' }};
+      color: #fff;
+      cursor: default;
+    }
+
+    .mk-achievement-card__content:hover .mk-achievement-card__number,
+    .mk-achievement-card__content:hover .mk-achievement-card__text,
+    .mk-achievement-card__content:hover .mk-achievement-card__description {
+      color: #fff;
+    }
+  }
+
+  /* 移动端选中 */
+  .mk-achievement-card__content.mobile-selected {
+    background: {{ section.settings.card_hover_background_color | default: '#007934' }};
+    color: #fff;
+  }
+
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__number,
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__text,
+  .mk-achievement-card__content.mobile-selected .mk-achievement-card__description {
+    max-height: 216px;
+    overflow-y: auto; /* 内容超出时才显示滚动条 */
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PC端描述默认显示，无需隐藏规则 */
+
+  .mk-achievement-card__description {
+    scrollbar-width: thin;
+    scrollbar-color: #FFFFFF rgba(255, 255, 255, 0.3);
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar {
+    width: 2.5px;
+    height: 2.5px;
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    border-radius: 0;
+    border: none;
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-thumb:hover {
+    background: #FFFFFF;
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-button:start:decrement,
+  .mk-achievement-card__description::-webkit-scrollbar-button:end:increment {
+    display: none !important;
+  }
+
+  .mk-achievement-card__description::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+
+
+  /* 移动端样式 */
+  @media (max-width: 768px) {
+    .mk-about-achievements__desktop {
+      display: none;
+    }
+
+    .mk-about-achievements__mobile {
+      display: block;
+    }
+
+    /* 移动端卡片 */
+    .mk-achievement-card--mobile {
+      background: {{ section.settings.card_background_color | default: '#F8F8F8' }};
+      margin-bottom: 16px;
+      border-radius: 0;
+      box-shadow: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mk-achievement-card--mobile:last-child {
+      margin-bottom: 0;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input {
+      display: none;
+    }
+
+
+    .mk-achievement-card--mobile .mk-achievement-card__header {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-height: 60px;
+      padding: 0;
+      margin-bottom: 0;
+      box-shadow: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      box-shadow: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__toggle {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__toggle-plus,
+    .mk-achievement-card--mobile .mk-achievement-card__toggle-minus {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__toggle-plus {
+      display: block;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__toggle-minus {
+      display: none;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__number {
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+      color: #000000;
+      margin: 0 0 4px 0;
+      padding: 0;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__text {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      letter-spacing: -0.14px;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__toggle-plus {
+      display: none;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__toggle-minus {
+      display: block;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__description {
+      display: none;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      letter-spacing: -0.14px;
+      color: rgba(0,0,0,0.7);
+      padding: 0;
+      margin: 16px 0 0 0;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: none;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__description {
+      display: block !important;
+      max-height: none !important;
+      opacity: 1 !important;
+      width: 100%;
+      clear: both;
+    }
+
+
+    /* 移动端选中状态 - 整个卡片显示绿色背景、白色文字、减号 */
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper {
+      background: transparent !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header {
+      background: transparent !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__description {
+      background: transparent !important;
+      color: #fff !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__content {
+      background: transparent !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__number,
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__text {
+      color: #fff !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper .mk-achievement-card__header .mk-achievement-card__toggle {
+      color: #ffffff;
+      background: transparent;
+    }
+
+    /* 移动端content-wrapper样式 */
+    .mk-achievement-card--mobile .mk-achievement-card__content-wrapper {
+      background: transparent !important;
+    }
+
+    /* 移动端选中状态 - 给整个卡片设置背景色 */
+    /* 使用:has()选择器，现代浏览器支持 */
+    .mk-achievement-card--mobile:has(.mk-achievement-card__input:checked) {
+      background: {{ section.settings.card_hover_background_color | default: '#007934' }} !important;
+      transition:none;
+    }
+
+    /* Fallback方案：给content-wrapper设置背景色作为备选 */
+    .mk-achievement-card--mobile .mk-achievement-card__input:checked ~ .mk-achievement-card__content-wrapper {
+      background: {{ section.settings.card_hover_background_color | default: '#007934' }} !important;
+    }
+
+    /* 移动端未选中状态 - 整个卡片显示默认样式 */
+    .mk-achievement-card--mobile .mk-achievement-card__header {
+      background: transparent !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__description {
+      background: transparent !important;
+      color: rgba(0,0,0,0.7) !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__header .mk-achievement-card__content {
+      background: transparent !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__header .mk-achievement-card__number,
+    .mk-achievement-card--mobile .mk-achievement-card__header .mk-achievement-card__text {
+      color: #000 !important;
+    }
+
+    .mk-achievement-card--mobile .mk-achievement-card__header .mk-achievement-card__toggle {
+      color: #000;
+      background: transparent;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mk-about-achievements__desktop {
+      display: block;
+    }
+
+    .mk-about-achievements__mobile {
+      display: none;
+    }
+  }
+
+  /* PC端悬停状态 */
+  @media (min-width: 769px) {
+    .mk-about-achievements__swiper:hover .mk-achievement-card__content:not(:hover):not(.mobile-selected) {
+      background: {{ section.settings.card_background_color | default: '#F8F8F8' }};
+      color: #000;
+    }
+
+    .mk-about-achievements__swiper:hover .mk-achievement-card__content:not(:hover):not(.mobile-selected) .mk-achievement-card__number,
+    .mk-about-achievements__swiper:hover .mk-achievement-card__content:not(:hover):not(.mobile-selected) .mk-achievement-card__text,
+    .mk-about-achievements__swiper:hover .mk-achievement-card__content:not(:hover):not(.mobile-selected) .mk-achievement-card__description {
+      color: #000;
+    }
+  }
+
+  /* 移动端 */
+  @media (max-width: 768px) {
+    .mk-about-achievements {
+      padding-top: {% if section.settings.enable_padding_top %}64px{% else %}0{% endif %};
+      padding-bottom: {% if section.settings.enable_padding_bottom %}64px{% else %}0{% endif %};
+    }
+
+    .mk-about-achievements__header {
+      margin-bottom: 20px;
+    }
+
+    .mk-about-achievements__title {
+      font-size: 32px;
+    }
+
+    .mk-about-achievements__navigation {
+      display: none;
+    }
+
+    .mk-achievement-card__content {
+      padding: 20px;
+      min-height: auto;
+      height: auto;
+    }
+
+    .mk-achievement-card__number {
+      font-size: 28px;
+    }
+
+    .mk-achievement-card__text {
+      font-size: 14px;
+    }
+
+    .mk-achievement-card__description {
+      font-size: 14px;
+      color: rgba(0,0,0,0.7);
+    }
+  }
+{% endstyle %}
+
+<!-- Swiper样式 -->
+<style>
+  .mk-about-achievements__swiper {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding-left: max(0px, calc((100vw - 1360px) / 2));
+    padding-right: max(0px, calc((100vw - 1360px) / 2));
+  }
+
+  @media (max-width: 1423px) {
+    .mk-about-achievements__swiper {
+      padding-inline: 32px;
+    }
+  }
+
+  .mk-about-achievements__swiper .swiper-wrapper {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    animation: forceShow 0.1s ease-in-out 3s forwards;
+  }
+
+  .mk-about-achievements__swiper.is-initialized .swiper-wrapper {
+    opacity: 1;
+  }
+
+  /* 平滑的轮播过渡效果 */
+  .mk-about-achievements__swiper .swiper-slide {
+    transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease-out;
+    will-change: transform, opacity;
+  }
+
+  /* 轮播切换时的平滑效果 */
+  .mk-about-achievements__swiper.swiper {
+    transition: all 0.3s ease-out;
+  }
+
+  /* Swiper 滑动时的平滑过渡 */
+  .mk-about-achievements__swiper .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* 优化触摸滑动体验 */
+  .mk-about-achievements__swiper {
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 滑动过渡状态 */
+  .mk-about-achievements__swiper.swiper-transitioning .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* 触摸状态 */
+  .mk-about-achievements__swiper.swiper-touching {
+    cursor: grabbing;
+  }
+
+  .mk-about-achievements__swiper.swiper-touching .swiper-slide {
+    transition: none;
+  }
+
+  /* 导航按钮的平滑过渡 */
+  .mk-about-achievements__nav-btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: scale(1);
+  }
+
+  .mk-about-achievements__nav-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .mk-about-achievements__nav-btn:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes forceShow {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .mk-about-achievements__swiper .swiper-slide {
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .mk-about-achievements__swiper {
+      padding-inline: 20px;
+      overflow: visible;
+    }
+
+    .mk-about-achievements__swiper .swiper-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mk-about-achievements__swiper .swiper-slide {
+      width: 100% !important;
+      flex-shrink: 0;
+    }
+  }
+</style>
+
+{% liquid
+  assign achievements = section.blocks
+  assign achievements_count = achievements.size
+%}
+
+<div id="shopify-section-{{ section.id }}" class="mk-about-achievements">
+  <div class="mk-about-achievements__container mk-page-width" id="mk-about-achievements-{{ section.id }}">
+    <div class="mk-about-achievements__header">
+      {% if section.settings.title != blank %}
+        <h2 class="mk-about-achievements__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if achievements_count > 3 %}
+        <div class="mk-about-achievements__navigation" aria-hidden="false">
+          <button
+            class="mk-about-achievements__nav-btn mk-about-achievements__nav-btn--prev"
+            aria-label="Previous achievements"
+            aria-controls="swiper-{{ section.id }}"
+            type="button"
+          >
+            <svg
+              width="45"
+              height="45"
+              viewBox="0 0 45 45"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="22.5" cy="22.5" r="22.5"/>
+              <path d="M25.8333 17.5L21.6667 22.5L25.8333 27.5" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button
+            class="mk-about-achievements__nav-btn mk-about-achievements__nav-btn--next"
+            aria-label="Next achievements"
+            aria-controls="swiper-{{ section.id }}"
+            type="button"
+          >
+            <svg
+              width="45"
+              height="45"
+              viewBox="0 0 45 45"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="22.5" cy="22.5" r="22.5"/>
+              <path d="M19.1667 17.5L23.3333 22.5L19.1667 27.5" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if achievements_count > 0 %}
+    <!-- PC端轮播 -->
+    <div
+      class="mk-about-achievements__swiper swiper mk-about-achievements__desktop"
+      id="swiper-{{ section.id }}"
+      role="region"
+      aria-label="Achievements carousel"
+      data-swiper-config='
+        {
+          "slidesPerView": 3,
+          "spaceBetween": 20,
+          "slidesPerGroup": 1,
+          "centeredSlides": false,
+          "initialSlide": 0,
+          "speed": 1000,
+          "grabCursor": true,
+          "loop": false,
+          "watchSlidesProgress": true,
+          "effect": "slide",
+          "freeMode": {
+            "enabled": false
+          },
+          "autoplay": false,
+          "resistance": true,
+          "resistanceRatio": 0.85,
+          "threshold": 5,
+          "touchRatio": 1,
+          "touchAngle": 45,
+          "simulateTouch": true,
+          "allowTouchMove": true,
+          "touchStartPreventDefault": false,
+          "touchStartForcePreventDefault": false,
+          "touchMoveStopPropagation": false,
+          "swipeHandler": null,
+          "preventClicks": true,
+          "preventClicksPropagation": true,
+          "slideToClickedSlide": false,
+          "allowSlideNext": true,
+          "allowSlidePrev": true,
+          "breakpoints": {
+            "769": {
+              "slidesPerView": 3
+            }
+          },
+          "navigation": {
+            "nextEl": "#mk-about-achievements-{{ section.id }} .mk-about-achievements__nav-btn--next",
+            "prevEl": "#mk-about-achievements-{{ section.id }} .mk-about-achievements__nav-btn--prev"
+          }
+        }
+      '
+    >
+      <div class="swiper-wrapper">
+        {% for block in achievements %}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="mk-achievement-card">
+              <div class="mk-achievement-card__content">
+                <div class="mk-achievement-card__header">
+                  {% if block.settings.number != blank %}
+                    <h3 class="mk-achievement-card__number">{{ block.settings.number }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <p class="mk-achievement-card__text">{{ block.settings.text }}</p>
+                  {% endif %}
+                </div>
+                {% if block.settings.description != blank %}
+                  <div class="mk-achievement-card__description">{{ block.settings.description }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 移动端结构 -->
+    <div class="mk-about-achievements__mobile mk-page-width">
+      {% for block in achievements %}
+        <div class="mk-achievement-card mk-achievement-card--mobile" {{ block.shopify_attributes }}>
+          <input
+            type="radio"
+            id="mk-achievement-mobile-{{ block.id }}"
+            name="mk-achievement-mobile-{{ section.id }}"
+            class="mk-achievement-card__input"
+            {% if forloop.first %}
+              checked
+            {% endif %}
+          >
+          <div class="mk-achievement-card__content-wrapper">
+            <div class="mk-achievement-card__header">
+              <label for="mk-achievement-mobile-{{ block.id }}" class="mk-achievement-card__content">
+                <div>
+                  {% if block.settings.number != blank %}
+                    <h3 class="mk-achievement-card__number">{{ block.settings.number }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <p class="mk-achievement-card__text">{{ block.settings.text }}</p>
+                  {% endif %}
+                </div>
+                <div class="mk-achievement-card__toggle">
+                  <span class="mk-achievement-card__toggle-plus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                      <path d="M11.9998 5.30005L11.9998 19.7M19.1998 12.5L4.7998 12.5" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="mk-achievement-card__toggle-minus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                      <path d="M19.1998 12.5L4.7998 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </label>
+            </div>
+            {% if block.settings.description != blank %}
+              <div class="mk-achievement-card__description">{{ block.settings.description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiperEl = document.getElementById('swiper-{{ section.id }}');
+    if (!swiperEl) return;
+
+    // 检测是否为移动端
+    const isMobile = window.innerWidth <= 768;
+
+    // 移动端添加点击事件处理，支持取消选中
+    if (isMobile) {
+      const mobileCards = document.querySelectorAll('.mk-achievement-card--mobile .mk-achievement-card__content');
+      
+      mobileCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const input = this.closest('.mk-achievement-card--mobile').querySelector('.mk-achievement-card__input');
+          
+          if (input.checked) {
+            // 如果当前已选中，则取消选中
+            input.checked = false;
+          } else {
+            // 如果未选中，则选中当前卡片
+            input.checked = true;
+          }
+        });
+      });
+
+      return;
+    }
+
+    // 先标记为初始化（避免闪屏）
+    swiperEl.classList.add('is-initialized');
+
+    // 如果 Swiper 未加载，保底显示（样式已处理）
+    if (typeof Swiper === 'undefined') {
+      console.warn('Swiper not loaded for section {{ section.id }}');
+      return;
+    }
+
+    // 确保PC端代码只在PC端执行
+    if (isMobile) {
+      return;
+    }
+
+    try {
+      const config = JSON.parse(swiperEl.getAttribute('data-swiper-config') || '{}');
+
+      // 添加 init 回调，确保样式/尺寸刷新
+      const userOn = config.on || {};
+      config.on = {
+        ...userOn,
+        init: function () {
+          swiperEl.classList.add('is-initialized');
+          // 强制刷新
+          if (this.update) {
+            this.update();
+          }
+          if (this.updateSize) {
+            this.updateSize();
+          }
+        },
+        slideChangeTransitionStart: function () {
+          // 轮播开始切换时的平滑处理
+          swiperEl.style.transition = 'all 0.3s ease-out';
+          // 添加平滑滑动的类
+          swiperEl.classList.add('swiper-transitioning');
+        },
+        slideChangeTransitionEnd: function () {
+          // 轮播切换结束后的处理
+          swiperEl.style.transition = '';
+          swiperEl.classList.remove('swiper-transitioning');
+        },
+        touchStart: function () {
+          // 触摸开始时的处理
+          swiperEl.classList.add('swiper-touching');
+        },
+        touchEnd: function () {
+          // 触摸结束时的处理
+          swiperEl.classList.remove('swiper-touching');
+        },
+      };
+
+      const swiperInstance = new Swiper(swiperEl, config);
+
+      // 更新导航按钮状态
+      function updateNavigationButtons() {
+        const prevBtn = swiperEl.querySelector('.mk-about-achievements__nav-btn--prev');
+        const nextBtn = swiperEl.querySelector('.mk-about-achievements__nav-btn--next');
+
+        if (prevBtn && nextBtn) {
+          prevBtn.disabled = swiperInstance.isBeginning;
+          nextBtn.disabled = swiperInstance.isEnd;
+        }
+      }
+
+      // 监听轮播事件
+      swiperInstance.on('slideChange', updateNavigationButtons);
+      swiperInstance.on('init', updateNavigationButtons);
+
+      // PC端卡片hover功能 - 简化版本，只支持hover
+      const cards = swiperEl.querySelectorAll('.mk-achievement-card__content');
+
+      // 确保所有卡片初始状态正确
+      cards.forEach((card, index) => {
+        card.classList.remove('mobile-selected');
+      });
+
+      // PC端描述始终显示，无需特殊处理
+
+      // 延迟再刷新一次，防止渲染时机问题
+      setTimeout(() => {
+        if (swiperInstance && swiperInstance.update) {
+          swiperInstance.update();
+          swiperInstance.updateSize();
+        }
+      }, 120);
+    } catch (err) {
+      console.error('Swiper init error (section {{ section.id }}):', err);
+      swiperEl.classList.add('is-initialized');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MK About Achievements",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Achievements"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_padding_top",
+      "label": "Enable Top Padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_padding_bottom",
+      "label": "Enable Bottom Padding",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card Background Color",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "color",
+      "id": "card_hover_background_color",
+      "label": "Card Hover Background Color",
+      "default": "#007934"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "achievement",
+      "name": "Achievement Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "1000+"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Enter achievement text here"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Enter achievement description here</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK About Achievements",
+      "blocks": [
+        {
+          "type": "achievement",
+          "settings": {
+            "number": "1000+",
+            "text": "Enter achievement text here",
+            "description": "<p>Enter achievement description here</p>"
+          }
+        },
+        {
+          "type": "achievement",
+          "settings": {
+            "number": "1000+",
+            "text": "Enter achievement text here",
+            "description": "<p>Enter achievement description here</p>"
+          }
+        },
+        {
+          "type": "achievement",
+          "settings": {
+            "number": "1000+",
+            "text": "Enter achievement text here",
+            "description": "<p>Enter achievement description here</p>"
+          }
+        },
+        {
+          "type": "achievement",
+          "settings": {
+            "number": "1000+",
+            "text": "Enter achievement text here",
+            "description": "<p>Enter achievement description here</p>"
+          }
+        },
+        {
+          "type": "achievement",
+          "settings": {
+            "number": "1000+",
+            "text": "Enter achievement text here",
+            "description": "<p>Enter achievement description here</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

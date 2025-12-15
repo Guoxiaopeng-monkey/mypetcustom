@@ -1,0 +1,202 @@
+<style>
+  #shopify-section-{{ section.id }} .mk-logo-marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding-top: {% if section.settings.enable_padding_top %}160px{% else %}0{% endif %};
+    padding-bottom: {% if section.settings.enable_padding_bottom %}160px{% else %}0{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-marquee::before,
+  #shopify-section-{{ section.id }} .mk-logo-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-track {
+    display: flex;
+    flex-wrap: nowrap;
+    will-change: transform; /* G
+    PU加速 */
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-item {
+    flex: 0 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .mk-logo-item img {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .mk-logo-marquee {
+      padding-top: {% if section.settings.enable_padding_top %}64px{% else %}0{% endif %};
+      padding-bottom: {% if section.settings.enable_padding_bottom %}64px{% else %}0{% endif %};
+    }
+
+    #shopify-section-{{ section.id }} .mk-logo-marquee::before,
+    #shopify-section-{{ section.id }} .mk-logo-marquee::after {
+      width: 50px;
+    }
+
+    #shopify-section-{{ section.id }} .mk-logo-item img {
+      width: 90px;
+      height: auto;
+    }
+  }
+</style>
+
+<div class="mk-logo-marquee" id="mk-logo-marquee-{{ section.id }}">
+  <div class="mk-logo-track">
+    {% for block in section.blocks %}
+      <div class="mk-logo-item" {{ block.shopify_attributes }}>
+        {% if block.settings.logo != blank %}
+          <img
+            src="{{ block.settings.logo | image_url: width: 200 }}"
+            alt="{{ block.settings.logo_alt_text | default: 'Logo' }}"
+            loading="lazy"
+            width="200"
+            height="auto"
+          >
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const marquee = document.querySelector('#mk-logo-marquee-{{ section.id }} .mk-logo-track');
+    const marqueeContainer = document.querySelector('#mk-logo-marquee-{{ section.id }}');
+    if (!marquee || !marqueeContainer) return;
+
+    const items = Array.from(marquee.children);
+    const trackWidth = marquee.scrollWidth;
+
+    let speed = {{ section.settings.roll_speed | default: 50 }}; // px per second
+    let position = 0;
+    let isPaused = false;
+    let animationId;
+
+    // 为每个logo图片添加鼠标悬浮事件
+    function addHoverEvents() {
+      const logoImages = marquee.querySelectorAll('img');
+      logoImages.forEach((img) => {
+        img.addEventListener('mouseenter', function () {
+          isPaused = true;
+        });
+
+        img.addEventListener('mouseleave', function () {
+          isPaused = false;
+        });
+      });
+    }
+
+    // 克隆一次，形成两组
+    items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      marquee.appendChild(clone);
+    });
+
+    // 克隆后重新添加事件监听器
+    addHoverEvents();
+
+    function animate() {
+      if (!isPaused) {
+        position -= speed / 60; // 每帧移动量（假设 60fps）
+        // 当第一个 item 完全滚出可视区
+        const firstItem = marquee.children[0];
+        const firstWidth =
+          firstItem.offsetWidth +
+          parseFloat(getComputedStyle(firstItem).marginLeft) +
+          parseFloat(getComputedStyle(firstItem).marginRight);
+        if (Math.abs(position) >= firstWidth) {
+          // 把第一个 item 移到末尾
+          marquee.appendChild(firstItem);
+          position += firstWidth; // 修正 translateX
+        }
+        marquee.style.transform = `translateX(${position}px)`;
+      }
+      animationId = requestAnimationFrame(animate);
+    }
+
+    animate();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "MK Logo Marquee",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_padding_top",
+      "label": "Enable Top Padding",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_padding_bottom",
+      "label": "Enable Bottom Padding",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "roll_speed",
+      "label": "滚动速度",
+      "min": 10,
+      "max": 100,
+      "step": 10,
+      "default": 20,
+      "info": "调整滚动的速度，数值越大滚动越快"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt_text",
+          "label": "Alt text",
+          "default": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Logo Marquee"
+    }
+  ]
+}
+{% endschema %}

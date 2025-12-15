@@ -1,0 +1,262 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "mk_background_with_text_T3MLrm": {
+      "type": "mk-background-with-text",
+      "name": "MK Background With Text",
+      "settings": {
+        "background_type": "video",
+        "background_color": "#000000",
+        "background_video": "",
+        "background_video_mobile": "",
+        "title": "MORE FOR YOU",
+        "description": "Since 2012, MKREEN products have seamlessly integrated into millions of people's lives, supporting them at home, work, and on the road. From fast charging to smart storage, MKREEN continually provides reliability and performance you can depend on. With a user-focused approach at its core, the brand has earned the trust of over 200 million users worldwide.",
+        "text_color": "#ffffff"
+      }
+    },
+    "mk_about_achievements_k7EMGn": {
+      "type": "mk-about-achievements",
+      "blocks": {
+        "achievement_hdNtRM": {
+          "type": "achievement",
+          "disabled": true,
+          "settings": {
+            "number": "70+",
+            "text": "Products Categories",
+            "description": "<p>MKREEN offers a comprehensive range of practical tech for every part of digital life.</p>"
+          }
+        },
+        "achievement_JMziEp": {
+          "type": "achievement",
+          "settings": {
+            "number": "1800+",
+            "text": "Global Patents",
+            "description": "<p>MKREEN delivers relentless innovation, with our portfolio of spanning more than 1400 design patents, 320 utility model patents, and 40 invention patents.</p>"
+          }
+        },
+        "achievement_Laq3yH": {
+          "type": "achievement",
+          "settings": {
+            "number": "60+",
+            "text": "Product Design Awards",
+            "description": "<p>Intemnationally celebrated for design that balances form andl function.</p>"
+          }
+        },
+        "achievement_9t8TPk": {
+          "type": "achievement",
+          "settings": {
+            "number": "200M+",
+            "text": "Global Users",
+            "description": "<p>Hundreds of millions of users worldwide trust MKREEN for reliable tech for every moment.</p>"
+          }
+        },
+        "achievement_Wk3dzB": {
+          "type": "achievement",
+          "settings": {
+            "number": "180+",
+            "text": "Countries Covered",
+            "description": "<p>Available worldwide, delivering consistent quality wherever you are.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "achievement_hdNtRM",
+        "achievement_JMziEp",
+        "achievement_Laq3yH",
+        "achievement_9t8TPk",
+        "achievement_Wk3dzB"
+      ],
+      "name": "MK About Achievements",
+      "settings": {
+        "title": "Our Achievements",
+        "enable_padding_top": true,
+        "enable_padding_bottom": false,
+        "background_color": "#ffffff",
+        "card_background_color": "#f8f8f8",
+        "card_hover_background_color": "#007934"
+      }
+    },
+    "mk_logo_marquee_WMHttw": {
+      "type": "mk-logo-marquee",
+      "blocks": {
+        "logo_V44eyq": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_hwBzfK": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_tHHdA7": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_taReNf": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_WHGKJ9": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_R8zNrQ": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        },
+        "logo_Xztxha": {
+          "type": "logo",
+          "settings": {
+            "logo": "",
+            "logo_alt_text": "Logo"
+          }
+        }
+      },
+      "block_order": [
+        "logo_V44eyq",
+        "logo_hwBzfK",
+        "logo_tHHdA7",
+        "logo_taReNf",
+        "logo_WHGKJ9",
+        "logo_R8zNrQ",
+        "logo_Xztxha"
+      ],
+      "name": "MK Logo Marquee",
+      "settings": {
+        "enable_padding_top": true,
+        "enable_padding_bottom": true,
+        "roll_speed": 20
+      }
+    },
+    "mk_img_with_text_44UBFC": {
+      "type": "mk-img-with-text",
+      "blocks": {
+        "image_text_xPtT8e": {
+          "type": "image_text",
+          "settings": {
+            "heading": "Global Exhibitions",
+            "text": "<p>From CES to IFA, MKREEN has introduced its most groundbreaking products on the world’s biggest stages. These events let us connect directly with industry leaders, media, and consumers, showcasing both our latest innovations and the vision that drives our design.</p>",
+            "image": "",
+            "layout": "normal",
+            "button_text": "View Our Newsroom",
+            "button_url": ""
+          }
+        },
+        "image_text_k6Pg6C": {
+          "type": "image_text",
+          "settings": {
+            "heading": "Stories That Inspire",
+            "text": "<p>With industry-first launches and bold campaigns, MKREEN inspires the world to think differently about technology. From record-breaking chargers to award-winning crowdfunding projects, we create stories that spark excitement and build trust across the globe.</p>",
+            "image": "",
+            "layout": "reverse",
+            "button_text": "View Our Newsroom",
+            "button_url": ""
+          }
+        },
+        "image_text_f4rA7G": {
+          "type": "image_text",
+          "settings": {
+            "heading": "Available Near You",
+            "text": "<p>Found in more than 10,000 stores across the globe, MKREEN is continually expanding offline. This growth brings our products closer to people everywhere, making it easier than ever to discover and experience them first-hand.</p>",
+            "image": "",
+            "layout": "normal",
+            "button_text": "Where To Buy",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_text_xPtT8e",
+        "image_text_k6Pg6C",
+        "image_text_f4rA7G"
+      ],
+      "custom_css": [],
+      "name": "MK Img With Text",
+      "settings": {
+        "title": "Beyond Online",
+        "enable_padding_top": true,
+        "enable_padding_bottom": true,
+        "background_color": "#ffffff",
+        "block_background_color": "#f8f8f8"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mk_background_with_text_T3MLrm",
+    "mk_about_achievements_k7EMGn",
+    "mk_logo_marquee_WMHttw",
+    "mk_img_with_text_44UBFC"
+  ]
+}
