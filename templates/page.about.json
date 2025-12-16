@@ -9,6 +9,34 @@
  */
 {
   "sections": {
+    "mk_media_banner_jhUCcH": {
+      "type": "mk-media-banner",
+      "blocks": {
+        "cus_heading_ihaBE9": {
+          "type": "cus_heading",
+          "settings": {
+            "heading": "<h1>       ABOUT US</h1>",
+            "title_color": "#c99b64",
+            "title_size_pc": "48",
+            "title_size_mb": "32"
+          }
+        }
+      },
+      "block_order": [
+        "cus_heading_ihaBE9"
+      ],
+      "name": "MK Media Banner",
+      "settings": {
+        "image": "shopify://shop_images/20251018225751_319_7.jpg",
+        "pc_height": 600,
+        "content_align": "align-center",
+        "position_pc": "middle-left",
+        "color_scheme": "",
+        "mobile_height": 400,
+        "content_align_mobile": "align-center",
+        "position_mobile": "middle"
+      }
+    },
     "mk_image_banner_btB8Em": {
       "type": "mk-image-banner",
       "disabled": true,
@@ -87,7 +115,7 @@
           "type": "achievement",
           "disabled": true,
           "settings": {
-            "number": "70+",
+            "number": "2025",
             "text": "Products Categories",
             "description": "<p>MKREEN offers a comprehensive range of practical tech for every part of digital life.</p>"
           }
@@ -119,9 +147,9 @@
         "achievement_Wk3dzB": {
           "type": "achievement",
           "settings": {
-            "number": "180+",
-            "text": "Countries Covered",
-            "description": "<p>Available worldwide, delivering consistent quality wherever you are.</p>"
+            "number": "2025",
+            "text": "Going Global",
+            "description": "<p><strong>In 2025, My Pet Custom officially launched its global independent store, offering personalized creations to customers worldwide.</strong></p><p><strong>Each creation is thoughtfully crafted, striving to capture not only appearance, but the expression, warmth, and living spirit of every pet.</strong></p>"
           }
         }
       },
@@ -252,34 +280,6 @@
         "enable_padding_bottom": true,
         "background_color": "#ffffff",
         "block_background_color": "#f8f8f8"
-      }
-    },
-    "mk_media_banner_jhUCcH": {
-      "type": "mk-media-banner",
-      "blocks": {
-        "cus_heading_ihaBE9": {
-          "type": "cus_heading",
-          "settings": {
-            "heading": "<h1>       ABOUT US</h1>",
-            "title_color": "#c99b64",
-            "title_size_pc": "48",
-            "title_size_mb": "32"
-          }
-        }
-      },
-      "block_order": [
-        "cus_heading_ihaBE9"
-      ],
-      "name": "MK Media Banner",
-      "settings": {
-        "image": "shopify://shop_images/20251018225751_319_7.jpg",
-        "pc_height": 600,
-        "content_align": "align-center",
-        "position_pc": "middle-left",
-        "color_scheme": "",
-        "mobile_height": 400,
-        "content_align_mobile": "align-center",
-        "position_mobile": "middle"
       }
     }
   },
