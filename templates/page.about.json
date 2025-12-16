@@ -238,18 +238,19 @@
         "image_text_xPtT8e": {
           "type": "image_text",
           "settings": {
-            "heading": "Global Exhibitions",
-            "text": "<p>From CES to IFA, MKREEN has introduced its most groundbreaking products on the world’s biggest stages. These events let us connect directly with industry leaders, media, and consumers, showcasing both our latest innovations and the vision that drives our design.</p>",
+            "heading": "2020 | Where It All Began",
+            "text": "<p>In 2020, our story began with a loss. </p><p>The founder’s beloved cat passed away, leaving behind a silence that words couldn’t fill. </p><p>Out of that moment, the first felt piece was made — not as a product, but as a way to hold on. </p><p>That single creation became the beginning of everything that followed.</p>",
+            "image": "shopify://shop_images/PixVerse_Image_Effect_prompt____1.jpg",
             "layout": "normal",
-            "button_text": "View Our Newsroom",
+            "button_text": "",
             "button_url": ""
           }
         },
         "image_text_k6Pg6C": {
           "type": "image_text",
           "settings": {
-            "heading": "Stories That Inspire",
-            "text": "<p>With industry-first launches and bold campaigns, MKREEN inspires the world to think differently about technology. From record-breaking chargers to award-winning crowdfunding projects, we create stories that spark excitement and build trust across the globe.</p>",
+            "heading": "2022 | Where Each Creation Takes Shape",
+            "text": "<p>Since the studio was founded in 2020, the creative space has gradually taken shape as the team continued to grow.</p><p>Behind every piece lies repeated refinement and careful calibration within this very space, until each creation captures a pet’s unique expression and sense of life.</p>",
             "layout": "reverse",
             "button_text": "View Our Newsroom",
             "button_url": ""
@@ -258,8 +259,9 @@
         "image_text_f4rA7G": {
           "type": "image_text",
           "settings": {
-            "heading": "Available Near You",
-            "text": "<p>Found in more than 10,000 stores across the globe, MKREEN is continually expanding offline. This growth brings our products closer to people everywhere, making it easier than ever to discover and experience them first-hand.</p>",
+            "heading": "2024 | Bringing Custom Creations into Wedding Moments",
+            "text": "<p>In 2024, we expanded our custom creations into weddings.</p><p>A wedding is a moment when the meaning of family is redefined — and for many, that family has always included them.</p><p>We simply make space for them to be part of it.</p>",
+            "image": "shopify://shop_images/7ccbb028560a3b2c5aea41fe59737c5e.jpg",
             "layout": "normal",
             "button_text": "Where To Buy",
             "button_url": ""
