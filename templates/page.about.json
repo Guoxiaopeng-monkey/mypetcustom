@@ -111,39 +111,6 @@
     "mk_about_achievements_k7EMGn": {
       "type": "mk-about-achievements",
       "blocks": {
-        "achievement_hdNtRM": {
-          "type": "achievement",
-          "disabled": true,
-          "settings": {
-            "number": "2025",
-            "text": "Products Categories",
-            "description": "<p>MKREEN offers a comprehensive range of practical tech for every part of digital life.</p>"
-          }
-        },
-        "achievement_JMziEp": {
-          "type": "achievement",
-          "settings": {
-            "number": "1800+",
-            "text": "Global Patents",
-            "description": "<p>MKREEN delivers relentless innovation, with our portfolio of spanning more than 1400 design patents, 320 utility model patents, and 40 invention patents.</p>"
-          }
-        },
-        "achievement_Laq3yH": {
-          "type": "achievement",
-          "settings": {
-            "number": "60+",
-            "text": "Product Design Awards",
-            "description": "<p>Intemnationally celebrated for design that balances form andl function.</p>"
-          }
-        },
-        "achievement_9t8TPk": {
-          "type": "achievement",
-          "settings": {
-            "number": "200M+",
-            "text": "Global Users",
-            "description": "<p>Hundreds of millions of users worldwide trust MKREEN for reliable tech for every moment.</p>"
-          }
-        },
         "achievement_Wk3dzB": {
           "type": "achievement",
           "settings": {
@@ -151,14 +118,46 @@
             "text": "Going Global",
             "description": "<p><strong>In 2025, My Pet Custom officially launched its global independent store, offering personalized creations to customers worldwide.</strong></p><p><strong>Each creation is thoughtfully crafted, striving to capture not only appearance, but the expression, warmth, and living spirit of every pet.</strong></p>"
           }
+        },
+        "achievement_hdNtRM": {
+          "type": "achievement",
+          "settings": {
+            "number": "2024",
+            "text": "New Meanings in Custom Creations",
+            "description": "<p><strong>In 2024, a new category emerged with custom wedding pet felt brooches, giving personalized felt creations a new role in life’s most meaningful moments.</strong></p>"
+          }
+        },
+        "achievement_JMziEp": {
+          "type": "achievement",
+          "settings": {
+            "number": "2023",
+            "text": "The Growth of the Team",
+            "description": "<p><strong>To help more people preserve their bond with their pets, the team expanded to 15 professional needle-felting artisans.</strong></p><p><strong>Today, the studio consistently completes hundreds of custom pieces each month, with every creation carrying a unique story and remembrance.</strong></p>"
+          }
+        },
+        "achievement_Laq3yH": {
+          "type": "achievement",
+          "settings": {
+            "number": "2022",
+            "text": "A Growing Team",
+            "description": "<p><strong>Over the course of two years, Evan Jin created felt portraits for friends who had lost their pets, offering gentle comfort through handcrafted work.</strong></p><p><strong>As the spirit and emotional depth of these pieces resonated with more people, Evan Jin and three artisans officially founded My Pet Custom.</strong></p>"
+          }
+        },
+        "achievement_9t8TPk": {
+          "type": "achievement",
+          "settings": {
+            "number": "2020",
+            "text": "Where It All Began",
+            "description": "<p><strong>My Pet Custom began not as a business idea, but as a story of companionship and emotion.</strong></p><p><strong>In 2020, after the loss of Evan Jin’s beloved cat, Dengpao, the first felt portrait was created.</strong></p>"
+          }
         }
       },
       "block_order": [
+        "achievement_Wk3dzB",
         "achievement_hdNtRM",
         "achievement_JMziEp",
         "achievement_Laq3yH",
-        "achievement_9t8TPk",
-        "achievement_Wk3dzB"
+        "achievement_9t8TPk"
       ],
       "name": "MK About Achievements",
       "settings": {
