@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "mk_image_banner_btB8Em": {
+      "type": "mk-image-banner",
+      "disabled": true,
+      "name": "MK Image Banner",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -276,11 +284,12 @@
     }
   },
   "order": [
+    "mk_media_banner_jhUCcH",
+    "mk_image_banner_btB8Em",
     "main",
     "mk_background_with_text_T3MLrm",
     "mk_about_achievements_k7EMGn",
     "mk_logo_marquee_WMHttw",
-    "mk_img_with_text_44UBFC",
-    "mk_media_banner_jhUCcH"
+    "mk_img_with_text_44UBFC"
   ]
 }
