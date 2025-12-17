@@ -569,72 +569,6 @@
         "padding-block-end": 0
       }
     },
-    "section_kEjVpi": {
-      "type": "section",
-      "blocks": {
-        "text_wY4imk": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<h2><strong>10+ Artisanal Steps: Defining Premium Handcrafted Standards</strong></h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "is_default_setting": true,
-            "title_size_pc": "48",
-            "title_size_mb": "32",
-            "type_preset": "custom",
-            "font": "var(--font-heading--family)",
-            "font_size": "3rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_wY4imk"
-      ],
-      "disabled": true,
-      "name": "t:names.rich_text_section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 0,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 60,
-        "padding-block-end": 20
-      }
-    },
     "mk_columns_6VNYbz": {
       "type": "mk-columns",
       "blocks": {
@@ -2735,7 +2669,6 @@
     "divider_aPhdja",
     "mk_nav_iAzTzt",
     "mk_cus_content_nNDn3L",
-    "section_kEjVpi",
     "mk_columns_6VNYbz",
     "section_PTdzmA",
     "section_UkWK9x",
