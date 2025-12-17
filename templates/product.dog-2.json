@@ -525,6 +525,50 @@
         "use_text_button": true
       }
     },
+    "mk_cus_content_HYaEzm": {
+      "type": "mk-cus-content",
+      "blocks": {
+        "text_Nh6rwi": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>Weddings. Vows. Commitment.</p><p><strong>A moment when the meaning of family is redefined.</strong></p><p>For many, that family has always included<strong> them</strong> —<br/><br/>those who were there long before the wedding day,<br/><br/>who never missed the milestones that shaped a life.</p><p>Through these creations,<br/><br/>we make space for them to be part of it, in their own way.</p><p>Not something that needs to be explained,<br/><br/>but something that is quietly, undeniably present.</p><p>Not at the center of the stage,<br/><br/>but close to the heart.</p><p>A small detail,<br/><br/>carrying a bond that needs no words.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 60,
+            "padding-block-end": 60,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_Nh6rwi"
+      ],
+      "name": "MK Custom Content",
+      "settings": {
+        "color_scheme": "",
+        "background_color": "#ffffff",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "mk_cus_content_nNDn3L": {
       "type": "mk-cus-content",
       "blocks": {
@@ -561,6 +605,7 @@
       "block_order": [
         "text_t7egXk"
       ],
+      "disabled": true,
       "name": "MK Custom Content",
       "settings": {
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
@@ -890,6 +935,7 @@
         "group_rb7AYP",
         "group_4Kj9Je"
       ],
+      "disabled": true,
       "custom_css": [
         ".mk-columns {padding-top: 0;}"
       ],
@@ -1389,6 +1435,7 @@
         "image_LgQgn6",
         "group_h7ACjF"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
@@ -1551,6 +1598,7 @@
         "image_ynfRPN",
         "group_Ctez9R"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
@@ -1713,6 +1761,7 @@
         "image_tQcbUA",
         "group_EiM76A"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "t:names.image_with_text",
       "settings": {
@@ -2800,7 +2849,7 @@
       "name": "MK Columns",
       "settings": {
         "color_scheme": "",
-        "background_color": "#F7EBDD",
+        "background_color": "#f7ebdd",
         "title": "Our Services",
         "title_size_pc": "48",
         "title_size_mb": "32",
@@ -2808,50 +2857,6 @@
         "text_size_pc": "48",
         "text_size_mb": "32",
         "columns": 4
-      }
-    },
-    "mk_cus_content_HYaEzm": {
-      "type": "mk-cus-content",
-      "blocks": {
-        "text_Nh6rwi": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.We make things that work better and last longer. Our products solve real problems with clean design and honest materials.We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "is_default_setting": true,
-            "title_size_pc": "48",
-            "title_size_mb": "32",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 60,
-            "padding-block-end": 60,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_Nh6rwi"
-      ],
-      "name": "MK Custom Content",
-      "settings": {
-        "color_scheme": "",
-        "background_color": "#ffffff",
-        "padding-block-start": 0,
-        "padding-block-end": 0
       }
     },
     "product_recommendations_qggXJq": {
@@ -3004,6 +3009,7 @@
     "main",
     "divider_aPhdja",
     "mk_nav_iAzTzt",
+    "mk_cus_content_HYaEzm",
     "mk_cus_content_nNDn3L",
     "mk_columns_6VNYbz",
     "section_PTdzmA",
@@ -3015,7 +3021,6 @@
     "section_xikd3w",
     "mk_faq_WnzDRA",
     "mk_columns_bVwqLb",
-    "mk_cus_content_HYaEzm",
     "product_recommendations_qggXJq"
   ]
 }
