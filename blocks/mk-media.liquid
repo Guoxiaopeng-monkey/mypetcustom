@@ -1,0 +1,91 @@
+<div class="mk-media-item">
+
+  {% if block.settings.media_type == 'image' %}
+    {{ block.settings.image | image_url: width: 800 | image_tag: class: 'mk-media-image' }}
+  {% elsif block.settings.media_type == 'video' %}
+    {% render 'mk-video', 
+      video_desktop: block.settings.video,
+      video_mobile: block.settings.video,
+      poster_desktop: block.settings.image,
+      poster_mobile: block.settings.image,
+      autoplay: false,
+      loop: true,
+      controls: true,
+      not_lazy_load: true,
+      use_modal: true,
+    %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "MK Media",
+  "class": "mk-media swiper-slide",
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media Type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "visible_if": "{{ block.settings.media_type == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_source",
+      "label": "Video Source",
+      "options": [
+        {
+          "value": "youtube",
+          "label": "YouTube"
+        },
+        {
+          "value": "mp4",
+          "label": "mp4"
+        }
+      ],
+      "default": "mp4",
+      "visible_if": "{{ block.settings.media_type == 'video' }}"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "visible_if": "{{ block.settings.media_type == 'video' and block.settings.video_source == 'mp4' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_poster",
+      "label": "Video Poster",
+      "visible_if": "{{ block.settings.media_type == 'video' and block.settings.video_source == 'mp4' }}"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube"],
+      "visible_if": "{{ block.settings.media_type == 'video' and block.settings.video_source == 'youtube' }}"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "MK Media"
+    }
+  ]
+}
+{% endschema %}
