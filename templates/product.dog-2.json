@@ -561,6 +561,9 @@
       "block_order": [
         "text_Nh6rwi"
       ],
+      "custom_css": [
+        "p{margin-block:0;}"
+      ],
       "name": "MK Custom Content",
       "settings": {
         "color_scheme": "",
