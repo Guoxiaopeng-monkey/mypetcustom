@@ -1,0 +1,253 @@
+{{ 'swiper@12.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'swiper@12.min.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  .mk-media-swiper {
+    padding-block: 60px;
+    overflow: hidden;
+  }
+  .mk-media-swiper-header {
+    text-align: center;
+  }
+  .mk-media-swiper-content {
+    margin-top: 40px;
+    width: 100%;
+  }
+  .mk-media-swiper-content.swiper {
+    overflow: visible;
+  }
+  .mk-media-swiper-image-placeholder {
+    aspect-ratio: 3 / 4;
+    background-color: rgb(143, 143, 143);
+    border-radius: 10px;
+  }
+  .mk-media-swiper-button-prev,
+  .mk-media-swiper-button-next{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(105, 105, 105, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+  }
+  .mk-media-swiper-button-prev svg,
+  .mk-media-swiper-button-next svg{
+    width: 20px !important;
+    height: 20px !important;
+    fill: currentColor;
+  }
+  @media (max-width: 767px) {
+    .mk-media-swiper-content.swiper {
+      margin-top: 20px;
+    }
+    .mk-media-swiper-content .swiper-wrapper {
+      position: relative;
+      width: calc(100% + 20px);
+      margin: 0;
+    }
+    .mk-media-swiper-button-prev,
+    .mk-media-swiper-button-next{
+      display: none !important;
+    }
+  }
+</style>
+<div class="mk-media-swiper color-{{ section.settings.color_scheme }}">
+  <div class="mk-media-swiper-container mk-container">
+    <div class="mk-media-swiper-header">
+      <h2 class="text-{{ section.settings.title_size_pc }} md:text-{{ section.settings.title_size_mb }}">
+        {{ section.settings.title }}
+      </h2>
+      {% if section.settings.description != blank %}
+        <p class="text-16 md:text-14">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    <div class="mk-media-swiper-content swiper">
+      <div class="mk-media-swiper-content-inner swiper-wrapper">
+        {% if section.blocks.size > 0 %}
+          {% content_for 'blocks' %}
+        {% else %}
+          {% for i in (1..5) %}
+            <div class="swiper-slide mk-media-swiper-item">
+              {{ 'product-1' | placeholder_svg_tag: 'mk-media-swiper-image-placeholder' }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% if section.blocks.size > 4 %}
+        <div class="mk-media-swiper-navigation">
+          <div class="swiper-button-prev mk-media-swiper-button-prev">
+            {{ 'icon-left.svg' | inline_asset_content }}
+          </div>
+          <div class="swiper-button-next mk-media-swiper-button-next">
+            {{ 'icon-right.svg' | inline_asset_content }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      const mkMediaSwiper = new Swiper('.mk-media-swiper-content', {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        autoHeight: true,
+        breakpoints: {
+          0: {
+            slidesPerView: 1.1,
+            centeredSlides: false,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        },
+        navigation: {
+          nextEl: '.mk-media-swiper-button-next',
+          prevEl: '.mk-media-swiper-button-prev',
+        },
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MK Media Swiper",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Media Swiper"
+    },
+    {
+      "type": "select",
+      "id": "title_size_pc",
+      "label": "Title Size PC",
+      "options": [
+        {
+          "value": "16",
+          "label": "16"
+        },
+        {
+          "value": "18",
+          "label": "18"
+        },
+        {
+          "value": "20",
+          "label": "20"
+        },
+        {
+          "value": "22",
+          "label": "22"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "48"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mb",
+      "label": "Title Size Mobile",
+      "options": [
+        {
+          "value": "14",
+          "label": "14"
+        },
+        {
+          "value": "16",
+          "label": "16"
+        },
+        {
+          "value": "18",
+          "label": "18"
+        },
+        {
+          "value": "20",
+          "label": "20"
+        },
+
+        {
+          "value": "22",
+          "label": "22"
+        },
+        {
+          "value": "24",
+          "label": "24"
+        },
+        {
+          "value": "28",
+          "label": "28"
+        },
+        {
+          "value": "32",
+          "label": "32"
+        },
+        {
+          "value": "36",
+          "label": "36"
+        },
+        {
+          "value": "40",
+          "label": "40"
+        },
+        {
+          "value": "48",
+          "label": "48"
+        }
+      ],
+      "default": "32"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mk-media"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Media Swiper"
+    }
+  ]
+}
+{% endschema %}

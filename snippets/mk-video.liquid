@@ -1,0 +1,568 @@
+{%- doc -%}
+  自定义视频组件，支持响应式视频、懒加载和自动播放控制
+  
+  参数说明：
+  @param {string} video_desktop - PC 端视频 URL 或 Shopify 视频对象
+  @param {string} video_mobile - 移动端视频 URL 或 Shopify 视频对象（可选，如不提供则使用 video_desktop）
+  @param {object} poster_desktop - PC 端封面图对象
+  @param {object} poster_mobile - 移动端封面图对象（可选，如不提供则使用 poster_desktop）
+  @param {boolean} autoplay - 是否自动播放（默认 false）
+  @param {boolean} loop - 是否循环播放（默认 false）
+  @param {boolean} muted - 是否静音（自动播放时会强制静音，默认 false）
+  @param {boolean} controls - 是否显示控制栏（默认 false）
+  @param {boolean} not_lazy_load - 是否懒加载（默认 false
+  @param {string} class - 额外的 CSS 类
+  @param {string} video_id - 唯一标识符（可选）
+  @param {string} video_type - 视频类型：'youtube' 或 'mp4'（可选，自动检测）
+  @param {string} youtube_id_desktop - PC 端 YouTube 视频 ID（可选）
+  @param {string} youtube_id_mobile - 移动端 YouTube 视频 ID（可选）
+  @param {string} custom_content - 自定义内容（可选）
+  @param {string} hide_play_button - 是否显示默认播放按钮（可选）
+  @param {string} fetch_priority - 图片加载优先级（可选）
+  @param {boolean} use_modal - 是否使用弹窗播放（默认 false）
+  
+  使用示例（MP4）：
+  {% render 'mk-video',
+    video_desktop: 'https://example.com/video-desktop.mp4',
+    video_mobile: 'https://example.com/video-mobile.mp4',
+    poster_desktop: section.settings.poster_desktop,
+    poster_mobile: section.settings.poster_mobile,
+    autoplay: true,
+    loop: true,
+    not_lazy_load: true,
+    custom_content: '<div class="mk-video__custom-content">自定义内容</div>'
+  %}
+  
+  使用示例（YouTube）：
+  {% render 'mk-video',
+    video_type: 'youtube',
+    youtube_id_desktop: 'dQw4w9WgXcQ',
+    youtube_id_mobile: 'dQw4w9WgXcQ',
+    poster_desktop: section.settings.poster_desktop,
+    autoplay: false,
+    controls: true,
+    custom_content: '<div class="mk-video__custom-content">自定义内容</div>'
+  %}
+{%- enddoc -%}
+
+{% liquid
+  assign video_id = video_id | default: 'mk-video-' | append: section.id | append: '-' | append: block.id | default: '' | append: '-' | append: forloop.index | default: '0'
+  assign video_mobile = video_mobile | default: video_desktop
+  assign poster_mobile = poster_mobile | default: poster_desktop
+  assign youtube_id_mobile = youtube_id_mobile | default: youtube_id_desktop
+  assign autoplay = autoplay | default: false
+  assign loop = loop | default: false
+  assign controls = controls | default: false
+  assign not_lazy_load = not_lazy_load | default: false
+  assign hide_play_button = hide_play_button | default: false
+  assign fetch_priority = fetch_priority | default: 'low'
+  assign use_modal = use_modal | default: false
+
+  # 自动播放时必须静音
+  if autoplay
+    assign muted = true
+  else
+    assign muted = muted | default: false
+  endif
+  
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+  assign sizes = '(min-width: 750px) 100vw, 100vw'
+
+  # 检测视频类型
+  if video_type == 'youtube' or youtube_id_desktop != blank
+    assign is_youtube = true
+    assign video_type = 'youtube'
+  else
+    assign is_youtube = false
+    # 处理 Shopify 视频对象
+    if video_desktop.sources
+      assign video_desktop_obj = video_desktop.sources | where: 'mime_type', 'video/mp4' | first
+      assign video_desktop_url = video_desktop_obj.url
+      # 获取封面图
+      if video_desktop.preview_image
+        assign video_desktop_poster = video_desktop.preview_image | image_url: width: 3840
+      endif
+    else
+      assign video_desktop_url = video_desktop
+    endif
+    
+    if video_mobile.sources
+      assign video_mobile_obj = video_mobile.sources | where: 'mime_type', 'video/mp4' | first
+      assign video_mobile_url = video_mobile_obj.url
+      # 获取封面图
+      if video_mobile.preview_image
+        assign video_mobile_poster = video_mobile.preview_image | image_url: width: 1500
+      endif
+    else
+      assign video_mobile_url = video_mobile
+    endif
+    
+    # 如果没有通过 Shopify 视频对象获取 poster，使用传入的封面图
+    if video_desktop_poster == blank and poster_desktop != blank
+      assign video_desktop_poster = poster_desktop | image_url: width: 3840
+    endif
+    
+    if video_mobile_poster == blank and poster_mobile != blank
+      assign video_mobile_poster = poster_mobile | image_url: width: 1500
+    endif
+  endif
+  
+  # 构建 YouTube URL
+  if is_youtube
+    # 为避免某些域名下的跨域/来源限制，去掉 origin 参数，仅保留 enablejsapi
+    assign youtube_params = '?enablejsapi=1'
+    
+    if autoplay
+      assign youtube_params = youtube_params | append: '&autoplay=1&mute=1'
+    endif
+    
+    if loop and youtube_id_desktop
+      assign youtube_params = youtube_params | append: '&playlist=' | append: youtube_id_desktop | append: '&loop=1'
+    endif
+    
+    if controls == false
+      assign youtube_params = youtube_params | append: '&controls=0'
+    else
+      assign youtube_params = youtube_params | append: '&controls=1'
+    endif
+    
+    assign youtube_url_desktop = 'https://www.youtube.com/embed/' | append: youtube_id_desktop | append: youtube_params
+    
+    if youtube_id_mobile and youtube_id_mobile != youtube_id_desktop
+      assign youtube_params_mobile = '?enablejsapi=1'
+      
+      if autoplay
+        assign youtube_params_mobile = youtube_params_mobile | append: '&autoplay=1&mute=1'
+      endif
+      
+      if loop
+        assign youtube_params_mobile = youtube_params_mobile | append: '&playlist=' | append: youtube_id_mobile | append: '&loop=1'
+      endif
+      
+      if controls == false
+        assign youtube_params_mobile = youtube_params_mobile | append: '&controls=0'
+      else
+        assign youtube_params_mobile = youtube_params_mobile | append: '&controls=1'
+      endif
+      
+      assign youtube_url_mobile = 'https://www.youtube.com/embed/' | append: youtube_id_mobile | append: youtube_params_mobile
+    else
+      assign youtube_url_mobile = youtube_url_desktop
+    endif
+  endif
+%}
+
+
+<mk-video-player
+  id="{{ video_id }}"
+  class="mk-video {% if class %}{{ class }}{% endif %}"
+  {% unless not_lazy_load %}data-lazy-load="true"{% endunless %}
+  {% if autoplay %}data-autoplay="true"{% endif %}
+  data-video-type="{{ video_type | default: 'mp4' }}"
+  {% if is_youtube %}
+    data-youtube-desktop="{{ youtube_url_desktop }}"
+    data-youtube-mobile="{{ youtube_url_mobile }}"
+  {% else %}
+    data-video-desktop="{{ video_desktop_url }}"
+    data-video-mobile="{{ video_mobile_url }}"
+    data-poster-desktop="{{ video_desktop_poster }}"
+    data-poster-mobile="{{ video_mobile_poster }}"
+  {% endif %}
+  data-loop="{{ loop }}"
+  data-muted="{{ muted }}"
+  data-controls="{{ controls }}"
+  data-use-modal="{{ use_modal }}"
+>
+  <div class="mk-video__wrapper">
+    {% comment %} PC 端封面图 {% endcomment %}
+    {% if poster_desktop != blank and autoplay == false %}
+      <div class="mk-video__poster mk-video__poster--desktop">
+        {{
+          poster_desktop
+          | image_url: width: 3840
+          | image_tag: 
+            widths: widths, 
+            sizes: sizes, 
+            loading: 'lazy',
+            class: 'mk-video__poster-image'
+        }}
+        {% unless autoplay %}
+          {% if custom_content == blank and hide_play_button == false %}
+          <button 
+            class="mk-video__play-button" 
+            aria-label="Play Video"
+            type="button"
+          >
+            <span class="mk-video__play-icon">
+              {{- 'icon-play.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          {% elsif custom_content != blank %}
+            {{ custom_content }}
+          {% endif %}
+        {% endunless %}
+      </div>
+    {% endif %}
+    
+    {% comment %} 移动端封面图 {% endcomment %}
+    {% if poster_mobile != blank and autoplay == false %}
+      <div class="mk-video__poster mk-video__poster--mobile">
+        {{
+          poster_mobile
+          | image_url: width: 1500
+          | image_tag: 
+            widths: '375, 550, 750, 1100, 1500',
+            sizes: '100vw',
+            loading: 'lazy',
+            class: 'mk-video__poster-image'
+        }}
+        {% unless autoplay %}
+          {% if custom_content == blank and hide_play_button == false %}
+          <button 
+            class="mk-video__play-button" 
+            aria-label="Play Video"
+            type="button"
+          >
+            <span class="mk-video__play-icon">
+              {{- 'icon-play.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          {% elsif custom_content != blank %}
+            {{ custom_content }}
+          {% endif %}
+        {% endunless %}
+      </div>
+    {% endif %}
+    
+    {% comment %} 视频容器（仅在需要时加载） {% endcomment %}
+    <div class="mk-video__container" {% if not_lazy_load == false and autoplay == false %}style="display: none;"{% endif %}>
+      {% if is_youtube %}
+        {% comment %} YouTube 视频 - 统一使用一个 iframe，通过 JS 根据设备加载对应视频 {% endcomment %}
+        <iframe
+          class="mk-video__element mk-video__iframe"
+          {% comment %} 如果不懒加载，默认先加载桌面端视频，JS 会在移动端时替换 {% endcomment %}
+          {% if not_lazy_load %}src="{{ youtube_url_desktop }}"{% endif %}
+          data-video-type="youtube"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      {% else %}
+        {% comment %} MP4 视频 - 统一使用一个 video 元素，通过 JS 根据设备加载对应视频 {% endcomment %}
+        <video
+          class="mk-video__element"
+          {% comment %} 如果不懒加载，默认先加载桌面端视频，JS 会在移动端时替换 {% endcomment %}
+          {% if not_lazy_load %}src="{{ video_desktop_url }}"{% endif %}
+          {% comment %} 默认使用桌面端 poster，JS 会在移动端时替换 {% endcomment %}
+          {% if video_desktop_poster != blank %}poster="{{ video_desktop_poster }}"{% endif %}
+          {% if autoplay %}autoplay{% endif %}
+          {% if loop %}loop{% endif %}
+          {% if muted %}muted{% endif %}
+          {% if controls %}controls{% endif %}
+          playsinline
+          preload="{% if not_lazy_load %}metadata{% else %}none{% endif %}"
+          fetch_priority={{fetch_priority}}
+        >
+          {% if not_lazy_load %}
+            <source src="{{ video_desktop_url }}" type="video/mp4">
+          {% endif %}
+        </video>
+      {% endif %}
+    </div>
+  </div>
+</mk-video-player>
+
+{% stylesheet %}
+  .mk-video {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .mk-video__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mk-video__poster {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+  }
+  
+  .mk-video__poster--desktop {
+    display: block;
+  }
+  
+  @media screen and (max-width: 749px) {
+    .mk-video__poster--desktop {
+      display: none;
+    }
+    
+    .mk-video__poster--mobile {
+      display: block;
+    }
+  }
+  
+  .mk-video__poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .mk-video__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  .mk-video__play-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .mk-video__play-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+  }
+  
+  .mk-video__play-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+  
+  .mk-video__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mk-video__element {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .mk-video__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+  }
+  
+  .mk-video.is-playing .mk-video__poster {
+    display: none;
+  }
+  
+  .mk-video.has-started .mk-video__poster {
+    display: none;
+  }
+  
+  .mk-video.is-playing .mk-video__container {
+    display: block !important;
+  }
+  
+  .mk-video.is-loaded .mk-video__container {
+    display: block !important;
+  }
+
+ /* 视频弹窗样式 */
+ .mk-video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mk-video-modal.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .mk-video-modal__content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mk-video-modal__close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+  }
+
+  .mk-video-modal__close:hover {
+    opacity: 0.7;
+  }
+
+  .mk-video-modal__close::before {
+    content: '×';
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .mk-video-modal__video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .mk-video-modal__video-wrapper iframe,
+  .mk-video-modal__video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .mk-video-modal__video-wrapper .mk-video-modal__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    z-index: 1;
+    background: #000;
+  }
+  
+  /* 确保所有 iframe 在弹窗中正确显示 */
+  .mk-video-modal__video-wrapper iframe.mk-video-modal__iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100%;
+    border: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* mk-video-player 在弹窗中的样式 */
+  .mk-video-modal__video-wrapper mk-video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .mk-video-modal__video-wrapper mk-video-player .mk-video__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .mk-video-modal__video-wrapper mk-video-player .mk-video__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block !important;
+  }
+
+  .mk-video-modal__video-wrapper mk-video-player .mk-video__element {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .mk-video-modal__video-wrapper mk-video-player .mk-video__poster {
+    display: none !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mk-video-block__button {
+      /* 移动端保持跟标题同一列居中显示，不再强制居中覆盖在视频中间 */
+      padding: 8px 16px;
+      min-width: fit-content;
+    }
+    .mk-video-block__button:hover{
+      transform: scale(1.05);
+    }
+    .mk-video-block__button span {
+      font-size: 14px;
+      display:inline-block;
+    }
+    .mk-video-block__button svg {
+      width: 8px;
+      height: 8px;
+      padding: 3px;
+    }
+
+    .mk-video-modal__content {
+      width: 95%;
+      max-height: 85vh;
+    }
+
+    .mk-video-modal__close {
+      top: -35px;
+      width: 28px;
+      height: 28px;
+      font-size: 28px;
+    }
+
+    .mk-video-modal__video-wrapper {
+      padding-bottom: 56.25%; /* 保持 16:9 比例 */
+    }
+  }
+{% endstylesheet %}
