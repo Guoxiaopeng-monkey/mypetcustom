@@ -532,7 +532,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Weddings. Vows. Commitment.</p><p><strong>A moment when the meaning of family is redefined.</strong></p><p>For many, that family has always included<strong> them</strong> —<br/><br/>those who were there long before the wedding day,<br/><br/>who never missed the milestones that shaped a life.</p><p>Through these creations,<br/><br/>we make space for them to be part of it, in their own way.</p><p>Not something that needs to be explained,<br/><br/>but something that is quietly, undeniably present.</p><p>Not at the center of the stage,<br/><br/>but close to the heart.</p><p>A small detail,<br/><br/>carrying a bond that needs no words.</p>",
+            "text": "<p>Weddings. Vows. Commitment.</p><p><strong>A moment when the meaning of family is redefined.</strong></p><p>For many, that family has always included<strong> them</strong> —<br/>those who were there long before the wedding day,<br/>who never missed the milestones that shaped a life.</p><p>Through these creations,<br/>we make space for them to be part of it, in their own way.</p><p>Not something that needs to be explained,<br/>but something that is quietly, undeniably present.</p><p>Not at the center of the stage,<br/>but close to the heart.</p><p>A small detail,<br/>carrying a bond that needs no words.</p>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
@@ -562,7 +562,7 @@
         "text_Nh6rwi"
       ],
       "custom_css": [
-        "p{margin-block:0;}"
+        "p {margin-block: 0;}"
       ],
       "name": "MK Custom Content",
       "settings": {
