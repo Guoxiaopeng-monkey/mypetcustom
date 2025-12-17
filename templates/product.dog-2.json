@@ -466,7 +466,7 @@
         "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -1917,13 +1917,13 @@
       ],
       "name": "MK Step Section",
       "settings": {
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
         "title": "How It Works",
         "title_size_pc": "48",
         "title_size_mb": "32",
-        "block_background_color": "#f7ebdd",
+        "block_background_color": "#ffffff",
         "icon_bg_color": "#ffffff",
-        "text_color": "#000000",
+        "text_color": "#f8f3ed",
         "display_index": true
       }
     },
