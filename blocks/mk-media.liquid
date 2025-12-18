@@ -1,7 +1,11 @@
 <div class="mk-media-item">
 
   {% if block.settings.media_type == 'image' %}
-    {{ block.settings.image | image_url: width: 800 | image_tag: class: 'mk-media-image' }}
+    {% if block.settings.image != blank %}
+      {{ block.settings.image | image_url: width: 800 | image_tag: class: 'mk-media-image' }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'mk-media-swiper-image-placeholder' }}
+    {% endif %}
   {% elsif block.settings.media_type == 'video' %}
     {% render 'mk-video', 
       video_desktop: block.settings.video,
