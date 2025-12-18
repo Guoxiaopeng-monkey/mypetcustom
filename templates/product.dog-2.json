@@ -533,7 +533,8 @@
           "name": "MK Media",
           "settings": {
             "media_type": "image",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -542,7 +543,8 @@
           "name": "MK Media",
           "settings": {
             "media_type": "image",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -551,7 +553,8 @@
           "name": "MK Media",
           "settings": {
             "media_type": "image",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -560,7 +563,8 @@
           "name": "MK Media",
           "settings": {
             "media_type": "image",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -569,7 +573,8 @@
           "name": "MK Media",
           "settings": {
             "media_type": "image",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video_url": ""
           },
           "blocks": {}
         }
@@ -1929,7 +1934,7 @@
         "step_CRFpDW": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/MaterialSymbolsOrderApproveRounded.svg",
+            "icon": "shopify://shop_images/05c8381ac1f010f0f5cdca4bc46d8fe4.svg",
             "title": "1.  Place Your Order",
             "description": ""
           }
@@ -1937,7 +1942,7 @@
         "step_zY6Bza": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/MdiEmailCheck.svg",
+            "icon": "shopify://shop_images/Email.svg",
             "title": "2. Receive Confirmation Email",
             "description": ""
           }
@@ -1945,7 +1950,7 @@
         "step_HMydMC": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/HugeiconsMessageEdit01.svg",
+            "icon": "shopify://shop_images/1.svg",
             "title": "3. Reply with Pet Photo & Card Message",
             "description": ""
           }
@@ -1953,7 +1958,7 @@
         "step_fnqNKQ": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/contract.svg",
+            "icon": "shopify://shop_images/8e5291f7fafce34275589daae7411cb0.svg",
             "title": "4. Handcrafted with Care by Our Artisans",
             "description": ""
           }
@@ -1961,7 +1966,7 @@
         "step_cb9yxA": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/CarbonThumbnailPreview.svg",
+            "icon": "shopify://shop_images/db1476cad40f32dbe9f62b1399ee7ae2.svg",
             "title": "5.  Preview Finished Piece with 2 Free Revisions",
             "description": ""
           }
@@ -1969,7 +1974,7 @@
         "step_VmTTAj": {
           "type": "step",
           "settings": {
-            "icon": "shopify://shop_images/Fa7SolidShippingFast_15ba6123-4272-4745-84ec-731c89aa6f3b.svg",
+            "icon": "shopify://shop_images/4dcc9bf213cd736193e7b76c3f53ac29.svg",
             "title": "6. Securely Packaged & Delivered to Your Door",
             "description": ""
           }
