@@ -575,6 +575,17 @@
     "mk_media_swiper_M89CdD": {
       "type": "mk-media-swiper",
       "blocks": {
+        "mk_media_Yt3xU4": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/9..mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        },
         "mk_media_aRiDrW": {
           "type": "mk-media",
           "name": "MK Media",
@@ -582,6 +593,17 @@
             "media_type": "video",
             "video_source": "mp4",
             "video": "shopify://files/videos/15..mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        },
+        "mk_media_E6Vdb3": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/10..mp4",
             "video_url": ""
           },
           "blocks": {}
@@ -597,45 +619,24 @@
           },
           "blocks": {}
         },
-        "mk_media_Yt3xU4": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/8..mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        },
         "mk_media_bWXwjn": {
           "type": "mk-media",
           "name": "MK Media",
           "settings": {
             "media_type": "video",
             "video_source": "mp4",
-            "video": "shopify://files/videos/16..mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        },
-        "mk_media_E6Vdb3": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
+            "video": "shopify://files/videos/17..mp4",
             "video_url": ""
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "mk_media_aRiDrW",
-        "mk_media_69TDcq",
         "mk_media_Yt3xU4",
-        "mk_media_bWXwjn",
-        "mk_media_E6Vdb3"
+        "mk_media_aRiDrW",
+        "mk_media_E6Vdb3",
+        "mk_media_69TDcq",
+        "mk_media_bWXwjn"
       ],
       "name": "MK Media Swiper",
       "settings": {
