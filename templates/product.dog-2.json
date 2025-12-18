@@ -525,6 +525,71 @@
         "use_text_button": true
       }
     },
+    "mk_media_swiper_M89CdD": {
+      "type": "mk-media-swiper",
+      "blocks": {
+        "mk_media_aRiDrW": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_69TDcq": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_Yt3xU4": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_bWXwjn": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_E6Vdb3": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_media_aRiDrW",
+        "mk_media_69TDcq",
+        "mk_media_Yt3xU4",
+        "mk_media_bWXwjn",
+        "mk_media_E6Vdb3"
+      ],
+      "name": "MK Media Swiper",
+      "settings": {
+        "color_scheme": "",
+        "title": "Media Swiper",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
+      }
+    },
     "mk_cus_content_HYaEzm": {
       "type": "mk-cus-content",
       "blocks": {
@@ -3012,6 +3077,7 @@
     "main",
     "divider_aPhdja",
     "mk_nav_iAzTzt",
+    "mk_media_swiper_M89CdD",
     "mk_cus_content_HYaEzm",
     "mk_cus_content_nNDn3L",
     "mk_columns_6VNYbz",
