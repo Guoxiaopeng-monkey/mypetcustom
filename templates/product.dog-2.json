@@ -1988,6 +1988,9 @@
         "step_cb9yxA",
         "step_VmTTAj"
       ],
+      "custom_css": [
+        ".step-item__index,.mk-step-section-index .step-item__icon {border-color: #DA9279;}"
+      ],
       "name": "MK Step Section",
       "settings": {
         "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
