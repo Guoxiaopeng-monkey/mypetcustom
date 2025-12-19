@@ -3085,21 +3085,21 @@
         "padding-block-end": 48
       }
     },
-    "176611340158cd5340": {
+    "176611386270cbde4f": {
       "type": "_blocks",
       "blocks": {
-        "air_product_reviews_app_block_review_list_KznexQ": {
+        "air_product_reviews_app_block_review_list_LaBNBD": {
           "type": "shopify://apps/air-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
           "settings": {
             "air_blockreviews_summaryHeading": "Reviews",
             "air_blockreviews_layout": "list",
-            "air_blockreviews_singleStarColor": "#16A086",
+            "air_blockreviews_singleStarColor": "#333333",
             "air_blockreviews_primaryColor": "#121212"
           }
         }
       },
       "block_order": [
-        "air_product_reviews_app_block_review_list_KznexQ"
+        "air_product_reviews_app_block_review_list_LaBNBD"
       ],
       "settings": {
         "content_direction": "column",
@@ -3148,6 +3148,6 @@
     "mk_faq_WnzDRA",
     "mk_columns_bVwqLb",
     "product_recommendations_qggXJq",
-    "176611340158cd5340"
+    "176611386270cbde4f"
   ]
 }
