@@ -1,0 +1,217 @@
+<style>
+  .mk-img-text-item {
+    display: flex;
+    width: 100%;
+    background-color: #f3f3f3;
+  }
+  .mk-img-text-item.is-reverse {
+    flex-direction: row-reverse;
+  }
+  .mk-img-text-item-image {
+    flex-basis: 50%;
+  }
+  .mk-img-text-item-image img {
+    width: 100%;
+    height: 100%;
+  }
+  .mk-img-text-item-image .placeholder-svg {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(90, 90, 90);
+    aspect-ratio: 16/10;
+  }
+  .mk-img-text-item-content {
+    display: flex;
+    flex-basis: 50%;
+    flex-grow: 1;
+    padding: 40px 60px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  .mk-img-text-item-content-tag {
+    padding: 6px 16px;
+    width: fit-content;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .mk-img-text-item-content-title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: -0.28px;
+    color: #000000;
+  }
+  .mk-img-text-item-content-description {
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.16px;
+    color: #404040;
+  }
+
+  .mk-img-text-item-content-blocks{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mk-img-text-item-content .mk-img-text-item-content-button-link{
+    display: flex;
+    width: fit-content;
+    padding: 11px 32px;
+    border-radius: 8px;
+    color:#fff;
+  }
+
+  @media (max-width: 767px) {
+    .mk-img-text-item {
+      flex-direction: column !important;
+    }
+    .mk-img-text-item-content {
+      padding: 20px;
+      gap: 16px;
+    }
+    .mk-img-text-item-content-title {
+      font-size: 22px;
+    }
+    .mk-img-text-item-content-description {
+      font-size: 14px;
+    }
+    .mk-img-text-item-content-blocks {
+      gap: 8px;
+    }
+    .mk-img-text-item-content-button-link {
+      padding: 8px 24px;
+    }
+  }
+</style>
+
+<div class="mk-img-text-item {% if block.settings.is_reverse %}is-reverse{% endif %}">
+  <div class="mk-img-text-item-image">
+    {% if block.settings.image != blank %}
+      <picture>
+        <source srcset="{{ block.settings.image_mobile | image_url: width: 800 }}" media="(max-width: 767px)">
+        <img
+          src="{{ block.settings.image | image_url: width: 800 }}"
+          alt="{{ block.settings.alt_text | default: 'custom pet sculpture'}}"
+          loading="lazy"
+          width="800"
+          height="500"
+        >
+      </picture>
+    {% else %}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'mk-img-text-item-image placeholder-svg' }}
+    {% endif %}
+  </div>
+  <div class="mk-img-text-item-content">
+    {% if block.settings.tag != blank %}
+      <div
+        class="mk-img-text-item-content-tag"
+        style="background-color: {{ block.settings.tag_color | default: '#000000' }};"
+      >
+        {{ block.settings.tag }}
+      </div>
+    {% endif %}
+    {% if block.settings.title != blank %}
+      <div class="mk-img-text-item-content-title">
+        {{ block.settings.title }}
+      </div>
+    {% endif %}
+    {% if block.settings.description != blank %}
+      <div class="mk-img-text-item-content-description">
+        {{ block.settings.description }}
+      </div>
+    {% endif %}
+    {% if block.blocks.size > 0 %}
+      <div class="mk-img-text-item-content-blocks">
+        {% content_for 'blocks' %}
+      </div>
+    {% endif %}
+    {% if block.settings.button_text != blank %}
+      <a href="{{ block.settings.button_url }}" class="mk-img-text-item-content-button-link mk-button-primary">
+        {{ block.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Img Text Item",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "alt_text",
+      "label": "Alt Text",
+      "default": "custom pet sculpture",
+      "info": "SEO"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_reverse",
+      "label": "Is Reverse",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Tag",
+      "default": "Tag"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Back Color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "More"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mk-short-text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Img Text Item"
+    }
+  ]
+}
+{% endschema %}

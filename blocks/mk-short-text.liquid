@@ -1,0 +1,36 @@
+<style>
+  .mk-short-text{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mk-short-text svg{
+    width:20px;
+    height:20px;
+  }
+</style>
+
+<div class="mk-short-text">
+  {{ 'icon-check-circle.svg' | inline_asset_content }}
+  <div class="mk-short-text-content-text">
+    {{ block.settings.text }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Short Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Short Text"
+    }
+  ]
+}
+{% endschema %}
