@@ -1,0 +1,21 @@
+<div class="mk-media-banner-description" style="--description-color: {{ block.settings.description_color | default:"#000" }};">{{ block.settings.description }}</div>
+
+
+{% schema %}
+{
+  "name": "description",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#F8F3ED"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+{% if block.settings.url != blank %}
+  <a href="{{ block.settings.url }}" class="mk-media-banner-button button button-{{ section.settings.color_scheme }}">
+    {{- block.settings.button -}}
+  </a>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button",
+      "label": "Button"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Url"
+    }
+  ]
+}
+{% endschema %}

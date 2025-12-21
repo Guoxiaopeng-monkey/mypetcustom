@@ -1,0 +1,275 @@
+{{ 'swiper@12.min.css' | asset_url | stylesheet_tag }}
+<script
+  src="{{ 'swiper@12.min.js' | asset_url }}"
+  defer="defer"
+></script>
+
+<style>
+  .top-left {
+    top: 0;
+    left: 0;
+  }
+  .top-center {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .top-right {
+    top: 0;
+    right: 0;
+  }
+  .middle-left {
+    top: 50%;
+    left: 0;
+  }
+  .middle-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .middle-right {
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
+  .bottom-left {
+    bottom: 0;
+    left: 0;
+  }
+  .bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  .align-left {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .align-center {
+    text-align: center;
+    align-items: center;
+  }
+  .align-right {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  @media (max-width: 767px) {
+    .md\:align-left {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .md\:align-center {
+      text-align: center;
+      align-items: center;
+    }
+    .md\:align-right {
+      text-align: right;
+      align-items: flex-end;
+    }
+    .md\:top {
+      top: 0;
+    }
+    .md\:middle {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .md\:bottom {
+      bottom: 0;
+    }
+  }
+  .mk-media-banner {
+    width: 100vw;
+    position: relative;
+  }
+  .mk-media-banner-image {
+    height: var(--pc-height);
+  }
+  .mk-media-banner-image picture,
+  .mk-media-banner-image img {
+    object-fit: cover;
+    height: var(--pc-height);
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .mk-media-banner-content {
+    position: absolute;
+    padding: 140px 40px 60px 40px;
+    top: 0;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mk-media-banner-content-inner {
+    width: fit-content;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+  }
+  .mk-media-banner-heading {
+    color: var(--title-color);
+    line-height: 120%;
+  }
+  .mk-media-banner-heading h1 {
+    line-height: 120%;
+    margin: 0;
+  }
+  .mk-media-banner-description {
+    color: var(--description-color);
+  }
+  @media (max-width: 767px) {
+    .mk-media-banner-image {
+      height: var(--mobile-height);
+    }
+    .mk-media-banner-image picture,
+    .mk-media-banner-image img {
+      height: var(--mobile-height);
+    }
+    .mk-media-banner-content {
+      padding: 120px 40px 40px 40px;
+    }
+    .mk-media-banner-content-inner {
+      width: 100%;
+    }
+  }
+</style>
+<style>
+  .mk-banner-slider-content .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .mk-banner-slider-content .mk-banner-slider-button-prev,
+  .mk-banner-slider-content .mk-banner-slider-button-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(105, 105, 105, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    z-index: 1;
+  }
+  .mk-banner-slider-content .mk-banner-slider-button-prev svg,
+  .mk-banner-slider-content .mk-banner-slider-button-next svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  .mk-banner-slider-content .swiper-pagination-bullet,
+  .mk-banner-slider-content .swiper-pagination-bullet-active {
+    width: 100px;
+    height: 3px;
+    border-radius: 0;
+    opacity: 1;
+    background-color:#d1d1d1;
+  }
+  .mk-banner-slider-content .swiper-pagination-bullet-active {
+    background-color:#da9279;
+  }
+  @media (max-width: 767px) {
+    .mk-banner-slider-content .mk-banner-slider-button-prev,
+    .mk-banner-slider-content .mk-banner-slider-button-next {
+      display: none !important;
+    }
+    .mk-banner-slider-content .swiper-pagination-bullet,
+    .mk-banner-slider-content .swiper-pagination-bullet-active {
+      width: 50px;
+    }
+  }
+</style>
+
+<div class="mk-banner-slider color-{{ section.settings.color_scheme }}">
+  <div class="mk-banner-slider-content swiper">
+    <div class="swiper-wrapper">
+      {% content_for 'blocks' %}
+    </div>
+    {% if section.blocks.size > 1 %}
+      <div class="mk-banner-slider-pagination swiper-pagination"></div>
+      <div class="mk-banner-slider-button-prev swiper-button-prev">
+        {{ 'icon-left.svg' | inline_asset_content }}
+      </div>
+      <div class="mk-banner-slider-button-next swiper-button-next">
+        {{ 'icon-right.svg' | inline_asset_content }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Banner Slider",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "time_to_next_slide",
+      "label": "Time to Next Slide",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 5,
+      "info": "0 to disable autoplay"
+    },
+    {
+      "type": "number",
+      "id": "pc_height",
+      "label": "PC Height",
+      "default": 800
+    },
+    {
+      "type": "number",
+      "id": "mobile_height",
+      "label": "Mobile Height",
+      "default": 400
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mk-banner-item"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Banner Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const mkBannerSlider = new Swiper('.mk-banner-slider-content', {
+      {% if section.settings.time_to_next_slide > 0 %}
+        autoplay: {
+          delay: {{ section.settings.time_to_next_slide | times: 1000 }},
+        },
+      {% endif %}
+      pagination: {
+        el: '.mk-banner-slider-pagination',
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: '.mk-banner-slider-button-next',
+        prevEl: '.mk-banner-slider-button-prev',
+      }
+    });
+  });
+</script>
