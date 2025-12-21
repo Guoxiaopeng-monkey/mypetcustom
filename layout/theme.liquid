@@ -4,6 +4,7 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    <link rel="icon" href="{{ 'favicon.ico' | asset_url }}" >
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"

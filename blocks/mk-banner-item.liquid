@@ -1,0 +1,178 @@
+<div class="mk-media-banner ">
+  <div
+    class="mk-media-banner-image"
+    style="--pc-height: {{ section.settings.pc_height }}px; --mobile-height: {{ section.settings.mobile_height }}px;"
+  >
+    <picture>
+      <source srcset="{{ block.settings.image_mobile | image_url: width: 400 }}" media="(max-width: 767px)">
+      <img
+        src="{{ block.settings.image | image_url: width: 1920 }}"
+        alt="{{ block.settings.image.alt }}"
+        width="100%"
+        height="100%"
+      >
+    </picture>
+  </div>
+  <div class="mk-media-banner-content mk-container ">
+    <div class="mk-media-banner-content-inner {{ block.settings.content_align }} md:{{ block.settings.content_align_mobile }} {{ block.settings.position_pc }} md:{{ block.settings.position_mobile }}">
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MK Banner Item",
+  "class": "mk-banner-item swiper-slide",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "alt_text",
+      "label": "Alt Text",
+      "default": "custom pet sculpture",
+      "info": "SEO"
+    },
+    {
+      "type": "select",
+      "id": "content_align",
+      "label": "Content Align",
+      "options": [
+        {
+          "value": "align-left",
+          "label": "Left"
+        },
+        {
+          "value": "align-center",
+          "label": "Center"
+        },
+        {
+          "value": "align-right",
+          "label": "Right"
+        }
+      ],
+      "default": "align-center"
+    },
+    {
+      "type": "select",
+      "id": "position_pc",
+      "label": "Position PC",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-center",
+          "label": "Top Center"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "middle-left",
+          "label": "Middle Left"
+        },
+        {
+          "value": "middle-center",
+          "label": "Middle Center"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "Bottom Center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+      "default": "middle-left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image Mobile"
+    },
+    {
+      "type": "select",
+      "id": "content_align_mobile",
+      "label": "Content Align Mobile",
+      "options": [
+        {
+          "value": "align-left",
+          "label": "Left"
+        },
+        {
+          "value": "align-center",
+          "label": "Center"
+        },
+        {
+          "value": "align-right",
+          "label": "Right"
+        }
+      ],
+      "default": "align-center"
+    },
+    {
+      "type": "select",
+      "id": "position_mobile",
+      "label": "Position Mobile",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cus_heading"
+    },
+    {
+      "type": "cus_description"
+    },
+    {
+      "type": "cus_button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MK Banner Item",
+      "blocks": [
+        {
+          "type": "cus_heading"
+        },
+        {
+          "type": "cus_description"
+        },
+        {
+          "type": "cus_button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
