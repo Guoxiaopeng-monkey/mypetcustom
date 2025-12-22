@@ -1059,6 +1059,36 @@
         "padding_bottom": 60
       }
     },
+    "mk_img_text_hNchwQ": {
+      "type": "mk-img-text",
+      "blocks": {
+        "mk_img_text_item_Nyxzrd": {
+          "type": "mk-img-text-item",
+          "settings": {
+            "alt_text": "custom pet sculpture",
+            "is_reverse": false,
+            "tag": "Tag",
+            "tag_color": "#ee0606",
+            "title": "Made to keep your pet close on your special day.",
+            "description": "✔ Handcrafted from your pet’s photo✔ Soft wool felt with lifelike details✔ High-quality artificial floral arrangement, made to last✔ Customizable to match your wedding theme colors",
+            "button_text": "Learn More",
+            "button_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_img_text_item_Nyxzrd"
+      ],
+      "name": "MK Img Text",
+      "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "title": "A Wedding Keepsake, Close to the Heart",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
+      }
+    },
     "mk_newsletter_KGPkYg": {
       "type": "mk-newsletter",
       "name": "MK Newsletter",
@@ -1362,6 +1392,7 @@
     "hero_jVaWmY",
     "section_Mn43yY",
     "mk_media_grid_DHjihQ",
+    "mk_img_text_hNchwQ",
     "mk_newsletter_KGPkYg",
     "mk_faq_image_6EwdjG",
     "mk_photo_slider_Lj6epa",
