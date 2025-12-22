@@ -2546,6 +2546,15 @@
     "mk_faq_WnzDRA": {
       "type": "mk-faq",
       "blocks": {
+        "mk_faq_CAD8bb": {
+          "type": "_mk-faq",
+          "name": "mk FAQ",
+          "settings": {
+            "question": "1. Are the flowers real or artificial?",
+            "answer": "<p>We use <strong>high-quality artificial flowers</strong> for all wedding pet felt brooches.<br/><br/>This ensures the arrangement <strong>keeps its shape and color over time</strong>, making it suitable for long-term preservation as a keepsake after the wedding.<br/></p>"
+          },
+          "blocks": {}
+        },
         "mk_faq_APGErD": {
           "type": "_mk-faq",
           "settings": {
@@ -2626,17 +2635,18 @@
           },
           "blocks": {}
         },
-        "mk_faq_CAD8bb": {
+        "mk_faq_jAtnQg": {
           "type": "_mk-faq",
           "name": "mk FAQ",
           "settings": {
-            "question": "Are the flowers real or artificial?",
-            "answer": "<p><br/>We use <strong>high-quality artificial flowers</strong> for all wedding pet felt brooches.<br/><br/>This ensures the arrangement <strong>keeps its shape and color over time</strong>, making it suitable for long-term preservation as a keepsake after the wedding.<br/><br/></p>"
+            "question": "2. Can I choose or confirm the main flower style?",
+            "answer": "<p>Yes. After you place your order, we will <strong>contact you by email to confirm the main flower style</strong> and overall floral arrangement before production begins.</p>"
           },
           "blocks": {}
         }
       },
       "block_order": [
+        "mk_faq_CAD8bb",
         "mk_faq_APGErD",
         "mk_faq_XH7nPb",
         "mk_faq_X9GpTE",
@@ -2647,7 +2657,7 @@
         "mk_faq_refund",
         "mk_faq_packaging",
         "mk_faq_shipping",
-        "mk_faq_CAD8bb"
+        "mk_faq_jAtnQg"
       ],
       "custom_css": [],
       "name": "mk FAQ Section",
