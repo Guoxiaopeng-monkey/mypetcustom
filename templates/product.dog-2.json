@@ -2625,6 +2625,15 @@
             "answer": "<p>Once your order is shipped, you'll receive a tracking number via email. Standard delivery usually takes <strong>5–10 days</strong>. If you'd like to upgrade to express shipping, please contact our team after placing your order (additional fees may apply).</p>"
           },
           "blocks": {}
+        },
+        "mk_faq_CAD8bb": {
+          "type": "_mk-faq",
+          "name": "mk FAQ",
+          "settings": {
+            "question": "Are the flowers real or artificial?",
+            "answer": "<p><br/>We use <strong>high-quality artificial flowers</strong> for all wedding pet felt brooches.<br/><br/>This ensures the arrangement <strong>keeps its shape and color over time</strong>, making it suitable for long-term preservation as a keepsake after the wedding.<br/><br/></p>"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -2637,7 +2646,8 @@
         "mk_faq_care",
         "mk_faq_refund",
         "mk_faq_packaging",
-        "mk_faq_shipping"
+        "mk_faq_shipping",
+        "mk_faq_CAD8bb"
       ],
       "custom_css": [],
       "name": "mk FAQ Section",
