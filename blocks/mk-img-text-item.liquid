@@ -50,6 +50,9 @@
     letter-spacing: -0.16px;
     color: #404040;
   }
+  .mk-img-text-item-content-description *{
+    margin:0;
+  }
 
   .mk-img-text-item-content-blocks{
     display: flex;
@@ -61,7 +64,6 @@
     width: fit-content;
     padding: 11px 32px;
     border-radius: 8px;
-    color:#fff;
   }
 
   @media (max-width: 767px) {
@@ -186,10 +188,10 @@
       "default": "Title"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Description"
+      "default": "<p>Description</p>"
     },
     {
       "type": "text",
