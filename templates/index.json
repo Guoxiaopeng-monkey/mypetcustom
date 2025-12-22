@@ -1065,14 +1065,15 @@
         "mk_img_text_item_Nyxzrd": {
           "type": "mk-img-text-item",
           "settings": {
+            "image": "shopify://shop_images/6.jpg",
             "alt_text": "custom pet sculpture",
             "is_reverse": false,
-            "tag": "Tag",
+            "tag": "CHRISTMAS DEAL: UP TO 55% OFF",
             "tag_color": "#ee0606",
             "title": "Made to keep your pet close on your special day.",
             "description": "✔ Handcrafted from your pet’s photo✔ Soft wool felt with lifelike details✔ High-quality artificial floral arrangement, made to last✔ Customizable to match your wedding theme colors",
             "button_text": "Learn More",
-            "button_url": ""
+            "button_url": "shopify://products/custom-pet-felt-corsage-pin"
           },
           "blocks": {}
         }
