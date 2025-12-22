@@ -239,7 +239,7 @@
           "type": "image_text",
           "settings": {
             "heading": "2020 | Where It All Began",
-            "text": "<p>In 2020, our story began with a loss. </p><p>The founder’s beloved cat passed away, leaving behind a silence that words couldn’t fill. </p><p>Out of that moment, the first felt piece was made — not as a product, but as a way to hold on. </p><p>That single creation became the beginning of everything that followed.</p>",
+            "text": "<p><p>In 2020, our story began with a loss. </p><p>The founder’s beloved cat passed away, leaving behind a silence that words couldn’t fill. </p><p>Out of that moment, the first felt piece was made — not as a product, but as a way to hold on. </p><p>That single creation became the beginning of everything that followed.</p></p>",
             "image": "shopify://shop_images/PixVerse_Image_Effect_prompt____1.jpg",
             "layout": "normal",
             "button_text": "",
@@ -250,7 +250,7 @@
           "type": "image_text",
           "settings": {
             "heading": "2022 | Where Each Creation Takes Shape",
-            "text": "<p>Since the studio was founded in 2020, the creative space has gradually taken shape as the team continued to grow.</p><p>Behind every piece lies repeated refinement and careful calibration within this very space, until each creation captures a pet’s unique expression and sense of life.</p>",
+            "text": "<p><p>Since the studio was founded in 2020, the creative space has gradually taken shape as the team continued to grow.</p><p>Behind every piece lies repeated refinement and careful calibration within this very space, until each creation captures a pet’s unique expression and sense of life.</p></p>",
             "image": "shopify://shop_images/20251217000356_13738_5.jpg",
             "layout": "reverse",
             "button_text": "View Our Newsroom",
@@ -261,7 +261,7 @@
           "type": "image_text",
           "settings": {
             "heading": "2024 | Bringing Custom Creations into Wedding Moments",
-            "text": "<p>In 2024, we expanded our custom creations into weddings.</p><p>A wedding is a moment when the meaning of family is redefined — and for many, that family has always included them.</p><p>We simply make space for them to be part of it.</p>",
+            "text": "<p><p>In 2024, we expanded our custom creations into weddings.</p><p>A wedding is a moment when the meaning of family is redefined — and for many, that family has always included them.</p><p>We simply make space for them to be part of it.</p></p>",
             "image": "shopify://shop_images/7ccbb028560a3b2c5aea41fe59737c5e.jpg",
             "layout": "normal",
             "button_text": "Where To Buy",
