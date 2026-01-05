@@ -29,7 +29,6 @@
         },
         "announcement_BxgCk9": {
           "type": "_announcement",
-          "disabled": true,
           "settings": {
             "text": "Welcome to our store",
             "link": "",
