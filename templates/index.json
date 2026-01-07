@@ -49,7 +49,6 @@
       ],
       "name": "MK Media Banner",
       "settings": {
-        "image": "shopify://shop_images/1920-850-Banner.png",
         "pc_height": 880,
         "content_align": "align-left",
         "position_pc": "middle-left",
@@ -1008,7 +1007,7 @@
         "image_text_Udbi7A": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/dog-do.png",
+            "image_pc": "shopify://shop_images/Custom_dog_pet_portrait.png",
             "image_ratio": "auto",
             "handle": "Dog",
             "content": "",
@@ -1024,7 +1023,7 @@
         "image_text_VpimNq": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/cat-do_e3abac0c-d1d4-4951-9418-b59fbb9601d1.png",
+            "image_pc": "shopify://shop_images/Custom_cat_pet_portrait.png",
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
@@ -1065,7 +1064,6 @@
         "mk_img_text_item_Nyxzrd": {
           "type": "mk-img-text-item",
           "settings": {
-            "image": "shopify://shop_images/6.jpg",
             "alt_text": "custom pet sculpture",
             "is_reverse": false,
             "tag": "NEW YEAR DEAL: UP TO 55% OFF",
