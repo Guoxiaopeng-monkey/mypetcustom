@@ -1065,6 +1065,7 @@
         "mk_img_text_item_Nyxzrd": {
           "type": "mk-img-text-item",
           "settings": {
+            "image": "shopify://shop_images/memorial_pet_wedding_boutonniere.jpg",
             "alt_text": "custom pet sculpture",
             "is_reverse": false,
             "tag": "NEW YEAR DEAL: UP TO 55% OFF",
