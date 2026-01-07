@@ -49,6 +49,7 @@
       ],
       "name": "MK Media Banner",
       "settings": {
+        "image": "shopify://shop_images/custom_pet_portraits1.png",
         "pc_height": 880,
         "content_align": "align-left",
         "position_pc": "middle-left",
