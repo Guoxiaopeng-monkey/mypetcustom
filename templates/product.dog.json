@@ -2781,7 +2781,9 @@
           "name": "MK Media",
           "settings": {
             "media_type": "video",
-            "video_source": "mp4"
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea.mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -2789,8 +2791,10 @@
           "type": "mk-media",
           "name": "MK Media",
           "settings": {
-            "media_type": "image",
-            "video_source": "mp4"
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Before and After.mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -2798,8 +2802,10 @@
           "type": "mk-media",
           "name": "MK Media",
           "settings": {
-            "media_type": "image",
-            "video_source": "mp4"
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea1.mp4",
+            "video_url": ""
           },
           "blocks": {}
         },
@@ -2807,8 +2813,10 @@
           "type": "mk-media",
           "name": "MK Media",
           "settings": {
-            "media_type": "image",
-            "video_source": "mp4"
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Dog Plush That Looks Real.mp4",
+            "video_url": ""
           },
           "blocks": {}
         }
@@ -2819,11 +2827,10 @@
         "mk_media_kYVV3r",
         "mk_media_V6BrtG"
       ],
-      "disabled": true,
       "name": "MK Media Swiper",
       "settings": {
-        "color_scheme": "",
-        "title": "Media Swiper",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "title": "Real Customer Customization Videos",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": ""
