@@ -2737,7 +2737,7 @@
           "settings": {
             "air_blockreviews_summaryHeading": "Reviews",
             "air_blockreviews_layout": "list",
-            "air_blockreviews_singleStarColor": "#16A086",
+            "air_blockreviews_singleStarColor": "#16a086",
             "air_blockreviews_primaryColor": "#121212"
           }
         }
@@ -2772,6 +2772,62 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "mk_media_swiper_JaC3tJ": {
+      "type": "mk-media-swiper",
+      "blocks": {
+        "mk_media_M4yWwm": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_NqxJgQ": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_kYVV3r": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_V6BrtG": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "image",
+            "video_source": "mp4"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_media_M4yWwm",
+        "mk_media_NqxJgQ",
+        "mk_media_kYVV3r",
+        "mk_media_V6BrtG"
+      ],
+      "disabled": true,
+      "name": "MK Media Swiper",
+      "settings": {
+        "color_scheme": "",
+        "title": "Media Swiper",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
+      }
     }
   },
   "order": [
@@ -2790,6 +2846,7 @@
     "section_xikd3w",
     "mk_faq_WnzDRA",
     "product_recommendations_qggXJq",
-    "176830570062035a7e"
+    "176830570062035a7e",
+    "mk_media_swiper_JaC3tJ"
   ]
 }
