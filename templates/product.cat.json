@@ -1970,6 +1970,65 @@
         "padding-block-end": 48
       }
     },
+    "mk_media_swiper_9LnAr8": {
+      "type": "mk-media-swiper",
+      "blocks": {
+        "mk_media_ndrqh6": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Dog Plush That Looks Real.mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_FYwKwK": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea1.mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_AGQ6eK": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Before and After.mp4"
+          },
+          "blocks": {}
+        },
+        "mk_media_HMRn8F": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea.mp4"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_media_ndrqh6",
+        "mk_media_FYwKwK",
+        "mk_media_AGQ6eK",
+        "mk_media_HMRn8F"
+      ],
+      "name": "MK Media Swiper",
+      "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "title": "Real Customer Customization Videos",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
+      }
+    },
     "mk_faq_WnzDRA": {
       "type": "mk-faq",
       "blocks": {
@@ -2263,65 +2322,6 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "mk_media_swiper_9LnAr8": {
-      "type": "mk-media-swiper",
-      "blocks": {
-        "mk_media_ndrqh6": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Dog Plush That Looks Real.mp4"
-          },
-          "blocks": {}
-        },
-        "mk_media_FYwKwK": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Gift Idea1.mp4"
-          },
-          "blocks": {}
-        },
-        "mk_media_AGQ6eK": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Before and After.mp4"
-          },
-          "blocks": {}
-        },
-        "mk_media_HMRn8F": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Gift Idea.mp4"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "mk_media_ndrqh6",
-        "mk_media_FYwKwK",
-        "mk_media_AGQ6eK",
-        "mk_media_HMRn8F"
-      ],
-      "name": "MK Media Swiper",
-      "settings": {
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "title": "Real Customer Customization Videos",
-        "title_size_pc": "48",
-        "title_size_mb": "32",
-        "description": ""
-      }
     }
   },
   "order": [
@@ -2337,9 +2337,9 @@
     "mk_step_column_g9LVTC",
     "mk_step_section_dJPPJD",
     "section_xikd3w",
+    "mk_media_swiper_9LnAr8",
     "mk_faq_WnzDRA",
     "product_recommendations_qggXJq",
-    "1765465026a1a10160",
-    "mk_media_swiper_9LnAr8"
+    "1765465026a1a10160"
   ]
 }
