@@ -239,8 +239,8 @@
           "type": "image_text",
           "settings": {
             "heading": "2020 | Where It All Began",
-            "text": "<p><p>In 2020, our story began with a loss. </p><p>The founder’s beloved cat passed away, leaving behind a silence that words couldn’t fill. </p><p>Out of that moment, the first felt piece was made — not as a product, but as a way to hold on. </p><p>That single creation became the beginning of everything that followed.</p></p>",
-            "image": "shopify://shop_images/PixVerse_Image_Effect_prompt____1.jpg",
+            "text": "<p></p><p>In 2020, our story began with a loss. </p><p>The founder’s beloved cat passed away, leaving behind a silence that words couldn’t fill. </p><p>Out of that moment, the first felt piece was made — not as a product, but as a way to hold on. </p><p>That single creation became the beginning of everything that followed.</p><p></p>",
+            "image": "shopify://shop_images/Personalized_pet_portrait_artwork.jpg",
             "layout": "normal",
             "button_text": "",
             "button_url": ""
@@ -261,8 +261,8 @@
           "type": "image_text",
           "settings": {
             "heading": "2024 | Bringing Custom Creations into Wedding Moments",
-            "text": "<p><p>In 2024, we expanded our custom creations into weddings.</p><p>A wedding is a moment when the meaning of family is redefined — and for many, that family has always included them.</p><p>We simply make space for them to be part of it.</p></p>",
-            "image": "shopify://shop_images/7ccbb028560a3b2c5aea41fe59737c5e.jpg",
+            "text": "<p></p><p>In 2024, we expanded our custom creations into weddings.</p><p>A wedding is a moment when the meaning of family is redefined — and for many, that family has always included them.</p><p>We simply make space for them to be part of it.</p><p></p>",
+            "image": "shopify://shop_images/personalized_wedding_boutonniere_pet.jpg",
             "layout": "normal",
             "button_text": "Where To Buy",
             "button_url": ""
