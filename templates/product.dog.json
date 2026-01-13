@@ -2479,6 +2479,69 @@
         "padding-block-end": 48
       }
     },
+    "mk_media_swiper_JaC3tJ": {
+      "type": "mk-media-swiper",
+      "blocks": {
+        "mk_media_M4yWwm": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea.mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        },
+        "mk_media_NqxJgQ": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Before and After.mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        },
+        "mk_media_kYVV3r": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Pet Plush Gift Idea1.mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        },
+        "mk_media_V6BrtG": {
+          "type": "mk-media",
+          "name": "MK Media",
+          "settings": {
+            "media_type": "video",
+            "video_source": "mp4",
+            "video": "shopify://files/videos/Custom Dog Plush That Looks Real.mp4",
+            "video_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_media_M4yWwm",
+        "mk_media_NqxJgQ",
+        "mk_media_kYVV3r",
+        "mk_media_V6BrtG"
+      ],
+      "name": "MK Media Swiper",
+      "settings": {
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "title": "Real Customer Customization Videos",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
+      }
+    },
     "mk_faq_WnzDRA": {
       "type": "mk-faq",
       "blocks": {
@@ -2772,69 +2835,6 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    },
-    "mk_media_swiper_JaC3tJ": {
-      "type": "mk-media-swiper",
-      "blocks": {
-        "mk_media_M4yWwm": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Gift Idea.mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        },
-        "mk_media_NqxJgQ": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Before and After.mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        },
-        "mk_media_kYVV3r": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Pet Plush Gift Idea1.mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        },
-        "mk_media_V6BrtG": {
-          "type": "mk-media",
-          "name": "MK Media",
-          "settings": {
-            "media_type": "video",
-            "video_source": "mp4",
-            "video": "shopify://files/videos/Custom Dog Plush That Looks Real.mp4",
-            "video_url": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "mk_media_M4yWwm",
-        "mk_media_NqxJgQ",
-        "mk_media_kYVV3r",
-        "mk_media_V6BrtG"
-      ],
-      "name": "MK Media Swiper",
-      "settings": {
-        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "title": "Real Customer Customization Videos",
-        "title_size_pc": "48",
-        "title_size_mb": "32",
-        "description": ""
-      }
     }
   },
   "order": [
@@ -2851,9 +2851,9 @@
     "mk_step_column_g9LVTC",
     "mk_step_section_dJPPJD",
     "section_xikd3w",
+    "mk_media_swiper_JaC3tJ",
     "mk_faq_WnzDRA",
     "product_recommendations_qggXJq",
-    "176830570062035a7e",
-    "mk_media_swiper_JaC3tJ"
+    "176830570062035a7e"
   ]
 }
