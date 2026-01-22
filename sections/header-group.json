@@ -17,6 +17,7 @@
         "mk_timedown_hkkKBj": {
           "type": "mk-timedown",
           "name": "MK Timedown",
+          "disabled": true,
           "settings": {
             "title": "Valentine's Day Sale",
             "time_end": "2025-12-31 12:00:00",
@@ -28,7 +29,6 @@
         },
         "announcement_BxgCk9": {
           "type": "_announcement",
-          "disabled": true,
           "settings": {
             "text": "Welcome to our store",
             "link": "",
