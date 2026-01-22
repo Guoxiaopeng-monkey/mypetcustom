@@ -30,11 +30,13 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "front_image": "shopify://shop_images/1_6e6fd3b8-bb34-472a-9f80-e737e44ea48d.png",
+            "back_image": "shopify://shop_images/Pngtree_red_valentines_day_care_origami_3738089_2.png",
+            "text": "<strong>Welcome to our store</strong>",
             "link": "",
             "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
+            "font_size": "1rem",
+            "weight": "700",
             "letter_spacing": "normal",
             "case": "none"
           },
@@ -47,12 +49,13 @@
       ],
       "name": "t:names.announcement_bar",
       "settings": {
+        "background_color": "#b7895e",
         "speed": 5,
         "section_width": "page-width",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "divider_width": 1,
-        "padding-block-start": 15,
-        "padding-block-end": 15
+        "padding-block-start": 6,
+        "padding-block-end": 6
       }
     },
     "header_section": {
