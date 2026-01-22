@@ -1,5 +1,3 @@
-
-
 {%- assign block_settings = block.settings -%}
 {%- assign plain_text = block_settings.text | strip_newlines | strip_html | strip -%}
 {%- assign block_index = section.blocks | find_index: 'id', block.id -%}
@@ -26,6 +24,16 @@
     {{ block.shopify_attributes }}
     aria-hidden="{% if block_index == 0 %}false{% else %}true{% endif %}"
   >
+    {% if block_settings.front_image != blank %}
+      <img
+        src="{{ block_settings.front_image | image_url: width: 100 }}"
+        alt="{{ block_settings.front_image.alt }}"
+        class="announcement-bar__front-image"
+        width="100"
+        height="auto"
+      >
+    {% endif %}
+
     <p class="announcement-bar__text">
       {{ block.settings.text }}
     </p>
@@ -39,6 +47,15 @@
           {{ block_settings.text | strip_html }}
         </span>
       </a>
+    {% endif %}
+    {% if block_settings.back_image != blank %}
+      <img
+        src="{{ block_settings.back_image | image_url: width: 100 }}"
+        alt="{{ block_settings.back_image.alt }}"
+        class="announcement-bar__back-image"
+        width="100"
+        height="auto"
+      >
     {% endif %}
   </slideshow-slide>
 {%- endunless -%}
@@ -123,6 +140,22 @@
   .text-block--align-right > * {
     margin-inline-start: auto;
   }
+  .announcement-bar__slide.text-block{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width:fit-content;
+  }
+  .announcement-bar__slide .announcement-bar__front-image{
+    max-width: 24px;
+    height: auto;
+  }
+  .announcement-bar__slide .announcement-bar__back-image{
+    max-width: 24px;
+    height: auto;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -130,6 +163,16 @@
   "name": "t:names.announcement",
   "tag": null,
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "front_image",
+      "label": "Front Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "back_image",
+      "label": "Back Image"
+    },
     {
       "type": "inline_richtext",
       "id": "text",
