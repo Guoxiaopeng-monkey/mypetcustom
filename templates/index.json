@@ -39,7 +39,7 @@
           "type": "cus_button",
           "settings": {
             "button": "Make It Personal",
-            "url": "shopify://products/custom-dog-portraits"
+            "url": "shopify://products/custom-cat-portraits"
           }
         }
       },
@@ -1028,7 +1028,7 @@
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
-            "link": "shopify://products/custom-dog-portraits",
+            "link": "shopify://products/custom-cat-portraits",
             "color": "#000000",
             "text_alignment": "left",
             "horizontal_grid": 6,
