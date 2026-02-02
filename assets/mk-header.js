@@ -10,9 +10,13 @@ class MKHeaderComponent extends Component {
     super.connectedCallback();
     // 等待 DOM 完全加载后再初始化
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => this.#initMobileMenu());
+      document.addEventListener('DOMContentLoaded', () => {
+        this.#initMobileMenu();
+        this.#initMegaMenu();
+      });
     } else {
       this.#initMobileMenu();
+      this.#initMegaMenu();
     }
   }
 
@@ -85,6 +89,38 @@ class MKHeaderComponent extends Component {
       openIcon.style.display = 'block';
       closeIcon.style.display = 'none';
     }
+  }
+
+  /**
+   * 初始化 Mega Menu 的位置计算
+   */
+  #initMegaMenu() {
+    const headerComponent = document.querySelector('#mk-header-component');
+    if (!headerComponent) return;
+
+    const megaMenuItems = headerComponent.querySelectorAll('.mk-header__menu-item--has-mega-menu');
+    if (megaMenuItems.length === 0) return;
+
+    // 计算并设置每个 mega menu 的偏移量
+    const updateMegaMenuPosition = () => {
+      megaMenuItems.forEach((menuItem) => {
+        const megaMenu = /** @type {HTMLElement} */ (menuItem.querySelector('.mk-header__mega-menu'));
+        if (!megaMenu) return;
+
+        // 获取 menu-item 相对于视口的左侧位置
+        const rect = menuItem.getBoundingClientRect();
+        // 计算需要向左偏移的距离（使 mega menu 从视口左侧开始）
+        const offset = -rect.left;
+        megaMenu.style.setProperty('--mega-menu-offset', `${offset}px`);
+      });
+    };
+
+    // 初始计算
+    updateMegaMenuPosition();
+
+    // 监听窗口大小变化和滚动
+    window.addEventListener('resize', updateMegaMenuPosition);
+    window.addEventListener('scroll', updateMegaMenuPosition, { passive: true });
   }
 }
 

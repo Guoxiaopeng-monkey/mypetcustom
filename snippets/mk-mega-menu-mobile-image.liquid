@@ -1,0 +1,42 @@
+{%- doc -%}
+  Renders mobile mega menu with image for header drawer navigation.
+
+  @param {object} mega_menu_block - The mega menu block settings
+  @param {linklist} link - The parent menu link
+  @param {string} link_handle - The handle of the parent link for unique IDs
+{%- enddoc -%}
+
+{%- assign link_handle = link_handle | default: link.handle -%}
+
+<accordion-custom>
+  <details id="Details-menu-drawer-{{ link_handle }}">
+    <summary
+      id="HeaderDrawer-{{ link_handle }}"
+      class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+      {% if link.current %}aria-current="page"{% endif %}
+    >
+      <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+      <span class="svg-wrapper icon-plus">
+        {{- 'icon-plus.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div
+      class="menu-drawer__mega-menu menu-drawer__mega-menu--with-image menu-drawer__animated-element details-content"
+      role="list"
+      tabindex="-1"
+    >
+      {% if mega_menu_block.settings.image != blank %}
+        <div class="menu-drawer__mega-menu-image">
+          <img
+            src="{{ mega_menu_block.settings.image | image_url: width: 600 }}"
+            alt="{{ mega_menu_block.settings.image.alt | default: link.title }}"
+            width="600"
+            height="{{ 600 | divided_by: mega_menu_block.settings.image.aspect_ratio | round }}"
+            loading="lazy"
+          >
+        </div>
+      {% endif %}
+      {% comment %} Mega menu 只显示配置的内容（图片），不显示子菜单 {% endcomment %}
+    </div>
+  </details>
+</accordion-custom>

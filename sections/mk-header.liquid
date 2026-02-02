@@ -133,30 +133,54 @@
           <nav class="{{ menu_class }}" ref="headerMenu" aria-label="Main navigation">
             <ul class="mk-header__menu-list">
               {% for link in menu_links %}
-                <li class="mk-header__menu-item">
+                {% comment %} 查找匹配的 mega menu block - 使用菜单文案匹配，去除头尾空格 {% endcomment %}
+                {% assign mega_menu_block = null %}
+                {% assign link_title_stripped = link.title | strip %}
+                {% for block in section.blocks %}
+                  {% assign block_trigger_stripped = block.settings.trigger | strip %}
+                  {% if block.type == 'mega_menu' or block.type == 'mega_menu_image' %}
+                    {% if block_trigger_stripped == link_title_stripped %}
+                      {% assign mega_menu_block = block %}
+                      {% break %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+
+                <li class="mk-header__menu-item{% if mega_menu_block %} mk-header__menu-item--has-mega-menu{% endif %}">
                   <a
                     href="{{ link.url }}"
                     class="mk-header__menu-link{% if link.active %} mk-header__menu-link--active{% endif %}"
-                    {% if link.links != blank %}
+                    {% if link.links != blank or mega_menu_block %}
                       aria-haspopup="true"
                       aria-expanded="false"
                     {% endif %}
                   >
                     {{ link.title }}
                   </a>
-                  {% if link.links != blank %}
-                    <ul class="mk-header__submenu">
-                      {% for child_link in link.links %}
-                        <li class="mk-header__submenu-item">
-                          <a
-                            href="{{ child_link.url }}"
-                            class="mk-header__submenu-link{% if child_link.active %} mk-header__submenu-link--active{% endif %}"
-                          >
-                            {{ child_link.title }}
-                          </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
+                  {% if mega_menu_block %}
+                    {% comment %} 根据 type 渲染不同的 Mega Menu 结构 - PC 端 {% endcomment %}
+                    {% comment %} 如果存在 mega menu，则不渲染普通子菜单 {% endcomment %}
+                    {% if mega_menu_block.type == 'mega_menu' %}
+                      {% render 'mk-mega-menu-desktop', mega_menu_block: mega_menu_block, link: link %}
+                    {% elsif mega_menu_block.type == 'mega_menu_image' %}
+                      {% render 'mk-mega-menu-desktop-image', mega_menu_block: mega_menu_block, link: link %}
+                    {% endif %}
+                  {% else %}
+                    {% comment %} 只有在没有 mega menu 时才显示普通子菜单 {% endcomment %}
+                    {% if link.links != blank %}
+                      <ul class="mk-header__submenu">
+                        {% for child_link in link.links %}
+                          <li class="mk-header__submenu-item">
+                            <a
+                              href="{{ child_link.url }}"
+                              class="mk-header__submenu-link{% if child_link.active %} mk-header__submenu-link--active{% endif %}"
+                            >
+                              {{ child_link.title }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                   {% endif %}
                 </li>
               {% endfor %}
@@ -242,12 +266,35 @@
                 {% assign animation_index = 0 %}
                 {% for link in menu_links %}
                   {% assign animation_index = animation_index | plus: 1 %}
+                  {% comment %} 查找匹配的 mega menu block - 去除头尾空格比较 {% endcomment %}
+                  {% assign mega_menu_block = null %}
+                  {% assign link_title_stripped = link.title | strip %}
+                  {% for block in section.blocks %}
+                    {% assign block_trigger_stripped = block.settings.trigger | strip %}
+                    {% if block.type == 'mega_menu' or block.type == 'mega_menu_image' %}
+                      {% if block_trigger_stripped == link_title_stripped %}
+                        {% assign mega_menu_block = block %}
+                        {% break %}
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+
                   <li
-                    class="menu-drawer__list-item menu-drawer__list-item--deep"
+                    class="menu-drawer__list-item menu-drawer__list-item--deep{% if mega_menu_block %} menu-drawer__list-item--has-mega-menu{% endif %}"
                     style="--menu-drawer-animation-index: {{ animation_index }};"
                   >
-                    {% if link.links != blank %}
-                      {% comment %} 有子菜单的项使用 accordion 展开折叠 {% endcomment %}
+                    {% if mega_menu_block %}
+                      {% comment %} 根据 type 渲染不同的 Mega Menu 结构 - 移动端 {% endcomment %}
+                      {% comment %} 如果存在 mega menu，则不渲染原先的子菜单 {% endcomment %}
+                      {% if mega_menu_block.type == 'mega_menu' %}
+                        {% render 'mk-mega-menu-mobile', mega_menu_block: mega_menu_block, link: link, link_handle: link.handle %}
+                      {% elsif mega_menu_block.type == 'mega_menu_image' %}
+                        {% render 'mk-mega-menu-mobile-image', mega_menu_block: mega_menu_block, link: link, link_handle: link.handle %}
+                      {% endif %}
+                    {% else %}
+                      {% comment %} 只有在没有 mega menu 时才显示普通子菜单 {% endcomment %}
+                      {% if link.links != blank %}
+                        {% comment %} 有子菜单的项使用 accordion 展开折叠 {% endcomment %}
                       <accordion-custom>
                         <details id="Details-menu-drawer-{{ link.handle }}">
                           <summary
@@ -323,16 +370,17 @@
                           </ul>
                         </details>
                       </accordion-custom>
-                    {% else %}
-                      {% comment %} 没有子菜单的项直接显示链接 {% endcomment %}
-                      <a
-                        id="HeaderDrawer-{{ link.handle }}"
-                        href="{{ link.url }}"
-                        class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                        {% if link.current %}aria-current="page"{% endif %}
-                      >
-                        <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
-                      </a>
+                      {% else %}
+                        {% comment %} 没有子菜单的项直接显示链接 {% endcomment %}
+                        <a
+                          id="HeaderDrawer-{{ link.handle }}"
+                          href="{{ link.url }}"
+                          class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                          {% if link.current %}aria-current="page"{% endif %}
+                        >
+                          <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                        </a>
+                      {% endif %}
                     {% endif %}
                   </li>
                 {% endfor %}
@@ -420,9 +468,10 @@
   .mk-header {
     position: relative;
     width: 100%;
-    background-color: var(--color-background, #fff);
+    background-color: #f8f3ed;
     border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
     z-index: var(--layer-sticky, 100);
+    color: #000;
   }
 
   .mk-header[transparent] {
@@ -456,6 +505,13 @@
     view-transition-name: sticky-header;
   }
 
+  /* 确保非透明背景的 header 在 sticky 时保持背景色 */
+  .mk-header:not([transparent])[data-sticky-state='active'] {
+    background-color: #f8f3ed;
+    border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
+    color: #000;
+  }
+
   .mk-header[data-sticky-state='idle'],
   .mk-header[data-sticky-state='active'][data-animating] {
     opacity: 0;
@@ -467,6 +523,13 @@
     padding-bottom: var(--padding-bottom, 16px);
     padding-left: var(--padding-left, 20px);
     padding-right: var(--padding-right, 20px);
+    border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
+    background-color: #f8f3ed;
+  }
+
+  /* 确保非透明背景的 header row 在 sticky 时保持背景色 */
+  .mk-header:not([transparent])[data-sticky-state='active'] .mk-header__row {
+    background-color: #f8f3ed;
     border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
   }
 
@@ -585,7 +648,7 @@
   .mk-header__logo-text {
     font-size: var(--font-size-lg, 20px);
     font-weight: var(--font-weight-bold, 700);
-    color: var(--color-foreground, #000);
+    color: #000;
   }
 
   /* Menu Styles */
@@ -631,7 +694,7 @@
     display: block;
     padding: var(--padding-xs, 8px) 0;
     text-decoration: none;
-    color: var(--color-foreground, #000);
+    color: #000;
     font-size: var(--font-size-base, 16px);
     font-weight: var(--font-weight-medium, 500);
     transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
@@ -674,7 +737,7 @@
     display: block;
     padding: var(--padding-xs, 8px) var(--padding-md, 16px);
     text-decoration: none;
-    color: var(--color-foreground, #000);
+    color: #000;
     font-size: var(--font-size-sm, 14px);
     transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease);
   }
@@ -686,6 +749,150 @@
   .mk-header__submenu-link--active {
     color: var(--color-primary, #000);
     font-weight: var(--font-weight-semibold, 600);
+  }
+
+  /* Mega Menu Styles */
+  .mk-header__mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    background-color: #f8f3ed;
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+    box-shadow: var(--shadow-lg, 0 10px 25px rgba(0, 0, 0, 0.15));
+    z-index: 100;
+    margin-top: var(--padding-xs, 8px);
+    padding: 0;
+    /* 通过 JavaScript 动态设置 left 偏移量 */
+    --mega-menu-offset: 0px;
+    transform: translateX(var(--mega-menu-offset));
+  }
+
+  .mk-header__menu-item--has-mega-menu:hover .mk-header__mega-menu {
+    display: block;
+  }
+
+  .mk-header__menu-item--has-mega-menu:hover .mk-header__mega-menu {
+    display: block;
+  }
+
+  /* Mega Menu 内容容器，与 header container 对齐 */
+  .mk-header__mega-menu-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--padding-xl, 32px) var(--padding-left, 20px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--gap-xl, 32px);
+  }
+
+  /* 当 header 设置为 page-width 时，mega menu 内容也使用相同的最大宽度和对齐 */
+  .mk-header__row.section--page-width .mk-header__mega-menu-content {
+    max-width: var(--page-width, 1200px);
+    padding-left: var(--padding-left, 20px);
+    padding-right: var(--padding-right, 20px);
+  }
+
+  /* full-width 时，内容也全宽 */
+  .mk-header__row.section--full-width .mk-header__mega-menu-content {
+    max-width: 100%;
+    padding-left: var(--padding-left, 20px);
+    padding-right: var(--padding-right, 20px);
+  }
+
+  .mk-header__mega-menu-title {
+    font-size: var(--font-size-lg, 20px);
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-foreground, #000);
+    margin: 0 0 var(--padding-sm, 12px) 0;
+    grid-column: 1 / -1;
+  }
+
+  .mk-header__mega-menu-description {
+    font-size: var(--font-size-sm, 14px);
+    color: var(--color-foreground-subdued, #666);
+    margin: 0 0 var(--padding-md, 16px) 0;
+    grid-column: 1 / -1;
+  }
+
+  .mk-header__mega-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: contents;
+  }
+
+  .mk-header__mega-menu-item {
+    margin: 0;
+  }
+
+  .mk-header__mega-menu-link {
+    display: block;
+    padding: var(--padding-xs, 8px) 0;
+    text-decoration: none;
+    color: var(--color-foreground, #000);
+    font-size: var(--font-size-base, 16px);
+    font-weight: var(--font-weight-semibold, 600);
+    transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+    margin-bottom: var(--padding-xs, 8px);
+  }
+
+  .mk-header__mega-menu-link:hover {
+    color: var(--color-primary, #000);
+  }
+
+  .mk-header__mega-menu-link--active {
+    color: var(--color-primary, #000);
+  }
+
+  .mk-header__mega-menu-sublist {
+    list-style: none;
+    margin: var(--padding-xs, 8px) 0 0 0;
+    padding: 0;
+  }
+
+  .mk-header__mega-menu-subitem {
+    margin: 0;
+  }
+
+  .mk-header__mega-menu-sublink {
+    display: block;
+    padding: var(--padding-2xs, 4px) 0;
+    text-decoration: none;
+    color: var(--color-foreground-subdued, #666);
+    font-size: var(--font-size-sm, 14px);
+    font-weight: var(--font-weight-normal, 400);
+    transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+  }
+
+  .mk-header__mega-menu-sublink:hover {
+    color: var(--color-foreground, #000);
+  }
+
+  .mk-header__mega-menu-sublink--active {
+    color: var(--color-primary, #000);
+    font-weight: var(--font-weight-medium, 500);
+  }
+
+  /* Mega Menu with Image Styles */
+  .mk-header__mega-menu-content--with-image {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--gap-xl, 32px);
+    align-items: start;
+  }
+
+  .mk-header__mega-menu-image {
+    flex-shrink: 0;
+  }
+
+  .mk-header__mega-menu-image img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: var(--border-radius, 4px);
+    object-fit: cover;
   }
 
   /* Actions Styles */
@@ -708,7 +915,7 @@
     border: none;
     background: none;
     cursor: pointer;
-    color: var(--color-foreground, #000);
+    color: #000;
     text-decoration: none;
     position: relative;
     transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
@@ -789,7 +996,7 @@
     border: none;
     background: none;
     cursor: pointer;
-    color: var(--color-foreground, #000);
+    color: #000;
     transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
     order: 0;
     flex-shrink: 0;
@@ -881,6 +1088,117 @@
     }
   }
 
+  /* Mobile Mega Menu Styles */
+  .menu-drawer__mega-menu {
+    padding: var(--padding-md, 16px) var(--padding-lg, 24px);
+    background-color: var(--color-background-subdued, #f5f5f5);
+  }
+
+  .menu-drawer__mega-menu-header {
+    margin-bottom: var(--padding-md, 16px);
+    padding-bottom: var(--padding-md, 16px);
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .menu-drawer__mega-menu-title {
+    font-size: var(--font-size-lg, 20px);
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-foreground, #000);
+    margin: 0 0 var(--padding-xs, 8px) 0;
+  }
+
+  .menu-drawer__mega-menu-description {
+    font-size: var(--font-size-sm, 14px);
+    color: var(--color-foreground-subdued, #666);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .menu-drawer__mega-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-md, 16px);
+  }
+
+  .menu-drawer__mega-menu-item {
+    margin: 0;
+  }
+
+  .menu-drawer__mega-menu-link {
+    display: block;
+    padding: var(--padding-sm, 12px) 0;
+    text-decoration: none;
+    color: var(--color-foreground, #000);
+    font-size: var(--font-size-base, 16px);
+    font-weight: var(--font-weight-semibold, 600);
+    transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+  }
+
+  .menu-drawer__mega-menu-link:hover,
+  .menu-drawer__mega-menu-link:focus {
+    color: var(--color-primary, #000);
+  }
+
+  .menu-drawer__mega-menu-link--active {
+    color: var(--color-primary, #000);
+  }
+
+  .menu-drawer__mega-menu-sublist {
+    list-style: none;
+    margin: var(--padding-xs, 8px) 0 0 0;
+    padding: 0;
+    padding-left: var(--padding-md, 16px);
+  }
+
+  .menu-drawer__mega-menu-subitem {
+    margin: 0 0 var(--padding-2xs, 4px) 0;
+  }
+
+  .menu-drawer__mega-menu-sublink {
+    display: block;
+    padding: var(--padding-2xs, 4px) 0;
+    text-decoration: none;
+    color: var(--color-foreground-subdued, #666);
+    font-size: var(--font-size-sm, 14px);
+    font-weight: var(--font-weight-normal, 400);
+    transition: color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+  }
+
+  .menu-drawer__mega-menu-sublink:hover,
+  .menu-drawer__mega-menu-sublink:focus {
+    color: var(--color-foreground, #000);
+  }
+
+  .menu-drawer__mega-menu-sublink--active {
+    color: var(--color-primary, #000);
+    font-weight: var(--font-weight-medium, 500);
+  }
+
+  /* Mobile Mega Menu with Image Styles */
+  .menu-drawer__mega-menu--with-image {
+    padding: 0;
+  }
+
+  .menu-drawer__mega-menu-image {
+    width: 100%;
+    margin-bottom: var(--padding-md, 16px);
+  }
+
+  .menu-drawer__mega-menu-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius, 4px);
+    object-fit: cover;
+  }
+
+  .menu-drawer__mega-menu--with-image .menu-drawer__mega-menu-list {
+    padding: 0 var(--padding-lg, 24px) var(--padding-md, 16px);
+  }
+
   /* Mobile Menu Toggle */
   @media screen and (max-width: 749px) {
     .mk-header__columns {
@@ -909,11 +1227,16 @@
     right: 0;
     background-color: transparent;
     z-index: var(--layer-overlay, 1000);
+    transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease),
+                border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease),
+                color var(--animation-speed, 0.2s) var(--animation-easing, ease);
   }
 
   .mk-header[transparent] .mk-header__row {
     border-bottom: none;
     background-color: var(--header-bg-color, transparent);
+    transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease),
+                border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease);
   }
 
   /* 透明状态下，从 header-component 继承颜色 */
@@ -933,28 +1256,95 @@
   /* 当 sticky 激活时，恢复正常颜色 */
   .mk-header[transparent='not-sticky'][data-sticky-state='active'],
   .mk-header[transparent]:has(.mk-header__menu-item:hover),
-  .mk-header[transparent]:has(.mk-header__action:hover) {
-    --header-bg-color: unset;
-    --color-foreground: inherit;
-    --color-foreground-rgb: inherit;
-    --color-background: inherit;
-    --color-background-rgb: inherit;
-    --color-border: inherit;
-    --color-border-rgb: inherit;
+  .mk-header[transparent]:has(.mk-header__action:hover),
+  .mk-header[transparent]:has(.mk-header__mobile-menu-button:hover),
+  .mk-header[transparent]:has(.mk-header__logo:hover),
+  .mk-header[transparent]:hover {
+    --header-bg-color: #f8f3ed;
+    background-color: #f8f3ed;
+    border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
+    color: #000;
   }
 
-  .mk-header[transparent='not-sticky'][data-sticky-state='active'] .mk-header__row {
-    background-color: var(--color-background, #fff);
+  /* hover 时，header row 也显示背景色 */
+  .mk-header[transparent]:has(.mk-header__menu-item:hover) .mk-header__row,
+  .mk-header[transparent]:has(.mk-header__action:hover) .mk-header__row,
+  .mk-header[transparent]:has(.mk-header__mobile-menu-button:hover) .mk-header__row,
+  .mk-header[transparent]:has(.mk-header__logo:hover) .mk-header__row,
+  .mk-header[transparent]:hover .mk-header__row {
+    background-color: #f8f3ed;
     border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
   }
 
-  /* 确保图标在透明状态下可见 */
-  .mk-header[transparent] .mk-header__action,
-  .mk-header[transparent] .mk-header__mobile-menu-button,
-  .mk-header[transparent] .header-actions__action,
-  .mk-header[transparent] .search-action button,
-  .mk-header[transparent] .account-button {
-    color: inherit;
+  /* hover 时，文字颜色恢复为黑色 */
+  .mk-header[transparent]:has(.mk-header__menu-item:hover) .mk-header__menu-link,
+  .mk-header[transparent]:has(.mk-header__action:hover) .mk-header__action,
+  .mk-header[transparent]:has(.mk-header__mobile-menu-button:hover) .mk-header__mobile-menu-button,
+  .mk-header[transparent]:has(.mk-header__logo:hover) .mk-header__logo-text,
+  .mk-header[transparent]:hover .mk-header__menu-link,
+  .mk-header[transparent]:hover .mk-header__action,
+  .mk-header[transparent]:hover .mk-header__mobile-menu-button,
+  .mk-header[transparent]:hover .mk-header__logo-text,
+  .mk-header[transparent]:hover .header-actions__action,
+  .mk-header[transparent]:hover .search-action button,
+  .mk-header[transparent]:hover .account-button {
+    color: #000;
+  }
+
+  /* 无论是否透明，sticky 激活时都应该有背景色 */
+  .mk-header[transparent][data-sticky-state='active'] {
+    background-color: #f8f3ed;
+    border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
+    color: #000;
+  }
+
+  .mk-header[transparent='not-sticky'][data-sticky-state='active'] .mk-header__row,
+  .mk-header[transparent][data-sticky-state='active'] .mk-header__row {
+    background-color: #f8f3ed;
+    border-bottom: var(--border-width, 0px) solid var(--color-border, #e5e5e5);
+  }
+
+  /* 透明状态下，文字颜色反转为 #f8f3ed */
+  .mk-header[transparent]:not([data-sticky-state='active']) .mk-header__menu-link,
+  .mk-header[transparent]:not([data-sticky-state='active']) .mk-header__action,
+  .mk-header[transparent]:not([data-sticky-state='active']) .mk-header__mobile-menu-button,
+  .mk-header[transparent]:not([data-sticky-state='active']) .mk-header__logo-text,
+  .mk-header[transparent]:not([data-sticky-state='active']) .header-actions__action,
+  .mk-header[transparent]:not([data-sticky-state='active']) .search-action button,
+  .mk-header[transparent]:not([data-sticky-state='active']) .account-button {
+    color: #f8f3ed;
+  }
+
+  /* 确保 account-popover 显示在 header 下方，而不是从底部弹出 */
+  /* 参考 header.liquid 的实现，确保弹窗正确定位 */
+  .mk-header .account-popover {
+    position: relative;
+  }
+
+  .mk-header .account-popover__panel {
+    /* 确保使用 fixed 定位，覆盖可能的默认底部弹出行为 */
+    position: fixed;
+    bottom: auto;
+    margin: 0;
+  }
+
+  /* 不支持 position-anchor 的浏览器回退方案 */
+  @supports not (position-anchor: --account-button-trigger) {
+    .mk-header .account-popover__panel {
+      top: calc(var(--anchor-top) * 1px + var(--anchor-height) * 1px + var(--header-padding, var(--padding-sm)));
+      right: calc(var(--anchor-right) * 1px);
+      left: auto;
+    }
+  }
+
+  /* 支持 position-anchor 的浏览器 - 确保使用正确的 anchor */
+  @supports (position-anchor: --account-button-trigger) {
+    .mk-header .account-popover__panel {
+      position-anchor: --account-button-trigger;
+      top: calc(anchor(bottom) + var(--header-padding, var(--padding-sm)));
+      right: anchor(right);
+      left: auto;
+    }
   }
 {% endstylesheet %}
 
@@ -1246,6 +1636,47 @@
       "type": "paragraph",
       "content": "客户账户功能需要在 Shopify 后台的客户设置中启用"
     }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Menu Item Name",
+          "info": "Enter the exact menu item name to match (must be exact match)",
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+        }
+      ]
+    },
+    {
+      "type": "mega_menu_image",
+      "name": "Mega Menu Image",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Trigger",
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+        }
+      ]
+    }
+    
   ],
   "presets": []
 }

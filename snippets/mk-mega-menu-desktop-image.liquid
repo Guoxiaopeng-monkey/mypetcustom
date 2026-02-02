@@ -1,0 +1,25 @@
+{%- doc -%}
+  Renders desktop mega menu with image for header navigation.
+  If mega menu exists, it should only show the configured content (image, etc.)
+  and NOT display any submenu links from link.links.
+
+  @param {object} mega_menu_block - The mega menu block settings
+  @param {linklist} link - The parent menu link
+{%- enddoc -%}
+
+<div class="mk-header__mega-menu">
+  <div class="mk-header__mega-menu-content mk-header__mega-menu-content--with-image">
+    {% if mega_menu_block.settings.image != blank %}
+      <div class="mk-header__mega-menu-image">
+        <img
+          src="{{ mega_menu_block.settings.image | image_url: width: 400 }}"
+          alt="{{ mega_menu_block.settings.image.alt | default: link.title }}"
+          width="400"
+          height="{{ 400 | divided_by: mega_menu_block.settings.image.aspect_ratio | round }}"
+          loading="lazy"
+        >
+      </div>
+    {% endif %}
+    {% comment %} Mega menu 只显示配置的内容（图片），不显示子菜单 {% endcomment %}
+  </div>
+</div>
