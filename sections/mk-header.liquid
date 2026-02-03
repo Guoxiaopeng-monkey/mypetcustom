@@ -287,96 +287,120 @@
                       {% comment %} 根据 type 渲染不同的 Mega Menu 结构 - 移动端 {% endcomment %}
                       {% comment %} 如果存在 mega menu，则不渲染原先的子菜单 {% endcomment %}
                       {% if mega_menu_block.type == 'mega_menu' %}
-                        {% render 'mk-mega-menu-mobile', mega_menu_block: mega_menu_block, link: link, link_handle: link.handle %}
+                        {% render 'mk-mega-menu-mobile',
+                          mega_menu_block: mega_menu_block,
+                          link: link,
+                          link_handle: link.handle
+                        %}
                       {% elsif mega_menu_block.type == 'mega_menu_image' %}
-                        {% render 'mk-mega-menu-mobile-image', mega_menu_block: mega_menu_block, link: link, link_handle: link.handle %}
+                        {% render 'mk-mega-menu-mobile-image',
+                          mega_menu_block: mega_menu_block,
+                          link: link,
+                          link_handle: link.handle
+                        %}
                       {% endif %}
                     {% else %}
                       {% comment %} 只有在没有 mega menu 时才显示普通子菜单 {% endcomment %}
                       {% if link.links != blank %}
                         {% comment %} 有子菜单的项使用 accordion 展开折叠 {% endcomment %}
-                      <accordion-custom>
-                        <details id="Details-menu-drawer-{{ link.handle }}">
-                          <summary
-                            id="HeaderDrawer-{{ link.handle }}"
-                            class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                            {% if link.current %}aria-current="page"{% endif %}
-                          >
-                            <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
-                            <span class="svg-wrapper icon-plus">
-                              {{- 'icon-plus.svg' | inline_asset_content -}}
-                            </span>
-                          </summary>
-                          <ul
-                            class="menu-drawer__menu menu-drawer__menu--childlist menu-drawer__animated-element details-content"
-                            role="list"
-                            tabindex="-1"
-                          >
-                            {% for child_link in link.links %}
-                              <li
-                                class="menu-drawer__list-item"
-                                style="--menu-drawer-animation-index: {{ forloop.index }};"
-                              >
-                                {% if child_link.links != blank %}
-                                  {% comment %} 子菜单也有子项，继续使用 accordion {% endcomment %}
-                                  <accordion-custom>
-                                    <details id="Details-menu-drawer-{{ link.handle }}-{{ child_link.handle }}">
-                                      <summary
-                                        id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}"
-                                        class="menu-drawer__menu-item menu-drawer__menu-item--parent focus-inset{% if child_link.current %} menu-drawer__menu-item--active{% endif %}"
-                                        {% if child_link.current %}aria-current="page"{% endif %}
-                                      >
-                                        <span class="menu-drawer__menu-item-text wrap-text">{{ child_link.title | escape }}</span>
-                                        <span class="svg-wrapper icon-plus">
-                                          {{- 'icon-plus.svg' | inline_asset_content -}}
-                                        </span>
-                                      </summary>
-                                      <ul
-                                        class="menu-drawer__menu menu-drawer__menu--grandchildlist details-content"
-                                        role="list"
-                                        tabindex="-1"
-                                      >
-                                        {% for grandchild_link in child_link.links %}
-                                          <li
-                                            class="menu-drawer__list-item"
-                                            style="--menu-drawer-animation-index: {{ forloop.index }};"
-                                          >
-                                            <a
-                                              id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}-{{ grandchild_link.handle }}"
-                                              href="{{ grandchild_link.url }}"
-                                              class="menu-drawer__menu-item menu-drawer__menu-item--child focus-inset{% if grandchild_link.current %} menu-drawer__menu-item--active{% endif %}"
-                                              {% if grandchild_link.current %}aria-current="page"{% endif %}
+                        <accordion-custom>
+                          <details id="Details-menu-drawer-{{ link.handle }}">
+                            <summary
+                              id="HeaderDrawer-{{ link.handle }}"
+                              class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                              {% if link.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+                              <span class="svg-wrapper icon-caret">
+                                {{- 'icon-caret.svg' | inline_asset_content -}}
+                              </span>
+                            </summary>
+                            <ul
+                              class="menu-drawer__menu menu-drawer__menu--childlist menu-drawer__animated-element details-content"
+                              role="list"
+                              tabindex="-1"
+                            >
+                              {% for child_link in link.links %}
+                                <li
+                                  class="menu-drawer__list-item"
+                                  style="--menu-drawer-animation-index: {{ forloop.index }};"
+                                >
+                                  {% if child_link.links != blank %}
+                                    {% comment %} 子菜单也有子项，继续使用 accordion {% endcomment %}
+                                    <accordion-custom>
+                                      <details id="Details-menu-drawer-{{ link.handle }}-{{ child_link.handle }}">
+                                        <summary
+                                          id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}"
+                                          class="menu-drawer__menu-item menu-drawer__menu-item--parent focus-inset{% if child_link.current %} menu-drawer__menu-item--active{% endif %}"
+                                          {% if child_link.current %}
+                                            aria-current="page"
+                                          {% endif %}
+                                        >
+                                          <span class="menu-drawer__menu-item-text wrap-text">
+                                            {{- child_link.title | escape -}}
+                                          </span>
+                                          <span class="svg-wrapper icon-caret">
+                                            {{- 'icon-caret.svg' | inline_asset_content -}}
+                                          </span>
+                                        </summary>
+                                        <ul
+                                          class="menu-drawer__menu menu-drawer__menu--grandchildlist details-content"
+                                          role="list"
+                                          tabindex="-1"
+                                        >
+                                          {% for grandchild_link in child_link.links %}
+                                            <li
+                                              class="menu-drawer__list-item"
+                                              style="--menu-drawer-animation-index: {{ forloop.index }};"
                                             >
-                                              <span class="menu-drawer__menu-item-text wrap-text">{{ grandchild_link.title | escape }}</span>
-                                            </a>
-                                          </li>
-                                        {% endfor %}
-                                      </ul>
-                                    </details>
-                                  </accordion-custom>
-                                {% else %}
-                                  {% comment %} 子菜单项没有子项，直接显示链接 {% endcomment %}
-                                  <a
-                                    id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}"
-                                    href="{{ child_link.url }}"
-                                    class="menu-drawer__menu-item menu-drawer__menu-item--child focus-inset{% if child_link.current %} menu-drawer__menu-item--active{% endif %}"
-                                    {% if child_link.current %}aria-current="page"{% endif %}
-                                  >
-                                    <span class="menu-drawer__menu-item-text wrap-text">{{ child_link.title | escape }}</span>
-                                  </a>
-                                {% endif %}
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </details>
-                      </accordion-custom>
+                                              <a
+                                                id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}-{{ grandchild_link.handle }}"
+                                                href="{{ grandchild_link.url }}"
+                                                class="menu-drawer__menu-item menu-drawer__menu-item--child focus-inset{% if grandchild_link.current %} menu-drawer__menu-item--active{% endif %}"
+                                                {% if grandchild_link.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                <span class="menu-drawer__menu-item-text wrap-text">
+                                                  {{- grandchild_link.title | escape -}}
+                                                </span>
+                                              </a>
+                                            </li>
+                                          {% endfor %}
+                                        </ul>
+                                      </details>
+                                    </accordion-custom>
+                                  {% else %}
+                                    {% comment %} 子菜单项没有子项，直接显示链接 {% endcomment %}
+                                    <a
+                                      id="HeaderDrawer-{{ link.handle }}-{{ child_link.handle }}"
+                                      href="{{ child_link.url }}"
+                                      class="menu-drawer__menu-item menu-drawer__menu-item--child focus-inset{% if child_link.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if child_link.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      <span class="menu-drawer__menu-item-text wrap-text">
+                                        {{- child_link.title | escape -}}
+                                      </span>
+                                    </a>
+                                  {% endif %}
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </details>
+                        </accordion-custom>
                       {% else %}
                         {% comment %} 没有子菜单的项直接显示链接 {% endcomment %}
                         <a
                           id="HeaderDrawer-{{ link.handle }}"
                           href="{{ link.url }}"
                           class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-                          {% if link.current %}aria-current="page"{% endif %}
+                          {% if link.current %}
+                            aria-current="page"
+                          {% endif %}
                         >
                           <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
                         </a>
@@ -428,8 +452,7 @@
   {% endif %}
 </header-component>
 
-<mk-header-component>
-</mk-header-component>
+<mk-header-component> </mk-header-component>
 
 {% comment %} Search Modal {% endcomment %}
 {% if section.settings.show_search %}
@@ -762,18 +785,23 @@
     border-bottom: 1px solid var(--color-border, #e5e5e5);
     box-shadow: var(--shadow-lg, 0 10px 25px rgba(0, 0, 0, 0.15));
     z-index: 100;
-    margin-top: var(--padding-xs, 8px);
     padding: 0;
     /* 通过 JavaScript 动态设置 left 偏移量 */
     --mega-menu-offset: 0px;
     transform: translateX(var(--mega-menu-offset));
+    /* 移除 margin-top，让 mega menu 紧贴菜单项，避免鼠标移入时的间隙 */
+    margin-top: 0;
+    /* 添加顶部 padding 作为过渡区域，让鼠标可以移入 */
+    padding-top: var(--padding-xs, 8px);
   }
 
+  /* 当鼠标在菜单项上时显示 mega menu */
   .mk-header__menu-item--has-mega-menu:hover .mk-header__mega-menu {
     display: block;
   }
 
-  .mk-header__menu-item--has-mega-menu:hover .mk-header__mega-menu {
+  /* 当鼠标在 mega menu 上时也保持显示，确保鼠标可以移入 */
+  .mk-header__mega-menu:hover {
     display: block;
   }
 
@@ -782,8 +810,9 @@
     width: 100%;
     margin: 0 auto;
     padding: var(--padding-xl, 32px) var(--padding-left, 20px);
+    padding-top: var(--padding-xl, 32px);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--gap-xl, 32px);
   }
 
@@ -877,10 +906,14 @@
 
   /* Mega Menu with Image Styles */
   .mk-header__mega-menu-content--with-image {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--gap-xl, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     align-items: start;
+  }
+  .mk-header__mega-menu-content--with-image h3 {
+    font-size: 20px;
+    margin: 0;
   }
 
   .mk-header__mega-menu-image {
@@ -890,9 +923,17 @@
   .mk-header__mega-menu-image img {
     width: 100%;
     height: auto;
-    max-width: 300px;
     border-radius: var(--border-radius, 4px);
     object-fit: cover;
+    aspect-ratio: 16 / 9;
+  }
+  @media screen and (max-width: 749px) {
+    .mk-header__mega-menu-content--with-image {
+      gap: 4px;
+    }
+    .mk-header__mega-menu-content--with-image h3 {
+      font-size: 16px;
+    }
   }
 
   /* Actions Styles */
@@ -1080,11 +1121,249 @@
       border-right: none !important;
       box-shadow: none !important;
       transform: translateX(-100%);
+      /* 确保 flex 布局，让 navigation 可以占据剩余空间 */
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+      padding: 0 !important;
     }
 
     .mk-header__mobile-drawer .menu-drawer-container[open] .menu-drawer,
     .mk-header__mobile-drawer .menu-drawer-container.menu-open .menu-drawer {
       transform: translateX(0) !important;
+    }
+
+    /* 移动端 navigation 纵向滚动 */
+    .mk-header__mobile-drawer .menu-drawer__navigation {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      /* 自定义滚动条样式 */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      min-height: 0; /* 重要：允许 flex 子元素缩小 */
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__navigation::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__navigation::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__navigation::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__navigation::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* 优化关闭按钮 - 放大尺寸 */
+    .mk-header__mobile-drawer .menu-drawer__close-button {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      min-height: 60px;
+      padding: var(--padding-md, 16px);
+      margin: var(--padding-sm, 12px);
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius, 8px);
+      background-color: transparent;
+      transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+      cursor: pointer;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__close-button:hover,
+    .mk-header__mobile-drawer .menu-drawer__close-button:focus {
+      background-color: var(--color-background-subdued, #f5f5f5);
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__close-button:active {
+      background-color: var(--color-background-subdued, #e8e8e8);
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__close-button .header-drawer-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      min-height: 30px;
+    }
+
+    /* 优化菜单层级样式 - 主菜单 */
+    .mk-header__mobile-drawer .menu-drawer__menu-item--mainlist {
+      font-size: 18px;
+      font-weight: 600;
+      padding: var(--padding-md, 16px) var(--padding-lg, 24px);
+      min-height: 56px;
+      border-bottom: 1px solid var(--color-border-subdued, #f0f0f0);
+      color: var(--color-foreground, #000);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--mainlist:hover,
+    .mk-header__mobile-drawer .menu-drawer__menu-item--mainlist:focus {
+      background-color: var(--color-background-subdued, #f5f5f5);
+    }
+
+    /* 展开状态下不显示背景色 */
+    .mk-header__mobile-drawer .menu-drawer__menu-item--mainlist details[open] > summary,
+    .mk-header__mobile-drawer details[open] > .menu-drawer__menu-item--mainlist {
+      background-color: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--mainlist.menu-drawer__menu-item--active {
+      color: var(--color-primary, #000);
+      font-weight: 700;
+    }
+
+    /* 优化菜单层级样式 - 子菜单（二级） */
+    .mk-header__mobile-drawer .menu-drawer__menu-item--parent {
+      font-size: 16px;
+      font-weight: 500;
+      padding: var(--padding-sm, 12px) var(--padding-lg, 24px);
+      padding-left: calc(var(--padding-lg, 24px) + 12px);
+      min-height: 48px;
+      color: var(--color-foreground, #000);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--parent:hover,
+    .mk-header__mobile-drawer .menu-drawer__menu-item--parent:focus {
+      background-color: var(--color-background-subdued, #f5f5f5);
+    }
+
+    /* 展开状态下不显示背景色 */
+    .mk-header__mobile-drawer .menu-drawer__menu-item--parent details[open] > summary,
+    .mk-header__mobile-drawer details[open] > .menu-drawer__menu-item--parent {
+      background-color: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--parent.menu-drawer__menu-item--active {
+      color: var(--color-primary, #000);
+      font-weight: 600;
+    }
+
+    /* 优化菜单层级样式 - 三级菜单 */
+    .mk-header__mobile-drawer .menu-drawer__menu-item--child {
+      font-size: 15px;
+      font-weight: 400;
+      padding: var(--padding-sm, 12px) var(--padding-lg, 24px);
+      padding-left: calc(var(--padding-lg, 24px) + 24px);
+      min-height: 44px;
+      color: var(--color-foreground-subdued, #666);
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--child:hover,
+    .mk-header__mobile-drawer .menu-drawer__menu-item--child:focus {
+      background-color: var(--color-background-subdued, #f5f5f5);
+      color: var(--color-foreground, #000);
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item--child.menu-drawer__menu-item--active {
+      color: var(--color-primary, #000);
+      font-weight: 500;
+    }
+
+    /* 优化菜单列表间距 */
+    .mk-header__mobile-drawer .menu-drawer__menu {
+      padding: 0;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu--childlist {
+      padding-top: var(--padding-xs, 8px);
+      padding-bottom: var(--padding-xs, 8px);
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu--grandchildlist {
+      padding-top: var(--padding-2xs, 4px);
+      padding-bottom: var(--padding-2xs, 4px);
+    }
+
+    /* 优化列表项间距 */
+    .mk-header__mobile-drawer .menu-drawer__list-item {
+      margin: 0;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__list-item + .menu-drawer__list-item {
+      margin-top: 0;
+    }
+
+    /* 优化图标样式 - 箭头展开/收起符号 */
+    .mk-header__mobile-drawer .menu-drawer__menu-item .svg-wrapper.icon-caret,
+    .mk-header__mobile-drawer .menu-drawer__menu-item > .svg-wrapper.icon-caret,
+    .mk-header__mobile-drawer summary .svg-wrapper.icon-caret {
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      min-height: 20px !important;
+      max-width: 20px !important;
+      max-height: 20px !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--animation-speed, 0.2s) var(--animation-easing, ease);
+      position: relative;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .mk-header__mobile-drawer .menu-drawer__menu-item .svg-wrapper.icon-caret svg,
+    .mk-header__mobile-drawer .menu-drawer__menu-item > .svg-wrapper.icon-caret svg,
+    .mk-header__mobile-drawer summary .svg-wrapper.icon-caret svg {
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      min-height: 20px !important;
+      max-width: 20px !important;
+      max-height: 20px !important;
+      display: block !important;
+      flex-shrink: 0;
+    }
+
+    /* 确保有子菜单的项显示箭头符号 */
+    .mk-header__mobile-drawer summary.menu-drawer__menu-item:has(+ ul) .svg-wrapper.icon-caret,
+    .mk-header__mobile-drawer details:has(> ul) > summary .svg-wrapper.icon-caret,
+    .mk-header__mobile-drawer details:has(> div.menu-drawer__mega-menu) > summary .svg-wrapper.icon-caret,
+    .mk-header__mobile-drawer .menu-drawer__list-item--has-mega-menu summary .svg-wrapper.icon-caret {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* 确保所有 summary 中的箭头符号都显示 */
+    .mk-header__mobile-drawer summary .svg-wrapper.icon-caret {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* 收起时箭头向下（默认状态） */
+    .mk-header__mobile-drawer details:not([open]) > summary .svg-wrapper.icon-caret {
+      transform: rotate(0deg);
+    }
+
+    /* 展开时箭头向上（旋转180度） */
+    .mk-header__mobile-drawer details[open] > summary .svg-wrapper.icon-caret {
+      transform: rotate(180deg);
     }
   }
 
@@ -1092,12 +1371,50 @@
   .menu-drawer__mega-menu {
     padding: var(--padding-md, 16px) var(--padding-lg, 24px);
     background-color: var(--color-background-subdued, #f5f5f5);
+    /* 允许 Y 方向滚动 */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* 优化滚动体验 */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    /* 自定义滚动条样式（可选） */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+
+  .menu-drawer__mega-menu::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .menu-drawer__mega-menu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .menu-drawer__mega-menu::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  .menu-drawer__mega-menu::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   .menu-drawer__mega-menu-header {
     margin-bottom: var(--padding-md, 16px);
     padding-bottom: var(--padding-md, 16px);
     border-bottom: 1px solid var(--color-border, #e5e5e5);
+    /* 防止 header 被滚动 */
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background-subdued, #f5f5f5);
+    z-index: 1;
+    margin-top: calc(-1 * var(--padding-md, 16px));
+    padding-top: var(--padding-md, 16px);
+    margin-left: calc(-1 * var(--padding-lg, 24px));
+    margin-right: calc(-1 * var(--padding-lg, 24px));
+    padding-left: var(--padding-lg, 24px);
+    padding-right: var(--padding-lg, 24px);
   }
 
   .menu-drawer__mega-menu-title {
@@ -1105,13 +1422,14 @@
     font-weight: var(--font-weight-bold, 700);
     color: var(--color-foreground, #000);
     margin: 0 0 var(--padding-xs, 8px) 0;
+    line-height: 1.3;
   }
 
   .menu-drawer__mega-menu-description {
     font-size: var(--font-size-sm, 14px);
     color: var(--color-foreground-subdued, #666);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .menu-drawer__mega-menu-list {
@@ -1179,24 +1497,52 @@
 
   /* Mobile Mega Menu with Image Styles */
   .menu-drawer__mega-menu--with-image {
-    padding: 0;
+    padding: var(--padding-md, 16px) var(--padding-lg, 24px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-lg, 24px);
+  }
+
+  .menu-drawer__mega-menu--with-image .menu-drawer__mega-menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-xs, 8px);
+  }
+
+  .menu-drawer__mega-menu--with-image .menu-drawer__mega-menu-title {
+    font-size: var(--font-size-base, 16px);
+    font-weight: var(--font-weight-semibold, 600);
+    margin: 0;
+    padding: 0 var(--padding-sm, 12px);
+  }
+
+  .menu-drawer__mega-menu-image-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity var(--animation-speed, 0.2s) var(--animation-easing, ease);
+  }
+
+  .menu-drawer__mega-menu-image-link:hover,
+  .menu-drawer__mega-menu-image-link:focus {
+    opacity: 0.85;
   }
 
   .menu-drawer__mega-menu-image {
     width: 100%;
-    margin-bottom: var(--padding-md, 16px);
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius, 8px);
+    background-color: var(--color-background, #fff);
   }
 
   .menu-drawer__mega-menu-image img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--border-radius, 4px);
+    border-radius: var(--border-radius, 8px);
     object-fit: cover;
-  }
-
-  .menu-drawer__mega-menu--with-image .menu-drawer__mega-menu-list {
-    padding: 0 var(--padding-lg, 24px) var(--padding-md, 16px);
+    aspect-ratio: 16 / 9;
   }
 
   /* Mobile Menu Toggle */
@@ -1228,25 +1574,23 @@
     background-color: transparent;
     z-index: var(--layer-overlay, 1000);
     transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease),
-                border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease),
-                color var(--animation-speed, 0.2s) var(--animation-easing, ease);
+      border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease),
+      color var(--animation-speed, 0.2s) var(--animation-easing, ease);
   }
 
   .mk-header[transparent] .mk-header__row {
     border-bottom: none;
     background-color: var(--header-bg-color, transparent);
     transition: background-color var(--animation-speed, 0.2s) var(--animation-easing, ease),
-                border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease);
+      border-bottom var(--animation-speed, 0.2s) var(--animation-easing, ease);
   }
 
   /* 透明状态下，从 header-component 继承颜色 */
-  :is(.mk-header[transparent]:not([data-sticky-state='active']), .mk-header[transparent='always'][data-sticky-state='active'])
-    .mk-header__row:not(
-      :has(
-          .mk-header__menu-item:hover,
-          .mk-header__action:hover
-        )
-    ) {
+  :is(
+      .mk-header[transparent]:not([data-sticky-state='active']),
+      .mk-header[transparent='always'][data-sticky-state='active']
+    )
+    .mk-header__row:not(:has(.mk-header__menu-item:hover, .mk-header__action:hover)) {
     --color-foreground: inherit;
     --color-foreground-rgb: inherit;
     --color-border: inherit;
@@ -1646,17 +1990,17 @@
           "type": "text",
           "id": "trigger",
           "label": "Menu Item Name",
-          "info": "Enter the exact menu item name to match (must be exact match)",
+          "info": "Enter the exact menu item name to match (must be exact match)"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
+          "label": "Title"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Description",
+          "label": "Description"
         }
       ]
     },
@@ -1667,16 +2011,86 @@
         {
           "type": "text",
           "id": "trigger",
-          "label": "Trigger",
+          "label": "Trigger"
+        },
+        {
+          "type": "header",
+          "content": "mega menu image 1"
         },
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "image_1_title",
+          "label": "Image 1 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_1_url",
+          "label": "Image 1 URL"
+        },
+        {
+          "type": "header",
+          "content": "mega menu image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "image_2_title",
+          "label": "Image 2 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_2_url",
+          "label": "Image 2 URL"
+        },
+        {
+          "type": "header",
+          "content": "mega menu image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "text",
+          "id": "image_3_title",
+          "label": "Image 3 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_3_url",
+          "label": "Image 3 URL"
+        },
+        {
+          "type": "header",
+          "content": "mega menu image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "text",
+          "id": "image_4_title",
+          "label": "Image 4 Title"
+        },
+        {
+          "type": "url",
+          "id": "image_4_url",
+          "label": "Image 4 URL"
         }
       ]
     }
-    
   ],
   "presets": []
 }

@@ -13,11 +13,13 @@
     <summary
       id="HeaderDrawer-{{ link_handle }}"
       class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
-      {% if link.current %}aria-current="page"{% endif %}
+      {% if link.current %}
+        aria-current="page"
+      {% endif %}
     >
       <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
-      <span class="svg-wrapper icon-plus">
-        {{- 'icon-plus.svg' | inline_asset_content -}}
+      <span class="svg-wrapper icon-caret">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
       </span>
     </summary>
     <div
@@ -25,17 +27,47 @@
       role="list"
       tabindex="-1"
     >
-      {% if mega_menu_block.settings.image != blank %}
-        <div class="menu-drawer__mega-menu-image">
-          <img
-            src="{{ mega_menu_block.settings.image | image_url: width: 600 }}"
-            alt="{{ mega_menu_block.settings.image.alt | default: link.title }}"
-            width="600"
-            height="{{ 600 | divided_by: mega_menu_block.settings.image.aspect_ratio | round }}"
-            loading="lazy"
-          >
-        </div>
-      {% endif %}
+      {% for i in (1..4) %}
+        {% assign image_key = 'image_' | append: i %}
+        {% assign image_title_key = 'image_' | append: i | append: '_title' %}
+        {% assign image_url_key = 'image_' | append: i | append: '_url' %}
+        {% assign image = mega_menu_block.settings[image_key] %}
+        {% assign image_title = mega_menu_block.settings[image_title_key] %}
+        {% assign image_url = mega_menu_block.settings[image_url_key] %}
+        {% if image != blank or image_title != blank %}
+          <div class="menu-drawer__mega-menu-item">
+            {% if image_title != blank %}
+              <h3 class="menu-drawer__mega-menu-title">{{ image_title }}</h3>
+            {% endif %}
+            {% if image != blank %}
+              {% if image_url != blank %}
+                <a class="menu-drawer__mega-menu-image-link" href="{{ image_url }}">
+                  <div class="menu-drawer__mega-menu-image">
+                    <img
+                      src="{{ image | image_url: width: 600 }}"
+                      alt="{{ image_title | default: link.title }}"
+                      width="600"
+                      height="{{ 600 | divided_by: image.aspect_ratio | round }}"
+                      loading="lazy"
+                    >
+                  </div>
+                </a>
+              {% else %}
+                <div class="menu-drawer__mega-menu-image">
+                  <img
+                    src="{{ image | image_url: width: 600 }}"
+                    alt="{{ image_title | default: link.title }}"
+                    width="600"
+                    height="{{ 600 | divided_by: image.aspect_ratio | round }}"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
       {% comment %} Mega menu 只显示配置的内容（图片），不显示子菜单 {% endcomment %}
     </div>
   </details>
