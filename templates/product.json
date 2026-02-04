@@ -285,9 +285,9 @@
           "settings": {
             "image": "shopify://shop_images/20260204212911_22919_5.jpg",
             "alt_text": "custom pet sculpture",
-            "is_reverse": false,
+            "is_reverse": true,
             "tag": "Multi-color Options",
-            "tag_color": "#da9279",
+            "tag_color": "#d1baa6",
             "title": "Premium Felt Canvas Collection",
             "description": "<p><br/> Explore over 20 meticulously curated colors, from vintage earth tones to modern cool shades, offering endless possibilities for your creativity.<br/><br/></p>",
             "button_text": "Get It Customized",
@@ -302,7 +302,7 @@
             "alt_text": "custom pet sculpture",
             "is_reverse": false,
             "tag": "Exclusive Gift  | Inspiring Creativity",
-            "tag_color": "#da9279",
+            "tag_color": "#d1baa6",
             "title": "Tactile Love: DIY Pet Hair Art",
             "description": "<p><br/>Complimentary professional art kit included. Blend their fur into the texture to create a memory you can truly feel.<br/><br/></p>",
             "button_text": "View Tutorial",
@@ -330,8 +330,8 @@
       ],
       "name": "MK Img Text",
       "settings": {
-        "color_scheme": "",
-        "title": "Title",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
+        "title": "Exclusive Customization Experience",
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": ""
