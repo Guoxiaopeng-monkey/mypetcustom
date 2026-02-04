@@ -342,6 +342,7 @@
         "mk_img_text_item_WwzGeA": {
           "type": "mk-img-text-item",
           "name": "MK Img Text Item",
+          "disabled": true,
           "settings": {
             "alt_text": "custom pet sculpture",
             "is_reverse": true,
@@ -368,6 +369,81 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": ""
+      }
+    },
+    "mk_step_section_aJKQYd": {
+      "type": "mk-step-section",
+      "blocks": {
+        "step_QPGjfj": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/05c8381ac1f010f0f5cdca4bc46d8fe4.svg",
+            "title": "1.  Place Your Order",
+            "description": ""
+          }
+        },
+        "step_83EB4K": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/Email.svg",
+            "title": "2. Receive Confirmation Email",
+            "description": ""
+          }
+        },
+        "step_knaMdP": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/1.svg",
+            "title": "3. Reply with Pet Photo & Card Message",
+            "description": ""
+          }
+        },
+        "step_h6CGeg": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/8e5291f7fafce34275589daae7411cb0.svg",
+            "title": "4. Handcrafted with Care by Our Artisans",
+            "description": ""
+          }
+        },
+        "step_Vck6ti": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/db1476cad40f32dbe9f62b1399ee7ae2.svg",
+            "title": "5.  Preview Finished Piece with 2 Free Revisions",
+            "description": ""
+          }
+        },
+        "step_mi7Q3U": {
+          "type": "step",
+          "settings": {
+            "icon": "shopify://shop_images/4dcc9bf213cd736193e7b76c3f53ac29.svg",
+            "title": "6. Securely Packaged & Delivered to Your Door",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_QPGjfj",
+        "step_83EB4K",
+        "step_knaMdP",
+        "step_h6CGeg",
+        "step_Vck6ti",
+        "step_mi7Q3U"
+      ],
+      "custom_css": [
+        ".step-item__index,.mk-step-section-index .step-item__icon {border-color: #da9279;}"
+      ],
+      "name": "MK Step Section",
+      "settings": {
+        "color_scheme": "scheme-f57144ba-0f0c-41d7-a30c-4b818224c6a8",
+        "title": "How It Works",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "block_background_color": "#ffffff",
+        "icon_bg_color": "#ffffff",
+        "text_color": "#f8f3ed",
+        "display_index": true
       }
     },
     "product_recommendations_qggXJq": {
@@ -519,6 +595,7 @@
   "order": [
     "main",
     "mk_img_text_DrFzYh",
+    "mk_step_section_aJKQYd",
     "product_recommendations_qggXJq"
   ]
 }
