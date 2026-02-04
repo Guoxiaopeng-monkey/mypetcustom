@@ -271,7 +271,7 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 48,
-        "color_scheme": "",
+        "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -279,6 +279,22 @@
     "mk_img_text_DrFzYh": {
       "type": "mk-img-text",
       "blocks": {
+        "mk_img_text_item_xt8yC7": {
+          "type": "mk-img-text-item",
+          "name": "MK Img Text Item",
+          "settings": {
+            "image": "shopify://shop_images/20260204212911_22919_5.jpg",
+            "alt_text": "custom pet sculpture",
+            "is_reverse": false,
+            "tag": "Multi-color Options",
+            "tag_color": "#da9279",
+            "title": "Premium Felt Canvas Collection",
+            "description": "<p><br/> Explore over 20 meticulously curated colors, from vintage earth tones to modern cool shades, offering endless possibilities for your creativity.<br/><br/></p>",
+            "button_text": "Get It Customized",
+            "button_url": ""
+          },
+          "blocks": {}
+        },
         "mk_img_text_item_R3ww7p": {
           "type": "mk-img-text-item",
           "settings": {
@@ -292,10 +308,24 @@
             "button_text": "View Tutorial",
             "button_url": ""
           },
-          "blocks": {}
+          "blocks": {
+            "mk_short_text_VNiNEM": {
+              "type": "mk-short-text",
+              "name": "MK Short Text",
+              "disabled": true,
+              "settings": {
+                "text": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "mk_short_text_VNiNEM"
+          ]
         }
       },
       "block_order": [
+        "mk_img_text_item_xt8yC7",
         "mk_img_text_item_R3ww7p"
       ],
       "name": "MK Img Text",
