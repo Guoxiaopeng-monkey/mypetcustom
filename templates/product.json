@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -70,7 +71,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -98,6 +98,9 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -112,6 +115,9 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
+                    "is_default_setting": true,
+                    "title_size_pc": "48",
+                    "title_size_mb": "32",
                     "type_preset": "h3",
                     "font": "var(--font-primary--family)",
                     "font_size": "",
@@ -186,8 +192,10 @@
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
+                "inline_buttons": true,
                 "stacking": true,
                 "show_pickup_availability": false,
+                "gift_card_form": true,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -225,6 +233,9 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
+                "is_default_setting": true,
+                "title_size_pc": "48",
+                "title_size_mb": "32",
                 "type_preset": "rte",
                 "font": "var(--font-primary--family)",
                 "font_size": "",
@@ -254,6 +265,7 @@
         }
       },
       "settings": {
+        "sticky_atc": false,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": false,
@@ -262,6 +274,37 @@
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "mk_img_text_DrFzYh": {
+      "type": "mk-img-text",
+      "blocks": {
+        "mk_img_text_item_R3ww7p": {
+          "type": "mk-img-text-item",
+          "settings": {
+            "image": "shopify://shop_images/20260204212856_22918_5.jpg",
+            "alt_text": "custom pet sculpture",
+            "is_reverse": false,
+            "tag": "Exclusive Gift  | Inspiring Creativity",
+            "tag_color": "#000000",
+            "title": "Tactile Love: DIY Pet Hair Art",
+            "description": "<p><br/>Complimentary professional art kit included. Blend their fur into the texture to create a memory you can truly feel.<br/><br/></p>",
+            "button_text": "View Tutorial",
+            "button_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mk_img_text_item_R3ww7p"
+      ],
+      "name": "MK Img Text",
+      "settings": {
+        "color_scheme": "",
+        "title": "Title",
+        "title_size_pc": "48",
+        "title_size_mb": "32",
+        "description": ""
       }
     },
     "product_recommendations_qggXJq": {
@@ -275,6 +318,9 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
+            "is_default_setting": true,
+            "title_size_pc": "48",
+            "title_size_mb": "32",
             "type_preset": "h4",
             "font": "var(--font-primary--family)",
             "font_size": "",
@@ -385,6 +431,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
@@ -408,6 +455,7 @@
   },
   "order": [
     "main",
+    "mk_img_text_DrFzYh",
     "product_recommendations_qggXJq"
   ]
 }
