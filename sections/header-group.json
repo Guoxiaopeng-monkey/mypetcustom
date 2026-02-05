@@ -59,72 +59,83 @@
       }
     },
     "header_section": {
-      "type": "header",
+      "type": "mk-header",
       "blocks": {
-        "header-logo": {
-          "type": "_header-logo",
-          "static": true,
+        "mega_menu_image_WCiRfn": {
+          "type": "mega_menu_image",
           "settings": {
-            "hide_logo_on_home_page": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "trigger": "Realistic Woolen Portrait",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_43dqh143dqh143dq.png",
+            "image_1_title": "",
+            "image_1_url": "",
+            "image_2_title": "",
+            "image_2_url": "",
+            "image_3_title": "",
+            "image_3_url": "",
+            "image_4_title": "",
+            "image_4_url": ""
+          }
         },
-        "header-menu": {
-          "type": "_header-menu",
-          "static": true,
+        "mega_menu_image_N6cXKX": {
+          "type": "mega_menu_image",
           "settings": {
-            "menu": "main-menu",
-            "color_scheme": "scheme-1",
-            "type_font_primary_size": "1.125rem",
-            "menu_font_style": "inverse",
-            "type_font_primary_link": "heading",
-            "type_case_primary_link": "none",
-            "menu_style": "text",
-            "featured_products_aspect_ratio": "4 / 5",
-            "featured_collections_aspect_ratio": "16 / 9",
-            "image_border_radius": 0,
-            "navigation_bar": false,
-            "color_scheme_navigation_bar": "",
-            "drawer_accordion": false,
-            "drawer_accordion_expand_first": false,
-            "drawer_dividers": false
-          },
-          "blocks": {}
+            "trigger": "3D Felt Animals",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_ecc5ycecc5ycecc5.png",
+            "image_1_title": "Felt Dogs",
+            "image_1_url": "",
+            "image_2": "shopify://shop_images/Gemini_Generated_Image_3s4rz73s4rz73s4r.png",
+            "image_2_title": "Felt  CATS",
+            "image_2_url": "",
+            "image_3_title": "",
+            "image_3_url": "",
+            "image_4_title": "",
+            "image_4_url": ""
+          }
+        },
+        "mega_menu_image_dgmWcC": {
+          "type": "mega_menu_image",
+          "settings": {
+            "trigger": "Felt Pet Keepsakes",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_kzx74jkzx74jkzx7.png",
+            "image_1_title": "Custom Felt Pet Brooch",
+            "image_1_url": "shopify://products/custom-pet-wedding-brooch-boutonniere",
+            "image_2_title": "",
+            "image_2_url": "",
+            "image_3_title": "",
+            "image_3_url": "",
+            "image_4_title": "",
+            "image_4_url": ""
+          }
         }
       },
+      "block_order": [
+        "mega_menu_image_WCiRfn",
+        "mega_menu_image_N6cXKX",
+        "mega_menu_image_dgmWcC"
+      ],
+      "name": "MK Header",
       "settings": {
         "logo_position": "left",
-        "menu_position": "left",
-        "menu_row": "top",
-        "show_search": true,
-        "search_position": "right",
-        "search_row": "top",
-        "show_country": true,
-        "country_selector_style": false,
-        "show_language": true,
-        "localization_font": "heading",
-        "localization_font_size": "0.875rem",
-        "localization_position": "right",
-        "localization_row": "top",
+        "logo_width": 150,
+        "logo_width_mobile": 120,
         "section_width": "page-width",
         "section_height": "standard",
-        "enable_sticky_header": "always",
-        "divider_width": 0,
-        "divider_size": "page-width",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "padding_left": 20,
+        "padding_right": 20,
         "border_width": 0,
-        "color_scheme_top": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
-        "color_scheme_bottom": "",
-        "color_scheme_transparent": "scheme-6",
-        "enable_transparent_header_home": true,
-        "home_color_scheme": "inverse",
+        "menu": "main-menu",
+        "menu_position": "left",
+        "enable_sticky_header": "always",
+        "enable_transparent_header_home": false,
+        "home_color_scheme": "default",
         "enable_transparent_header_product": false,
         "product_color_scheme": "default",
         "enable_transparent_header_collection": false,
-        "collection_color_scheme": "default"
+        "collection_color_scheme": "default",
+        "show_cart": true,
+        "show_search": true
       }
     }
   },

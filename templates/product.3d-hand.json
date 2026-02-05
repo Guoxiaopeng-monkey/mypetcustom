@@ -268,7 +268,7 @@
         "sticky_atc": false,
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
-        "equal_columns": false,
+        "equal_columns": true,
         "limit_details_width": false,
         "gap": 48,
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",

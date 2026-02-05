@@ -1,0 +1,39 @@
+{%- doc -%}
+  Renders mobile mega menu for header drawer navigation.
+
+  @param {object} mega_menu_block - The mega menu block settings
+  @param {linklist} link - The parent menu link
+  @param {string} link_handle - The handle of the parent link for unique IDs
+{%- enddoc -%}
+
+{%- assign link_handle = link_handle | default: link.handle -%}
+
+<accordion-custom>
+  <details id="Details-menu-drawer-{{ link_handle }}">
+    <summary
+      id="HeaderDrawer-{{ link_handle }}"
+      class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+      {% if link.current %}aria-current="page"{% endif %}
+    >
+      <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
+      <span class="svg-wrapper icon-caret">
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+    <div
+      class="menu-drawer__mega-menu menu-drawer__animated-element details-content"
+      role="list"
+      tabindex="-1"
+    >
+      {% if mega_menu_block.settings.title != blank %}
+        <div class="menu-drawer__mega-menu-header">
+          <h3 class="menu-drawer__mega-menu-title">{{ mega_menu_block.settings.title }}</h3>
+          {% if mega_menu_block.settings.description != blank %}
+            <p class="menu-drawer__mega-menu-description">{{ mega_menu_block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% comment %} Mega menu 只显示配置的内容，不显示子菜单 {% endcomment %}
+    </div>
+  </details>
+</accordion-custom>

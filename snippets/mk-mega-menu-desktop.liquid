@@ -1,0 +1,20 @@
+{%- doc -%}
+  Renders desktop mega menu for header navigation.
+  If mega menu exists, it should only show the configured content (title, description, etc.)
+  and NOT display any submenu links from link.links.
+
+  @param {object} mega_menu_block - The mega menu block settings
+  @param {linklist} link - The parent menu link
+{%- enddoc -%}
+
+<div class="mk-header__mega-menu">
+  <div class="mk-header__mega-menu-content">
+    {% if mega_menu_block.settings.title != blank %}
+      <h3 class="mk-header__mega-menu-title">{{ mega_menu_block.settings.title }}</h3>
+    {% endif %}
+    {% if mega_menu_block.settings.description != blank %}
+      <p class="mk-header__mega-menu-description">{{ mega_menu_block.settings.description }}</p>
+    {% endif %}
+    {% comment %} Mega menu 只显示配置的内容，不显示子菜单 {% endcomment %}
+  </div>
+</div>
