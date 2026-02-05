@@ -1008,7 +1008,7 @@
         "image_text_Udbi7A": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/Custom_dog_pet_portrait.png",
+            "image_pc": "shopify://shop_images/1024-768-A3_833d9f5d-990f-4db4-8a2a-5d7d8057c1d6.jpg",
             "image_ratio": "auto",
             "handle": "Dog",
             "content": "",
@@ -1024,7 +1024,7 @@
         "image_text_VpimNq": {
           "type": "imageText",
           "settings": {
-            "image_pc": "shopify://shop_images/Custom_cat_pet_portrait.png",
+            "image_pc": "shopify://shop_images/1024-768-B3_dd5e71dd-e01f-4c80-8caf-157413e4ab03.jpg",
             "image_ratio": "auto",
             "handle": "Cat",
             "content": "",
