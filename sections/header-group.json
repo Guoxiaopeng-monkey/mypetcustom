@@ -61,12 +61,29 @@
     "header_section": {
       "type": "mk-header",
       "blocks": {
+        "mega_menu_image_WCiRfn": {
+          "type": "mega_menu_image",
+          "settings": {
+            "trigger": "Realistic Woolen Portrait",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_43dqh143dqh143dq.png",
+            "image_1_title": "",
+            "image_1_url": "",
+            "image_2_title": "",
+            "image_2_url": "",
+            "image_3_title": "",
+            "image_3_url": "",
+            "image_4_title": "",
+            "image_4_url": ""
+          }
+        },
         "mega_menu_image_N6cXKX": {
           "type": "mega_menu_image",
           "settings": {
             "trigger": "3D Felt Animals",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_ecc5ycecc5ycecc5.png",
             "image_1_title": "Felt Dogs",
             "image_1_url": "",
+            "image_2": "shopify://shop_images/Gemini_Generated_Image_3s4rz73s4rz73s4r.png",
             "image_2_title": "Felt  CATS",
             "image_2_url": "",
             "image_3_title": "",
@@ -79,7 +96,7 @@
           "type": "mega_menu_image",
           "settings": {
             "trigger": "Felt Pet Keepsakes",
-            "image_1": "shopify://shop_images/Gemini_Generated_Image_3m3a5i3m3a5i3m3a.png",
+            "image_1": "shopify://shop_images/Gemini_Generated_Image_kzx74jkzx74jkzx7.png",
             "image_1_title": "Custom Felt Pet Brooch",
             "image_1_url": "shopify://products/custom-pet-wedding-brooch-boutonniere",
             "image_2_title": "",
@@ -92,6 +109,7 @@
         }
       },
       "block_order": [
+        "mega_menu_image_WCiRfn",
         "mega_menu_image_N6cXKX",
         "mega_menu_image_dgmWcC"
       ],
