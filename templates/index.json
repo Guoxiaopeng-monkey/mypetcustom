@@ -1137,6 +1137,7 @@
         },
         "faq_mQtzzx": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "question": "Can I see a preview of my sculpture before it’s finished?",
             "answer": "<p>Yes. Before final completion, we provide a preview photo of your custom pet sculpture or felted pet portrait.<br/>You can request up to two rounds of adjustments to ensure the final piece fully matches your pet’s features and personality.</p>"
@@ -1173,7 +1174,7 @@
         "title_size_pc": "48",
         "title_size_mb": "32",
         "description": "",
-        "image": "shopify://shop_images/FAQ.png",
+        "image": "shopify://shop_images/4-3_2d829554-7efe-4e4e-8fef-3185ac249ff6.jpg",
         "color_scheme": "scheme-5e53af50-9fd4-4709-becc-cc20c2647af4",
         "background_color": "#f7ebdd",
         "padding_top": 60,
