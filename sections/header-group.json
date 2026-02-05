@@ -60,12 +60,48 @@
     },
     "header_section": {
       "type": "mk-header",
+      "blocks": {
+        "mega_menu_image_dgmWcC": {
+          "type": "mega_menu_image",
+          "settings": {
+            "trigger": "3D Felt Animals",
+            "image_1_title": "",
+            "image_1_url": "",
+            "image_2_title": "",
+            "image_2_url": "",
+            "image_3_title": "",
+            "image_3_url": "",
+            "image_4_title": "",
+            "image_4_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_image_dgmWcC"
+      ],
       "name": "MK Header",
       "settings": {
         "logo_position": "left",
         "logo_width": 150,
+        "logo_width_mobile": 120,
+        "section_width": "page-width",
+        "section_height": "standard",
         "padding_top": 16,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "padding_left": 20,
+        "padding_right": 20,
+        "border_width": 0,
+        "menu": "main-menu",
+        "menu_position": "left",
+        "enable_sticky_header": "always",
+        "enable_transparent_header_home": false,
+        "home_color_scheme": "default",
+        "enable_transparent_header_product": false,
+        "product_color_scheme": "default",
+        "enable_transparent_header_collection": false,
+        "collection_color_scheme": "default",
+        "show_cart": true,
+        "show_search": true
       }
     }
   },
