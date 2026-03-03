@@ -29,6 +29,7 @@
         },
         "announcement_BxgCk9": {
           "type": "_announcement",
+          "disabled": true,
           "settings": {
             "front_image": "shopify://shop_images/1_6e6fd3b8-bb34-472a-9f80-e737e44ea48d.png",
             "back_image": "shopify://shop_images/Pngtree_red_valentines_day_care_origami_3738089_2.png",
