@@ -1,0 +1,371 @@
+
+
+
+{%- liquid
+  assign block_settings = block.settings
+  assign product_id = closest.product.id
+  assign product_form_id = 'BuyButtons-ProductForm-' | append: section.id
+  assign element_id_prefix = 'ProductImageUpload-' | append: product_id | append: '-' | append: block.id
+
+  assign image_key_1 = block_settings.image_key_1 | default: 'Image 1'
+  assign image_key_2 = block_settings.image_key_2 | default: 'Image 2'
+  assign image_key_3 = block_settings.image_key_3 | default: 'Image 3'
+-%}
+
+<div
+  class="spacing-style product-image-upload"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  {% if block_settings.heading != blank %}
+    <p class="product-image-upload__heading">
+      {{ block_settings.heading | escape }}
+    </p>
+  {% endif %}
+
+  {% if block_settings.description != blank %}
+    <p class="product-image-upload__description">
+      {{ block_settings.description }}
+    </p>
+  {% endif %}
+
+  <div class="product-image-upload__fields">
+    {% assign keys = image_key_1 | append: '||' | append: image_key_2 | append: '||' | append: image_key_3 | split: '||' %}
+    {% for index in (1..3) %}
+      {% assign key = keys[forloop.index0] %}
+      {% assign input_id = element_id_prefix | append: '-' | append: forloop.index %}
+      <div class="product-image-upload__field">
+        <label class="product-image-upload__label">
+          {{ key }}
+        </label>
+        <button
+          type="button"
+          class="product-image-upload__box"
+          data-upload-box
+        >
+          <input
+            type="file"
+            id="{{ input_id }}"
+            name="properties[{{ key }}]"
+            class="product-image-upload__input"
+            accept="image/*"
+            form="{{ product_form_id }}"
+          >
+          <span class="product-image-upload__placeholder" data-placeholder>
+            <span class="product-image-upload__plus">+</span>
+            <span class="product-image-upload__placeholder-text">Upload image</span>
+          </span>
+          <img
+            data-preview-image
+            alt="Preview for {{ key }}"
+            width="64"
+            height="64"
+          >
+          <button
+            type="button"
+            class="button-unstyled product-image-upload__remove"
+            data-remove-image
+            aria-label="Remove image"
+          >
+            ×
+          </button>
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .product-image-upload {
+    width: 100%;
+  }
+
+  .product-image-upload__heading {
+    margin: 0 0 var(--padding-sm);
+    font-weight: 600;
+  }
+
+  .product-image-upload__description {
+    margin: 0 0 var(--padding-md);
+    font-size: min(0.9em, var(--font-paragraph--size));
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+  }
+
+  .product-image-upload__fields {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, max-content);
+    gap: var(--gap-sm);
+    align-items: flex-start;
+  }
+
+  .product-image-upload__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
+  .product-image-upload__label {
+    font-size: var(--font-size--sm);
+  }
+
+  .product-image-upload__box {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 12px;
+    border: 1px dashed var(--color-border);
+    background-color: rgba(var(--color-foreground-rgb), 0.02);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .product-image-upload__box:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb, 0, 0, 0), 0.02);
+    box-shadow: 0 0 0 1px rgba(var(--color-primary-rgb, 0, 0, 0), 0.08);
+  }
+
+  .product-image-upload__box img[data-preview-image] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    display: none;
+  }
+
+  .product-image-upload__box--has-image img[data-preview-image] {
+    display: block;
+  }
+
+  .product-image-upload__placeholder {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-size: var(--font-size--xs);
+    color: rgb(var(--color-foreground-rgb) / 0.6);
+    pointer-events: none;
+  }
+
+  .product-image-upload__box--has-image .product-image-upload__placeholder {
+    display: none;
+  }
+
+  .product-image-upload__plus {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .product-image-upload__input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .product-image-upload__remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-image-upload__box--has-image .product-image-upload__remove {
+    display: inline-flex;
+  }
+{% endstylesheet %}
+
+<script>
+  (function () {
+    function initProductImageUpload(root) {
+      if (!root) return;
+
+      root.querySelectorAll('.product-image-upload__field').forEach(function (field) {
+        var input = field.querySelector('.product-image-upload__input');
+        var box = field.querySelector('[data-upload-box]');
+        var placeholder = field.querySelector('[data-placeholder]');
+        var img = field.querySelector('[data-preview-image]');
+        var removeBtn = field.querySelector('[data-remove-image]');
+
+        if (!input || !box || !placeholder || !img || !removeBtn) return;
+
+        var currentObjectUrl = null;
+
+        function clearPreview() {
+          if (currentObjectUrl) {
+            URL.revokeObjectURL(currentObjectUrl);
+            currentObjectUrl = null;
+          }
+          img.removeAttribute('src');
+          box.classList.remove('product-image-upload__box--has-image');
+          input.value = '';
+        }
+
+        // 点击整个方块都可以触发重新选择/替换
+        box.addEventListener('click', function (event) {
+          // 避免点在删除按钮上又弹出文件选择
+          if (event.target === removeBtn) return;
+          input.click();
+        });
+
+        input.addEventListener('change', function () {
+          var file = input.files && input.files[0];
+          if (!file) {
+            clearPreview();
+            return;
+          }
+
+          if (!file.type || file.type.indexOf('image') !== 0) {
+            clearPreview();
+            return;
+          }
+
+          if (currentObjectUrl) {
+            URL.revokeObjectURL(currentObjectUrl);
+          }
+
+          currentObjectUrl = URL.createObjectURL(file);
+          img.src = currentObjectUrl;
+          box.classList.add('product-image-upload__box--has-image');
+        });
+
+        removeBtn.addEventListener('click', function (event) {
+          event.stopPropagation();
+          clearPreview();
+        });
+      });
+    }
+
+    function onReady(fn) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn, { once: true });
+      } else {
+        fn();
+      }
+    }
+
+    onReady(function () {
+      document
+        .querySelectorAll('.product-image-upload')
+        .forEach(function (root) {
+          initProductImageUpload(root);
+        });
+    });
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (!event.target) return;
+      event.target
+        .querySelectorAll('.product-image-upload')
+        .forEach(function (root) {
+          initProductImageUpload(root);
+        });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product Image Upload",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Upload your images"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Upload up to three images. They will be saved as custom information on this product's line item."
+    },
+    {
+      "type": "text",
+      "id": "image_key_1",
+      "label": "Image 1 line item key",
+      "default": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "image_key_2",
+      "label": "Image 2 line item key",
+      "default": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "image_key_3",
+      "label": "Image 3 line item key",
+      "default": "Image 3"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Image Upload"
+    }
+  ]
+}
+{% endschema %}
