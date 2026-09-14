@@ -122,20 +122,7 @@
 <div class="mk-background-with-text">
   {% if section.settings.background_type == 'video' and section.settings.background_video != blank %}
     <div class="mk-background-with-text__video-container">
-      {% render 'mk-video',
-        video_desktop: section.settings.background_video,
-        video_mobile: section.settings.background_video_mobile,
-        poster_desktop: section.settings.background_poster_desktop,
-        poster_mobile: section.settings.background_poster_mobile,
-        autoplay: true,
-        loop: true,
-        muted: true,
-        controls: false,
-        not_lazy_load: true,
-        video_id: 'mk-background-video-' | append: section.id,
-        video_type: 'mp4',
-        hide_play_button: true
-      %}
+      {% render 'mk-video', video_desktop: section.settings.background_video, video_mobile: section.settings.background_video_mobile, poster_desktop: section.settings.background_poster_desktop, poster_mobile: section.settings.background_poster_mobile, autoplay: true, loop: true, muted: true, controls: false, not_lazy_load: true, video_id: 'mk-background-video-', append: section.id, video_type: 'mp4', hide_play_button: true %}
     </div>
   {% endif %}
   
@@ -318,3 +305,31 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'mk-video',
+            video_desktop: section.settings.background_video,
+            video_mobile: section.settings.background_video_mobile,
+            poster_desktop: section.settings.background_poster_desktop,
+            poster_mobile: section.settings.background_poster_mobile,
+            autoplay: true,
+            loop: true,
+            muted: true,
+            controls: false,
+            not_lazy_load: true,
+            video_id: 'mk-background-video-' | append: section.id,
+            video_type: 'mp4',
+            hide_play_button: true
+          %}
+  to: "{% render 'mk-video', video_desktop: section.settings.background_video, video_mobile:
+    section.settings.background_video_mobile, poster_desktop: section.settings.background_poster_desktop,
+    poster_mobile: section.settings.background_poster_mobile, autoplay: true, loop:
+    true, muted: true, controls: false, not_lazy_load: true, video_id: 'mk-background-video-',
+    append: section.id, video_type: 'mp4', hide_play_button: true %}"
+  position: 2995..3418
+{% endcomment %}
